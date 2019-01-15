@@ -1,0 +1,320 @@
+<html>
+
+<head>
+
+<title>Digital Circuit Introduction for Beginners and Bystanders</title>
+<meta NAME="description" VALUE="An introductory article on digital concepts for the interested bystander">
+<script language="JavaScript1.2" src="menus/fw_menu.js"></script>
+
+
+
+
+
+</head>
+
+<body bgcolor="#C0C0C0" background="pccard.jpg"><!--msnavigation--><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+
+<h1 align="center"><font color="#FF0000"><big>Digital Logic Systems</big></font></h1>
+
+<p align="center">David N. Warren-Smith, CPEng. South Australia</p>
+</td></tr><!--msnavigation--></table><!--msnavigation--><table dir="ltr" border="0" cellpadding="0" cellspacing="0" width="100%"><tr><!--msnavigation--><td valign="top">
+
+<p><script language="JavaScript">
+<!-- hide this script from non-javascript-enabled browsers
+
+function fwLoadMenus() {
+    window.fw_menu_0_1 = new Menu("Digital Logic Systems",68,18,"Arial, Helvetica, sans-serif",11,"#990000","#ffffcc","#ffffcc","#990000");
+    fw_menu_0_1.addMenuItem("Home","location='index.html'");
+    fw_menu_0_1.addMenuItem("Articles","location='articles.html'");
+    fw_menu_0_1.addMenuItem("Links","location='links.html'");
+     fw_menu_0_1.fontWeight="bold";
+     fw_menu_0_1.hideOnMouseOut=true;
+    window.fw_menu_0_2 = new Menu("Bystanders &amp; Tutorials pages",189,18,"Arial, Helvetica, sans-serif",11,"#990000","#ffffcc","#ffffcc","#990000");
+    fw_menu_0_2.addMenuItem("Bystanders &amp; Beginners page","location='beginners.html'");
+    fw_menu_0_2.addMenuItem("Boolean Algebra - Page 1","location='boolean.html'");
+    fw_menu_0_2.addMenuItem("Boolean Algebra - Page 2","location='boolean2.html'");
+    fw_menu_0_2.addMenuItem("Intelligent Logic","location='async.html'");
+    fw_menu_0_2.addMenuItem("Relay Puzzle","location='relay.html'");
+    fw_menu_0_2.addMenuItem("Relay Puzzle figures","location='puzzle.html'");
+     fw_menu_0_2.fontWeight="bold";
+     fw_menu_0_2.hideOnMouseOut=true;
+    window.fw_menu_0_3 = new Menu("Practical Projects",244,18,"Arial, Helvetica, sans-serif",11,"#990000","#ffffcc","#ffffcc","#990000");
+    fw_menu_0_3.addMenuItem("Practical Projects - Printed Circuit Board","location='projectpcb.html'");
+    fw_menu_0_3.addMenuItem("Count Down Clock - AHDL code","location='project.html'");
+    fw_menu_0_3.addMenuItem("Count Down Clock - VHDL code","location='vhdl.html'");
+     fw_menu_0_3.fontWeight="bold";
+     fw_menu_0_3.hideOnMouseOut=true;
+    window.fw_menu_0_4 = new Menu("Exclusive-OR articles",195,18,"Arial, Helvetica, sans-serif",11,"#990000","#ffffcc","#ffffcc","#990000");
+    fw_menu_0_4.addMenuItem("Boolean Algebra revisited","location='boolean.html'");
+    fw_menu_0_4.addMenuItem("Part 1 - ExOR Theory","location='concept1.html'");
+    fw_menu_0_4.addMenuItem("Part 2 - Algebraic Simplification","location='concept2.html'");
+    fw_menu_0_4.addMenuItem("Part 3 - Multiple Solutions","location='concept3.html'");
+     fw_menu_0_4.fontWeight="bold";
+     fw_menu_0_4.hideOnMouseOut=true;
+  window.fw_menu_0 = new Menu("root",188,18,"Arial, Helvetica, sans-serif",11,"#990000","#ffffcc","#ffffcc","#990000");
+  fw_menu_0.addMenuItem(fw_menu_0_1);
+  fw_menu_0.addMenuItem(fw_menu_0_2);
+  fw_menu_0.addMenuItem(fw_menu_0_3);
+  fw_menu_0.addMenuItem(fw_menu_0_4);
+   fw_menu_0.fontWeight="bold";
+   fw_menu_0.hideOnMouseOut=true;
+   fw_menu_0.childMenuIcon="menus/arrows.gif";
+
+  fw_menu_0.writeMenus();
+} // fwLoadMenus()
+
+// stop hiding -->
+</script> <!--The following section is an image or HTML table which reassembles the sliced image in a browser.--> <script language="JavaScript1.2">fwLoadMenus();</script> </p>
+
+<table align="center" border="0" cellpadding="0" cellspacing="0" width="362">
+<!-- fwtable fwsrc="Navmenus.png" fwbase="menus/navmenus.gif" fwstyle="FrontPage" fwdocid = "742308039" fwnested=""1" -->
+  <tr>
+<!-- row 2 -->
+    <td><a href="#" onMouseOut="FW_startTimeout();" onMouseOver="window.FW_showMenu(window.fw_menu_0,25,95);"><img name="navmenus_r2_c1" src="menus/navmenus_r2_c1.gif" border="0" WIDTH="362" HEIGHT="30"></a></td>
+  </tr>
+<!--   This HTML was automatically created with Macromedia Fireworks 4.0   -->
+<!--   http://www.macromedia.com   -->
+</table>
+<font SIZE="2">
+
+<h2></font><font size="4">Beginners and Bystanders Article</font><font SIZE="2"></h2>
+
+<p></font><font size="3">This article is written for anyone unfamiliar with digital
+circuits but who would like to get some idea of what it is about. </p>
+
+<p>A few basic ideas including an actual working circuit will be presented in a graphical
+manner with the help of animated GIF images. No attempt will be made to describe any
+theoretical concepts. Of course the theory is what allows a designer to produce useful
+digital circuits, so you would need to know more about that if you wanted to design
+digital circuits yourself. Digital design is a bit like a Chinese puzzle box, it looks
+very difficult at a casual glance but is (relatively) easy if you know how. You will have
+the opportunity to call up the animated GIF files separately when you are ready to see
+them.</p>
+
+<p>The first clue is that we are talking about a special type of electrical circuit. This
+type of circuit is entirely constructed from a small number of different types of building
+block circuits. Each of these circuits has one or more input connections and one output
+connection. The signals that we apply to the inputs and can observe on outputs, with a
+test meter, have a special characteristic. The signals are always at one or the other of
+two voltage levels. To simplify matters we will think of these voltage levels as either
+high (voltage) or low (voltage). We call these signals logic signals and the circuits
+themselves logic circuits. As an alternative to calling the signals high or low we can
+call them true or false respectively when we think of the circuits as logic circuits.</font><font SIZE="2"></p>
+<div align="center"><center>
+
+<table border="1" width="76%">
+  <tr>
+    <td width="50%" bgcolor="#FFFFEA"></font><font size="3"><strong>Historical digression.</strong>
+    We call these circuits logic circuits because the theory that we use for describing them
+    was invented by a mathematician who developed the mathematical theory of logic. The
+    mathematician was George Boole who published his book &quot;An Investigation of the Laws
+    of Thought&quot; in 1854. Boole's concepts became a formal way of arguing about
+    mathematical fundamentals. In the 1930's Claude Shannon realised the significance of this
+    theory for the description of relay and switching circuits and wrote his thesis on the
+    application of this concept to switching circuit design. His account of his thesis &quot;A
+    Symbolic Analysis of Relay and Switching Circuits&quot;, Trans. A.I.E.E., vol 57, pp
+    713-723, was published in 1938 for the benefit of the engineering community. Shannon's
+    paper makes quaint but insightful reading with today's hindsight. Of course in those days
+    telephone exchanges used mechanical relays, which was a major application for this
+    development. The technology that we use now came along in 1948 when Brattain, Bardeen and
+    Shockly at the Bell Telephone Laboratories published their invention of the transistor and
+    not long after in 1959 when planar transistors were produced. This has started the
+    revolution in integrated circuits that has accelerated the automation of information
+    technology that we enjoy today. The theory that has developed, from Shannon's original
+    contribution, in the intervening years is just as applicable to today's logic circuitry as
+    it is for relay and switching circuits.</font></td>
+  </tr>
+</table>
+</center></div><font SIZE="2">
+
+<p></font><font size="3">When a signal makes a transition from low to high or high to low,
+it does so very quickly. For this exposition we will ignore the fact that the signals
+actually have to pass through intermediate values in making a transition. Real circuits
+conform to this ideal very well indeed.</p>
+
+<p>So now we have arrived at the understanding that we have building block circuits in
+which all signals are either at the high (true) voltage level or the low (false) voltage
+level and can make near instantaneous transitions between the two levels.</p>
+
+<p>The building block circuits with more than one input are called gates, whilst a
+building block circuit with only one input is a buffer or an inverter. We call the many
+input circuits gates because of the way they allow or prevent a signal from passing
+through. We will only consider 2-input gates but gates can have as many inputs as are
+needed. The buffer circuit simply boosts the driving power of a signal of whatever
+polarity without changing the polarity so that it can drive many more inputs to other
+circuits, whilst an inverter changes the signal level from whatever the input signal level
+is to the opposite signal level on its output. When we draw symbols for the circuits we
+will represent the operation of inversion by a small circle usually on the output side of
+the symbol.</font><font SIZE="2"></p>
+<div align="center"><center>
+
+<table border="1" width="362">
+  <tr>
+    <td width="361" align="center"><a href="gates2.html"><font FACE="Arial"><img src="Beginners/gates.gif" alt="Click here to see the animation" border="0" WIDTH="359" HEIGHT="235"></font></a></td>
+  </tr>
+  <tr>
+    <td width="361"></font><font size="2" face="Arial"><strong>Figure 1. Symbols for some of
+    the basic logic gates and the inverter.</strong></font></td>
+  </tr>
+</table>
+</center></div><font SIZE="2">
+
+<p></font><font size="3">For our immediate purpose, only three of the various gate types
+will be described. These and the inverter are shown in Figure 1. In keeping with the idea
+of logic, the inverter is labelled NOT. In the figure two of the symbols have a small
+inversion circle on their outputs.</p>
+
+<p>The behaviour of the AND gate is such that the output remains low whilst either or both
+of the inputs is low and goes high when both inputs go high. In other words, in the AND
+gate, the first input AND the second input must be high for the output to go high.</p>
+
+<p>The behaviour of the OR gate is such that the output goes high as soon as either or
+both inputs goes high. In other words the OR gate output goes high if the first input OR
+the second input or in fact if both inputs go high. <em>AND gates together with OR gates
+and inverters are sufficient by themselves, at least in principle, to create the logic
+part of any desired digital circuit.</em> However, there are several other gate types that
+are useful to digital designers. One other such circuit is the NAND gate which we will
+need for the demonstration circuit. In the demonstration circuit we will only use 2-input
+NAND gates and inverters.</p>
+
+<p>The behaviour of the NAND gate is similar to the AND gate except that the output goes
+the opposite way to the AND gate. The output of the NAND gate is high as long as either or
+both inputs are low and goes low when both inputs are high. You can see from the symbol
+for the NAND gate in Figure 1 that the NAND gate is shown as an AND gate followed by a
+NOT.</p>
+
+<p>In the animation a <font color="#FF0000">high</font> signal is coloured <font color="#FF0000">red</font> and a <font color="#00FF00">low</font> signal is coloured <font color="#00FF00">green</font>. You will see all the possible combinations of inputs on each
+gate and the resulting outputs of the gates. Look at each gate individually until you get
+the idea of how it works.</p>
+
+<p>Click on Figure 1 to see the animation.</font><font SIZE="2"></p>
+
+<h3></font><font size="3">A complete circuit to show you what can be done</font><font SIZE="2"></h3>
+
+<p></font><font size="3">Now that you have got the idea of how the gates work I will show
+you a circuit to demonstrate something working. You can follow how it works through the
+animation and relating what you see to the way the gates work. In fact, after setting the
+scene for you, I will leave you to follow it through. You may need some persistence to do
+this thoroughly but that is the nature of the way it is. Digital design theory offers
+better ways of dealing with these circuits.</p>
+
+<p>The concept of the example is somewhat simplified for the sake of the exposition. The
+idea is to detect a car going the wrong way down a one way street. The two light beams
+across the road give low signals to the P and Q inputs until a car breaks the beams. When
+a beam is broken the input to the circuit goes high. This is performed by additional
+circuitry not shown in the diagram. The warning light is assumed connected to the output
+of the circuit and changes from <font color="#00FF00">green</font> to <font color="#FF0000">red</font> when a car is detected going the wrong way down the street.</p>
+
+<p>Follow how the signals propagate through the circuit in response to the signals
+generated by the beams as they are broken and restored. Use the rules for the gates
+described earlier to see what is happening in the circuit. The same arrangement as before
+is used where a <font color="#FF0000">high</font> signal is shown in <font color="#FF0000">red</font>
+and a <font color="#00FF00">low</font> signal is shown in <font color="#00FF00">green</font>.
+I have allowed 10 seconds per step in the animation and slightly longer between
+repetitions so get your bearings during the first 10 seconds whilst you wait for the
+animation to start. Click on one of the cars in the Figure 2 to see the animation for the
+car going in the direction that the car is pointing in.</font><font SIZE="2"></p>
+<div align="center"><center>
+
+<table border="1" width="63%">
+  <tr>
+    <td width="100%"></font><font face="Arial" SIZE="2"><!--webbot bot="ImageMap" rectangle="(277,253) (450,304) Beginners/circuitl.gif" rectangle="(12,253) (184,305) Beginners/circuitr.gif" src="Beginners/circuit1.gif" align="left" hspace="12" alt="Click on a car to see the animation" border="0" startspan --><MAP NAME="FrontPageMap"><AREA SHAPE="RECT" COORDS="277, 253, 450, 304" HREF="Beginners/circuitl.gif"><AREA SHAPE="RECT" COORDS="12, 253, 184, 305" HREF="Beginners/circuitr.gif"></MAP><a href="_vti_bin/shtml.exe/beginners.html/map"><img src="Beginners/circuit1.gif" align="left" hspace="12" alt="Click on a car to see the animation" border="0" ismap width="502" height="337" usemap="#FrontPageMap"></a><!--webbot bot="ImageMap" endspan i-checksum="18930" --></font><font SIZE="2"></font></td>
+  </tr>
+  <tr>
+    <td width="100%"><font face="Arial" SIZE="2"><strong>Figure 2. The circuit for detecting
+    the car going the wrong way down the one way street.</strong></font><font SIZE="2"><p></font><font size="3">Click on a car to see the animation for the car going in the direction that the
+    car is pointing in. The P and Q signals are connected to the P and Q inputs of the circuit
+    and the <font color="#00FF00">green</font> light is connected to the output. Watch when
+    this light changes to <font color="#FF0000">red</font>. Whilst you are looking at the
+    animation try to follow the signals propagating through the circuit using the rules for
+    the gates. When you want to return here click the browser's BACK button.</font><font SIZE="2"></font></td>
+  </tr>
+</table>
+</center></div>
+
+<h3><font size="3">What else should be said?</h3>
+
+<p>I should put in a bit of a disclaimer here. The circuit shown is not intended to be the
+ultimate solution to any particular problem. The example circuit is intended purely to
+give the reader something to try out the ideas presented. The idea of cars travelling down
+a road is simply to make it sound more interesting. There are nearly always alternative
+solutions possible to any given problem. A student would be expected to investigate other
+possible solutions and consider the merits of any solutions found. If you were going to
+study digital design with a view to becoming a designer you would not actually start with
+a circuit like the one shown. Quite a lot of ground work is needed before this type of
+circuit is studied.</p>
+
+<p>The idea of using light beams across the road to detect cars passing is also not a good
+idea but simplified the preparation of the drawings. Loops under the road with suitable
+detection equipment would be a better idea. These would be less prone to interference by
+passing pedestrians. Any actual design problem requires a great many considerations
+relating to implementation to be thought through before it becomes an acceptable solution.</p>
+
+<p>If you would like to make a start with the theory you can read an introductory article
+on Boolean Algebra by following the button below. This article is intended to provide the
+background required for the remaining articles. One omission from this article that you
+might need to properly understand the subject is a discussion of binary numbers. Most
+beginning books on digital design give the necessary explanation of number systems. The
+Boolean algebra article became too long for a single page so I have split it over two
+pages.</font><font SIZE="2"></p>
+
+<p></font><font SIZE="2" color="#804040"><script language="JavaScript">
+<!-- hide this script from non-javascript-enabled browsers
+
+/* Functions that finds images. */
+function MM_findObj(n, d) { //v3.0
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document); return x;
+}
+/* Functions that swaps images. */
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+// stop hiding -->
+</script></font><font SIZE="2"></p>
+
+<p align="left"></font><font color="#804040" size="3">Return to the Articles&nbsp; page <em><strong>OR</strong></em>
+Navigation menu at the top of the page <em><strong>OR</strong></em> Continue with the
+Introduction to Boolean Algebra:</font><font SIZE="2"></p>
+
+<table align="center" border="0" cellpadding="0" cellspacing="0" width="120">
+<!-- fwtable fwsrc="BackFor.png" fwbase="backfor.gif" fwstyle="FrontPage" fwdocid = "742308039" fwnested=""1" -->
+  <script language="JavaScript">
+  <!-- hide 
+  if (document.images) {
+  backfor_r1_c1_f2 = new Image(40 ,40); backfor_r1_c1_f2.src = "menus/backfor_r1_c1_f2.gif";
+  backfor_r1_c1_f1 = new Image(40 ,40); backfor_r1_c1_f1.src = "menus/backfor_r1_c1.gif";
+  backfor_r1_c2_f2 = new Image(40 ,40); backfor_r1_c2_f2.src = "menus/backfor_r1_c2_f2.gif";
+  backfor_r1_c2_f1 = new Image(40 ,40); backfor_r1_c2_f1.src = "menus/backfor_r1_c2.gif";
+  backfor_r1_c3_f2 = new Image(40 ,40); backfor_r1_c3_f2.src = "menus/backfor_r1_c3_f2.gif";
+  backfor_r1_c3_f1 = new Image(40 ,40); backfor_r1_c3_f1.src = "menus/backfor_r1_c3.gif";
+  }
+  // stop hiding -->
+  </script>
+
+  <tr>
+<!-- row 1 -->
+    <td><a onMouseOut="MM_swapImgRestore();" onMouseOver="MM_swapImage('backfor_r1_c1','','menus/backfor_r1_c1_f2.gif',1);" href="articles.html"><img name="backfor_r1_c1" src="menus/backfor_r1_c1.gif" border="0" WIDTH="40" HEIGHT="40"></a></td>
+    <td><a onMouseOut="MM_swapImgRestore();" onMouseOver="MM_swapImage('backfor_r1_c2','','menus/backfor_r1_c2_f2.gif',1);" href="#top"><img name="backfor_r1_c2" src="menus/backfor_r1_c2.gif" border="0" WIDTH="40" HEIGHT="40"></a></td>
+    <td><a onMouseOut="MM_swapImgRestore();" onMouseOver="MM_swapImage('backfor_r1_c3','','menus/backfor_r1_c3_f2.gif',1);" href="boolean.html"><img name="backfor_r1_c3" src="menus/backfor_r1_c3.gif" border="0" WIDTH="40" HEIGHT="40"></a></td>
+  </tr>
+<!--   This HTML was automatically created with Macromedia Fireworks 4.0   -->
+<!--   http://www.macromedia.com   -->
+</table>
+
+<p></font><font face="Arial" SIZE="2">(Copyright) David N. Warren-Smith, CPENG</font><font SIZE="2"></p>
+
+<p></font><font face="Arial" SIZE="2">Digital Logic Systems, South Australia</font><font size="2"></p>
+
+<p></font><font face="Arial" SIZE="2">Updates: 20 October, 1998</font><font SIZE="2"><font face="Arial">, 28 January 2002</font></p>
+</font><font SIZE="2" COLOR="#000000">
+
+<!--msnavigation--></td></tr><!--msnavigation--></table></body>
+</html>

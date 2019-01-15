@@ -1,0 +1,754 @@
+<html>
+
+<head>
+
+<script language="JavaScript1.2" src="menus/fw_menu.js"></script>
+
+<title>Boolean Algebra Revisited - Page 1</title>
+
+
+
+
+</head>
+
+<body topmargin="0" leftmargin="12" marginheight="0" marginwidth="0" bgcolor="#E6E6E6"><!--msnavigation--><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+
+<h1 align="center"><font color="#FF0000"><big>Digital Logic Systems</big></font></h1>
+
+<p align="center">David N. Warren-Smith, CPEng. South Australia</p>
+</td></tr><!--msnavigation--></table><!--msnavigation--><table dir="ltr" border="0" cellpadding="0" cellspacing="0" width="100%"><tr><!--msnavigation--><td valign="top">
+
+<p><script language="JavaScript">
+<!-- hide this script from non-javascript-enabled browsers
+
+function fwLoadMenus() {
+    window.fw_menu_0_1 = new Menu("Digital Logic Systems",68,18,"Arial, Helvetica, sans-serif",11,"#990000","#ffffcc","#ffffcc","#990000");
+    fw_menu_0_1.addMenuItem("Home","location='index.html'");
+    fw_menu_0_1.addMenuItem("Articles","location='articles.html'");
+    fw_menu_0_1.addMenuItem("Links","location='links.html'");
+     fw_menu_0_1.fontWeight="bold";
+     fw_menu_0_1.hideOnMouseOut=true;
+    window.fw_menu_0_2 = new Menu("Bystanders &amp; Tutorials pages",189,18,"Arial, Helvetica, sans-serif",11,"#990000","#ffffcc","#ffffcc","#990000");
+    fw_menu_0_2.addMenuItem("Bystanders &amp; Beginners page","location='beginners.html'");
+    fw_menu_0_2.addMenuItem("Boolean Algebra - Page 1","location='boolean.html'");
+    fw_menu_0_2.addMenuItem("Boolean Algebra - Page 2","location='boolean2.html'");
+    fw_menu_0_2.addMenuItem("Intelligent Logic","location='async.html'");
+    fw_menu_0_2.addMenuItem("Relay Puzzle","location='relay.html'");
+    fw_menu_0_2.addMenuItem("Relay Puzzle figures","location='puzzle.html'");
+     fw_menu_0_2.fontWeight="bold";
+     fw_menu_0_2.hideOnMouseOut=true;
+    window.fw_menu_0_3 = new Menu("Practical Projects",244,18,"Arial, Helvetica, sans-serif",11,"#990000","#ffffcc","#ffffcc","#990000");
+    fw_menu_0_3.addMenuItem("Practical Projects - Printed Circuit Board","location='projectpcb.html'");
+    fw_menu_0_3.addMenuItem("Count Down Clock - AHDL code","location='project.html'");
+    fw_menu_0_3.addMenuItem("Count Down Clock - VHDL code","location='vhdl.html'");
+     fw_menu_0_3.fontWeight="bold";
+     fw_menu_0_3.hideOnMouseOut=true;
+    window.fw_menu_0_4 = new Menu("Exclusive-OR articles",195,18,"Arial, Helvetica, sans-serif",11,"#990000","#ffffcc","#ffffcc","#990000");
+    fw_menu_0_4.addMenuItem("Boolean Algebra revisited","location='boolean.html'");
+    fw_menu_0_4.addMenuItem("Part 1 - ExOR Theory","location='concept1.html'");
+    fw_menu_0_4.addMenuItem("Part 2 - Algebraic Simplification","location='concept2.html'");
+    fw_menu_0_4.addMenuItem("Part 3 - Multiple Solutions","location='concept3.html'");
+     fw_menu_0_4.fontWeight="bold";
+     fw_menu_0_4.hideOnMouseOut=true;
+  window.fw_menu_0 = new Menu("root",188,18,"Arial, Helvetica, sans-serif",11,"#990000","#ffffcc","#ffffcc","#990000");
+  fw_menu_0.addMenuItem(fw_menu_0_1);
+  fw_menu_0.addMenuItem(fw_menu_0_2);
+  fw_menu_0.addMenuItem(fw_menu_0_3);
+  fw_menu_0.addMenuItem(fw_menu_0_4);
+   fw_menu_0.fontWeight="bold";
+   fw_menu_0.hideOnMouseOut=true;
+   fw_menu_0.childMenuIcon="menus/arrows.gif";
+
+  fw_menu_0.writeMenus();
+} // fwLoadMenus()
+
+// stop hiding -->
+</script> <!--The following section is an image or HTML table which reassembles the sliced image in a browser.--> <script language="JavaScript1.2">fwLoadMenus();</script> </p>
+
+<table align="center" border="0" cellpadding="0" cellspacing="0" width="362">
+<!-- fwtable fwsrc="Navmenus.png" fwbase="menus/navmenus.gif" fwstyle="FrontPage" fwdocid = "742308039" fwnested=""1" -->
+  <tr>
+<!-- row 2 -->
+    <td><a href="#" onMouseOut="FW_startTimeout();" onMouseOver="window.FW_showMenu(window.fw_menu_0,25,95);"><img name="navmenus_r2_c1" src="menus/navmenus_r2_c1.gif" border="0" WIDTH="362" HEIGHT="30"></a></td>
+  </tr>
+<!--   This HTML was automatically created with Macromedia Fireworks 4.0   -->
+<!--   http://www.macromedia.com   -->
+</table>
+<font SIZE="5">
+
+<p ALIGN="CENTER"><font color="#804040">Boolean Algebra revisited - Page 1</font></font></p>
+
+<p ALIGN="CENTER"><font color="#804040">An Introductory but fresh look at Boolean Algebra</font></p>
+
+<p ALIGN="CENTER"><big><strong><font color="#008000">Buy the new edition of the book
+(November 2006)</font></strong></big></p>
+<div align="center"><center>
+
+<table border="0" width="80%">
+  <tr>
+    <td width="100%"><font color="#008000">You can now buy a printed copy of the book
+    &quot;Introduction to Digital Circuit Theory&quot; directly from this page. You will find
+    the book more convenient to read and better layed out, with improved diagrams</font><font color="#008040" size="3"> and additional material</font><font color="#008000">. This book
+    contains comprehensive material on synchronous circuit design methods and techniques not
+    available on this web site. You can purchase and pay for the book through the secure
+    facilities of PayPal by pressing the button. See the end of the page for details.</font><a href="#BuyBA1"><img src="images/down.gif" alt="Buy a book" border="0" WIDTH="11" HEIGHT="14"></a></td>
+  </tr>
+</table>
+</center></div>
+
+<ul type="circle">
+  <li><a href="#Introduction">Introduction</a></li>
+  <li><a href="#assumptions">Basic Assumptions</a></li>
+  <li><a href="#convention">The convention used for drawing switching circuits</a></li>
+  <li><a href="#basic gates">Some basic gate circuits</a></li>
+  <li><a href="#operators">The Boolean algebra operators</a></li>
+  <li><a href="#theorems">The basic theorems of Boolean algebra</a></li>
+  <li><a href="#Summary">Summary of the results for the basic theorems</a></li>
+  <li><a href="#Laws">The Commutative, Associative and Distributive Laws</a></li>
+  <li><a href="#inverse">The inverse of Boolean functions</a></li>
+  <li><a href="#even">The even and odd properties of ExOR algebra</a></li>
+  <li><a href="#basic">The basic operators of binary Boolean algebra</a></li>
+  <li><a href="#BuyBA1">Buy a Book</a></li>
+  <li><a href="boolean2.html">Continued on Page 2</a></li>
+</ul>
+
+<h4><a href="#top"><img src="top.gif" alt="Top" align="left" border="0" WIDTH="10" HEIGHT="12"></a><a name="Introduction">Introduction</a></h4>
+
+<p>George Boole made major contributions to the development of mathematical logic and
+published a book <i>The Mathematical Analysis of Logic</i> in 1847. The system of
+mathematics which he described in his book has become known as Boolean algebra. Boole was
+a self taught mathematician who discovered the power of mathematics early in life and
+became a leading figure in mathematical circles. Boolean algebra became a systematic
+method of dealing with symbolic logic and a much used method of arguing about the
+fundamentals of mathematics.</p>
+
+<p>In 1938 Claude Shannon published an extract from his Masters thesis entitled: <i>A
+Symbolic Analysis of Relay and Switching Circuits</i>. Shannon made use of Boolean algebra
+to develop a system that described the logical relationships in switching circuits with
+simplification of these circuits as one objective. Essentially this provided an algebraic
+method of describing and manipulating switching circuits. In 1938 there were no logic gate
+circuits. Electromechanical relay circuits used by the Post Office and in control circuits
+were the main motivation for developing switching circuit theory.</p>
+
+<p>The original application of Boolean algebra was for working with formal logic and the
+logical foundations of mathematics. Consequently a formal approach has developed for
+dealing with these applications. In this paper the purpose of using Boolean algebra is to
+provide techniques for working with digital circuits. The formal methods of presenting
+Boolean algebra are not suitable here. We will use the <i>truth table</i> method that
+Shannon described in his 1938 paper. The truth table method of proof, described later,
+will easily give us all the results we need.</p>
+
+<p>Boolean algebra provides an algebraic method of working with all types of digital
+circuitry, including integrated circuit gates and circuits based on physical switch
+contacts. This allows us to replace physical arguments that can become complicated to
+think about when dealing with these circuits with precise application of theorems that
+will eliminate any concern about the correctness of the results. You will find that this
+is an advantageous way of working with digital circuits. Some of the theorems of Boolean
+algebra can appear simplistic at first glance but you will see that the results further
+into the subject lead to quite elegant and non intuitive results.</p>
+<div align="center"><center>
+
+<table border="2" width="50%" bgcolor="#FFFFFF" bordercolor="#800000">
+  <tr>
+    <td width="100%"><p align="center">Consider purchasing a copy of my book.<a href="#BuyBA1"><img src="images/down.gif" alt="Buy a book" border="0" WIDTH="11" HEIGHT="14"></a></td>
+  </tr>
+</table>
+</center></div>
+
+<h4><a href="#top"><img src="top.gif" alt="Top" align="left" border="0" WIDTH="10" HEIGHT="12"></a>Basic <a name="assumptions">assumptions</a></h4>
+
+<p>All systems of mathematics are based on a set of preliminary statements called
+postulates that do not depend on prior proof. To get the algebra started we will make the
+following statements: Boolean algebra has constants and variables. There are only two
+values for the constants and variables which we take to be 0 and 1. A constant has either
+the value 0 or 1 whilst a variable can take either value.Variables are usually represented
+by letters of the alphabet for describing the algebra and with mnemonics or abbreviations
+for real applications.</p>
+
+<p>Boolean algebra is described as a finite algebra due to the finite number of values
+that are represented in the algebra. This is not the same thing as a binary number in
+which the individual digits of the number have only the values 0 or 1. In Boolean algebra
+there are only two values all together. This is the basic abstraction on which the algebra
+is based.</p>
+
+<p>The two values 0 and 1 are regards as inverses of each other. There is only one
+possible inverse in a Boolean algebra that has only two values. The inverse of a constant
+or variable has the opposite value of the constant or variable itself. We will represent
+the inverse of a variable by placing a prime (i.e. straight single quote) immediately
+after the variable. We will sometimes refer to this prime as an exponent. Because there is
+only one possible inverse in this algebra the exponent has only two values. We can
+represent these two values by either using the prime if the inverse is intended or
+otherwise leave it out.</p>
+
+<p>You might note that we could have a Boolean algebra with say three values which we
+might take as 0, 1 and 2. This would be called a ternary Boolean algebra. The complexity
+of Boolean algebras increases very rapidly when you increase the number of values it can
+have beyond two. We will stick to two valued (or binary) Boolean algebra.</p>
+
+<p>In a gate circuit the logic levels in the circuit are described as a high or a low
+signal level. In an actual gate circuit the signals may not all be exactly at the same
+high or low level. Also when the signals are changing from one level to the other they
+have to pass through all the intermediate values. These details are ignored for the
+purpose of the algebra. In an actual circuit signal transitions are made very quickly, in
+the order of nanoseconds in today&#146;s gate circuits. The minimum high signal level and
+maximum low signal level that are determined to give the circuit a reliable performance
+are specified for a given family of circuits. The algebra that we are developing will be
+concerned with the functional behaviour of digital circuits rather than the instantaneous
+values of signal levels in the circuits.</p>
+
+<p>In the case of a circuit which contains mechanical switches and relays the logic levels
+for the circuit may be described as open circuit or closed circuit.</p>
+
+<p>We can and will develop the algebra independently of the actual components that we
+intend to use in the implementation of the circuit. A logic 1 value will represent any of
+the expressions: 1, high, closed circuit or logic true. A logic 0 value will represent any
+of the expressions: 0, low, open circuit or logic false. The terms used for the logic
+values may be used interchangeably if called for by the context of a particular
+description. We will use the values 0 and 1 exclusively in the development of the algebra.</p>
+
+<p>Whilst the assumptions made are completely adequate for dealing with the logic in the
+circuitry it is accepted that there are always delays through every part of a real
+circuit. These delays are both necessary and a source of problems in a real circuit. We
+will ignore them completely in this paper but they need to be considered carefully in the
+design procedures of synchronous circuits and in some other situations. Delays in an
+electrical circuit are a bit like the friction that exists in a mechanical system.</p>
+
+<p>In a real digital circuit design, it is necessary to take into account the loading
+effects on a gate's output that drives many inputs to other gates. There are limitations
+on real gates specified by a manufacturer as fan in and fan out limits. Implementation
+details such as this will also be ignored in this paper. There will be more on the subject
+of postulates later in this paper.</p>
+<b>
+
+<h4><a href="#top"><img src="top.gif" alt="Top" align="left" border="0" WIDTH="10" HEIGHT="12"></a></b>The <a name="convention">convention</a> used for drawing switching circuits</h4>
+
+<p>Note that if you are drawing a circuit consisting of mechanical switches or relay
+contacts you should draw the circuit according to the following convention: A logic true
+contact is shown on the circuit as an open contact and a logic false contact is shown as a
+closed contact. The reason for this apparent inconsistency is that all switch contacts
+should be shown in their normally unenergised positions. So when a logic true contact is
+energised it becomes a closed contact. Also when a logic false contact is energised it
+becomes an open circuit. Failure to follow this convention will result in confusion when
+the circuit is analysed or when it is wired into an actual circuit.</p>
+<b>
+
+<h4><a href="#top"><img src="top.gif" alt="Top" align="left" border="0" WIDTH="10" HEIGHT="12"></a></b>Some <a name="basic gates">basic gate</a> circuits</h4>
+
+<p>Before we can start developing design methods for digital circuits we need to become
+acquainted with the theorems of Boolean algebra. First we will look at a few basic gate
+circuits.</p>
+
+<p><img src="Boolean/BasicGates.gif" alt="Some Basic Gates" align="right" hspace="5" vspace="5" WIDTH="272" HEIGHT="160">There are a number of basic gate circuits found in digital circuits. The most
+important of these are shown in Figure 1. The AND gate has the property that the output of
+the gate will be high only if both inputs are high. The output of the OR gate will be high
+if either or both inputs are high. The exclusive OR circuit labelled ExOR (XOR is also
+frequently used) has an output that is high if either but not both inputs are high
+together. The output of the NOT (or inverter) circuit provides the inverse of the signal
+on its input. The NAND and NOR circuits are the same as the AND and OR circuits but with
+an inverter on their outputs.</p>
+
+<p>An inversion is shown as a small circle in these symbols. Whilst the inversion circle
+is shown on the output side of three of the symbols shown in Figure 1, symbols can be
+drawn with inversion symbols on the input sides of the symbols as well. Also each of the
+gate circuits are shown with two inputs but actual gate circuits can have as many inputs
+as are required within the physical limitations of the circuits.</p>
+<b>
+
+<h4><a href="#top"><img src="top.gif" alt="Top" align="left" border="0" WIDTH="10" HEIGHT="12"></a></b>The
+Boolean algebra <a name="operators">operators</a></h4>
+
+<p>When the gate circuits have only two inputs they can be regarded as binary operators
+for use in the algebra. Similarly the inverter can be regarded as a unary operator. There
+are three distinct binary operators for (binary) Boolean algebra and only one unary
+operator. The binary operators are the AND operator, the OR operator and the ExOR
+operator. The unary operator is the inverter or NOT circuit. The justification for these
+statements is demonstrated later in this page. The Boolean algebra that we will develop
+will be based on these three binary operators and the unary or inverter operator.</p>
+
+<p><img src="Boolean/operators.gif" alt="The three binary operators" align="right" hspace="5" vspace="5" WIDTH="408" HEIGHT="249">The three distinct binary operators are shown in Figure 2. This
+figure shows the graphical symbols for the operators, the equivalent switching circuits
+and the truth tables for the operators.</p>
+
+<p>The truth tables are lists showing the conditions under which the operator has logic
+true and false values. All possible variations of the input variables are shown on the
+left of the table (in binary numerical order) and the resulting output from the operator
+is shown on the right of the table. For the AND operator, the truth table shows that the
+output of the AND gate is high only when both inputs of the gate are high or that the
+output of the switching circuit is a closed circuit only when both switches in the circuit
+are closed. The truth tables follow the statements of the behaviour of these operators.</p>
+
+<p>For the OR operator, the truth table shows that the output of the OR gate is high when
+either or both inputs of the gate are high or that the output of the switching circuit is
+a closed circuit when either or both switches in the circuit are closed.</p>
+
+<p>For the ExOR operator, the truth table shows that the output of the ExOR gate is high
+when one or the other but not both inputs of the ExOR gate are high. The switch circuit
+version of the ExOR shown in Figure 2 shows how the ExOR function can be cascaded in a
+switching circuit. Both the logic true and logic false signals are carried through a chain
+of these circuits since a relay would otherwise be required to produce the inverse of a
+signal. The switch circuit can be constructed with a double pole double throw switch.</p>
+
+<p><img src="_borders/inverter.gif" alt="NOT operator" hspace="5" vspace="5" align="right" WIDTH="168" HEIGHT="245">The
+inverse operator is shown in Figure 3. The use of a relay is shown for the switch circuit
+inverter. A Boolean expression consisting of variables and operators is known as a Boolean
+function.</p>
+
+<p>The symbols used for the operators in Boolean functions and formulas are: a dot (or
+frequently an &amp;) for the AND operator. The OR symbol is usually a + (arithmetic plus
+symbol). The ExOR symbol is a <font FACE="Symbol">Å</font> . This symbol is sometimes
+referred to as a modulo-2 or mod-2 sum symbol. If the variables are represented by single
+letters the AND symbol between the variables is usually omitted. Therefore the absence of
+an operator symbol between variables is taken to be an AND operator. A logic false
+variable or function is represented by a prime after the variable or function.</p>
+
+<p>The AND function has been compared by early authors of this subject with the arithmetic
+multiplication operation for the digits 0 and 1, which it matches exactly. The OR
+operation for the digits 0 and 1 has been compared with the arithmetic SUM operation. The
+only difference for this case is that the arithmetic 1 + 1 equals 2, whereas the Boolean
+OR for 1 + 1 equals 1. Therefore it is common practice to refer to a Boolean function of
+AND operators as a product term or just a term and a Boolean function of OR operators as a
+sum. The ExOR operator can be compared with the remainder after dividing the arithmetic
+sum by 2. Hence the terminology mod-2 for this operator.</p>
+
+<p>If the product terms are separated by OR operators, the function is referred to as a
+Sum-Of-Products (or SOP). A function consisting of groups of OR operators separated by AND
+operators is referred to as a POS. A Boolean function of AND operators separated by ExOR
+operators is often referred to as an Exclusive-OR-Sum-Of-Products (or ESOP).</p>
+<b>
+
+<h4><a href="#top"><img src="top.gif" alt="Top" align="left" border="0" WIDTH="10" HEIGHT="12"></a></b>The basic <a name="theorems">theorems</a> of Boolean algebra</h4>
+
+<p><img src="Boolean/Theorem1.gif" alt="Basic Theorems" hspace="5" vspace="5" align="right" WIDTH="239" HEIGHT="501">There is a group of four basic theorems for each of the binary operators
+that are constructed by applying the following pairs of signals to the two inputs of each
+of the operators: Applying the same signal to both inputs, applying a signal and its
+inverse to the two inputs, applying a signal and a logic 0 to the two inputs and applying
+a signal and a logic 1 to the two inputs. The complete procedure for carrying this out is
+shown in Figure 4.</p>
+
+<p>In the truth table method of proof we simply apply the values in the truth tables of
+the operators to each of the theorems. This method of proof makes use of the fact that
+because of the finite number of values of the variables involved we can quickly fill in
+all possibilities and find the results directly. This method of proof is completely
+adequate to derive all the results we need. However, after deriving some of the results in
+this way we will be able to derive additional results by application of the theorems
+already derived.</p>
+
+<p>In Figure 4, the four basic theorems for each of the three binary operators have been
+found. The operators themselves are shown at the top of Figure 4 and the values from these
+operators have been filled in on the right hand sides of each of the theorem truth tables.
+The results for each of these theorems has been written down under the truth table for
+each theorem.</p>
+
+<p>Many of these theorems are obvious on physical grounds if you consider the
+corresponding switch circuit. For example placing two contacts of the same switch in
+series is no different to having a single contact of the switch. Placing a true and false
+contact from the same switch in series can never produce a closed circuit, since when the
+true contact is closed the false contact will be open and visa versa. However, we have not
+used physical arguments to derive any of the theorems. We used the truth tables of the
+basic operators themselves in every case.</p>
+
+<p><i>The operators themselves are an essential part of the postulates of the algebra.</i></p>
+<b>
+
+<h4><a href="#top"><img src="top.gif" alt="Top" align="left" border="0" WIDTH="10" HEIGHT="12"></a></b><a name="Summary">Summary</a> of the results for the basic theorems</h4>
+
+<table border="0" width="408">
+  <tr>
+    <td align="center" height="30" width="77"></td>
+    <td align="center" height="30" width="97"><strong>AND</strong></td>
+    <td align="center" height="30" width="95"><strong>OR</strong></td>
+    <td align="center" height="30" colspan="2" width="123"><strong>ExOR</strong></td>
+  </tr>
+  <tr>
+    <td align="center" height="1" width="77"></td>
+    <td align="center" height="1" width="97"><font face="Courier">aa&nbsp; = a</font></td>
+    <td align="center" height="1" width="95"><font face="Courier">a+a&nbsp; = a</font></td>
+    <td align="center" height="1" colspan="2" width="123"><font face="Courier">a</font><font FACE="Symbol">Å</font><font face="Courier">a&nbsp; = 0 </font></td>
+  </tr>
+  <tr>
+    <td align="center" height="16" width="77"></td>
+    <td align="center" height="16" width="97"><font face="Courier">aa&#146; = 0</font></td>
+    <td align="center" height="16" width="95"><font face="Courier">a+a&#146; = 1</font></td>
+    <td align="center" height="16" colspan="2" width="123"><font face="Courier">a</font><font FACE="Symbol">Å</font><font face="Courier">a&#146; = 1 </font></td>
+  </tr>
+  <tr>
+    <td align="center" height="1" width="77"></td>
+    <td align="center" height="1" width="97"><font face="Courier">a0&nbsp; = 0</font></td>
+    <td align="center" height="1" width="95"><font face="Courier">a+0&nbsp; = a</font></td>
+    <td align="center" height="1" colspan="2" width="123"><font face="Courier">a</font><font FACE="Symbol">Å</font><font face="Courier">0&nbsp; = a </font></td>
+  </tr>
+  <tr>
+    <td align="center" height="2" width="77"></td>
+    <td align="center" height="2" width="97"><font face="Courier">a1&nbsp; = a</font></td>
+    <td height="2" align="center" width="95"><font face="Courier">a+1&nbsp; = 1</font></td>
+    <td height="2" align="center" width="10"></td>
+    <td height="2" align="center" width="109"><font face="Courier">a</font><font FACE="Symbol">Å</font><font face="Courier">1&nbsp; = a&#146;</font></td>
+  </tr>
+</table>
+
+<p>From the truth table for the ExOR operator you can see that the ExOR operator is
+related to the AND and OR operators by: <font face="Courier">a<font FACE="Symbol">Å</font>b
+= ab&#146;+a&#146;b</font>. Using this relationship it is easy to derive all the basic
+theorems for the ExOR operator from the theorems for the AND and OR operators.</p>
+<div align="center"><center>
+
+<table border="2" width="60%" bgcolor="#FFFFFF" bordercolor="#800000">
+  <tr>
+    <td width="100%"><p align="center">Just a reminder that you can purchase a copy of my
+    book.<a href="#BuyBA1"><img src="images/down.gif" alt="Buy a book" border="0" WIDTH="11" HEIGHT="14"></a></td>
+  </tr>
+</table>
+</center></div><b>
+
+<h4><a href="#top"><img src="top.gif" alt="Top" align="left" border="0" WIDTH="10" HEIGHT="12"></a></b>The
+Commutative, Associative and Distributive <a name="Laws">Laws</a></h4>
+
+<p>In order to enable us to manipulate Boolean equations and functions we need to
+establish three so-called laws. The commutative law refers to the order in which the
+variables or terms are arranged in a formula. You can see from Figure 4 that we could have
+reversed the order in which the variables were arranged for each theorem without changing
+the results of the basic theorems developed there. Consequently we can write the
+commutative law for each of the operators as follows:</p>
+
+<table border="0" width="87%">
+  <tr>
+    <td width="25%">Commutative law:</td>
+    <td width="25%"><font face="Courier">ab = ba</font></td>
+    <td width="25%"><font face="Courier">a+b = b+a</font></td>
+    <td width="25%"><font face="Courier">a<font FACE="Symbol">Å</font>b = b<font FACE="Symbol">Å</font>a</font></td>
+  </tr>
+</table>
+
+<p>Each of the remaining two laws refers to the use of parenthesis in Boolean equations.
+The associative law refers to the rearrangements of the parenthesis in an equation. It can
+be stated as follows:<font face="Courier"></p>
+</font>
+
+<p>Associative law:</p>
+
+<table border="0" width="558">
+  <tr>
+    <td width="38">AND</td>
+    <td width="508"><p align="center"><font face="Courier">(ab)c = a(bc) = abc</font></td>
+  </tr>
+  <tr>
+    <td width="38">OR</td>
+    <td width="508"><p align="center"><font face="Courier">(a+b)+c = a+(b+c) = a+b+c</font></td>
+  </tr>
+  <tr>
+    <td width="38">ExOR</td>
+    <td width="508"><p align="center"><font face="Courier">(a<font FACE="Symbol">Å</font>b)<font FACE="Symbol">Å</font>c = a<font FACE="Symbol">Å</font>(b</font><font FACE="Symbol"> Å</font><font face="Courier">c) = a<font FACE="Symbol">Å</font>b</font><font FACE="Symbol">Å</font><font face="Courier">c</font></td>
+  </tr>
+</table>
+
+<p><img src="Boolean/DistribLaw.gif" alt="Distributive Law proofs" align="right" hspace="5" vspace="5" WIDTH="271" HEIGHT="196">You can derive this result by drawing truth tables. You can do the
+proof yourself, it follows a similar procedure to that shown in Figure 5 for the
+distributive laws. The distributive law shows us how to take a variable or function into
+or out of parenthesis. These laws allow us to work with or manipulate functions of Boolean
+variables.</p>
+<font face="Courier">
+
+<p></font>In Figure 5 all possible variations of three variables is shown in the left hand
+column in binary numerical order. Each of the other columns are filled in by evaluating
+the expression at the top of the column using the values in the first column. To do the
+evaluation we evaluate inside parenthesis first, then we evaluate product terms next and
+sums last. We do each evaluation by using the values given in the truth tables for the
+basic operators. Note that we are taking the absence of an operator shown between two
+variables or constants to be an AND operator.</p>
+
+<p>For example:<font face="Courier"></p>
+
+<p></font>If<font face="Courier"> a=1 </font>and<font face="Courier"> b=c=0, </font>then:<font face="Courier"> a(b+c) = 1(0+0) = 10 = 0</p>
+
+<p></font>If<font face="Courier"> a=b=1 </font>and<font face="Courier"> c=0, </font>then:<font face="Courier"> a(b+c) = 1(1+0) = 11 = 1</p>
+
+<p></font>This gives us two of the values to fill in the table. We continue to fill in the
+whole table in this way. If we do the same for the ExOR case using the same values for the
+variables then:<font face="Courier"></p>
+
+<p></font>If<font face="Courier"> a=1 </font>and<font face="Courier"> b=c=0, </font>then:<font face="Courier"> a(b</font><font FACE="Symbol">Å</font><font face="Courier">c) = 1(0</font><font FACE="Symbol">Å</font><font face="Courier">0) = 10 = 0</font></p>
+
+<p>If<font face="Courier"> a=b=1 </font>and<font face="Courier"> c=0, </font>then:<font face="Courier"> a(b</font><font FACE="Symbol">Å</font><font face="Courier">c) = 1(1</font><font FACE="Symbol">Å</font><font face="Courier">0) = 11 = 1</font></p>
+
+<p>We evaluate all the entries for the table using the same procedure. The result is that:</p>
+
+<table border="0" width="72%">
+  <tr>
+    <td width="33%">Distributive law:</td>
+    <td width="33%"><font face="Courier">a(b+c) = ab + ac</font></td>
+    <td width="34%"><font face="Courier">a(b</font><font FACE="Symbol"> Å</font><font face="Courier">c) = ab</font><font FACE="Symbol">Å</font><font face="Courier">ac</font></td>
+  </tr>
+</table>
+
+<p>There is also a distributive law for the POS case with the AND and OR operators. This
+is:</p>
+
+<table border="0" width="63%">
+  <tr>
+    <td width="50%">POS Distributive law:</td>
+    <td width="50%"><font face="Courier">(a+b)(a+c) = a+bc</font></td>
+  </tr>
+</table>
+
+<p>We can derive this result using the distributive law already established.</p>
+
+<table border="0" width="625">
+  <tr>
+    <td width="104"><p align="right"><font face="Courier">(a+b)(a+c)</font></td>
+    <td width="200"><font face="Courier">= a(a+b) + c(a+b)</font></td>
+    <td width="303"><i>using the distributive law</i></td>
+  </tr>
+  <tr>
+    <td width="104"></td>
+    <td width="200"><font face="Courier">= aa + ab + ca + cb</font></td>
+    <td width="303"><i>using the distributive law again</i></td>
+  </tr>
+  <tr>
+    <td width="104"></td>
+    <td width="200"><font face="Courier">= a(1 + b + c) + bc</font></td>
+    <td width="303"><i>aa = a, distributive law, cb = bc</i></td>
+  </tr>
+  <tr>
+    <td width="104"></td>
+    <td width="200"><font face="Courier">= a + bc</font></td>
+    <td width="303"><i>(1 + anything) = 1, a1 = a</i></td>
+  </tr>
+</table>
+
+<p>This shows the result given above. There is no similar result that is useful for an
+ExOR case. However, see the added note on page 2 to see how this fits in with the overall
+picture.</p>
+<div align="center"><center>
+
+<table border="2" width="60%" bgcolor="#FFFFFF" bordercolor="#800000">
+  <tr>
+    <td width="100%">Question: Design a circuit that will indicate if exactly one of several
+    switches (or signals) is turned on?&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Answer in the book.<a href="#BuyBA1"><img src="images/down.gif" alt="Buy a book" border="0" WIDTH="11" HEIGHT="14"></a></td>
+  </tr>
+</table>
+</center></div><b>
+
+<h4><a href="#top"><img src="top.gif" alt="Top" align="left" border="0" WIDTH="10" HEIGHT="12"></a></b>The <a name="inverse">inverse</a> of Boolean functions</h4>
+
+<p>A truth table can be drawn up for any given function of Boolean variables. Each term in
+the table has a 0 or 1 value. The inverse of a function is found by inverting all of the
+values for the terms in the table. We effectively plot the 0s instead of the 1s. This
+results from the property of the inverse operator.</p>
+
+<p><img src="Boolean/InvLaws.gif" alt="Proofs of Inversion Laws" align="right" hspace="5" vspace="5" WIDTH="339" HEIGHT="357">In this section we will find the theorems for deriving the inverse of any given
+Boolean function.</p>
+
+<p>A Boolean function can have any of the three binary operators as part of it. However,
+it will be seen that two independent algebras can be constructed out of the three binary
+operators. These algebras are called the inclusive-OR algebra when AND, OR and inverters
+are the operators for the algebra and exclusive-OR algebra when ExOR operators replace the
+OR operators. The two algebras have distinct inversion theorems.</p>
+
+<p>The inversion theorems are derived in Figure 6. The theorem for the inclusive OR
+algebra is generalised in the following statement: The inverse of any Boolean function of
+the inclusive-OR algebra can be found by replacing all occurrences of AND operators with
+OR operators, replacing all OR operators with AND operators, priming all unprimed
+variables and unpriming all primed variables. This result for the inclusive-OR algebra is
+called DeMorgan&#146;s theorem after a contemporary mathematician of George Boole who
+formulated it.</p>
+
+<p>The last truth table in Figure 6 shows two inversion theorems for the exclusive-OR
+algebra. The second of these theorems also follows from the first by double inversion.
+DeMorgan&#146;s theorem&#146;s are not applicable to the ExOR algebra. In addition to
+these two inversion theorems for the ExOR operator the basic theorem <font face="Courier">a<font FACE="Symbol">Å</font>1=a&#146;</font> also relates to inversion. The inversion theorems
+for the ExOR operator are:</p>
+
+<table border="0" width="340">
+  <tr>
+    <td width="70"></td>
+    <td width="262"><font face="Courier">(a</font><font FACE="Symbol">Å</font><font face="Courier">b)&#146; = a&#146;</font><font FACE="Symbol">Å</font><font face="Courier">b
+    = a</font><font FACE="Symbol">Å</font><font face="Courier">b&#146;</font></td>
+  </tr>
+  <tr>
+    <td width="70"></td>
+    <td width="262"><font face="Courier">a</font><font FACE="Symbol">Å</font><font face="Courier">b = a&#146;</font><font FACE="Symbol">Å</font><font face="Courier">b&#146;</font></td>
+  </tr>
+  <tr>
+    <td width="70"></td>
+    <td width="262"><font face="Courier">a</font><font FACE="Symbol">Å</font><font face="Courier">1 = a&#146;</font></td>
+  </tr>
+</table>
+<b>
+
+<h4><a href="#top"><img src="top.gif" alt="Top" align="left" border="0" WIDTH="10" HEIGHT="12"></a></b>The <a name="even">even</a> and odd properties of ExOR algebra</h4>
+
+<p>If a given term appears twice in a function connected by ExOR operators, then the two
+terms will cancel out. This results directly from the basic theorems of the ExOR operator:
+<font face="Courier">x</font> <font FACE="Symbol">Å</font> <font face="Courier">x</font> <font face="Courier">=</font> <font face="Courier">0</font> and <font face="Courier">y</font><font FACE="Symbol"> <font FACE="Symbol">Å</font> </font><font face="Courier">0</font> <font face="Courier">=</font> <font face="Courier">y</font>. Consequently the following
+statements hold for the ExOR algebra:</p>
+
+<table border="0" width="694">
+  <tr>
+    <td width="70"></td>
+    <td width="196"><font face="Courier">x</font> <font FACE="Symbol">Å</font> <font face="Courier">x. . .<font FACE="Symbol">Å</font> x =</font> <font face="Courier">0</font>
+    </td>
+    <td width="420">for an even number of <font face="Courier">x</font></td>
+  </tr>
+  <tr>
+    <td width="70"></td>
+    <td width="196"><font face="Courier">x</font><font FACE="Symbol"> <font FACE="Symbol">Å</font>
+    </font><font face="Courier">x. . .<font FACE="Symbol">Å</font> x =</font> <font face="Courier">x</font> </td>
+    <td width="420">for an odd number of <font face="Courier">x</font></td>
+  </tr>
+  <tr>
+    <td width="70"></td>
+    <td width="196"><font face="Courier">x</font> <font FACE="Symbol">Å</font> <font face="Courier">y</font> <font FACE="Symbol">Å</font> <font face="Courier">z. . .</font> <font face="Courier">=</font> <font face="Courier">0</font> </td>
+    <td width="420">if an even number of the variables <font face="Courier"><i>x,y,z...</i></font>
+    have the value 1</td>
+  </tr>
+  <tr>
+    <td width="70"></td>
+    <td width="196"><font face="Courier">x</font><font FACE="Symbol"> <font FACE="Symbol">Å</font>
+    </font><font face="Courier">y</font> <font FACE="Symbol">Å</font> <font face="Courier">z.
+    . .</font> <font face="Courier">=</font> <font face="Courier">1</font> </td>
+    <td width="420">if an odd number of the variables <font face="Courier"><i>x,y,z...</i></font>
+    have the value 1</td>
+  </tr>
+</table>
+
+<p>An example of the use of this property is to use ExOR operators in a parity generator.</p>
+<b>
+
+<h4><a href="#top"><img src="top.gif" alt="Top" align="left" border="0" WIDTH="10" HEIGHT="12"></a></b>The <a name="basic">basic</a> operators of binary Boolean algebra</h4>
+
+<p>Next we will review some considerations illustrated in Figure 7. This section has been
+left to this point because we need the inversion theorems for part of the description.</p>
+
+<p><img src="Boolean/Allops.gif" alt="All basic operators" border="0" hspace="5" vspace="5" align="right" WIDTH="521" HEIGHT="367">Figure 7 has been drawn up to clearly identify the distinctly
+different binary operators of Boolean algebra. There are 16 variations of the four values
+of the two variables to get all the possible operators. The equation represented by each
+variation has been written in the middle column for each case in the list. You can
+consider the binary numbers in the left hand column to be truth tables on their sides for
+the expressions to their right.</p>
+
+<p>Figure 7 shows that there are two cases of constants in the table and four cases of
+single variables. These are six degenerate cases. There are ten cases of actual binary
+operators. Of these ten cases there are four variations of AND functions, four variations
+of OR functions and two variations of ExOR functions. The variations are due to the values
+of the exponents of the variables. There are four variations of the exponents of two
+variables which gives the four variations of the AND and OR cases.</p>
+
+<p>There are only two variations of the ExOR functions. In the general case of a Boolean
+function of two or more variables there are always only two ExOR functions in which all of
+the variables appear singly in the terms of the function. For example consider the
+following function of three variables:</p>
+
+<table border="0" width="546">
+  <tr>
+    <td width="67"></td>
+    <td width="182"><font face="Courier">f = a <font FACE="Symbol">Å</font> b <font FACE="Symbol">Å</font> c</font></td>
+    <td width="279"><font face="Courier">f&#146; = 1 <font FACE="Symbol">Å</font> a <font FACE="Symbol">Å</font> b <font FACE="Symbol">Å</font> c</font></td>
+  </tr>
+</table>
+<font face="Courier">
+
+<p></font>From the inversion theorem:<font face="Courier"> x<font FACE="Symbol">Å</font>y
+= x&#146;<font FACE="Symbol">Å</font>y&#146;</font>, you can see that introducing primes
+on pairs of variables in either of these expressions does not change the function.
+Introducing a single prime on any one of the variables or adding the constant 1 (mod-2) to
+the function inverts the function. Hence there are no other possibilities and there is
+just the one case of the all single variables ExOR function and its inverse no matter how
+many variables there are in the function. The ExOR function with two inputs is used as an
+operator on these pages. However, see the added note on page 2 for additional
+considerations.</p>
+<div align="center"><center>
+
+<table border="2" width="85%" bgcolor="#FFFFFF" bordercolor="#800000">
+  <tr>
+    <td width="100%"><p align="center"><a href="#BuyBA1"><img src="images/down.gif" alt="Buy a book" border="0" WIDTH="11" HEIGHT="14"></a>Ask your school or Uni library to purchase a copy of my
+    book.<strong><font color="#008000"> ISBN: 978-0-9581894-1-5</font></strong></td>
+  </tr>
+</table>
+</center></div>
+
+<p>Out of the ten cases of binary operators there are therefore just three distinctly
+different binary operators of Boolean algebra, the AND, OR and ExOR operators. The NAND
+(1110) and NOR (1000) operators are seen to be included in the variations of the OR and
+the AND operators respectively. A method of dealing with NAND and NOR gates will be
+described shortly.</p>
+
+<p>All Boolean functions have an inverse function. If <font face="Courier">f</font> is a
+Boolean function, then <font face="Courier">1<font FACE="Symbol">Å</font>f</font> is the
+inverse of the function. The two ExOR functions are inverses of each other and the AND and
+OR functions in Figure 7 are inverses of each other in pairs, a circumstance that leads to
+duality in the Inclusive OR algebra.</p>
+<b>
+
+<p></b>This paper is continued on the next page:</p>
+<div align="center"><center>
+
+<table border="0" width="80%">
+  <tr>
+    <b><td width="100%"></b><p align="center"><a href="#top"><font face="Arial"><b><img src="top.gif" alt="Top" border="0" WIDTH="10" HEIGHT="12"></b></font></a><font size="4" face="Arial" color="#008000"><strong><a name="BuyBA1">Buy</a> the new edition of the Book (Nov 2006)</strong></font></p>
+    <p align="left"><strong><font color="#008000">Buy the second edition of the book entitled:
+    &quot;Introduction to Digital Circuit Theory&quot; (ISBN: 978-0-9581894-1-5). The book is
+    in the form of a monograph with comb binding, card back and clear cover in A4 format. The
+    current revision includes a number of inadvertent error corrections. The single copy price
+    is $39.95 (Australian dollars), which includes all currency fees and airmail charges if
+    purchased with the <em>Buy Now</em> link. PayPal will carry out the conversion of your
+    currency to Australian currency in a secure transaction and email me your order. Please
+    follow this link</font></strong> <a href="purchase.html"><img src="images/rtarrow.gif" alt="Purchasing information" border="0" WIDTH="11" HEIGHT="14"></a><strong><font color="#008000"> if you would
+    prefer alternative arrangements to purchasing the book: </font></strong></p>
+    <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+      <input type="hidden" name="cmd" value="_s-xclick"><input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----
+"><p><strong><font color="#008000">Purchase the book securely through PayPal: </font></strong><input type="image" src="https://www.paypal.com/en_AU/i/btn/btn_buynow_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online."> <img alt border="0" src="https://www.paypal.com/en_AU/i/scr/pixel.gif" width="1" height="1"> </p>
+    </form>
+    </td>
+  </tr>
+</table>
+</center></div>
+
+<p align="center"><font color="#804040">Bystanders page <em><strong>OR</strong></em> Top
+for navigation menu <em><strong>OR</strong></em> Boolean Algebra - Page 2:</font></p>
+
+<p><script language="JavaScript">
+<!-- hide this script from non-javascript-enabled browsers
+
+/* Functions that finds images. */
+function MM_findObj(n, d) { //v3.0
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document); return x;
+}
+/* Functions that swaps images. */
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+// stop hiding -->
+</script> </p>
+
+<table align="center" border="0" cellpadding="0" cellspacing="0" width="120">
+  <tr>
+<!-- row 1 -->
+    <td align="center"><a onMouseOut="MM_swapImgRestore();" onMouseOver="MM_swapImage('backfor_r1_c1','','menus/backfor_r1_c1_f2.gif',1);" href="beginners.html"><img name="backfor_r1_c1" src="menus/backfor_r1_c1.gif" border="0" WIDTH="40" HEIGHT="40"></a></td>
+    <td align="center"><a onMouseOut="MM_swapImgRestore();" onMouseOver="MM_swapImage('backfor_r1_c2','','menus/backfor_r1_c2_f2.gif',1);" href="#top"><img name="backfor_r1_c2" src="menus/backfor_r1_c2.gif" border="0" WIDTH="40" HEIGHT="40"></a></td>
+    <td align="center"><a onMouseOut="MM_swapImgRestore();" onMouseOver="MM_swapImage('backfor_r1_c3','','menus/backfor_r1_c3_f2.gif',1);" href="boolean2.html"><img name="backfor_r1_c3" src="menus/backfor_r1_c3.gif" border="0" WIDTH="40" HEIGHT="40"></a></td>
+  </tr>
+<!--   This HTML was automatically created with Macromedia Fireworks 4.0   -->
+<!--   http://www.macromedia.com   -->
+</table>
+<font size="3">
+
+<p>(Copyright) David N. Warren-Smith, CPENG</p>
+
+<p>Digital Logic Systems, South Australia</p>
+
+<p></font><a href="mailto:dwsmith@senet.com.au">dwsmith@senet.com.au</a><font SIZE="2"></p>
+</font>
+
+<p><font size="3">Modifications: 22 January 2002, 16 January 2003. Currently, Nov 2006,
+any modifications or improvements have been made to my book, rather than to this page.</font></p>
+
+<!--msnavigation--></td></tr><!--msnavigation--></table></body>
+</html>

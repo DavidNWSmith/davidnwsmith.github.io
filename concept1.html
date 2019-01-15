@@ -1,0 +1,814 @@
+<html>
+
+<head>
+<title>Boolean algebra in terms of the exclusive-OR operator</title>
+
+<script language="JavaScript1.2" src="menus/fw_menu.js"></script>
+
+
+
+
+
+</head>
+
+<body bgcolor="#E6E6E6"><!--msnavigation--><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+
+<h1 align="center"><font color="#FF0000"><big>Digital Logic Systems</big></font></h1>
+
+<p align="center">David N. Warren-Smith, CPEng. South Australia</p>
+</td></tr><!--msnavigation--></table><!--msnavigation--><table dir="ltr" border="0" cellpadding="0" cellspacing="0" width="100%"><tr><!--msnavigation--><td valign="top">
+
+<p><script language="JavaScript">
+<!-- hide this script from non-javascript-enabled browsers
+
+function fwLoadMenus() {
+    window.fw_menu_0_1 = new Menu("Digital Logic Systems",68,18,"Arial, Helvetica, sans-serif",11,"#990000","#ffffcc","#ffffcc","#990000");
+    fw_menu_0_1.addMenuItem("Home","location='index.html'");
+    fw_menu_0_1.addMenuItem("Articles","location='articles.html'");
+    fw_menu_0_1.addMenuItem("Links","location='links.html'");
+     fw_menu_0_1.fontWeight="bold";
+     fw_menu_0_1.hideOnMouseOut=true;
+    window.fw_menu_0_2 = new Menu("Bystanders &amp; Tutorials pages",189,18,"Arial, Helvetica, sans-serif",11,"#990000","#ffffcc","#ffffcc","#990000");
+    fw_menu_0_2.addMenuItem("Bystanders &amp; Beginners page","location='beginners.html'");
+    fw_menu_0_2.addMenuItem("Boolean Algebra - Page 1","location='boolean.html'");
+    fw_menu_0_2.addMenuItem("Boolean Algebra - Page 2","location='boolean2.html'");
+    fw_menu_0_2.addMenuItem("Intelligent Logic","location='async.html'");
+    fw_menu_0_2.addMenuItem("Relay Puzzle","location='relay.html'");
+    fw_menu_0_2.addMenuItem("Relay Puzzle figures","location='puzzle.html'");
+     fw_menu_0_2.fontWeight="bold";
+     fw_menu_0_2.hideOnMouseOut=true;
+    window.fw_menu_0_3 = new Menu("Practical Projects",244,18,"Arial, Helvetica, sans-serif",11,"#990000","#ffffcc","#ffffcc","#990000");
+    fw_menu_0_3.addMenuItem("Practical Projects - Printed Circuit Board","location='projectpcb.html'");
+    fw_menu_0_3.addMenuItem("Count Down Clock - AHDL code","location='project.html'");
+    fw_menu_0_3.addMenuItem("Count Down Clock - VHDL code","location='vhdl.html'");
+     fw_menu_0_3.fontWeight="bold";
+     fw_menu_0_3.hideOnMouseOut=true;
+    window.fw_menu_0_4 = new Menu("Exclusive-OR articles",195,18,"Arial, Helvetica, sans-serif",11,"#990000","#ffffcc","#ffffcc","#990000");
+    fw_menu_0_4.addMenuItem("Boolean Algebra revisited","location='boolean.html'");
+    fw_menu_0_4.addMenuItem("Part 1 - ExOR Theory","location='concept1.html'");
+    fw_menu_0_4.addMenuItem("Part 2 - Algebraic Simplification","location='concept2.html'");
+    fw_menu_0_4.addMenuItem("Part 3 - Multiple Solutions","location='concept3.html'");
+     fw_menu_0_4.fontWeight="bold";
+     fw_menu_0_4.hideOnMouseOut=true;
+  window.fw_menu_0 = new Menu("root",188,18,"Arial, Helvetica, sans-serif",11,"#990000","#ffffcc","#ffffcc","#990000");
+  fw_menu_0.addMenuItem(fw_menu_0_1);
+  fw_menu_0.addMenuItem(fw_menu_0_2);
+  fw_menu_0.addMenuItem(fw_menu_0_3);
+  fw_menu_0.addMenuItem(fw_menu_0_4);
+   fw_menu_0.fontWeight="bold";
+   fw_menu_0.hideOnMouseOut=true;
+   fw_menu_0.childMenuIcon="menus/arrows.gif";
+
+  fw_menu_0.writeMenus();
+} // fwLoadMenus()
+
+// stop hiding -->
+</script> <!--The following section is an image or HTML table which reassembles the sliced image in a browser.--> <script language="JavaScript1.2">fwLoadMenus();</script> </p>
+
+<table align="center" border="0" cellpadding="0" cellspacing="0" width="362">
+<!-- fwtable fwsrc="Navmenus.png" fwbase="menus/navmenus.gif" fwstyle="FrontPage" fwdocid = "742308039" fwnested=""1" -->
+  <tr>
+<!-- row 2 -->
+    <td><a href="#" onMouseOut="FW_startTimeout();" onMouseOver="window.FW_showMenu(window.fw_menu_0,25,95);"><img name="navmenus_r2_c1" src="menus/navmenus_r2_c1.gif" border="0" WIDTH="362" HEIGHT="30"></a></td>
+  </tr>
+<!--   This HTML was automatically created with Macromedia Fireworks 4.0   -->
+<!--   http://www.macromedia.com   -->
+</table>
+<div align="center"><center>
+
+<table border="0" width="80%">
+  <tr>
+    <td width="100%"><font color="#008000">You can now buy a printed copy of the book
+    &quot;Introduction to Digital Circuit Theory&quot; directly from this page. You will find
+    the book more convenient to read and better layed out, with improved diagrams</font><font color="#008040" size="3"> and additional material</font><font color="#008000">. This book
+    contains comprehensive material on synchronous circuit design methods and techniques not
+    available on this web site. You can purchase and pay for the book through the secure
+    facilities of PayPal by pressing the button. See the end of the page for details.</font><a href="#BuyC1"><img src="images/down.gif" alt="Buy a book" border="0" WIDTH="8" HEIGHT="14"></a></td>
+  </tr>
+</table>
+</center></div><b>
+
+<h3><i>Boolean algebra in terms of the exclusive-OR operator</i><em> - Part 1</em> </h3>
+
+<ul type="circle">
+  <li><a href="#Introduction">Introduction</a></li>
+  <li><a href="#Why EXOR">Why ExOR algebra should be an integral part of Boolean algebra</a></li>
+  <li><a href="#The EXOR algebra">The ExOR algebra theorems</a></li>
+  <li><a href="#Duality">Duality in the ExOR theorems</a></li>
+  <li><a href="#Alternative">Alternative representation of the basic theorems</a></li>
+  <li><a href="#Canonical">Canonical forms for the ExOR logic</a></li>
+  <li><a href="#An EXOR function">An ExOR function that is the same as the AND, OR, form</a></li>
+  <li><a href="#The transposition">The transposition theorem</a></li>
+  <li><a href="#Plotting">Plotting the exclusive OR operator on a K-map</a></li>
+  <li><a href="#Examples">Examples of using a K-map to find ExOR representations of logic
+    equations</a></li>
+  <li><a href="#Conclusion">Conclusion</a></li>
+  <li><a href="#BuyC1">Buy a Book</a></b></li>
+</ul>
+
+<p><small><em>Note: You can use this list of contents and the symbols <img src="top.gif" alt="Return to top" WIDTH="10" HEIGHT="12">and <img src="up.gif" alt="Move up 1 section" WIDTH="11" HEIGHT="14">to navigate through this
+document.</em></small></p>
+
+<p><font COLOR="#181512" size="2"><em>Figure 1 &quot;The 16 possible binary operators and
+the 4 possible unary operators.&quot;&nbsp; replaced on 4 December 2001.</em></font></p>
+
+<h4><a href="#top"><img src="top.gif" alt="Top" align="left" border="0" WIDTH="10" HEIGHT="12"></a><a name="Introduction">Introduction</a></h4>
+
+<p>I remember once having a book on switching circuit theory that developed its subject in
+terms of the exclusive-OR (ExOR) operator rather than the more usual inclusive-OR (InOR or
+just OR) operator. (You may recall that the ExOR operator includes one or the other of two
+inputs but not both, whereas the InOR includes both inputs as well). Over time the book
+has become lost. However, since that time Boolean algebra based on the ExOR operator
+appears to have been completely ignored in popular books on digital design theory.</p>
+
+<p>This paper will demonstrate the following points: 
+
+<ol>
+  <li>That a complete Boolean algebra can be developed in terms of the ExOR and AND operators.</li>
+  <li>That this algebra is a necessary part of Boolean algebra and augments rather than
+    replaces the more familiar algebra based on the OR operator.</li>
+  <li>That this algebra has both map methods and algebraic simplification methods for Boolean
+    functions that are no harder to use than the corresponding methods for InOR algebra.</li>
+  <li>That this more complete algebra has useful applications if you are designing with
+    programmable logic devices.</li>
+</ol>
+
+<p>If you have come to this page from the Boolean Algebra pages then some of the
+preliminary material presented here will already be familiar to you. If you have not yet
+read the Boolean Algebra pages then you will find some additional material in those pages
+relevant to the material presented here. In particular I derive all the preliminary theory
+needed for this subject without undue formality.</p>
+
+<p>A motivation for studying ExOR algebra is that in general a significant proportion of
+logic functions can be represented with fewer terms if ExOR gates are used in the
+representation of the functions. Many CPLDs contain an ExOR gate in their macrocells,
+therefore a systematic way of making the best use of these ExOR gates should be part of
+every digital designers stock in trade.</p>
+
+<p>In this paper I will go as far as describing how ExOR and OR operators can both be
+dealt with on the same conventional Karnaugh map (K-map). My approach does not depend on
+or make use of methods described in the literature as Reed-Muller algebra or the pattern
+recognition method sometimes seen. This paper is a condensed version of a more complete
+paper on this subject that appeared in &quot;Electronics World magazine, February 1999
+edition, pages 113 - 118&quot;. The proofs of the basic theorems can be found in the
+Boolean Algebra pages or you can find them in the Electronics World article. Algebraic
+simplification is covered in Part 2 of this article.</p>
+
+<p>The ExOR operator conforms to the mathematical requirements of linearity. The
+properties of this result leads to a whole branch of applications particularly in
+communications systems. However, the emphasis in this paper is on the development and
+application of ExOR algebra for the design of digital circuitry. Consequently this paper
+will concentrate on the development of ExOR algebra as an essential part of Boolean
+algebra for the design of digital circuits and will not go into the communications
+applications of this operator.</p>
+<div align="center"><center>
+
+<table border="2" width="50%" bgcolor="#FFFFFF" bordercolor="#800000">
+  <tr>
+    <td width="100%"><p align="center">Consider purchasing a copy of my book.<a href="#BuyC1"><img src="images/down.gif" alt="Buy a book" border="0" WIDTH="11" HEIGHT="14"></a></td>
+  </tr>
+</table>
+</center></div>
+
+<p>A link to a comprehensive source of references on this subject can be found at the end
+of Part 3. You can also find a short list of the articles there that I had available to me
+in 1966 when I first became interested in this subject.</p>
+
+<h4><a href="#top"><img src="top.gif" alt="Top" align="left" border="0" WIDTH="10" HEIGHT="12"></a><a href="#Introduction"><img src="up.gif" alt="Up 1" align="left" border="0" WIDTH="11" HEIGHT="14"></a><a name="Why EXOR">Why </a>ExOR algebra should be an integral part of Boolean algebra</h4>
+
+<p>Boolean algebra has variables and constants. We can think of these variables and
+constants as having only two values, which we will take as 0 and 1. In this paper the
+discussion is limited to two valued Boolean algebra. We can assign meanings to these
+values when we consider the practical implementation of the Boolean functions that
+represent a finished circuit. We can develop the algebra independently of any physical
+meaning that we attach to the algebra.</p>
+
+<p>Digital circuitry has a variety of basic gate structures such as AND gates, OR gates,
+NAND gates and so on as well as inverters. The AND, OR and other gates can be thought of
+as binary operators and inversion as a unary operator, due to the number of inputs
+applicable in each case. If you consider the truth tables for the basic gate circuits you
+can construct a total of 16 of these truth tables. Similarly there are potentially 4 unary
+operators. A complete list of all the possible binary and unary operators for two valued
+(ie. binary) Boolean algebra is shown in Figure 1.</p>
+
+<p><img src="Concepts/ExORfig1.gif" alt="The binary and unary operators of Boolean algebra." align="right" vspace="3" hspace="3" WIDTH="542" HEIGHT="378">The original Figure 1 that appeared on this page has been replaced with a new
+Figure 1 shown opposite. This has been drawn up to more clearly identify the distinctly
+different binary operators of Boolean algebra. This has been done by showing the equations
+for each of the sixteen possible cases of binary operators. Figure 1 shows that after
+removing the two constants and the single variable cases there are four variations of AND
+functions, four variations of OR functions and two variations of ExOR functions. The
+number of variations of the AND OR functions are due to the number of variations of the
+exponents of the variables. There are four variations of the exponents of two variables.
+The NAND (1110) and NOR (1000) operators are seen to be included in the variations of the
+OR and the AND operators respectively. There are only two variations of the ExOR functions
+due to the even/odd characteristics of these functions. There are therefore three
+distinctly different binary operators of Boolean algebra, the AND, OR and ExOR operators.
+Greater details of these considerations are given in the paper on Boolean Algebra - Page 1
+found on this site.</p>
+
+<p>Boolean algebra as commonly presented is constructed from only two of these three
+operators. To be more logical we should include the ExOR algebra to make Boolean algebra
+more complete. The ExOR algebra becomes a second complete Boolean algebra which can be
+used in conjunction with InOR algebra. By a complete Boolean algebra is meant that any
+arbitrary function of Boolean variables can be constructed from it. The way that this will
+be established is through the canonical expansions for the algebra. You can also see from
+Figure 1 that there is only one unary or inversion operator for this algebra.</p>
+
+<p>All Boolean functions have an inverse function. For example if <em>f</em> is a Boolean
+function, then 1<font size="3" FACE="Symbol">Å</font><em> f</em> is its inverse. The two
+ExOR functions are inverses of each other and the AND and OR functions in Figure 1 are
+inverses of each other in pairs, a circumstance that leads to the duality in InOR algebra.</p>
+
+<p>We could conceivably make other algebras from the available operators but that is
+something you can try out yourself if you wish. This paper will mainly concentrate on the
+ExOR algebra constructed together with the AND operator. A third algebra can be
+constructed with the inclusive-OR operator together with the inverse of the ExOR operator.
+See the added note at the end of part 2 of the Boolean Algebra Revisited pages for
+details.</p>
+<b>
+
+<h4><a href="#top"><img src="top.gif" alt="Top" align="left" border="0" WIDTH="10" HEIGHT="12"></a><a href="#Why EXOR"><img src="up.gif" alt="Up 1" align="left" border="0" WIDTH="11" HEIGHT="14"></a></b><a name="The EXOR algebra">The ExOR algebra</a> theorems</h4>
+
+<p>First we will look at the InOR theorems listed below. There is a group of four theorems
+for each binary operator made up by applying a variable to one input and 0, 1, the
+variable or the variable inverted as the second input. Then there are the commutative,
+associative and distributive laws, then the inversion theorem and finally simplification
+relationships.</p>
+
+<p><u>Summary of the theorems for the AND and InOR operators</u></p>
+
+<table CELLSPACING="0" BORDER="0" CELLPADDING="7" WIDTH="635">
+  <tr>
+    <td WIDTH="195" VALIGN="TOP"><font FACE="Courier New" size="3">A &amp; 0 = 0</font></td>
+    <td WIDTH="191" VALIGN="TOP"><font FACE="Courier New" size="3">A + 0 = A</font></td>
+    <td WIDTH="207" VALIGN="TOP"><font size="3">Basic theorems</font></td>
+  </tr>
+  <tr>
+    <td WIDTH="195" VALIGN="TOP"><font FACE="Courier New" size="3">A &amp; 1 = A</font></td>
+    <td WIDTH="191" VALIGN="TOP"><font FACE="Courier New" size="3">A + 1 = 1</font></td>
+    <td WIDTH="207" VALIGN="TOP"></td>
+  </tr>
+  <tr>
+    <td WIDTH="195" VALIGN="TOP"><font FACE="Courier New" size="3">A &amp; A = A</font></td>
+    <td WIDTH="191" VALIGN="TOP"><font FACE="Courier New" size="3">A + A = A</font></td>
+    <td WIDTH="207" VALIGN="TOP"></td>
+  </tr>
+  <tr>
+    <td WIDTH="195" VALIGN="TOP"><font FACE="Courier New" size="3">A &amp; A' = 0</font></td>
+    <td WIDTH="191" VALIGN="TOP"><font FACE="Courier New" size="3">A + A' = 1</font></td>
+    <td WIDTH="207" VALIGN="TOP"></td>
+  </tr>
+  <tr>
+    <td WIDTH="195" VALIGN="TOP"><font FACE="Courier New" size="3">AB = BA</font></td>
+    <td WIDTH="191" VALIGN="TOP"><font FACE="Courier New" size="3">A + B = B + A</font></td>
+    <td WIDTH="207" VALIGN="TOP"><font size="3">Commutative law</font></td>
+  </tr>
+  <tr>
+    <td WIDTH="195" VALIGN="TOP"><font FACE="Courier New" size="3">A(BC) = (AB)C</font></td>
+    <td WIDTH="191" VALIGN="TOP"><font FACE="Courier New" size="3">A+(B+C) = (A+B)+C</font></td>
+    <td WIDTH="207" VALIGN="TOP"><font size="3">Associative law</font></td>
+  </tr>
+  <tr>
+    <td WIDTH="195" VALIGN="TOP"><font FACE="Courier New" size="3">A(B+C) = AB+AC</font></td>
+    <td WIDTH="191" VALIGN="TOP"><font FACE="Courier New" size="3">A+BC = (A+B)(A+C)</font></td>
+    <td WIDTH="207" VALIGN="TOP"><font size="3">Distributive law</font></td>
+  </tr>
+  <tr>
+    <td WIDTH="386" VALIGN="TOP" colspan="2"><font size="3">The inverse of a logic function
+    can be obtained by replacing all + operators with &amp; operators, replacing all &amp;
+    operators with + operators, priming all unprimed variables and unpriming all primed
+    variables.</font></td>
+    <td WIDTH="207" VALIGN="TOP"><font size="3">DeMorgan's theorem</font></td>
+  </tr>
+  <tr>
+    <td WIDTH="195" VALIGN="TOP"><font FACE="Courier New" size="3">A + AB = A</font></td>
+    <td WIDTH="191" VALIGN="TOP"><font FACE="Courier New" size="3">A + A'B = A + B</font></td>
+    <td WIDTH="207" VALIGN="TOP"><font size="3">Simplification relationships</font></td>
+  </tr>
+</table>
+
+<p>When we look at the ExOR theorems we would expect to find some characteristic
+differences. The corresponding theorems for the ExOR operator are listed below. </p>
+
+<p><u>Summary of the theorems for the ExOR operator</u></p>
+
+<p>The ExOR operator is related to the InOR operator by: x <font FACE="Symbol">Å</font> y
+= xy' + x'y. ( <font FACE="Symbol">Å</font> is the symbol for the ExOR operator).</p>
+
+<table CELLSPACING="0" BORDER="0" CELLPADDING="7" WIDTH="624">
+  <tr>
+    <td WIDTH="194" VALIGN="TOP" HEIGHT="26"><font size="3">T1. x <font FACE="Symbol">Å</font>
+    x = 0</font></td>
+    <td WIDTH="178" VALIGN="TOP" HEIGHT="26"><font size="3">T2. x <font FACE="Symbol">Å</font>
+    x' = 1</font></td>
+    <td WIDTH="210" VALIGN="TOP" HEIGHT="26"><font size="3">Basic theorems</font></td>
+  </tr>
+  <tr>
+    <td WIDTH="194" VALIGN="TOP" HEIGHT="24"><font size="3">T3. x <font FACE="Symbol">Å</font>
+    0 = x </font></td>
+    <td WIDTH="178" VALIGN="TOP" HEIGHT="24"><font size="3">T4. x <font FACE="Symbol">Å</font>
+    1 = x'</font></td>
+    <td WIDTH="210" VALIGN="TOP" HEIGHT="24"></td>
+  </tr>
+  <tr>
+    <td WIDTH="194" VALIGN="TOP" HEIGHT="24"><font size="3">T5. (x <font FACE="Symbol">Å</font>
+    y)' = x' <font FACE="Symbol">Å</font> y = x <font FACE="Symbol">Å</font> y'</font></td>
+    <td WIDTH="178" VALIGN="TOP" HEIGHT="24"><font size="3">T6. x' <font FACE="Symbol">Å</font>
+    y' = x <font FACE="Symbol">Å</font> y</font></td>
+    <td WIDTH="210" VALIGN="TOP" HEIGHT="24"><font size="3">Inversion theorems</font></td>
+  </tr>
+  <tr>
+    <td WIDTH="194" VALIGN="TOP" HEIGHT="20"><font size="3">T7. x <font FACE="Symbol">Å</font>
+    y = y <font FACE="Symbol">Å</font> x</font></td>
+    <td WIDTH="178" VALIGN="TOP" HEIGHT="20"></td>
+    <td WIDTH="210" VALIGN="TOP" HEIGHT="20"><font size="3">Commutative law</font></td>
+  </tr>
+  <tr>
+    <td WIDTH="194" VALIGN="TOP" HEIGHT="17"><font size="3">T8. (x <font FACE="Symbol">Å</font>
+    y) <font FACE="Symbol">Å</font> z = x <font FACE="Symbol">Å</font> (y <font FACE="Symbol">Å</font> z)</font></td>
+    <td WIDTH="178" VALIGN="TOP" HEIGHT="17"></td>
+    <td WIDTH="210" VALIGN="TOP" HEIGHT="17"><font size="3">Associative law</font></td>
+  </tr>
+  <tr>
+    <td WIDTH="194" VALIGN="TOP" HEIGHT="23"><font size="3">T9. x(y <font FACE="Symbol">Å</font>
+    z) = xy <font FACE="Symbol">Å</font> xz</font></td>
+    <td WIDTH="178" VALIGN="TOP" HEIGHT="23"></td>
+    <td WIDTH="210" VALIGN="TOP" HEIGHT="23"><font size="3">Distributive law</font></td>
+  </tr>
+  <tr>
+    <td WIDTH="194" VALIGN="TOP" HEIGHT="25"><font size="3">T9'. x(y <font FACE="Symbol">Å</font>
+    z) = (x'+y) <font FACE="Symbol">Å</font> (x'+z)</font></td>
+    <td WIDTH="178" VALIGN="TOP" HEIGHT="25"></td>
+    <td WIDTH="210" VALIGN="TOP" HEIGHT="25"><font size="3">Distributive law with OR function</font></td>
+  </tr>
+  <tr>
+    <td WIDTH="386" VALIGN="TOP" COLSPAN="2" HEIGHT="27"><font size="3">T10. If: f = g <font FACE="Symbol">Å</font> h and gh = 0, then f = g + h</font></td>
+    <td WIDTH="210" VALIGN="TOP" HEIGHT="27"><font size="3">Disjunction theorem</font></td>
+  </tr>
+  <tr>
+    <td WIDTH="386" VALIGN="TOP" COLSPAN="2" HEIGHT="25"><font size="3">T11. If: f = g <font FACE="Symbol">Å</font> h, then g = f <font FACE="Symbol">Å</font> h and h = g <font FACE="Symbol">Å</font> f</font></td>
+    <td WIDTH="210" VALIGN="TOP" HEIGHT="25"><font size="3">Transposition theorem</font></td>
+  </tr>
+</table>
+<font SIZE="2">
+
+<p></font><font size="3">The theorems have been labelled for convenience of reference but
+the labels and order of the theorems are completely arbitrary. You can see that each of
+the three basic operators has its own set of the first four theorems listed. A difference
+to the InOR theorems to notice is the inversion theorems given by T4, T5 and T6.
+DeMorgan's theorem is not applicable here. This results in a different interpretation for
+duality as applicable to ExOR algebra. </font><font SIZE="2"></p>
+</font><font FACE="Arial"><b>
+
+<h4></b></font><a href="#top"><img src="top.gif" alt="Top" align="left" border="0" WIDTH="10" HEIGHT="12"></a><b><font FACE="Arial"><a href="#The EXOR algebra"><img src="up.gif" alt="Up 1" align="left" border="0" WIDTH="11" HEIGHT="14"></a></font></b><a name="Duality">Duality</a> in the ExOR theorems<b></h4>
+</b>
+
+<p>The duality principle which states that &quot;Given any of the basic theorems of
+Boolean algebra, changing OR operators to AND operators, AND operators to OR operators and
+changing 0s to 1s and 1s to 0s where these occur leads to another of the basic
+theorems&quot; applies specifically to the AND and OR operators.</p>
+
+<p>Take a look at the summary of the theorems for the ExOR logic. Apply the inversion
+theorem T5 to theorem T1 and you get theorem T2. Do the same with T3 and you get T4. And
+the same applies when you go the other way round. This makes T1, T2 and T3, T4 dual pairs.</p>
+<font size="3">
+
+<p>Now apply the transposition theorem T11 to T1 and you get T3. Apply theorem T11 to T2
+and you get T4. Once again the same applies when you go the other way round. This makes
+T1, T3 and T2, T4 dual pairs. ExOR logic has a double duality property which makes the
+ExOR a very flexible system of logic. Any of the basic theorems can be transformed into
+any of the others by either inversion and/or transposition.</font></p>
+<div align="center"><center>
+
+<table border="2" width="60%" bgcolor="#FFFFFF" bordercolor="#800000">
+  <tr>
+    <font size="3"><td width="100%"><p align="center">Just a reminder that you can purchase a
+    copy of my book.<a href="#BuyC1"><img src="images/down.gif" alt="Buy a book" border="0" WIDTH="11" HEIGHT="14"></a></font></td>
+  </tr>
+</table>
+</center></div><font FACE="Arial"><b>
+
+<h4></b></font><a href="#top"><img src="top.gif" alt="Top" align="left" border="0" WIDTH="10" HEIGHT="12"></a><b><font FACE="Arial"><a href="#Duality"><img src="up.gif" alt="Up 1" align="left" border="0" WIDTH="11" HEIGHT="14"></a></font></b><a name="Alternative">Alternative</a> representation of the basic theorems<b></h4>
+</b>
+
+<p>A consideration that we will need shortly are the following alternative representations
+of the basic theorems. The basic theorems are frequently labelled to reflect the duality
+properties.</p>
+
+<p>Alternative expressions for T1 and T3 are:</p>
+
+<table CELLSPACING="0" BORDER="0" CELLPADDING="7" WIDTH="571">
+  <tr>
+    <td WIDTH="42" VALIGN="TOP"><font size="3">T1a.</font></td>
+    <td WIDTH="501" VALIGN="TOP"><font size="3">x <font FACE="Symbol">Å</font> x ... <font FACE="Symbol">Å</font> x = 0, for an even number of x</font></td>
+  </tr>
+  <tr>
+    <td WIDTH="42" VALIGN="TOP"><font size="3">T3a.</font></td>
+    <td WIDTH="501" VALIGN="TOP"><font size="3">x <font FACE="Symbol">Å</font> x ... <font FACE="Symbol">Å</font> x = x, for an odd number of x, or</font></td>
+  </tr>
+  <tr>
+    <td WIDTH="42" VALIGN="TOP"><font size="3">T1b.</font></td>
+    <td WIDTH="501" VALIGN="TOP"><font size="3">x <font FACE="Symbol">Å</font> y <font FACE="Symbol">Å</font> z ... = 0, if an even number of variables x, y, z ... have the
+    value 1</font></td>
+  </tr>
+  <tr>
+    <td WIDTH="42" VALIGN="TOP"></td>
+    <td WIDTH="501" VALIGN="TOP"><font size="3">x <font FACE="Symbol">Å</font> y <font FACE="Symbol">Å</font> z ... = 1, if an odd number of variables x, y, z ... have the
+    value 1</font></td>
+  </tr>
+</table>
+<b>
+
+<h4></b><a href="#top"><img src="top.gif" alt="Top" align="left" border="0" WIDTH="10" HEIGHT="12"></a><b><a href="#Alternative"><img src="up.gif" alt="Up 1" align="left" border="0" WIDTH="11" HEIGHT="14"></a></b><a name="Canonical">Canonical</a> forms for the ExOR logic<b></h4>
+</b>
+
+<p>T10 can be used for expressing a function, given in terms of the OR operator, in terms
+of the ExOR operator. The function in terms of the OR operator is expanded to minterm
+form, so that all terms are disjoint (ie the product of any two terms is 0). The +
+operators can then be replaced with <font FACE="Symbol"><b>Å</b></font> operators. </p>
+
+<p>This means that any function can be expressed in ExOR form directly from its truth
+table or K-map. A canonical form for the exclusive OR operator is therefore with three
+variables:</p>
+<b>
+
+<p></b>C1. f(abc) = <font FACE="Symbol">a</font><sub>0</sub>a'b'c' <font FACE="Symbol">Å</font>
+<font FACE="Symbol">a</font><sub>1</sub>a'b'c <font FACE="Symbol">Å</font> <font FACE="Symbol">a</font><sub>2</sub>a'bc' <font FACE="Symbol">Å</font> <font FACE="Symbol">a</font><sub>3</sub>a'bc
+<font FACE="Symbol">Å</font> <font FACE="Symbol">a</font><sub>4</sub>ab'c' <font FACE="Symbol">Å</font> <font FACE="Symbol">a</font><sub>5</sub>ab'c <font FACE="Symbol">Å</font>
+<font FACE="Symbol">a</font><sub>6</sub>abc' <font FACE="Symbol">Å</font> <font FACE="Symbol">a</font><sub>7</sub>abc<font SIZE="2"><b></p>
+</b>
+
+<p></font><font size="3">where: <font FACE="Symbol">a </font><sub>i</sub> = 1,0 depending
+on whether the</font> i<sup>th</sup><font size="3"> term is present or not. Expressions
+like this are sometimes referred to as Exclusive-OR Sum-Of-Products or ESOPs in the
+literature.</p>
+
+<p>An alternative canonical form (found by expanding all primed variables with T4 (x' = x <font FACE="Symbol">Å</font> 1) multiplying out and cancelling duplicate terms with T3 and T1)
+is:</p>
+<b>
+
+<p></b><font size="3">C2. f(abc) = <font FACE="Symbol">b</font><sub>0</sub> <font FACE="Symbol">Å</font> <font FACE="Symbol">b</font><sub>1</sub>a <font FACE="Symbol">Å</font>
+<font FACE="Symbol">b</font><sub>2</sub>b <font FACE="Symbol">Å</font> <font FACE="Symbol">b</font><sub>3</sub>c <font FACE="Symbol">Å</font> <font FACE="Symbol">b</font><sub>4</sub>ab
+<font FACE="Symbol">Å</font> <font FACE="Symbol">b</font><sub>5</sub>ac <font FACE="Symbol">Å</font> <font FACE="Symbol">b</font><sub>6</sub>bc <font FACE="Symbol">Å</font>
+<font FACE="Symbol">b</font><sub>7</sub>abc</font><b></p>
+</b>
+
+<p><font size="3">where: <font FACE="Symbol">b</font><sub>i</sub> = 1,0 depending on
+whether the </font>i<sup>th</sup><font size="3"> term is present or not.</p>
+
+<p>You can generalise these expressions for an arbitrary number of variables using sigma
+notation. However, I will simply assume that you can get the idea from the above
+representations. Other canonical forms are possible, for example you can replace all
+unprimed variables with primed variables instead of replacing all primed variables with
+unprimed variables. However, the two canonical forms shown are sufficient for the purpose
+of this paper.</p>
+
+<p>The canonical expansions imply that any Boolean function can be expressed in terms of
+the AND and ExOR operators. ExOR algebra is therefore a <i>complete Boolean algebra</i>.</font><font SIZE="2"></p>
+</font><font FACE="Arial"><b>
+
+<h4></b></font><a href="#top"><img src="top.gif" alt="Top" align="left" border="0" WIDTH="10" HEIGHT="12"></a><b><font FACE="Arial"><a href="#Canonical"><img src="up.gif" alt="Up 1" align="left" border="0" WIDTH="11" HEIGHT="14"></a></font></b><a name="An EXOR function">An ExOR function</a> that is the same as the AND, OR, form<b></h4>
+</b>
+
+<p>The majority function is true in both InOR and ExOR form.</p>
+
+<table CELLSPACING="0" BORDER="0" CELLPADDING="7" WIDTH="620">
+  <tr>
+    <td WIDTH="37" VALIGN="TOP"></td>
+    <td WIDTH="187" VALIGN="TOP"><font size="3">ab <font FACE="Symbol">Å</font> ac <font FACE="Symbol">Å</font> bc = ab + ac + bc</font></td>
+    <td WIDTH="354" VALIGN="TOP"><font size="3">Prove it for yourself by expanding out the
+    left hand side.</font></td>
+  </tr>
+</table>
+<b>
+
+<p></b>Hint: Use the disjunction theorem.<b></p>
+</b>
+
+<h4><a href="#top"><img src="top.gif" alt="Top" align="left" border="0" WIDTH="10" HEIGHT="12"></a><b><a href="#An EXOR function"><img src="up.gif" alt="Up 1" align="left" border="0" WIDTH="11" HEIGHT="14"></a></b><a name="The transposition">The transposition</a> theorem</h4>
+
+<p>A theorem that gives exclusive OR logic an unusual degree of freedom is T11.</p>
+
+<p>By means of this theorem any given term or expression can be made to be a part of any
+other expression of the same variables.</p>
+
+<p>For example, let <b>x = ac' <font FACE="Symbol">Å</font> a'bc</b> and suppose that the
+term <b>h = ac</b> is to be made a part of this expression.</p>
+
+<table CELLSPACING="0" BORDER="0" CELLPADDING="7" WIDTH="560">
+  <tr>
+    <td WIDTH="69" VALIGN="TOP"><font size="3">Then,</font></td>
+    <td WIDTH="463" VALIGN="TOP"><font size="3"><b>g = x <font FACE="Symbol">Å</font> h = ac'
+    <font FACE="Symbol">Å</font> a'bc <font FACE="Symbol">Å</font> ac = a(c' <font FACE="Symbol">Å</font> c) <font FACE="Symbol">Å</font> a'bc = a <font FACE="Symbol">Å</font>
+    a'bc.</b></font></td>
+  </tr>
+  <tr>
+    <td WIDTH="69" VALIGN="TOP"><font size="3">Therefore,</font></td>
+    <td WIDTH="463" VALIGN="TOP"><font size="3"><b>x = g <font FACE="Symbol">Å</font> h = a <font FACE="Symbol">Å</font> a'bc <font FACE="Symbol">Å</font> ac</b>.</font></td>
+  </tr>
+</table>
+
+<p>As a check, this could have been obtained in this simple case directly from the given
+expression for x by replacing <b>c'</b> with <b>(1 <font FACE="Symbol">Å</font> c)</b>
+and expanding by T9 the distributive property.</p>
+
+<p>You might want to use this idea if you want to find out if a single variable, with a
+single ExOR operator will give an expression with fewer product terms than the original
+expression. Let <b>p</b> be the single variable in function <b>f</b>, then evaluate <b>g =
+f <font FACE="Symbol">Å</font> p</b>. If this expression or its inverse has fewer product
+terms as required then <b>g</b> is the required result. ie. <b>f&nbsp;=&nbsp;g&nbsp;<font FACE="Symbol">Å</font>&nbsp;p</b> or<b> f = g' <font FACE="Symbol">Å</font> p'</b>. You
+would need to evaluate <b>g</b> for each variable in turn and take the best result, or you
+might stop with the first good result if any. The Altera MaxPlus II system makes use of
+this result.</p>
+<div align="center"><center>
+
+<table border="2" width="70%" bgcolor="#FFFFFF" bordercolor="#800000">
+  <tr>
+    <td width="100%">Ask your school or Uni library to purchase a copy of my book </font><strong><font color="#008000">&quot;Introduction to Digital Circuit Theory&quot; (ISBN:
+    978-0-9581894-1-5)</font></strong><font size="3">.<a href="#BuyC1"><img src="images/down.gif" alt="Buy a book" border="0" WIDTH="11" HEIGHT="14"></a></font></td>
+  </tr>
+</table>
+</center></div>
+
+<p>The idea described in the previous paragraph is not limited to single variables, you
+can apply the idea to any desired function of the same variables. This theorem makes a
+good starting point for multi output circuit design with ExOR functions. Another example
+of the use of this theorem is to construct a Gray code to binary code converter circuit.
+Refer to the &quot;Electronics World&quot; article for the details of this example. I also
+mention it briefly in the Boolean Algebra pages.</p>
+<b>
+
+<h4></b><a href="#top"><img src="top.gif" alt="Top" align="left" border="0" WIDTH="10" HEIGHT="12"></a><b><a href="#The transposition"><img src="up.gif" alt="Up 1" align="left" border="0" WIDTH="11" HEIGHT="14"></a></b><a name="Plotting">Plotting</a> the exclusive OR operator on a K-map<b></h4>
+</b>
+
+<p>Problem: Express the function: <font FACE="Courier New">f = ac + b'c + a'bc' </font>in
+ExOR form.</p>
+
+<p>If you are observant you could solve this problem as follows:</p>
+
+<table border="0" width="365">
+  <tr>
+    <td width="109"><p align="right">f </td>
+    <td width="244">= ac + b'c + a'bc'</td>
+  </tr>
+  <tr>
+    <td width="109"></td>
+    <td width="244">= c(a + b') + a'bc'</td>
+  </tr>
+  <tr>
+    <td width="109"></td>
+    <td width="244">= c(a'b)' + (a'b)c'</td>
+  </tr>
+  <tr>
+    <td width="109"></td>
+    <td width="244">= c <font FACE="Symbol">Å</font> a'b</td>
+  </tr>
+</table>
+
+<p><img SRC="Concepts/fig2.gif" ALIGN="RIGHT" HSPACE="12" WIDTH="129" HEIGHT="189" alt="Figure 2">There are many cases like this for functions of three variables. However,
+often this approach may not be so easy to carry out. Fortunately the K-map technique can
+be readily adapted for the purpose.</p>
+
+<p>First consider the ExOR function plotted on a K-map as shown in Figure 2. The K-map
+technique for the ExOR function depends on T10 and the extended forms of T1 and T3.</p>
+
+<p>Plotting the variables x and y individually on the map results in minterm xy being
+plotted twice, consequently by the extended form of T1, this term will disappear from the
+ExOR form.</p>
+
+<p>Similarly by the extended form of T3, where the minterm is plotted once or an odd
+number of times it will be retained.</p>
+
+<p>Generalising this observation for the ExOR form gives the rules: 
+
+<dir>
+  <dir>
+    <b><p>Any minterm that is to be included in the function must be plotted an odd number of
+    times.</p>
+    <p>Any minterm that is to be excluded from the function must be plotted an even (or zero)
+    number of times.</b></p>
+  </dir>
+</dir>
+
+<p>Two examples of this result are shown in Figure 3.</p>
+
+<p>The first result is the example given at the start of this section. You can see that
+one minterm <b>a'bc</b> has been plotted twice and is therefore excluded from the
+equation.</p>
+
+<p><img SRC="Concepts/fig3.gif" ALIGN="RIGHT" HSPACE="12" WIDTH="496" HEIGHT="196" alt="Figure 3"> The second example is the function that had the same form for the ExOR
+operators as it had for the AND, OR, Invert operators. Here one term has been plotted
+three times and is therefore included in the function. With a little practice the ExOR
+forms can be readily found for three variable functions and sometimes for four variable
+functions. Figure 4 shows two examples of four variable ExOR functions.</p>
+
+<p>A procedure for using the K-map to find opportunities for simplification of a logic
+expression by using an ExOR gate (by inspection) is to look for a grouping of 1s that
+could be simplified if an extra square or squares between them are filled in with 1s to
+combine the terms. This is applicable if only one ExOR is needed to represent the
+function. The following examples show a more general approach where more than one ExOR is
+needed.</p>
+
+<p><img SRC="Concepts/fig4.gif" ALIGN="RIGHT" HSPACE="12" WIDTH="460" HEIGHT="224" alt="Figure 4"> To plot a function given in exclusive OR form, simply plot individual
+terms by placing 1s in all squares for the term and cancel all squares that have an even
+number of 1s.</p>
+
+<p>Don't care conditions are treated in the K-map approach the same way as for the
+inclusive OR case, the don't care term is either used or not as required. For the ExOR
+function don't care terms can be plotted an even or odd number of times.</p>
+
+<p>In the case of f<sub>1</sub> in Figure 4 the minimal ExOR form of the equation may not
+be so easily found by inspection. Here we would like to have an algebraic simplification
+procedure. An easy to use and systematic procedure is described in part 2 of this paper.</p>
+
+<h4><a href="#top"><img src="top.gif" alt="Top" align="left" border="0" WIDTH="10" HEIGHT="12"></a><b><a href="#Plotting"><img src="up.gif" alt="Up 1" align="left" border="0" WIDTH="11" HEIGHT="14"></a></b><a name="Examples">Examples</a> of using a K-map to find ExOR representations of logic
+equations</h4>
+
+<p><img SRC="Concepts/fig5.gif" ALIGN="RIGHT" HSPACE="12" alt="Figure 5" WIDTH="379" HEIGHT="351">Two more examples
+are shown in Figures 5 and 6 where more than one ExOR is required to represent the
+function. These Figures shows the step by step procedure to be followed.</p>
+
+<p>Consider the function plotted on the K-map shown in Figure 5a. We might start by
+plotting variable <b>a</b> as shown at 5b. This covers three of the 1s in the map but
+places an additional 1 at position <b>abc</b>. (The additional 1s in Figures 5 and 6 are
+shown greyed). We might next plot variable <b>c</b> as shown at 5c. This cancels the extra
+1 at <b>abc</b>, covers the 1s at position <b>a'bc</b> and <b>a'b'c</b> but cancels the 1
+at position <b>ab'c</b>. To regain a 1 at this position we place an additional 1 there and
+map that position as shown at 5d. This gives the final result as shown below the K-map at
+5d.</p>
+
+<p>From a practical point of view we might implement the resulting expression as follows
+(since there is generally only one ExOR function available in a CPLD macrocell): </p>
+
+<table border="0" width="66%">
+  <tr>
+    <td width="38%"><p align="right">y </td>
+    <td width="62%">= a <font FACE="Symbol">Å</font> c <font FACE="Symbol">Å</font> ab'c</td>
+  </tr>
+  <tr>
+    <td width="38%"></td>
+    <td width="62%"><big>= </big>a<big> </big><font FACE="Symbol" size="3">Å</font><font size="3"> c(1 <font FACE="Symbol">Å</font> ab')</font></td>
+  </tr>
+  <tr>
+    <td width="38%"></td>
+    <td width="62%"><big>= </big>a<big> </big><font FACE="Symbol" size="3">Å</font><font size="3"> c(ab')'</font></td>
+  </tr>
+  <tr>
+    <td width="38%"></td>
+    <td width="62%"><big>= </big>a<big> </big><font FACE="Symbol" size="3">Å</font><font size="3"> c(a' + b)</font></td>
+  </tr>
+  <tr>
+    <td width="38%"></td>
+    <td width="62%"><big>= </big>a<big> </big><font FACE="Symbol" size="3">Å</font><font size="3"> (a'c + bc) or,</font></td>
+  </tr>
+  <tr>
+    <td width="38%"></td>
+    <td width="62%"><big>= </big>a'<big> </big><font FACE="Symbol" size="3">Å</font><font size="3"> (c(ab')')'</font></td>
+  </tr>
+</table>
+
+<p>The last line is for NAND gate implementation (a NAND gate has the form (ab)' )</p>
+
+<p><img SRC="Concepts/fig6.gif" ALIGN="RIGHT" HSPACE="12" WIDTH="409" HEIGHT="363" alt="Figure 6">Another example is shown in Figure 6. The same steps are taken as was done
+in Figure 5. The function is shown plotted on a K-map at 6a. We start as before by
+plotting variable <b>a</b> as shown at 6b, since this looks like a suitable starting
+point. This covers two of the 1s in the function but introduces two additional 1s. Next we
+plot variable <b>b</b> as shown in 6c. This cancels one of the unwanted 1s that were
+introduced in 6b but also cancels one of the 1s that we wanted to keep and introduces an
+additional 1 at <b>a'bc</b>. Finally we add the plot for variable <b>c</b>. As you can see
+this restores the 1 at <b>abc</b> covers the 1 at <b>a'b'c</b> and cancels the unwanted 1s
+at <b>a'bc</b> and <b>ab'c</b>. The final (well known) result is shown under the K-map at
+6d as it was in Figure 5.</p>
+
+<p>To summarise what we have done to find ExOR forms of functions using the K-map: We
+started by making an arbitrary choice of first plot, which covered some of the minterms
+but possibly introduced unwanted minterms, we then made another choice of mapping which
+covered more of the required minterms and possibly eliminated some of the unwanted
+minterms and we continued the process until we had covered the complete function. The
+method is somewhat heuristic but at least in general the method gives the result in a
+direct way for functions with a small number of variables.</p>
+
+<p>The last example will show a slightly different way of using the K-map. Assume that you
+entered the following expression into your CPLD Hardware Description Language software:</p>
+
+<p><img SRC="Concepts/fig7.gif" ALIGN="RIGHT" HSPACE="12" WIDTH="306" HEIGHT="235" alt="Figure 7"> <font FACE="Courier New" size="2">y = ac'd' + abc + ab'd + b'c'd + a'b'cd'</font><font FACE="Courier New" size="3"></p>
+</font>
+
+<p>The compiler in your CPLD software has came up with the following expression for this
+logic function and you would like to confirm that it is the same function:</p>
+
+<p><font FACE="Courier New" size="2">y = a </font><font FACE="Symbol" size="2">Å</font><font FACE="Courier New" size="2"> (b'cd' + abc'd + a'b'c'd)</font></p>
+
+<p>The K-map shown in Figure 7 confirms the identity. Note that we can plot all the terms
+in parenthesis as a function and use this as a whole with the ExOR approach with the term <b>a</b>.
+A reduction of five product terms to three is achieved with this function. The use of the
+K-map is obviously a lot less work than expanding out the ExOR function.</p>
+<b>
+
+<h4></b><a href="#top"><img src="top.gif" alt="Top" align="left" border="0" WIDTH="10" HEIGHT="12"></a><b><font FACE="Arial"><a href="#Examples"><img src="up.gif" alt="Up 1" align="left" border="0" WIDTH="11" HEIGHT="14"></a></font></b><a name="Conclusion">Conclusion</a><b></h4>
+</b>
+
+<p>This is as far as we will go in this paper. However, it is possible to treat the
+simplification of ExOR forms of equations by a systematic algebraic procedure. This
+procedure should be used for functions with four or more variables if the minimal form of
+the function is to be guaranteed. The algebraic simplification procedure is described in
+part 2. This paper has presented all of the preliminary requirements for the algebraic
+method of simplification of ExOR functions. As a clue, you may recall that simplification
+methods for the AND, OR invert algebra depended on making systematic use of the relation:
+x + x' = 1 and the distributive theorem. For the ExOR algebra we will make systematic use
+of the relation: x <font FACE="Symbol">Å</font> x' = 1 and a few rules.</p>
+
+<p>This paper has demonstrated that a complete Boolean algebra can be developed in terms
+of the exclusive-OR operator in place of the inclusive-OR operator. Examples have been
+given that demonstrate the use of this approach to Boolean algebra. The exclusive-OR
+algebra adds to and does not replace inclusive-OR algebra. The algebra is complete with
+simplification methods including the use of conventional Karnaugh maps. The method of
+using a conventional Karnaugh map for dealing with exclusive-OR functions was shown and
+illustrated with examples.</p>
+<div align="center"><center>
+
+<table border="0" width="80%">
+  <tr>
+    <b><td width="100%"></b><p align="center"><a href="#top"><font FACE="Arial"><b><img src="top.gif" alt="Top" border="0" WIDTH="10" HEIGHT="12"></b></font></a><font size="4" face="Arial" color="#008000"><strong><a name="BuyC1">Buy</a> the new edition of the Book (Nov 2006)</strong></font></p>
+    <p align="left"><strong><font color="#008000">Buy the second edition of the book entitled:
+    &quot;Introduction to Digital Circuit Theory&quot; (ISBN: 978-0-9581894-1-5). The book is
+    in the form of a monograph with comb binding, card back and clear cover in A4 format. The
+    current revision includes a number of inadvertent error corrections. The single copy price
+    is $39.95 (Australian dollars), which includes all currency fees and airmail charges if
+    purchased with the <em>Buy Now</em> link. PayPal will carry out the conversion of your
+    currency to Australian currency in a secure transaction and email me your order. Please
+    follow this link</font></strong> <a href="purchase.html"><img src="images/rtarrow.gif" alt="Purchasing information" border="0" WIDTH="11" HEIGHT="14"></a><strong><font color="#008000"> if you would
+    prefer alternative arrangements to purchasing the book: </font></strong></p>
+    <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+      <input type="hidden" name="cmd" value="_s-xclick"><input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----
+"><p><strong><font color="#008000">Purchase the book securely through PayPal: </font></strong><input type="image" src="https://www.paypal.com/en_AU/i/btn/btn_buynow_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online."> <img alt border="0" src="https://www.paypal.com/en_AU/i/scr/pixel.gif" width="1" height="1"> </p>
+    </form>
+    </td>
+  </tr>
+</table>
+</center></div>
+
+<p align="center"><font color="#804040">Boolean Algebra - Page 1 <em><strong>OR</strong></em>
+Navigation menu at the top of the page <em><strong>OR</strong></em> Exclusive-OR logic
+Part 2:</font><font size="3" color="#804040"><script language="JavaScript">
+<!-- hide this script from non-javascript-enabled browsers
+
+/* Functions that finds images. */
+function MM_findObj(n, d) { //v3.0
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document); return x;
+}
+/* Functions that swaps images. */
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+// stop hiding -->
+</script></font><font size="3"> <!--The following section is an image or HTML table which reassembles the sliced image in a browser.--> </p>
+
+<table align="center" border="0" cellpadding="0" cellspacing="0" width="120">
+<!-- fwtable fwsrc="BackFor.png" fwbase="backfor.gif" fwstyle="FrontPage" fwdocid = "742308039" fwnested=""1" -->
+  <script language="JavaScript">
+  <!-- hide 
+  if (document.images) {
+  backfor_r1_c1_f2 = new Image(40 ,40); backfor_r1_c1_f2.src = "menus/backfor_r1_c1_f2.gif";
+  backfor_r1_c1_f1 = new Image(40 ,40); backfor_r1_c1_f1.src = "menus/backfor_r1_c1.gif";
+  backfor_r1_c2_f2 = new Image(40 ,40); backfor_r1_c2_f2.src = "menus/backfor_r1_c2_f2.gif";
+  backfor_r1_c2_f1 = new Image(40 ,40); backfor_r1_c2_f1.src = "menus/backfor_r1_c2.gif";
+  backfor_r1_c3_f2 = new Image(40 ,40); backfor_r1_c3_f2.src = "menus/backfor_r1_c3_f2.gif";
+  backfor_r1_c3_f1 = new Image(40 ,40); backfor_r1_c3_f1.src = "menus/backfor_r1_c3.gif";
+  }
+  // stop hiding -->
+  </script>
+
+  <tr>
+<!-- row 1 -->
+    <td><a onMouseOut="MM_swapImgRestore();" onMouseOver="MM_swapImage('backfor_r1_c1','','menus/backfor_r1_c1_f2.gif',1);" href="boolean.html"><img name="backfor_r1_c1" src="menus/backfor_r1_c1.gif" border="0" WIDTH="40" HEIGHT="40"></a></td>
+    <td><a onMouseOut="MM_swapImgRestore();" onMouseOver="MM_swapImage('backfor_r1_c2','','menus/backfor_r1_c2_f2.gif',1);" href="#top"><img name="backfor_r1_c2" src="menus/backfor_r1_c2.gif" border="0" WIDTH="40" HEIGHT="40"></a></td>
+    <td><a onMouseOut="MM_swapImgRestore();" onMouseOver="MM_swapImage('backfor_r1_c3','','menus/backfor_r1_c3_f2.gif',1);" href="concept2.html"><img name="backfor_r1_c3" src="menus/backfor_r1_c3.gif" border="0" WIDTH="40" HEIGHT="40"></a></td>
+  </tr>
+<!--   This HTML was automatically created with Macromedia Fireworks 4.0   -->
+<!--   http://www.macromedia.com   -->
+</table>
+
+<p>(Copyright) David N. Warren-Smith, CPENG</p>
+
+<p>Digital Logic Systems, South Australia</p>
+
+<p></font><a href="mailto:dwsmith@senet.com.au">dwsmith@senet.com.au</a><font SIZE="2"></p>
+</font>
+
+<p><font size="3">Modifications: 3 March, 1999, 6 October 2000, 25 January 2002, 16
+January 2003.</font></p>
+<font SIZE="1" COLOR="#000000">
+
+
+<p>&nbsp;&nbsp; 
+<!--msnavigation--></td></tr><!--msnavigation--></table></body>
+</html>

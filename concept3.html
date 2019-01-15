@@ -1,0 +1,254 @@
+<html>
+
+<head>
+<title>ExOR 3 - Multiple Solutions of ExOR functions</title>
+
+
+
+<script language="JavaScript1.2" src="menus/fw_menu.js"></script>
+
+
+</head>
+
+<body><!--msnavigation--><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+
+<h1 align="center"><font color="#FF0000"><big>Digital Logic Systems</big></font></h1>
+
+<p align="center">David N. Warren-Smith, CPEng. South Australia</p>
+</td></tr><!--msnavigation--></table><!--msnavigation--><table dir="ltr" border="0" cellpadding="0" cellspacing="0" width="100%"><tr><!--msnavigation--><td valign="top">
+
+<p><script language="JavaScript">
+<!-- hide this script from non-javascript-enabled browsers
+
+function fwLoadMenus() {
+    window.fw_menu_0_1 = new Menu("Digital Logic Systems",68,18,"Arial, Helvetica, sans-serif",11,"#990000","#ffffcc","#ffffcc","#990000");
+    fw_menu_0_1.addMenuItem("Home","location='index.html'");
+    fw_menu_0_1.addMenuItem("Articles","location='articles.html'");
+    fw_menu_0_1.addMenuItem("Links","location='links.html'");
+     fw_menu_0_1.fontWeight="bold";
+     fw_menu_0_1.hideOnMouseOut=true;
+    window.fw_menu_0_2 = new Menu("Bystanders &amp; Tutorials pages",189,18,"Arial, Helvetica, sans-serif",11,"#990000","#ffffcc","#ffffcc","#990000");
+    fw_menu_0_2.addMenuItem("Bystanders &amp; Beginners page","location='beginners.html'");
+    fw_menu_0_2.addMenuItem("Boolean Algebra - Page 1","location='boolean.html'");
+    fw_menu_0_2.addMenuItem("Boolean Algebra - Page 2","location='boolean2.html'");
+    fw_menu_0_2.addMenuItem("Intelligent Logic","location='async.html'");
+    fw_menu_0_2.addMenuItem("Relay Puzzle","location='relay.html'");
+    fw_menu_0_2.addMenuItem("Relay Puzzle figures","location='puzzle.html'");
+     fw_menu_0_2.fontWeight="bold";
+     fw_menu_0_2.hideOnMouseOut=true;
+    window.fw_menu_0_3 = new Menu("Practical Projects",244,18,"Arial, Helvetica, sans-serif",11,"#990000","#ffffcc","#ffffcc","#990000");
+    fw_menu_0_3.addMenuItem("Practical Projects - Printed Circuit Board","location='projectpcb.html'");
+    fw_menu_0_3.addMenuItem("Count Down Clock - AHDL code","location='project.html'");
+    fw_menu_0_3.addMenuItem("Count Down Clock - VHDL code","location='vhdl.html'");
+     fw_menu_0_3.fontWeight="bold";
+     fw_menu_0_3.hideOnMouseOut=true;
+    window.fw_menu_0_4 = new Menu("Exclusive-OR articles",195,18,"Arial, Helvetica, sans-serif",11,"#990000","#ffffcc","#ffffcc","#990000");
+    fw_menu_0_4.addMenuItem("Boolean Algebra revisited","location='boolean.html'");
+    fw_menu_0_4.addMenuItem("Part 1 - ExOR Theory","location='concept1.html'");
+    fw_menu_0_4.addMenuItem("Part 2 - Algebraic Simplification","location='concept2.html'");
+    fw_menu_0_4.addMenuItem("Part 3 - Multiple Solutions","location='concept3.html'");
+     fw_menu_0_4.fontWeight="bold";
+     fw_menu_0_4.hideOnMouseOut=true;
+  window.fw_menu_0 = new Menu("root",188,18,"Arial, Helvetica, sans-serif",11,"#990000","#ffffcc","#ffffcc","#990000");
+  fw_menu_0.addMenuItem(fw_menu_0_1);
+  fw_menu_0.addMenuItem(fw_menu_0_2);
+  fw_menu_0.addMenuItem(fw_menu_0_3);
+  fw_menu_0.addMenuItem(fw_menu_0_4);
+   fw_menu_0.fontWeight="bold";
+   fw_menu_0.hideOnMouseOut=true;
+   fw_menu_0.childMenuIcon="menus/arrows.gif";
+
+  fw_menu_0.writeMenus();
+} // fwLoadMenus()
+
+// stop hiding -->
+</script> <!--The following section is an image or HTML table which reassembles the sliced image in a browser.--> <script language="JavaScript1.2">fwLoadMenus();</script> </p>
+
+<table align="center" border="0" cellpadding="0" cellspacing="0" width="362">
+<!-- fwtable fwsrc="Navmenus.png" fwbase="menus/navmenus.gif" fwstyle="FrontPage" fwdocid = "742308039" fwnested=""1" -->
+  <tr>
+<!-- row 2 -->
+    <td><a href="#" onMouseOut="FW_startTimeout();" onMouseOver="window.FW_showMenu(window.fw_menu_0,25,95);"><img name="navmenus_r2_c1" src="menus/navmenus_r2_c1.gif" border="0" WIDTH="362" HEIGHT="30"></a></td>
+  </tr>
+<!--   This HTML was automatically created with Macromedia Fireworks 4.0   -->
+<!--   http://www.macromedia.com   -->
+</table>
+
+<hr align="left">
+
+<blockquote>
+  <h2><a name="999230"></a><font color="#003366" face="Verdana, Arial, Helvetica, sans-serif"><small>The Exclusive-OR - Part 3, Multiple
+  Solutions</small></font> </h2>
+  <p>You can find a link to a comprehensive source of exclusive-OR papers at the end of this
+  page. Please follow this link to find the latest work by other authors on this subject. I
+  have appended my original list of references at the end of this page.</p>
+  <p><a name="999332"></a>In this addendum I will refer to my method of simplifying ExOR
+  expressions as Warren-Smith's Simplification Method (WSSM). The terminology that I use is
+  explained in Parts 1 and 2.</p>
+  <h3><a name="999290"></a><small><font color="#003366" face="Verdana, Arial, Helvetica, sans-serif">Multiple solutions for minimised ExOR
+  functions</font></small> </h3>
+  <p>Boolean functions expressed with ExOR operators frequently have multiple solutions.
+  This part of the article on ExOR logic will show how multiple solutions can be found and
+  will give a few examples.</p>
+  <p>Figure 1 shows a function with two solutions. The two solutions each have the same
+  number of terms and the same number of letters. The two solutions are found by starting
+  the simplification process by combining the term <em><font size="3">xy</font></em> with
+  either of the two terms <em><font size="3">xyz</font></em> or <em><font size="3">xyw</font></em>.
+  In each case in this example a different but equally good solution is obtained. These
+  solutions cannot be found by the theorems for different arrangements of primes that I gave
+  in Part 2. </p>
+  <p><a name="999218"></a>In general if there is more than one way to progress the
+  simplification process, starting with the C2 form you can expect more than one solution.
+  Examining the function in the C2 form will therefore show you if multiple solutions are
+  possible. </p>
+  <p><a name="999219"></a>If you arrange the minterms in a Boolean function as a binary
+  number, in sigma notation order, and give minterms present in the function the value 1 and
+  absent minterms the value 0, you can represent each function by a binary number (or its
+  decimal equivalent). For four variables there are 16 minterms. Therefore for four
+  variables there are 2<font size="2"><sup>16</sup></font> or 65536 possible functions. This
+  will include all degenerate functions and duplications due to arbitrary rearrangements of
+  variables and primes. </p>
+  <p><a name="999356"></a>There are only 2<font size="2"><sup>8</sup></font> or 256
+  functions of three or less variables, so the degenerate functions are an insignificant
+  proportion of the total. If you wanted to list all the five variable functions you would
+  get some 4.3 billion functions!</p>
+  <p><font face="Verdana, Arial, Helvetica, sans-serif"><img src="images/XOR3a.gif" height="474" width="593" border="0" hspace="5" vspace="5" alt="Figure 1. An ExOR function with two solutions."></font></p>
+  <p><a name="999381"></a>The following are a few examples of functions in both minterm and
+  C2 form. <ul>
+    <li><a name="999389"></a><font face="Courier"> 0010010111001101 XOR: 1 a ab c ac bc abc abd
+      acd bcd </font></li>
+    <li><font face="Courier"><a name="999390"></a> 0010010111001110 XOR: a b ab ac abc d bd abd
+      cd acd </font></li>
+    <li><font face="Courier"><a name="999391"></a> 0010010111001111 XOR: 1 c bc ad bcd abcd </font></li>
+    <li><font face="Courier"><a name="999392"></a> 0010010111010000 XOR: c ac abc d ad acd </font></li>
+    <li><font face="Courier"><a name="999393"></a> 0010010111010001 XOR: 1 a b ab bc bd abd cd
+      bcd abcd </font></li>
+    <li><font face="Courier"><a name="999378"></a> 0010010111010010 XOR: a ab c d abd abcd </font></li>
+  </ul>
+  <p><a name="999418"></a><font face="Verdana, Arial, Helvetica, sans-serif"><img src="images/B2Gmapping.gif" border="0" hspace="12" align="right" alt="Figure 2. Binary to Gray Code mapping." WIDTH="169" HEIGHT="179"></font><a name="999419"></a><a name="999220"></a>The
+  binary numbers on the left of this list are the C1 expansions of the functions with m<font size="2"><sub>0</sub></font> on the right and m<font size="2"><sub>15</sub></font> on the
+  left. The terms on the right of the list are the C2 terms of these functions. You can see
+  how the C1 terms map onto a K-map in Figure 2.</p>
+  <p>If you make a comprehensive list of functions in the C2 form, what you find is that
+  there are a great many cases where multiple solutions should be possible.</p>
+  <h3><font color="#003366" face="Verdana, Arial, Helvetica, sans-serif"><small>Another
+  example</small></font></h3>
+  <p>I picked the function in the top line of the above list as a possible extreme example
+  of possible multiple solutions and ways to progress the simplification process.</p>
+  <p><a name="999446"></a>Figure 3 shows eight possible ways to start the simplification
+  process for this function. The solution or solutions for each case are shown in the
+  figure. These solutions are obtained by combining each two variable term with three
+  variable terms. There are cases where two or three of the two variable terms can be
+  combined with the same three variable term. I didn't follow up some of the solutions
+  further than shown. Ultimately there were two equally good solutions. In this function the
+  inclusive-OR solution requires only three terms, so would be preferable.</p>
+  <p><font face="Verdana, Arial, Helvetica, sans-serif"><img src="images/MultiExor3.gif" border="0" hspace="12" align="middle" alt="Figure 3. An example with multiple solutions" WIDTH="426" HEIGHT="436"></font><a name="999280"></a></p>
+  <p>There are four variables in the example in Figure 1 and the terms with the most
+  variables have 3 variables. If there is a term in a function with all four variables
+  present, all terms with three variables will be eliminated by WSSM. However, there may
+  still be terms with one variable that can combine with the two variable terms in more than
+  one way, which may give rise to more than one way of finding a solution. With five or more
+  variables one could expect lots of ways of finding multiple solutions at different levels.</p>
+  <p><a name="999548"></a><font face="Verdana, Arial, Helvetica, sans-serif"><img src="images/MultiExor4.gif" height="221" width="405" border="1" hspace="12" align="right" alt="Figure 4. Two solutions for the function in Figure 3."></font><a name="999694"></a><a name="999674"></a>Figure 4 shows the two results for this function. This figure shows an
+  interesting symmetry.</p>
+  <p><a name="999460"></a><a name="999323"></a>Both of the multiple solution examples given
+  here have two solutions both of which have the same complexity of terms. However, in
+  general there can be many solutions, particularly if there are many variables in the
+  function.</p>
+  <p>The majority function with three variables provides a case where there are four
+  solutions.</p>
+  <table border="0" width="199">
+    <tr>
+      <td width="24">i.e.</td>
+      <td width="25"><p align="right">f </td>
+      <td width="172">= ab + ac + bc</td>
+    </tr>
+    <tr>
+      <td width="24">1...</td>
+      <td width="25"></td>
+      <td width="172">= ab <font FACE="Symbol">�</font> ac <font FACE="Symbol">�</font> bc</td>
+    </tr>
+    <tr>
+      <td width="24">2...</td>
+      <td width="25"></td>
+      <td width="172">= ab' <font FACE="Symbol">�</font> ac' <font FACE="Symbol">�</font> bc</td>
+    </tr>
+    <tr>
+      <td width="24">3...</td>
+      <td width="25"></td>
+      <td width="172">= a'b <font FACE="Symbol">�</font> ac <font FACE="Symbol">�</font> bc'</td>
+    </tr>
+    <tr>
+      <td width="24">4...</td>
+      <td width="25"></td>
+      <td width="172">= ab <font FACE="Symbol">�</font> a'c <font FACE="Symbol">�</font> b'c</td>
+    </tr>
+  </table>
+  <p><img src="images/multiexor10.gif" alt="The 4 solutions for the majority function" align="right" hspace="12" WIDTH="339" HEIGHT="271">These solutions are most easily found by applying T12b in each
+  of the three possible ways, starting with the C2 form in the second line. The four
+  solutions are plotted in Figure 5.</p>
+  <p>When there are many terms in a minimised function with the same number of variables,
+  there is scope for T12b to create multiple solutions.</p>
+  <h3><small><a href="#top"><em><font FACE="Arial"><b><img src="top.gif" alt="Return to top" align="left" border="0" WIDTH="10" HEIGHT="12"></b></font></em></a><font color="#003366" face="Verdana, Arial, Helvetica, sans-serif">Conclusion</font></small> </h3>
+  <p><a name="999675"></a>This addendum has considered the question of multiple minimisation
+  solutions of ExOR functions and has shown how to recognise and find them.</p>
+  <p align="center"><a href="concept2.html"><img src="images/navprev.gif" alt="Go to ExOR 2" border="0" WIDTH="81" HEIGHT="23"></a></p>
+</blockquote>
+
+<hr>
+
+<p align="left">Link to a major source of references on ExOR logic. This should be your
+starting point if you wish to follow up the latest developments in this subject:</p>
+
+<p align="left"><a href="http://www.ee.pdx.edu/~mperkows/=REED-MULLER/bibliography.html">http://www.ee.pdx.edu/~mperkows/=REED-MULLER/bibliography.html</a></p>
+<font size="3">
+
+<hr align="left">
+
+<blockquote>
+  <h3><a name="999208"></a><font color="#003366" face="Verdana, Arial, Helvetica, sans-serif">My original list of references on ExOR logic</font></h3>
+  <font size="3"><p></font>The references that first got me interested in this subject are
+  all from the 1950s and early 1960s. I did my initial investigation of this subject in mid
+  1960s. There may have been other papers but I no longer have the details.</p>
+  <p></font><font size="2"><a name="999270"></a>1. Karnaugh, M. &quot;The Map Method for
+  Synthesis of Combinatorial Logic Circuits.&quot; A.I.E.E Trans., Part 1 Communications and
+  Electronics, Vol. 72 pp 593 - 599, November 1953.<br>
+  <a name="999210"></a>2. McCluskey, E.J. Jr. &quot;Minimization of Boolean Functions.&quot;
+  Bell System Tech. J., Vol. 35, No. 6, pp 1417 - 1444, November 1956.<br>
+  <a name="999211"></a>3. Muller, D.E. &quot;Application of Boolean Algebra to Switching
+  Circuit Design and to Error Detection.&quot; IRE Trans-Electronic Computers EC-3, pp 6 12,
+  September 1954.<br>
+  <a name="999212"></a>4. McNaughton, R. and Mitchel, B. &quot;The Minimality of Rectifier
+  Nets with Multiple Outputs Incompletely Specified.&quot; J. Franklin Inst. Vol. 264, pp
+  457 - 480, December 1957.<br>
+  <a name="999213"></a>5. Bartee, T.C. &quot;Computer Design of Multiple Output Logical
+  Networks.&quot; IRE Trans-Electronic Computers, Vol. EC-10, pp 21 - 30, March 1961.<br>
+  <a name="999214"></a>6. Huffman, D.A. &quot;The Synthesis of Linear Sequential Coding
+  Networks.&quot; Information Theory - Edited by C.E. Cherry, Butterworth Scientific
+  Publications 1956, pp 77 - 95.<br>
+  <a name="999215"></a>7. Curtiss, H.A. &quot;A New Approach to the Design of Switching
+  Circuits.&quot; D. van Nostrand Co. Inc., 1962.<br>
+  <a name="999234"></a>8. Bartee, T.C., I.L. Lebow and I.S. Reed, &quot;Theory and Design of
+  Digital Machines.&quot; McGraw-Hill Book Co. 1962.<br>
+  </font><font size="3"></p>
+</blockquote>
+
+<hr>
+
+<p>(Copyright) David N. Warren-Smith, CPENG</p>
+
+<p>Digital Logic Systems, South Australia</p>
+<div align="left">
+
+<pre><a href="mailto:dwsmith@senet.com.au"><font FACE="Arial">dwsmith@senet.com.au</font></a>            </pre>
+</div>
+
+<p>3 October 2000</p>
+</font>
+
+<h1 align="left"><small><small><small>[ <a href="concept3.html#top">Top for navigation menu</a>
+]</small></small></small></h1>
+
+<p align="left">&nbsp;</p>
+&nbsp;<!--msnavigation--></td></tr><!--msnavigation--></table></body>
+</html>

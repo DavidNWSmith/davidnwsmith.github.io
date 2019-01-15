@@ -1,0 +1,555 @@
+<html>
+
+<head>
+<title>AHDL Source</title>
+
+<script language="JavaScript1.2" src="menus/fw_menu.js"></script>
+
+
+
+
+
+</head>
+
+<body><!--msnavigation--><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+
+<h1 align="center"><font color="#FF0000"><big>Digital Logic Systems</big></font></h1>
+
+<p align="center">David N. Warren-Smith, CPEng. South Australia</p>
+</td></tr><!--msnavigation--></table><!--msnavigation--><table dir="ltr" border="0" cellpadding="0" cellspacing="0" width="100%"><tr><!--msnavigation--><td valign="top">
+
+<p><script language="JavaScript">
+<!-- hide this script from non-javascript-enabled browsers
+
+function fwLoadMenus() {
+    window.fw_menu_0_1 = new Menu("Digital Logic Systems",68,18,"Arial, Helvetica, sans-serif",11,"#990000","#ffffcc","#ffffcc","#990000");
+    fw_menu_0_1.addMenuItem("Home","location='index.html'");
+    fw_menu_0_1.addMenuItem("Articles","location='articles.html'");
+    fw_menu_0_1.addMenuItem("Links","location='links.html'");
+     fw_menu_0_1.fontWeight="bold";
+     fw_menu_0_1.hideOnMouseOut=true;
+    window.fw_menu_0_2 = new Menu("Bystanders &amp; Tutorials pages",189,18,"Arial, Helvetica, sans-serif",11,"#990000","#ffffcc","#ffffcc","#990000");
+    fw_menu_0_2.addMenuItem("Bystanders &amp; Beginners page","location='beginners.html'");
+    fw_menu_0_2.addMenuItem("Boolean Algebra - Page 1","location='boolean.html'");
+    fw_menu_0_2.addMenuItem("Boolean Algebra - Page 2","location='boolean2.html'");
+    fw_menu_0_2.addMenuItem("Intelligent Logic","location='async.html'");
+    fw_menu_0_2.addMenuItem("Relay Puzzle","location='relay.html'");
+    fw_menu_0_2.addMenuItem("Relay Puzzle figures","location='puzzle.html'");
+     fw_menu_0_2.fontWeight="bold";
+     fw_menu_0_2.hideOnMouseOut=true;
+    window.fw_menu_0_3 = new Menu("Practical Projects",244,18,"Arial, Helvetica, sans-serif",11,"#990000","#ffffcc","#ffffcc","#990000");
+    fw_menu_0_3.addMenuItem("Practical Projects - Printed Circuit Board","location='projectpcb.html'");
+    fw_menu_0_3.addMenuItem("Count Down Clock - AHDL code","location='project.html'");
+    fw_menu_0_3.addMenuItem("Count Down Clock - VHDL code","location='vhdl.html'");
+     fw_menu_0_3.fontWeight="bold";
+     fw_menu_0_3.hideOnMouseOut=true;
+    window.fw_menu_0_4 = new Menu("Exclusive-OR articles",195,18,"Arial, Helvetica, sans-serif",11,"#990000","#ffffcc","#ffffcc","#990000");
+    fw_menu_0_4.addMenuItem("Boolean Algebra revisited","location='boolean.html'");
+    fw_menu_0_4.addMenuItem("Part 1 - ExOR Theory","location='concept1.html'");
+    fw_menu_0_4.addMenuItem("Part 2 - Algebraic Simplification","location='concept2.html'");
+    fw_menu_0_4.addMenuItem("Part 3 - Multiple Solutions","location='concept3.html'");
+     fw_menu_0_4.fontWeight="bold";
+     fw_menu_0_4.hideOnMouseOut=true;
+  window.fw_menu_0 = new Menu("root",188,18,"Arial, Helvetica, sans-serif",11,"#990000","#ffffcc","#ffffcc","#990000");
+  fw_menu_0.addMenuItem(fw_menu_0_1);
+  fw_menu_0.addMenuItem(fw_menu_0_2);
+  fw_menu_0.addMenuItem(fw_menu_0_3);
+  fw_menu_0.addMenuItem(fw_menu_0_4);
+   fw_menu_0.fontWeight="bold";
+   fw_menu_0.hideOnMouseOut=true;
+   fw_menu_0.childMenuIcon="menus/arrows.gif";
+
+  fw_menu_0.writeMenus();
+} // fwLoadMenus()
+
+// stop hiding -->
+</script> <!--The following section is an image or HTML table which reassembles the sliced image in a browser.--> <script language="JavaScript1.2">fwLoadMenus();</script> </p>
+
+<table align="center" border="0" cellpadding="0" cellspacing="0" width="362">
+<!-- fwtable fwsrc="Navmenus.png" fwbase="menus/navmenus.gif" fwstyle="FrontPage" fwdocid = "742308039" fwnested=""1" -->
+  <tr>
+<!-- row 2 -->
+    <td><a href="#" onMouseOut="FW_startTimeout();" onMouseOver="window.FW_showMenu(window.fw_menu_0,25,95);"><img name="navmenus_r2_c1" src="menus/navmenus_r2_c1.gif" border="0" WIDTH="362" HEIGHT="30"></a></td>
+  </tr>
+<!--   This HTML was automatically created with Macromedia Fireworks 4.0   -->
+<!--   http://www.macromedia.com   -->
+</table>
+
+<h3 align="center">The AHDL source code for the Coundown Project</h3>
+
+<p align="left"><!--webbot bot="ImageMap" rectangle="(354,201) (485,217) #7-segment" rectangle="(167,202) (288,217) #Multiplexer" rectangle="(167,172) (279,189) #Divide+by+60" rectangle="(168,145) (280,160) #Divide+by+60" rectangle="(345,115) (466,130) #Debounce" rectangle="(166,114) (279,131) #Keypad+encoder" rectangle="(167,86) (288,101) #Debounce" rectangle="(167,56) (288,73) #Debounce" rectangle="(167,27) (288,44) #Debounce" rectangle="(8,29) (102,44) #Top+level+code" src="images/hdcdclk.gif" alt="Click on a function name to see the routine for the function" border="0" align="right" startspan --><MAP NAME="FrontPageMap"><AREA SHAPE="RECT" COORDS="354, 201, 485, 217" HREF="#7-segment"><AREA SHAPE="RECT" COORDS="167, 202, 288, 217" HREF="#Multiplexer"><AREA SHAPE="RECT" COORDS="167, 172, 279, 189" HREF="#Divide by 60"><AREA SHAPE="RECT" COORDS="168, 145, 280, 160" HREF="#Divide by 60"><AREA SHAPE="RECT" COORDS="345, 115, 466, 130" HREF="#Debounce"><AREA SHAPE="RECT" COORDS="166, 114, 279, 131" HREF="#Keypad encoder"><AREA SHAPE="RECT" COORDS="167, 86, 288, 101" HREF="#Debounce"><AREA SHAPE="RECT" COORDS="167, 56, 288, 73" HREF="#Debounce"><AREA SHAPE="RECT" COORDS="167, 27, 288, 44" HREF="#Debounce"><AREA SHAPE="RECT" COORDS="8, 29, 102, 44" HREF="#Top level code"></MAP><a href="_vti_bin/shtml.exe/project.htm/map"><img src="images/hdcdclk.gif" alt="Click on a function name to see the routine for the function" border="0" align="right" ismap width="515" height="263" usemap="#FrontPageMap"></a><!--webbot bot="ImageMap" endspan i-checksum="60849" -->The hierarchy display for this project is shown on the right. Click on
+any of the names in the hierarchy display to go directly to the routine associated with
+that name. Copy and paste the individual code segments and save as the file names given in
+the SUBDESIGN statements, with a .tdf extension. All code segments start with a TITLE
+statement and end with &quot;END;&quot;. The Windows Clipboard will filter out the HTML
+tags. Place all code segments in the same folder. Set the project name, assign an
+EPM7128SLC-84 device to the project and compile the top level code segment (first of the
+following listings). Use the floorplan editor to assign pins, using details given in the
+PCB instruction sheets, and recompile. Open the programmer window and download the code
+into the project PCB. The countdown clock is now ready to perform its functions. Note that
+I have attempted to align the code in these listings for readability but your browser (or
+the clipboard) may alter my spacing and result in some unintended misalignments.</p>
+
+<h3 align="center"><a name="Top level code"></a><a href="#top"><img src="top.gif" alt="Top" border="0" WIDTH="10" HEIGHT="12"></a> The top level code for the Countdown Clock</h3>
+
+<pre>Title &quot;Count Down clock exercise&quot;;
+-- Written by: D. N. Warren-Smith, CPEng
+-- 17 August 1999
+--
+-- The count down clock will count down minutes and seconds.
+-- When zero is reached the count down clock will beep and count upwards.
+--
+-- Key Control Functions
+-- First key&nbsp;&nbsp;&nbsp; = Load and run new Start Value
+-- Second key&nbsp;&nbsp; = Start/Stop/Pause
+-- Third key&nbsp;&nbsp;&nbsp; = Toggle display
+-- &quot;D&quot; keyboard = Switch to Countdown display
+-- &quot;E&quot; keyboard = Backspace input display
+-- &quot;F&quot; keyboard = Clear input display
+-- Restart on zero with Dip switch 1 ON
+-- Buzzer disabled with Dip switch 8 ON </pre>
+
+<pre>FUNCTION DEBOUNCE (Clk, Key) RETURNS (pulse);
+FUNCTION HEXKBDA (clk, reset, row[3..0])
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RETURNS (col[3..0], strobe, shift[15..0]);
+FUNCTION DIV60A (clock, reset, cin, set, dir, uin[3..0], tin[2..0])
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RETURNS (cout, u[3..0], t[2..0]);
+FUNCTION DISPLAY (512hz, dispreg, A[15..0], B[15..0])
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RETURNS (seg[6..0], driv[3..0]);
+FUNCTION OPNDRN (in) RETURNS (out); </pre>
+
+<pre>SUBDESIGN CDCLOCK2
+(
+clock, reset : INPUT;&nbsp; -- 1024 Hz from 4060B
+plus_key&nbsp;&nbsp;&nbsp;&nbsp; : INPUT;&nbsp; -- first push button key
+minus_key&nbsp;&nbsp;&nbsp; : INPUT;&nbsp; -- second push button key
+clear_key&nbsp;&nbsp;&nbsp; : INPUT;&nbsp; -- third push button key
+512Hz&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : INPUT;&nbsp; -- multiplexer clock
+row[3..0]&nbsp;&nbsp;&nbsp; : INPUT;&nbsp; -- Sense rows
+dip[4..1]&nbsp;&nbsp;&nbsp; : INPUT;&nbsp; -- DIP switches
+dip8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : INPUT;&nbsp; -- DIP switch 8
+sparein&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : INPUT;&nbsp; -- Spare input not used
+col[3..0]&nbsp;&nbsp;&nbsp; : OUTPUT; -- drive columns low
+dr[4..1]&nbsp;&nbsp;&nbsp;&nbsp; : OUTPUT; -- transistor driver signals
+s[6..0]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : OUTPUT; -- 7-segment outputs
+dp[4..1]&nbsp;&nbsp;&nbsp;&nbsp; : OUTPUT; -- decimal point LEDs
+buz&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : OUTPUT; -- piezo buzzer
+led&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : OUTPUT; -- separate LED
+startreg&nbsp;&nbsp;&nbsp;&nbsp; : OUTPUT; -- Temp for test
+dispreg&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : OUTPUT; -- Temp for test
+)
+VARIABLE
+start&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : soft;
+set&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : soft;
+strobe&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : soft;
+toggle&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : soft;
+usec[3..0]&nbsp;&nbsp; : node;
+tsec[2..0]&nbsp;&nbsp; : node;
+umin[3..0]&nbsp;&nbsp; : node;
+tmin[2..0]&nbsp;&nbsp; : node;
+csout&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : soft;
+restart&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : soft;&nbsp;&nbsp; -- Restart on zero
+dir&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : dff;&nbsp;&nbsp;&nbsp; -- count direction, 0 = down, 1 = up
+zerom1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : lcell;&nbsp; -- zero minus 1
+zero&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : lcell;&nbsp; -- counted down to zero
+zerop1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : dff;&nbsp;&nbsp;&nbsp; -- zero plus 1
+alarm[1..0]&nbsp; : dff;&nbsp;&nbsp;&nbsp; -- indicate zero reached
+shift[15..0] : node;&nbsp;&nbsp; -- input shift register for display
+time[15..0]&nbsp; : node;&nbsp;&nbsp; -- count down time display
+pre&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : soft;&nbsp;&nbsp; -- prescaler counter at zero
+prect[9..0]&nbsp; : dff;&nbsp;&nbsp;&nbsp; -- prescaler counter
+dispreg&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : dff;&nbsp;&nbsp;&nbsp; -- determine which display required
+startreg&nbsp;&nbsp;&nbsp;&nbsp; : tff;&nbsp;&nbsp;&nbsp; -- set when counting down started
+col[3..0]&nbsp;&nbsp;&nbsp; : OPNDRN; -- column drivers tri-stated </pre>
+
+<pre>BEGIN
+-- Debounce the start/stop, set and toggle keys
+start&nbsp; = debounce(clock, minus_key);&nbsp; -- 2nd push button
+set&nbsp;&nbsp;&nbsp; = debounce(clock, plus_key);&nbsp;&nbsp; -- 1st push button
+toggle = debounce(clock, clear_key);&nbsp; -- 3rd push button </pre>
+
+<pre>-- Prescaler counter
+prect[].clk&nbsp; = clock;
+prect[].clrn = reset &amp; !set &amp; startreg;
+prect[]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = prect[] + 1;
+pre&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = (prect[] == H&quot;3ff&quot;); </pre>
+
+<pre>-- Connect up the hex keypad
+(col[3..0], strobe, shift[15..0]) = HEXKBDA (clock, reset, row[3..0]); </pre>
+
+<pre>-- Start the countdown
+startreg.clk&nbsp; = clock;
+startreg.clrn = reset;
+startreg.t&nbsp;&nbsp;&nbsp; = start; </pre>
+
+<pre>-- restart on zero or set option
+restart = set # zerop1 &amp; !dip1; </pre>
+
+<pre>-- Count down circuits
+(csout, usec[3..0], tsec[2..0]) = DIV60A (clock, reset, startreg &amp; pre,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp; restart, dir, shift[3..0], shift[6..4]);
+( , umin[3..0], tmin[2..0])&nbsp;&nbsp;&nbsp;&nbsp; = DIV60A (clock, reset, csout, restart,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; dir, shift[11..8], shift[14..12]);
+time[] = (0, tmin[2..0], umin[3..0], 0, tsec[2..0], usec[3..0]); </pre>
+
+<pre>-- Count down at zero
+zerom1 = (tmin[] == 0) &amp; (umin[] == 0) &amp; -- zero minus 1
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (tsec[] == 0) &amp; (usec[] == 1) &amp; dir;
+zero&nbsp;&nbsp; = (tmin[] == 0) &amp; (umin[] == 0) &amp; -- at zero
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (tsec[] == 0) &amp; (usec[] == 0);
+zerop1.clk&nbsp; = clock;
+zerop1.clrn = reset;
+zerop1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = zero &amp; pre; </pre>
+
+<pre>-- Set the count direction, 0 = count up, 1 = count down
+dir.clk&nbsp; = clock;
+dir.clrn = reset;
+IF&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; set THEN dir = VCC;
+ELSIF zero &amp; dip1 THEN dir = GND;
+ELSE &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; dir = dir;
+END IF; </pre>
+
+<pre>-- Determine the display required
+-- dispreg low = Display Time, dispreg high = Display input register
+dispreg.clk = clock;
+IF&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; toggle THEN dispreg = dispreg $ VCC;
+ELSIF start # set THEN dispreg = GND;
+ELSIF&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; strobe THEN dispreg = VCC;
+ELSE &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; dispreg = dispreg;
+END IF; </pre>
+
+<pre>-- Setup the display circuits
+(s[], dr[]) = DISPLAY (512hz, dispreg, time[], shift[]); </pre>
+
+<pre>-- Indicate that zero has been reached
+alarm[].clk&nbsp; = clock;
+alarm[].clrn = reset;
+IF &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; set THEN alarm[] = 0;
+ELSIF&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; zerom1 &amp; pre THEN alarm[] = 1;
+ELSIF (alarm[] != 0) &amp; pre THEN alarm[] = alarm[] + 1;
+ELSE &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; alarm[] = alarm[];
+END IF; </pre>
+
+<pre>-- Activate buzzer when zero reached
+buz&nbsp;&nbsp;&nbsp; = startreg &amp; (alarm[] != 0) &amp; dip8
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &amp; (!prect9 # !prect8 &amp; !prect7) &amp; !prect6; </pre>
+
+<pre>-- Connect unused inputs and outputs for compatibility
+led&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = startreg;
+dp1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = !dispreg;
+dp2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = dispreg;
+dp[4..3] = !(dip2 &amp; dip3 &amp; dip4 &amp; sparein); </pre>
+
+<pre>END;</pre>
+
+<h3 align="center"><a name="Debounce"></a><a name="Top level code"></a><a href="#top"><img src="top.gif" alt="Top" border="0" WIDTH="10" HEIGHT="12"></a> The debounce Circuit</h3>
+
+<pre>Title &quot;Key debounce circuit&quot;;
+-- Written by: D. N. Warren-Smith, CPEng
+SUBDESIGN DEBOUNCE
+(
+Clk&nbsp;&nbsp; : INPUT;
+Key&nbsp;&nbsp; : INPUT;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -- active low input
+pulse : OUTPUT;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -- output on count of 2
+)
+VARIABLE
+cnt[1..0] : DFF;
+BEGIN
+cnt[].clk&nbsp; = clk;
+cnt[].clrn = !key;&nbsp;&nbsp; -- clear during contact bounce
+IF (cnt[] &lt;= 2) &amp; !key THEN cnt[] = cnt[] + 1;
+ELSE &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cnt[] = cnt[];
+END IF;
+pulse = (cnt[] == 2);&nbsp; -- accept key on count of 2
+END; </pre>
+
+<h3 align="center"><a name="Keypad encoder"></a><a name="Top level code"></a><a href="#top"><img src="top.gif" alt="Top" border="0" WIDTH="10" HEIGHT="12"></a> The Keypad encoder circuit</h3>
+
+<pre>Title &quot;Keypad encoder circuit&quot;;
+-- Written by: D. N. Warren-Smith, CPEng
+-- Keypad scanning circuit
+-- Keys A to F special functions
+FUNCTION debounce (clk, key) RETURNS (pulse);
+SUBDESIGN hexkbda
+(
+clk&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : INPUT;&nbsp; -- Clock source on global input
+reset&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : INPUT;&nbsp; -- Reset on global input
+row[3..0]&nbsp;&nbsp;&nbsp; : INPUT;&nbsp; -- Sense keypad rows
+col[3..0]&nbsp;&nbsp;&nbsp; : OUTPUT; -- Drive columns
+strobe&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : OUTPUT; -- key pressed
+shift[15..0] : OUTPUT; -- Shift register output
+)
+VARIABLE
+key_pressed&nbsp; : soft;&nbsp;&nbsp; -- High when a key pressed
+mat[3..0]&nbsp;&nbsp;&nbsp; : soft;&nbsp;&nbsp; -- key conversion matrix
+d[3..0]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : DFF;&nbsp;&nbsp;&nbsp; -- Control counter
+inp0[3..0]&nbsp;&nbsp; : DFF;&nbsp;&nbsp;&nbsp; -- First stage of shift register
+inp1[3..0]&nbsp;&nbsp; : DFF;&nbsp;&nbsp;&nbsp; -- Second stage of shift register
+inp2[3..0]&nbsp;&nbsp; : DFF;&nbsp;&nbsp;&nbsp; -- Third stage of shift register
+inp3[3..0]&nbsp;&nbsp; : DFF;&nbsp;&nbsp;&nbsp; -- Fourth stage of shift register
+shift[15..0] : soft;&nbsp;&nbsp; -- combined shift register output
+strobe&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : soft;&nbsp;&nbsp; -- valid keypress sensed </pre>
+
+<pre>BEGIN
+-- Column drivers, active low
+col0 = !(d[3..2] == 0);
+col1 = !(d[3..2] == 1);
+col2 = !(d[3..2] == 2);
+col3 = !(d[3..2] == 3);
+</pre>
+
+<pre>-- Sense keyboard rows with a multiplexer
+key_pressed = !row3 &amp; ((d1,d0) == 3) # !row2 &amp; ((d1,d0) == 2)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # !row1 &amp; ((d1,d0) == 1) # !row0 &amp; ((d1,d0) == 0);
+-- muxout&nbsp;&nbsp; = !key_pressed;&nbsp;&nbsp;&nbsp;&nbsp; -- Used for simulation only </pre>
+
+<pre>-- Scan the keyboard until a key is pressed
+d[].clk = clk;
+IF !key_pressed THEN d[] = d[] + 1;
+ELSE &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; d[] = d[];
+END IF; </pre>
+
+<pre>-- Generate strobe when key press has settled
+strobe = debounce(clk, !key_pressed); </pre>
+
+<pre>-- The key scan matrix
+TABLE
+d[]&nbsp; =&gt; mat[];
+H&quot;0&quot; =&gt; H&quot;1&quot;;
+H&quot;1&quot; =&gt; H&quot;4&quot;;
+H&quot;2&quot; =&gt; H&quot;7&quot;;
+H&quot;3&quot; =&gt; H&quot;F&quot;;
+H&quot;4&quot; =&gt; H&quot;2&quot;;
+H&quot;5&quot; =&gt; H&quot;5&quot;;
+H&quot;6&quot; =&gt; H&quot;8&quot;;
+H&quot;7&quot; =&gt; H&quot;0&quot;;
+H&quot;8&quot; =&gt; H&quot;3&quot;;
+H&quot;9&quot; =&gt; H&quot;6&quot;;
+H&quot;A&quot; =&gt; H&quot;9&quot;;
+H&quot;B&quot; =&gt; H&quot;E&quot;;
+H&quot;C&quot; =&gt; H&quot;A&quot;;
+H&quot;D&quot; =&gt; H&quot;B&quot;;
+H&quot;E&quot; =&gt; H&quot;C&quot;;
+H&quot;f&quot; =&gt; H&quot;D&quot;;
+END TABLE; </pre>
+
+<pre>-- The data shift register circuit
+inp0[].clk&nbsp; = clk;
+inp0[].clrn = reset;
+inp1[].clk&nbsp; = clk;
+inp1[].clrn = reset;
+inp2[].clk&nbsp; = clk;
+inp2[].clrn = reset;
+inp3[].clk&nbsp; = clk;
+inp3[].clrn = reset; </pre>
+
+<pre>-- F (*) clear input register, E (#) Backspace input register
+-- key 0 to 9 = enter digit from right
+-- any key A to C switches the display but does not input
+IF&nbsp;&nbsp;&nbsp; strobe &amp; (mat[] == 15) THEN inp0[] = 0; &nbsp;&nbsp;&nbsp;&nbsp; inp1[] = 0;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; inp2[] = 0;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; inp3[] = 0;
+ELSIF strobe &amp; (mat[] == 14) THEN inp0[] = inp1[]; inp1[] = inp2[];
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; inp2[] = inp3[]; inp3[] = 0;
+ELSIF strobe &amp; (mat[] &lt;= 9)&nbsp; THEN inp0[] =&nbsp; mat[]; inp1[] = inp0[];
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; inp2[] = inp1[]; inp3[] = inp2[];
+ELSE &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; inp0[] = inp0[]; inp1[] = inp1[];
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; inp2[] = inp2[]; inp3[] = inp3[];
+END IF; </pre>
+
+<pre>-- Combine shift register into one statement
+shift[] = (inp3[], inp2[], inp1[], inp0[]);
+END; </pre>
+
+<h3 align="center"><a name="Divide by 60"></a><a name="Top level code"></a><a href="#top"><img src="top.gif" alt="Top" border="0" WIDTH="10" HEIGHT="12"></a> Divide by 60 counter</h3>
+
+<pre>TITLE &quot;Divide by 60 counter.&quot;;
+%
+File: div60A.tdf
+Date:&nbsp;&nbsp;&nbsp; 18 Aug 1995
+Updated: 17 Aug 1999
+Prepared by: D. N. Warren-Smith, CPEng
+This version of DIV60 does: Parallel set instead of increment set
+%
+SUBDESIGN DIV60A
+(
+clock, reset,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -- global clock and reset
+cin&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : input;&nbsp; -- carry in
+set&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : input;&nbsp; -- run : (set = 0), set : (set = 1)
+dir&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : input;&nbsp; -- 0 = count up, 1 = count down
+uin[3..0]&nbsp;&nbsp;&nbsp; : input;&nbsp; -- units to load
+tin[2..0]&nbsp;&nbsp;&nbsp; : input;&nbsp; -- tens to load
+cout&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : output; -- carry out
+u[3..0]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : output; -- Units output
+t[2..0]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : output; -- Tens output
+)
+VARIABLE
+u[3..0],
+t[2..0]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : DFF;
+car&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : SOFT;
+BEGIN
+car = cin &amp; !set; </pre>
+
+<pre>u[].clk&nbsp; = CLOCK;
+u[].clrn = reset;
+IF&nbsp;&nbsp;&nbsp; set &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; then u[] = uin[];
+ELSIF car &amp; dir &amp; (u[] == 0)&nbsp; then u[] = 9;
+ELSIF car &amp; dir &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; then u[] = u[] - 1;
+ELSIF car &amp; !dir &amp; (u[] == 9) then u[] = 0;
+ELSIF car &amp; !dir &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; then u[] = u[] + 1;
+ELSE &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; u[] = u[];
+END IF; </pre>
+
+<pre>t[].clk&nbsp; = CLOCK;
+t[].clrn = reset;
+IF&nbsp;&nbsp;&nbsp; set &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; then t[] = tin[];
+ELSIF car &amp; dir &amp; (t[] == 0) &amp; (u[] == 0)&nbsp; then t[] = 5;
+ELSIF car &amp; dir &amp; (u[] == 0) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; then t[] = t[] - 1;
+ELSIF car &amp; !dir &amp; (t[] == 5) &amp; (u[] == 9) then t[] = 0;
+ELSIF car &amp; !dir &amp; (u[] == 9) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; then t[] = t[] + 1;
+ELSE &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; t[] = t[];
+END IF; </pre>
+
+<pre>cout = (u[] == 0) &amp; (t[] == 0) &amp; cin &amp; !set &amp; dir #
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (u[] == 9) &amp; (t[] == 5) &amp; cin &amp; !set &amp; !dir;
+END;</pre>
+
+<h3 align="center"><a name="Multiplexer"></a><a name="Top level code"></a><a href="#top"><img src="top.gif" alt="Top" border="0" WIDTH="10" HEIGHT="12"></a> Display Multiplexer circuits</h3>
+
+<pre>Title &quot; Multiplexer circuits&quot;;
+%
+File: DISPLAY.TDF
+Updated: 2 July 1996
+Written by: D. N. Warren-Smith, CPEng
+%
+FUNCTION 7SEG (d[3..0]) RETURNS (s[6..0]);
+SUBDESIGN DISPLAY
+(
+512hz&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : INPUT;&nbsp; -- Multiplexer clock
+dispreg&nbsp;&nbsp;&nbsp; : INPUT;&nbsp; -- Display register, 0=A, 1=B
+A[15..0]&nbsp;&nbsp; : INPUT;&nbsp; -- Register A
+B[15..0]&nbsp;&nbsp; : INPUT;&nbsp; -- Register B
+seg[6..0]&nbsp; : OUTPUT; -- 7-segment output
+driv[3..0] : OUTPUT; -- drivers for multip/r transistors
+)
+VARIABLE
+mul[1..0] : tff;&nbsp;&nbsp; -- Multiplexer clock source
+7segdis&nbsp;&nbsp; : 7SEG;&nbsp; -- A variable to convert to 7 seg
+mx[15..0] : node;&nbsp; -- 1st level multiplexer outputs
+d7[3..0]&nbsp; : lcell; -- 2nd level multiplexer outputs
+BEGIN
+-- Multiplexer clock source
+mul[].clk = 512hz;
+mul[].t&nbsp;&nbsp; = (mul0.q, vcc); -- Divide by 4 counter </pre>
+
+<pre>-- First level Multip/r combines A and B register inputs
+mx[] = !dispreg &amp; A[] # dispreg &amp; B[]; </pre>
+
+<pre>-- Second level Multiplexers combine 4 digits for display
+d7[] = (mul[] == 0) &amp; mx[3..0] #
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (mul[] == 1) &amp; mx[7..4] #
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (mul[] == 2) &amp; mx[11..8] #
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (mul[] == 3) &amp; mx[15..12]; </pre>
+
+<pre>7segdis.d[] = d7[];&nbsp; -- Apply multi/r sigs to 7-seg decoder
+seg[] = 7segdis.s[]; -- Connect decoder to outputs
+-- 0 = seg-a, 1 = seg-b etc. </pre>
+
+<pre>-- Decode m/p driver counter for common anode tr. Drivers
+driv0 = !(mul[] == 0); -- Active low outputs
+driv1 = !(mul[] == 1);
+driv2 = !(mul[] == 2);
+driv3 = !(mul[] == 3);
+END; </pre>
+
+<h3 align="center"><big><a name="Top level code"></a><a href="#top"><img src="top.gif" alt="Top" border="0" WIDTH="10" HEIGHT="12"></a> </big><a name="7-segment">7-segment</a> display driver circuit</h3>
+
+<pre>Title &quot;7 segment display driver circuit&quot;;
+-- D. N. Warren-Smith, CPEng
+SUBDESIGN 7SEG
+(
+D[3..0] : INPUT;&nbsp; -- BCD input
+S[6..0] : OUTPUT; -- 7 segment outputs
+)
+BEGIN
+TABLE
+% Inputs =&gt; g,f,e,d,c,b,a (Outputs)
+------ ----------------------- %
+d[3..0] =&gt; s[6..0];
+H&quot;0&quot; =&gt; B&quot;1000000&quot;; -- H&quot;40&quot;
+H&quot;1&quot; =&gt; B&quot;1111001&quot;; -- H&quot;79&quot;
+H&quot;2&quot; =&gt; B&quot;0100100&quot;; -- H&quot;24&quot;
+H&quot;3&quot; =&gt; B&quot;0110000&quot;; -- H&quot;30&quot;
+H&quot;4&quot; =&gt; B&quot;0011001&quot;; -- H&quot;19&quot;
+H&quot;5&quot; =&gt; B&quot;0010010&quot;; -- H&quot;12&quot;
+H&quot;6&quot; =&gt; B&quot;0000010&quot;; -- H&quot;02&quot;
+H&quot;7&quot; =&gt; B&quot;1111000&quot;; -- H&quot;78&quot;
+H&quot;8&quot; =&gt; B&quot;0000000&quot;; -- H&quot;00&quot;
+H&quot;9&quot; =&gt; B&quot;0010000&quot;; -- H&quot;10&quot;
+H&quot;A&quot; =&gt; B&quot;0001000&quot;; -- H&quot;08&quot;
+H&quot;B&quot; =&gt; B&quot;0000011&quot;; -- H&quot;03&quot;
+H&quot;C&quot; =&gt; B&quot;1000110&quot;; -- H&quot;46&quot;
+H&quot;D&quot; =&gt; B&quot;0100001&quot;; -- H&quot;21&quot;
+H&quot;E&quot; =&gt; B&quot;0000110&quot;; -- H&quot;06&quot;
+H&quot;F&quot; =&gt; B&quot;0001110&quot;; -- H&quot;0E&quot;
+END TABLE;
+END;</pre>
+
+<h3><a href="#top"><img src="top.gif" alt="Top" border="0" WIDTH="10" HEIGHT="12"></a>End of AHDL code</h3>
+
+<p align="left"><font color="#804040">Return to Project Board page <em><strong>OR</strong></em>
+Navigation menu at the top of the page <em><strong>OR</strong></em> continue with VHDL
+Source code:</font></p>
+
+<p><script language="JavaScript">
+<!-- hide this script from non-javascript-enabled browsers
+
+/* Functions that finds images. */
+function MM_findObj(n, d) { //v3.0
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document); return x;
+}
+/* Functions that swaps images. */
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+// stop hiding -->
+</script> <!--The following section is an image or HTML table which reassembles the sliced image in a browser.--> </p>
+
+<table align="center" border="0" cellpadding="0" cellspacing="0" width="120">
+<!-- fwtable fwsrc="BackFor.png" fwbase="backfor.gif" fwstyle="FrontPage" fwdocid = "742308039" fwnested=""1" -->
+  <script language="JavaScript">
+  <!-- hide 
+  if (document.images) {
+  backfor_r1_c1_f2 = new Image(40 ,40); backfor_r1_c1_f2.src = "menus/backfor_r1_c1_f2.gif";
+  backfor_r1_c1_f1 = new Image(40 ,40); backfor_r1_c1_f1.src = "menus/backfor_r1_c1.gif";
+  backfor_r1_c2_f2 = new Image(40 ,40); backfor_r1_c2_f2.src = "menus/backfor_r1_c2_f2.gif";
+  backfor_r1_c2_f1 = new Image(40 ,40); backfor_r1_c2_f1.src = "menus/backfor_r1_c2.gif";
+  backfor_r1_c3_f2 = new Image(40 ,40); backfor_r1_c3_f2.src = "menus/backfor_r1_c3_f2.gif";
+  backfor_r1_c3_f1 = new Image(40 ,40); backfor_r1_c3_f1.src = "menus/backfor_r1_c3.gif";
+  }
+  // stop hiding -->
+  </script>
+
+  <tr>
+<!-- row 1 -->
+    <td align="center"><a onMouseOut="MM_swapImgRestore();" onMouseOver="MM_swapImage('backfor_r1_c1','','menus/backfor_r1_c1_f2.gif',1);" href="projectpcb.html"><img name="backfor_r1_c1" src="menus/backfor_r1_c1.gif" border="0" WIDTH="40" HEIGHT="40"></a></td>
+    <td align="center"><a onMouseOut="MM_swapImgRestore();" onMouseOver="MM_swapImage('backfor_r1_c2','','menus/backfor_r1_c2_f2.gif',1);" href="#top"><img name="backfor_r1_c2" src="menus/backfor_r1_c2.gif" border="0" WIDTH="40" HEIGHT="40"></a></td>
+    <td align="center"><a onMouseOut="MM_swapImgRestore();" onMouseOver="MM_swapImage('backfor_r1_c3','','menus/backfor_r1_c3_f2.gif',1);" href="vhdl.html"><img name="backfor_r1_c3" src="menus/backfor_r1_c3.gif" border="0" WIDTH="40" HEIGHT="40"></a></td>
+  </tr>
+<!--   This HTML was automatically created with Macromedia Fireworks 4.0   -->
+<!--   http://www.macromedia.com   -->
+</table>
+
+<p align="left">Copyright D.N. Warren-Smith, CPEng. Digital Logic Systems</p>
+
+  <font color="#FF0000">Last
+edited: <!--webbot bot="Timestamp" S-Type="EDITED" S-Format="%d %B, %Y" startspan -->28 January, 2002<!--webbot bot="Timestamp" endspan i-checksum="38454" --></font> 
+<!--msnavigation--></td></tr><!--msnavigation--></table></body>
+</html>

@@ -1,0 +1,847 @@
+<html>
+
+<head>
+
+<title>Boolean Algebra in terms of the exclusive-OR operator - 2</title>
+<script language="JavaScript1.2" src="menus/fw_menu.js"></script>
+
+
+
+
+
+</head>
+
+<body topmargin="0" leftmargin="12" marginheight="0" marginwidth="0" bgcolor="#e6e6e6" text="#000000"><!--msnavigation--><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+
+<h1 align="center"><font color="#FF0000"><big>Digital Logic Systems</big></font></h1>
+
+<p align="center">David N. Warren-Smith, CPEng. South Australia</p>
+</td></tr><!--msnavigation--></table><!--msnavigation--><table dir="ltr" border="0" cellpadding="0" cellspacing="0" width="100%"><tr><!--msnavigation--><td valign="top">
+
+<p><script language="JavaScript">
+<!-- hide this script from non-javascript-enabled browsers
+
+function fwLoadMenus() {
+    window.fw_menu_0_1 = new Menu("Digital Logic Systems",68,18,"Arial, Helvetica, sans-serif",11,"#990000","#ffffcc","#ffffcc","#990000");
+    fw_menu_0_1.addMenuItem("Home","location='index.html'");
+    fw_menu_0_1.addMenuItem("Articles","location='articles.html'");
+    fw_menu_0_1.addMenuItem("Links","location='links.html'");
+     fw_menu_0_1.fontWeight="bold";
+     fw_menu_0_1.hideOnMouseOut=true;
+    window.fw_menu_0_2 = new Menu("Bystanders &amp; Tutorials pages",189,18,"Arial, Helvetica, sans-serif",11,"#990000","#ffffcc","#ffffcc","#990000");
+    fw_menu_0_2.addMenuItem("Bystanders &amp; Beginners page","location='beginners.html'");
+    fw_menu_0_2.addMenuItem("Boolean Algebra - Page 1","location='boolean.html'");
+    fw_menu_0_2.addMenuItem("Boolean Algebra - Page 2","location='boolean2.html'");
+    fw_menu_0_2.addMenuItem("Intelligent Logic","location='async.html'");
+    fw_menu_0_2.addMenuItem("Relay Puzzle","location='relay.html'");
+    fw_menu_0_2.addMenuItem("Relay Puzzle figures","location='puzzle.html'");
+     fw_menu_0_2.fontWeight="bold";
+     fw_menu_0_2.hideOnMouseOut=true;
+    window.fw_menu_0_3 = new Menu("Practical Projects",244,18,"Arial, Helvetica, sans-serif",11,"#990000","#ffffcc","#ffffcc","#990000");
+    fw_menu_0_3.addMenuItem("Practical Projects - Printed Circuit Board","location='projectpcb.html'");
+    fw_menu_0_3.addMenuItem("Count Down Clock - AHDL code","location='project.html'");
+    fw_menu_0_3.addMenuItem("Count Down Clock - VHDL code","location='vhdl.html'");
+     fw_menu_0_3.fontWeight="bold";
+     fw_menu_0_3.hideOnMouseOut=true;
+    window.fw_menu_0_4 = new Menu("Exclusive-OR articles",195,18,"Arial, Helvetica, sans-serif",11,"#990000","#ffffcc","#ffffcc","#990000");
+    fw_menu_0_4.addMenuItem("Boolean Algebra revisited","location='boolean.html'");
+    fw_menu_0_4.addMenuItem("Part 1 - ExOR Theory","location='concept1.html'");
+    fw_menu_0_4.addMenuItem("Part 2 - Algebraic Simplification","location='concept2.html'");
+    fw_menu_0_4.addMenuItem("Part 3 - Multiple Solutions","location='concept3.html'");
+     fw_menu_0_4.fontWeight="bold";
+     fw_menu_0_4.hideOnMouseOut=true;
+  window.fw_menu_0 = new Menu("root",188,18,"Arial, Helvetica, sans-serif",11,"#990000","#ffffcc","#ffffcc","#990000");
+  fw_menu_0.addMenuItem(fw_menu_0_1);
+  fw_menu_0.addMenuItem(fw_menu_0_2);
+  fw_menu_0.addMenuItem(fw_menu_0_3);
+  fw_menu_0.addMenuItem(fw_menu_0_4);
+   fw_menu_0.fontWeight="bold";
+   fw_menu_0.hideOnMouseOut=true;
+   fw_menu_0.childMenuIcon="menus/arrows.gif";
+
+  fw_menu_0.writeMenus();
+} // fwLoadMenus()
+
+// stop hiding -->
+</script> <!--The following section is an image or HTML table which reassembles the sliced image in a browser.--> <script language="JavaScript1.2">fwLoadMenus();</script> </p>
+
+<table align="center" border="0" cellpadding="0" cellspacing="0" width="362">
+<!-- fwtable fwsrc="Navmenus.png" fwbase="menus/navmenus.gif" fwstyle="FrontPage" fwdocid = "742308039" fwnested=""1" -->
+  <tr>
+<!-- row 2 -->
+    <td><a href="#" onMouseOut="FW_startTimeout();" onMouseOver="window.FW_showMenu(window.fw_menu_0,25,95);"><img name="navmenus_r2_c1" src="menus/navmenus_r2_c1.gif" border="0" WIDTH="362" HEIGHT="30"></a></td>
+  </tr>
+<!--   This HTML was automatically created with Macromedia Fireworks 4.0   -->
+<!--   http://www.macromedia.com   -->
+</table>
+
+<h3>Boolean algebra in terms of the exclusive-OR operator - Part 2<strong> (revised
+October 2000)</strong> </h3>
+
+<ul type="circle">
+  <b>
+  <li><a href="#Introduction">Introduction</a></li>
+  <li><a href="#Summary">Summary of the theorems for the exclusive-OR operator</a></li>
+  <li><a href="#Canonical">Canonical forms</a></li>
+  <li><a href="#The algebraic">The algebraic simplification of the exclusive-OR form</a></li>
+  <li><a href="#The chart">The chart method of finding C2 from C1</a></li>
+  <li><a href="#The simplification">The simplification process</a></li>
+  <li></b><strong><a href="#Recomb">Recombination identities</a></strong><b></li>
+  <li><a href="#Another">Another example and alternative expressions</a></li>
+  <li><a href="#The treatment">The treatment of redundancies with the algebraic simplification
+    procedure</a></li>
+  <li><a href="#Conclusion">Conclusion</a></li>
+  </b>
+</ul>
+
+<p><em><small><font FACE="Arial"><b><small>Note: You can use this list of contents and the
+symbols </small><img src="top.gif" alt="Return to top" WIDTH="10" HEIGHT="12"><small>and </small><img src="up.gif" alt="Move up 1 section" WIDTH="11" HEIGHT="14"><small>to navigate through this document.</small></b></font></small></em></p>
+
+<p><font FACE="Arial"><b><a href="#top"><img src="top.gif" alt="Top" align="left" border="0" WIDTH="10" HEIGHT="12"></a><a name="Introduction">Introduction</a></b></font></p>
+
+<p>In part 1 of this paper I presented the theorems of the exclusive-OR algebra, that is
+Boolean algebra based on the exclusive-OR (ExOR) and AND operators, and demonstrated that
+this algebra is a complete Boolean algebra in its own right and has useful applications
+for the design of digital circuits and CPLDs. I also showed how to use a conventional
+Karnaugh map, or K-map, to deal with this algebra. In this article I will continue my
+assertion that exclusive-OR algebra has the required methods for simplification that are
+necessary to make this algebra convenient and useful for the design of digital circuits.</p>
+
+<p>Part 1 of this paper describes all the preliminary requirements for understanding the
+content of this paper. You should refer back to that if you are unsure of these details. I
+have reproduced the list of theorems of ExOR algebra and the canonical forms here for
+reference. The figure numbers in this paper continue on from the figure numbers in Part 1
+as posted in these pages. The figure numbers are not continuous with the &quot;New
+Logic&quot; article figure numbers.</p>
+
+<p>In this article I describe my approach to the simplification of ExOR functions. Over
+recent years a number of alternative approaches have been described in the literature. To
+a large extent my approach has been independent of this literature. Consequently my
+terminology may differ slightly from current practise. Most of this literature is intended
+for the use of specialists and it is clear that there is a great deal of interest and
+research going on in this field. A link to a comprehensive source of this literature is in
+Part 3 of these pages. My articles on this subject are not specifically intended for
+specialists and I have endeavoured to make them readable rather than concise.</p>
+
+<p>The method I describe is readily useable, for working with paper and pencil, for up to
+6 variables. You may need a bit of practice with it before you get up to speed with it.</p>
+<font FACE="Arial"><b><i>
+
+<p></i><a href="#top"><img src="top.gif" alt="Top" align="left" border="0" WIDTH="10" HEIGHT="12"></a><a href="#Introduction"><img src="up.gif" alt="Up 1" align="left" border="0" WIDTH="11" HEIGHT="14"></a><i><a name="Summary">Summary</a> of the theorems for the exclusive-OR operator</i></b></font></p>
+
+<table border="1" width="82%">
+  <tr>
+    <td width="36%">T1. x <font FACE="Symbol">Å</font> x = 0</td>
+    <td width="23%">T2. x <font FACE="Symbol">Å</font> x' = 1</td>
+    <td width="41%">Basic theorems</td>
+  </tr>
+  <tr>
+    <td width="36%">T3. x <font FACE="Symbol">Å</font> 0 = x</td>
+    <td width="23%">T4. x <font FACE="Symbol">Å</font> 1 = x'</td>
+    <td width="41%">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="36%">T5. (x <font FACE="Symbol">Å</font> y)' = x' <font FACE="Symbol">Å</font>
+    y = x <font FACE="Symbol">Å</font> y' </td>
+    <td width="23%">T6. x' <font FACE="Symbol">Å</font> y' = x <font FACE="Symbol">Å</font>
+    y</td>
+    <td width="41%">Inversion theorems</td>
+  </tr>
+  <tr>
+    <td width="59%" colspan="2">T7. x <font FACE="Symbol">Å</font> y = y <font FACE="Symbol">Å</font>
+    x</td>
+    <td width="41%">Commutative law</td>
+  </tr>
+  <tr>
+    <td width="59%" colspan="2">T8. (x <font FACE="Symbol">Å</font> y) <font FACE="Symbol">Å</font>
+    z = x <font FACE="Symbol">Å</font> (y <font FACE="Symbol">Å</font> z)</td>
+    <td width="41%">Associative law</td>
+  </tr>
+  <tr>
+    <td width="59%" colspan="2">T9. x(y <font FACE="Symbol">Å</font> z) = xy <font FACE="Symbol">Å</font> xz</td>
+    <td width="41%">Distributive law</td>
+  </tr>
+  <tr>
+    <td width="59%" colspan="2">T9' x(y <font FACE="Symbol">Å</font> z) = (x'+y) <font FACE="Symbol">Å</font> (x'+z)</td>
+    <td width="41%">Distributive law with OR function</td>
+  </tr>
+  <tr>
+    <td width="59%" colspan="2">T10. If: f = g <font FACE="Symbol">Å</font> h and gh = 0,
+    then f = g + h</td>
+    <td width="41%">Disjunction</td>
+  </tr>
+  <tr>
+    <td width="59%" colspan="2">T11. If: f = g <font FACE="Symbol">Å</font> h, then g = f <font FACE="Symbol">Å</font> h and h = g <font FACE="Symbol">Å</font> f</td>
+    <td width="41%">Transposition</td>
+  </tr>
+</table>
+<b><font FACE="Arial"><i>
+
+<p></i><a href="#top"><img src="top.gif" alt="Top" align="left" border="0" WIDTH="10" HEIGHT="12"></a><a href="#Summary"><img src="up.gif" alt="Up 1" align="left" border="0" WIDTH="11" HEIGHT="14"></a><i><a name="Canonical">Canonical</a> forms</i></font><font SIZE="2"></p>
+
+<p></font><font size="3">C1. f(abc) = <font FACE="Symbol">a</font><sub>0</sub>a'b'c' <font FACE="Symbol">Å</font> <font FACE="Symbol">a</font><sub>1</sub>a'b'c <font FACE="Symbol">Å</font>
+<font FACE="Symbol">a</font><sub>2</sub>a'bc' <font FACE="Symbol">Å</font> <font FACE="Symbol">a</font><sub>3</sub>a'bc <font FACE="Symbol">Å</font> <font FACE="Symbol">a</font><sub>4</sub>ab'c'
+<font FACE="Symbol">Å</font> <font FACE="Symbol">a</font><sub>5</sub>ab'c <font FACE="Symbol">Å</font> <font FACE="Symbol">a</font><sub>6</sub>abc' <font FACE="Symbol">Å</font>
+<font FACE="Symbol">a</font><sub>7</sub>abc</font></b></p>
+
+<p>where: <font FACE="Symbol" size="3">a </font><font size="3"><sub>i</sub> = 1,0</font>
+depending on whether the i<sup>th</sup> term is present or not.</p>
+<b><font SIZE="2">
+
+<p></font><font size="3">C2. f(abc) = <font FACE="Symbol">b</font><sub>0</sub> <font FACE="Symbol">Å</font> <font FACE="Symbol">b</font><sub>1</sub>a <font FACE="Symbol">Å</font>
+<font FACE="Symbol">b</font><sub>2</sub>b <font FACE="Symbol">Å</font> <font FACE="Symbol">b</font><sub>3</sub>c <font FACE="Symbol">Å</font> <font FACE="Symbol">b</font><sub>4</sub>ab
+<font FACE="Symbol">Å</font> <font FACE="Symbol">b</font><sub>5</sub>ac <font FACE="Symbol">Å</font> <font FACE="Symbol">b</font><sub>6</sub>bc <font FACE="Symbol">Å</font>
+<font FACE="Symbol">b</font><sub>7</sub>abc</font></b></p>
+
+<p>where: <font FACE="Symbol" size="3">b</font><font size="3"><sub>i</sub> = 1,0</font>
+depending on whether the i<sup>th</sup> term is present or not.</p>
+
+<p>These are the canonical forms used in these articles. Other possibilities and
+terminology are described in the literature.</p>
+<font FACE="Arial"><b><i>
+
+<p></i><a href="#top"><img src="top.gif" alt="Top" align="left" border="0" WIDTH="10" HEIGHT="12"></a><a href="#Canonical"><img src="up.gif" alt="Up 1" align="left" border="0" WIDTH="11" HEIGHT="14"></a><i><a name="The algebraic">The algebraic</a> simplification of the exclusive-OR form</i></b></font></p>
+
+<p>As pointed out in the discussion of Figure 4, in the first part of this paper (Figure 9
+in the &quot;New Logic&quot; article), simplification by inspection of a K-map of
+functions of more than three variables may not be immediately obvious. Consequently we
+would like to have a systematic procedure for finding such simplifications. I will
+describe my approach, including my method of dealing with redundancies, which gives an
+easily useable and systematic algebraic procedure for the simplification of ExOR forms of
+Boolean functions. The method will be described with examples.</p>
+
+<p>Assuming that the function is given in inclusive-OR form, the first step I take is to
+expand the function into canonical form, as it is for the Quine-McCluskey method for
+simplifying AND, OR invert functions. This is so that we can use theorem T10 to get the
+function into ExOR form in the C1 canonical form. Next we expand with T4, x' = x <font FACE="Symbol">Å</font> 1, to eliminate all primed variables, to convert the expression to
+the C2 canonical form. A good many terms cancel out using T1 and T3. We can use a tabular
+or chart arrangement to reduce the work of producing this form. This is described in the
+next section.</p>
+
+<p>You may recall that simplification methods for the AND, OR invert algebra depended on
+making systematic use of the relation: x + x' = 1 and the distributive theorem. You then
+look for prime implicants.</p>
+
+<p>For the ExOR algebra we will make systematic use of the relation: x <font FACE="Symbol">Å</font>
+x' = 1, mainly in the form 1 <font FACE="Symbol">Å</font> x = x' and the distributive
+theorem T9 using the C2 form of the function as a starting point. The idea of looking for
+prime implicants is not appropriate here. You can of course apply the simplification
+procedures to be described with the function not strictly in C2 form but this may not save
+any effort particularly if there are many variables in the function.</p>
+<font FACE="Arial"><b><i>
+
+<p></i><a href="#top"><img src="top.gif" alt="Top" align="left" border="0" WIDTH="10" HEIGHT="12"></a><a href="#The algebraic"><img src="up.gif" alt="Up 1" align="left" border="0" WIDTH="11" HEIGHT="14"></a><i><a name="The chart">The chart</a> method of finding C2 from C1</i></b></font></p>
+
+<p>Function f<sub>1</sub> from Figure 4 will be used for illustrating the procedure. To
+refresh your memory once again this function was:</p>
+
+<table border="0" width="86%">
+  <tr>
+    <td width="4%"><p align="right">f<sub>1 </sub></td>
+    <td width="73%">= a'b'c + a'cd + bc'd + ac'd' + abd'</td>
+    <td width="23%"></td>
+  </tr>
+  <tr>
+    <td width="4%"></td>
+    <td width="73%">= a'b'cd' + a'b'cd + a'bc'd + a'bcd + ab'c'd' + abc'd' + abc'd + abcd'</td>
+    <td width="23%">,Expanded to C1</td>
+  </tr>
+  <tr>
+    <td width="4%"></td>
+    <td width="73%">= a <font FACE="Symbol">Å</font> b'c <font FACE="Symbol">Å</font> bd <font FACE="Symbol">Å</font> ac'd.</td>
+    <td width="23%">,Result given</td>
+  </tr>
+</table>
+
+<p>To draw up the chart write down all C2 terms across the page as headings to columns.
+Allow one column on the left hand side of the page to list all the C1 terms taken from the
+K-map for the function. Each of the C1 terms will be expanded to form C2 terms. C2 terms
+consist of the number 1, all the variables singly, all possible pairs of variables, then
+all triples of variables and so on up to a column for all the variables in a term. Refer
+to Figure 8 for details of the construction. A '1' is placed in the columns for the C2
+terms derived from each C1 term in the row for the C1 term. To see the rule for doing this
+we will expand one of the C1 terms. For example;</p>
+
+<table border="0" width="63%">
+  <tr>
+    <td width="21%"><p align="right">a'b'cd' </td>
+    <td width="79%">= (1 <font FACE="Symbol">Å</font> a)(1 <font FACE="Symbol">Å</font>
+    b)c(1 <font FACE="Symbol">Å</font> d)</td>
+  </tr>
+  <tr>
+    <td width="21%"></td>
+    <td width="79%">= (1 <font FACE="Symbol">Å</font> a <font FACE="Symbol">Å</font> b <font FACE="Symbol">Å</font> ab)c(1 <font FACE="Symbol">Å</font> d)</td>
+  </tr>
+  <tr>
+    <td width="21%"></td>
+    <td width="79%">= c(1 <font FACE="Symbol">Å</font> a <font FACE="Symbol">Å</font> b <font FACE="Symbol">Å</font> d <font FACE="Symbol">Å</font> ab <font FACE="Symbol">Å</font>
+    ad <font FACE="Symbol">Å</font> bd <font FACE="Symbol">Å</font> abd)</td>
+  </tr>
+</table>
+
+<p>Without finishing the last line of the expansion you can see that the expansion will
+lead to all the C2 terms that have the variable <b>c</b> in them. Hance in the chart we
+place a 1 in all columns that have a <b>c</b> somewhere in their C2 term, in the row for
+the C1 term.</p>
+
+<p><img SRC="Concepts/fig8.gif" ALIGN="right" HSPACE="12" alt="The chart for deriving C2 terms from C1 terms" WIDTH="508" HEIGHT="240">If you try the same thing with a C1
+term that has two unprimed variables in it then you will find that you get all C2 terms
+that have both of the unprimed variables in them. You can see that this is going to happen
+from the development of the example. The same result applies to C1 terms with larger
+numbers of unprimed variables. Therefore the general rule for filling 1s in the columns is
+that you take the unprimed variables in the C1 terms and place 1s in all the columns that
+have the same variables in their C2 terms in the row for the C1 term. If there are no
+unprimed variables in a C1 term you place 1s in all columns. To get the function in the
+final C2 form you of course cross out all columns that have an even number of 1s in them.
+You now have the function in a convenient exclusive-OR form for starting the minimisation
+process. For large tables, the use of a spreadsheet program can save a lot of work drawing
+up the table.</p>
+
+<p><font FACE="Arial"><b><a href="#top"><img src="top.gif" alt="Top" align="left" border="0" WIDTH="10" HEIGHT="12"></a><a href="#The chart"><img src="up.gif" alt="Up 1" align="left" border="0" WIDTH="11" HEIGHT="14"></a></b></font>
+<font FACE="Arial"><i><b><a name="The simplification">The simplification</a> process</p>
+</b></i></font>
+
+<p>The algebraic method sets out to reduce the given function to minimal form by the
+systematic application of a small number of reduction or simplification rules. The
+function will be defined as minimal when further opportunities for applying the rules are
+exhausted. ie. No further reductions are possible. There are often alternative ways of
+expressing a function in terms of the ExOR operator. The function minimised on the basis
+of the above definition is a good starting point for arranging the final expression the
+way you want it. I might add that the procedure is easier to do than the explanation would
+suggest.</p>
+<b>
+
+<p>Simplification rule 1.</b> Consider two terms one of which has n+1 variables in it. We
+will call this term <font FACE="Symbol">a</font>. The other term has n variables all of
+which are the same as n of the variables in <font FACE="Symbol">a</font> and with the same
+exponents, i.e. truth values. We will call this term <font FACE="Symbol">b. </font>After
+taking out the common factor you eliminate the <font FACE="Symbol">b</font> term when you
+complement the extra variable in the <font FACE="Symbol">a</font> term. Simplification
+rule 1 says that you should do this, starting with the terms with the most variables. This
+rule follows from T9, the distributive theorem and T4, 1 <font FACE="Symbol">Å</font> x =
+x'. You can see that we are starting to go back the other way and reintroduce primed
+variables but now with many duplicate terms eliminated.</p>
+<b>
+
+<p>Simplification rule 2.</b> Consider the same two terms <font FACE="Symbol">a</font> and
+<font FACE="Symbol">b</font> with the same arrangement of variables. However, this time
+one of the n variables has the opposite exponent to the corresponding variable in the
+other term. We can reverse the exponent of this variable by adding a term <font FACE="Symbol">g</font> with n-1 variables, where the n-1 variables are the same as the
+variables that are the same in <font FACE="Symbol">a</font> and <font FACE="Symbol">b</font>.
+We add the term <font FACE="Symbol">g</font> twice to avoid changing the function. One of
+the <font FACE="Symbol">g</font> terms is eliminated to complement the exponent of the
+variable in the <font FACE="Symbol">a</font> term that had a different exponent. The <font FACE="Symbol">b</font> term can now be eliminated by simplification rule 1. Simplification
+rule 2 is to do this. The following example should make this clear. In the following
+expressions 'g' represents the remaining variables:</p>
+
+<table border="0" width="49%">
+  <tr>
+    <td width="49%"><p align="right">abg <font FACE="Symbol">Å</font> a'g </td>
+    <td width="122%">= abg <font FACE="Symbol">Å</font> a'g <font FACE="Symbol">Å</font> g <font FACE="Symbol">Å</font> g</td>
+  </tr>
+  <tr>
+    <td width="49%"></td>
+    <td width="122%">= abg <font FACE="Symbol">Å</font> g(1 <font FACE="Symbol">Å</font> a')
+    <font FACE="Symbol">Å</font> g</td>
+  </tr>
+  <tr>
+    <td width="49%"></td>
+    <td width="122%">= abg <font FACE="Symbol">Å</font> ag <font FACE="Symbol">Å</font> g</td>
+  </tr>
+  <tr>
+    <td width="49%"></td>
+    <td width="122%">= ab'g <font FACE="Symbol">Å</font> g</td>
+  </tr>
+</table>
+
+<p>We have effectively eliminated one of the variables in the <font FACE="Symbol">b</font>
+term. To use this rule you would not actually perform all the intermediate steps. You
+would go to the result directly. Rule 2 can be extended to the case where two or more of
+the exponents of <font FACE="Symbol">b</font> differ from the corresponding exponents of <font FACE="Symbol">a</font>. An additional <font FACE="Symbol">g</font> term is added for each
+application of rule 2 until the <font FACE="Symbol">b</font> term can be eliminated. The
+additional terms <font FACE="Symbol">g</font> can often be eliminated in subsequent
+working.</p>
+
+<p>The whole of this procedure can be done in one line of working by adding the <font FACE="Symbol">g</font> terms one by one, at the same time modifying the exponents on the
+variables of <font FACE="Symbol">b</font> until <font FACE="Symbol">b</font> is eliminated
+and finally modifying the extra variable of <font FACE="Symbol">a</font>. For example:</p>
+
+<p><img src="Concepts/eqn1.gif" alt="eqn1.gif (787 bytes)" WIDTH="323" HEIGHT="61"></p>
+
+<p>Rule 2 should be carried out to completion wherever possible. The effect of this rule
+is to eliminate all the <font FACE="Symbol">b</font> terms that have the same variables as
+the <font FACE="Symbol">a</font> terms. The rule is not applicable to <font FACE="Symbol">b</font>
+terms whose variables are not all the same as the variables of the <font FACE="Symbol">a</font>
+terms. Also the rule is not applicable if <font FACE="Symbol">b</font> has less than n
+terms. Consequently an easily recognisable point is reached at which no further
+application of the rule is possible.</p>
+<b>
+
+<p>Simplification rule 3.</b> If two terms contain the same number of variables and the
+variables of each are the same but with different exponents, then both terms can be made
+to have the same exponents and can therefore be eliminated by the addition of one less
+variable terms by the procedure of rule 2. Rule 3 is that this procedure should be applied
+wherever possible.</p>
+
+<p>The rules are applied to the terms with the most variables first. We then work our way
+down to terms with fewer variables. The function is regarded as minimal when no further
+applications of these rules is possible. The minimal function that results is
+characterised as follows:</p>
+
+<blockquote>
+  <table border="1" width="78%">
+    <tr>
+      <td width="90%">If there are <i>n</i> variables represented in the function there will be
+      at most only one term containing all <i>n</i> variables. If a term exists with all <i>n</i>
+      variables present there will be no term containing <i>n - 1</i> variables</td>
+    </tr>
+    <tr>
+      <td width="90%">If the terms containing the largest number of variables contain <i>m &lt;
+      n</i> variables, then such terms that have all variables the same can be completely
+      eliminated if there are an even number of such terms and reduced to a single term if there
+      are an odd number of such terms.</td>
+    </tr>
+    <tr>
+      <td width="90%">The remaining terms containing <i>m - 1</i> variables are completely
+      combined with <i>m-</i>variable terms that have variables in common with them at the same
+      time producing <i>(m -2)-</i>variable terms. The procedure is continued from the <i>(m -
+      2)-</i>variable level without further consideration of the <i>m-</i>variable terms.</td>
+    </tr>
+  </table>
+</blockquote>
+
+<p><img SRC="Concepts/fig9.gif" ALIGN="right" HSPACE="12" alt="The K-map for funjction f1" WIDTH="288" HEIGHT="240">Starting
+with the function in C2 form it is possible to carry out the entire simplification process
+in one line of working thus avoiding much repetitive writing out. This is done by adding
+additional terms as they are needed, modifying exponents and crossing out terms as they
+are eliminated. For the example that we used at the start of this section there are only
+two steps possible:</p>
+
+<p><img src="Concepts/eqn2.gif" alt="eqn2.gif (955 bytes)" WIDTH="310" HEIGHT="81"></p>
+
+<p>Compare this result with the K-map shown in Figure 9. <i><b>The K-map makes a good way
+to check the result if you are working with paper and pencil.</b></i></p>
+
+<p><b><font FACE="Arial"><a href="#top"><img src="top.gif" alt="Top" align="left" border="0" WIDTH="10" HEIGHT="12"></a><a href="#The simplification"><img src="up.gif" alt="Up 1" align="left" border="0" WIDTH="11" HEIGHT="14"></a><i><a name="Recomb">Recomb</a>ination identities</i></font></b></p>
+
+<p>Application of these 3 rules will very often be sufficient to minimise the ExOR
+function. However, recombinations can sometimes be made to reduce the total number of
+product terms.</p>
+
+<p>The function may contain the constant 1 and terms containing two variables each. If
+there are two such terms one of which contains a variable p say and the other the
+complement of this variable p', then the constant 1 can be eliminated by the substitution
+p <font FACE="Symbol">Å</font> p' = 1 and application of rule 1. (If the function
+contained the constant 1 and a term with one variable, you could get rid of the 1 by
+simply inverting the single variable).</p>
+
+<table border="0" width="419">
+  <tr>
+    <td width="157">e.g.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; 1 <font FACE="Symbol">Å</font>
+    pq <font FACE="Symbol">Å</font> p'r</td>
+    <td width="170">= p <font FACE="Symbol">Å</font> p' <font FACE="Symbol">Å</font> pq <font FACE="Symbol">Å</font> p'r</td>
+  </tr>
+  <tr>
+    <td width="157"></td>
+    <td width="170">= pq' <font FACE="Symbol">Å</font> p'r'</td>
+    <td width="80">...(R1)</td>
+  </tr>
+</table>
+
+<p><img src="images/multiexor9.gif" alt="A single variable term absorbed by 2 three variable terms" align="right" hspace="12" WIDTH="173" HEIGHT="175">This
+result can be generalised to enable a term with a single variable to be combined with two
+terms with 3 variables each. The diagram opposite illustrates how this works.</p>
+
+<table border="0" width="421">
+  <tr>
+    <td width="157">e.g.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; g <font FACE="Symbol">Å</font> gpq <font FACE="Symbol">Å</font> gp'r</td>
+    <td width="170">= gp <font FACE="Symbol">Å</font> gp' <font FACE="Symbol">Å</font> gpq <font FACE="Symbol">Å</font> gp'r</td>
+  </tr>
+  <tr>
+    <td width="157"></td>
+    <td width="170">= gpq' <font FACE="Symbol">Å</font> gp'r'</td>
+    <td width="82">...(R1a)</td>
+  </tr>
+</table>
+
+<p>In some cases it may be possible to recombine two single variable terms into a single
+two variable term as in the following example:</p>
+
+<table border="0" width="422">
+  <tr>
+    <td width="155"><p align="left">e.g. &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; a <font FACE="Symbol">Å</font> b <font FACE="Symbol">Å</font> ab'c </td>
+    <td width="173">= ab <font FACE="Symbol">Å</font> ab <font FACE="Symbol">Å</font> a <font FACE="Symbol">Å</font> b <font FACE="Symbol">Å</font> ab'c</td>
+  </tr>
+  <tr>
+    <td width="155"></td>
+    <td width="173">= ab' <font FACE="Symbol">Å</font> a'b <font FACE="Symbol">Å</font> ab'c</td>
+  </tr>
+  <tr>
+    <td width="155"></td>
+    <td width="173">= a'b <font FACE="Symbol">Å</font> ab'c'</td>
+    <td width="82">...(R2)</td>
+  </tr>
+</table>
+
+<p>This principle can be generalised to terms with larger numbers of variables as in the
+following identity:</p>
+
+<table border="0" width="425">
+  <tr>
+    <td width="155"><p align="left">e.g.&nbsp;&nbsp;&nbsp;&nbsp; ga <font FACE="Symbol">Å</font>
+    gb <font FACE="Symbol">Å</font> gab'c </td>
+    <td width="173">= ga'b <font FACE="Symbol">Å</font> gab'c'</td>
+    <td width="85">...(R2a)</td>
+  </tr>
+</table>
+
+<p><b><font FACE="Arial"><a href="#top"><img src="top.gif" alt="Top" align="left" border="0" WIDTH="10" HEIGHT="12"></a><a href="#Recomb"><img src="up.gif" alt="Up 1" align="left" border="0" WIDTH="11" HEIGHT="14"></a><i><a name="Another">Another</a> example and alternative expressions</i></font></b></p>
+
+<p>To further illustrate the technique another worked example is shown in Figure 10. The
+bullets at the top of the chart mark the terms in the C2 expansion. The function has been
+chosen to represent as many features as possible.</p>
+
+<p>The minimal expression obtained may often be written with different permutations of the
+primes. Two cases are:</p>
+
+<table border="0" width="433">
+  <tr>
+    <td width="45">T12a.</td>
+    <td width="131"><p align="right">ga <font FACE="Symbol">Å</font> gbc <font FACE="Symbol">Å</font>
+    gb'd </td>
+    <td width="239">= g(a <font FACE="Symbol">Å</font> bc <font FACE="Symbol">Å</font> b'd)</td>
+  </tr>
+  <tr>
+    <td width="45"></td>
+    <td width="131"></td>
+    <td width="239">= g(1 <font FACE="Symbol">Å</font> a' <font FACE="Symbol">Å</font> bc <font FACE="Symbol">Å</font> b'd)</td>
+  </tr>
+  <tr>
+    <td width="45"></td>
+    <td width="131"></td>
+    <td width="239">= g(b <font FACE="Symbol">Å</font> b' <font FACE="Symbol">Å</font> a' <font FACE="Symbol">Å</font> bc <font FACE="Symbol">Å</font> b'd)</td>
+  </tr>
+  <tr>
+    <td width="45"></td>
+    <td width="131"></td>
+    <td width="239">= g(a' <font FACE="Symbol">Å</font> bc' <font FACE="Symbol">Å</font>
+    b'd')</td>
+  </tr>
+  <tr>
+    <td width="45"></td>
+    <td width="131"></td>
+    <td width="239">= ga' <font FACE="Symbol">Å</font> gbc' <font FACE="Symbol">Å</font>
+    gb'd'</td>
+  </tr>
+</table>
+
+<table border="0" width="431">
+  <tr>
+    <td width="46">T12b.</td>
+    <td width="129"><p align="right">gc <font FACE="Symbol">Å</font> gd </td>
+    <td width="238">= g(c <font FACE="Symbol">Å</font> d)</td>
+  </tr>
+  <tr>
+    <td width="46"></td>
+    <td width="129"></td>
+    <td width="238">= gc' <font FACE="Symbol">Å</font> gd'</td>
+  </tr>
+</table>
+
+<p>As an example f<sub>1</sub> can be written as: f<sub>1</sub> = a' <font FACE="Symbol">Å</font>
+b'c' <font FACE="Symbol">Å</font> bd' <font FACE="Symbol">Å</font> ac'd ,by T12a</p>
+
+<p>T12a and b can often be used to make it possible to use R1 or R2 when these are not
+initially in the right form.</p>
+
+<p>There are special cases where this simplification method does not lead to the minimum
+solution.</p>
+
+<table border="0" width="320">
+  <tr>
+    <td width="40">e.g.</td>
+    <td width="49"><p align="right">f </td>
+    <td width="231">= a'bcd' + ab'cd</td>
+  </tr>
+  <tr>
+    <td width="40"></td>
+    <td width="49"></td>
+    <td width="231">= bc <font FACE="Symbol">Å</font>&nbsp; abc <font FACE="Symbol">Å</font>
+    acd <font FACE="Symbol">Å</font>&nbsp; bcd</td>
+  </tr>
+  <tr>
+    <td width="40"></td>
+    <td width="49"></td>
+    <td width="231">= a'bc <font FACE="Symbol">Å</font> acd <font FACE="Symbol">Å</font>
+    &nbsp; bcd</td>
+  </tr>
+</table>
+
+<p><img SRC="Concepts/fig10.gif" ALIGN="right" HSPACE="12" alt="A five variable example" WIDTH="552" HEIGHT="360">The
+second line above is the C2 form and the third line is one of six possible solutions. Each
+of the solutions has three terms compared with two terms for the function given in line 1.
+You would simply reject the solution in this case. The + in the first line can be either
+the inclusive or the exclusive OR, since the two terms are disjoint.</p>
+
+<p>After the minimal form has been found it is sometimes possible to take advantage of
+common factors to reduce the number of ExOR operators in the representation of the
+function.</p>
+
+<p>Note: Adjust the width of the browser screen if Figure 10 overlaps the following
+equations.</p>
+
+<p>For the example shown in Figure 10:</p>
+
+<table border="0" width="542">
+  <tr>
+    <td width="93"><p align="right">f(a,b,c,d,e) </td>
+    <td width="297">= <font FACE="Symbol">S</font>(0,4,13,14,15,16,18,20,22,29,31)</td>
+    <td width="140"></td>
+  </tr>
+  <tr>
+    <td width="93"></td>
+    <td width="297">= b' <font FACE="Symbol">Å</font> e <font FACE="Symbol">Å</font> a'de' <font FACE="Symbol">Å</font> bc'e <font FACE="Symbol">Å</font> a'bc'de'</td>
+    <td width="140">,from Figure 10</td>
+  </tr>
+  <tr>
+    <td width="93"></td>
+    <td width="297">= b' <font FACE="Symbol">Å</font> e(1 <font FACE="Symbol">Å</font> bc') <font FACE="Symbol">Å</font> a'de'(1 <font FACE="Symbol">Å</font> bc')</td>
+    <td width="140"></td>
+  </tr>
+  <tr>
+    <td width="93"></td>
+    <td width="297">= b' <font FACE="Symbol">Å</font> (e <font FACE="Symbol">Å</font>
+    a'de')(1 <font FACE="Symbol">Å</font> bc')</td>
+    <td width="140"></td>
+  </tr>
+  <tr>
+    <td width="93"></td>
+    <td width="297">= b' <font FACE="Symbol">Å</font> (1 <font FACE="Symbol">Å</font> e' <font FACE="Symbol">Å</font> a'de')(1 <font FACE="Symbol">Å</font> bc')</td>
+    <td width="140"></td>
+  </tr>
+  <tr>
+    <td width="93"></td>
+    <td width="297">= b' <font FACE="Symbol">Å</font> (1 <font FACE="Symbol">Å</font> e'(1 <font FACE="Symbol">Å</font> a'd))(1 <font FACE="Symbol">Å</font> bc')</td>
+    <td width="140"></td>
+  </tr>
+  <tr>
+    <td width="93"></td>
+    <td width="297">= b' <font FACE="Symbol">Å</font> (e'(1 <font FACE="Symbol">Å</font>
+    a'd))'(1 <font FACE="Symbol">Å</font> bc')</td>
+    <td width="140"></td>
+  </tr>
+  <tr>
+    <td width="93"></td>
+    <td width="297">= b' <font FACE="Symbol">Å</font> (e'(a'd)')'(bc')'</td>
+    <td width="140"></td>
+  </tr>
+  <tr>
+    <td width="93"></td>
+    <td width="297">= b <font FACE="Symbol">Å</font> ((e'(a'd)')'(bc')')'</td>
+    <td width="140">NAND form</td>
+  </tr>
+  <tr>
+    <td width="93"></td>
+    <td width="297">= b <font FACE="Symbol">Å</font> (ae' + bc' + d'e')</td>
+    <td width="140">SOP form</td>
+  </tr>
+</table>
+
+<p>Recalling that a NAND gate has the form (ab)' you can see that the right hand side of
+this result can be implemented with either four NAND gates or perhaps three product terms
+in a CPLD macrocell depending on your preferred implementation.</p>
+<font FACE="Arial"><b><i>
+
+<p></i><a href="#top"><img src="top.gif" alt="Top" align="left" border="0" WIDTH="10" HEIGHT="12"></a><a href="#Another"><img src="up.gif" alt="Up 1" align="left" border="0" WIDTH="11" HEIGHT="14"></a><i><a name="The treatment">The treatment</a> of redundancies with the algebraic simplification
+procedure</i></b></font></p>
+
+<p>Redundancies otherwise known as don't care conditions are terms that cannot physically
+occur and therefore it is immaterial whether they appear in the function or not. There is
+no difficulty taking advantage of redundancies when the K-map approach is used. Redundant
+terms are simply either mapped an even or odd number of times whichever suits the
+solution. However, in the algebraic approach to simplification you may not know in advance
+whether to use a particular redundancy or not prior to performing the simplification
+process. You could check to see if the redundant terms help to eliminate any terms in the
+C1 to C2 conversion process. However, more generally you would first perform the complete
+simplification process with the redundancies set to zero. Any terms amongst the
+redundancies would then be considered for adding to the minimal function for further
+minimising the function.</p>
+
+<p>Consider the function:</p>
+
+<p>f(a,b,c) = <font FACE="Symbol">S</font>(1,2,4) = a <font FACE="Symbol">Å</font> b <font FACE="Symbol">Å</font> c <font FACE="Symbol">Å</font> abc, with the redundant term abc.</p>
+
+<p>The term abc (7) is not included in the original function. It can simply be cancelled
+out. Next consider the function:</p>
+
+<p>f(a,b,c,d) = <font FACE="Symbol">S</font>(2,3,4,5,7,8,9,14) = a <font FACE="Symbol">Å</font>
+b <font FACE="Symbol">Å</font> c <font FACE="Symbol">Å</font> bcd, &nbsp;&nbsp;&nbsp;
+with the redundant term bcd'.</p>
+
+<p>Here the redundant term can be applied to reinitiate the simplification process as
+follows (step by step):</p>
+
+<table border="0" width="622">
+  <tr>
+    <td width="140"><p align="right">a <font FACE="Symbol">Å</font> b <font FACE="Symbol">Å</font>
+    c <font FACE="Symbol">Å</font> bcd </td>
+    <td width="191">= a <font FACE="Symbol">Å</font> b <font FACE="Symbol">Å</font> c <font FACE="Symbol">Å</font> bcd <font FACE="Symbol">Å</font> bcd'</td>
+    <td width="272"></td>
+  </tr>
+  <tr>
+    <td width="140"></td>
+    <td width="191">= a <font FACE="Symbol">Å</font> b <font FACE="Symbol">Å</font> c <font FACE="Symbol">Å</font> bc(d <font FACE="Symbol">Å</font> d')</td>
+    <td width="272"></td>
+  </tr>
+  <tr>
+    <td width="140"></td>
+    <td width="191">= a <font FACE="Symbol">Å</font> b <font FACE="Symbol">Å</font> b'c</td>
+    <td width="272">,after taking out the common factor c</td>
+  </tr>
+  <tr>
+    <td width="140"></td>
+    <td width="191">= a' <font FACE="Symbol">Å</font> b' <font FACE="Symbol">Å</font> b'c</td>
+    <td width="272">,applying T6 to a <font FACE="Symbol">Å</font> b</td>
+  </tr>
+  <tr>
+    <td width="140"></td>
+    <td width="191">= a' <font FACE="Symbol">Å</font> b'c'</td>
+    <td width="272"></td>
+  </tr>
+</table>
+
+<p><img SRC="Concepts/fig11.gif" ALIGN="right" HSPACE="12" alt="Implicants of the redundancies" WIDTH="120" HEIGHT="501">To assist the process of using redundancies you can
+first obtain a list of implicants of the redundancies by applying the first part of the
+Quine-McCluskey simplification process to them. Implicants that have variables in common
+with terms in the minimal function with as few differences in exponents as possible are
+then added to the minimal function and the simplification process continued as each
+redundant term is added. An example will show some of the possibilities:</p>
+
+<p>f<sub>3</sub> = a'b <font FACE="Symbol">Å</font> a'c' <font FACE="Symbol">Å</font>
+ab'c'd', will be simplified using the list of implicants shown in Figure 11. You can
+recognise these as the redundancies in a BCD number. F<sub>3</sub> is part of a code
+converter. An oblique stroke / in front of a term indicates that the term has been
+deleted.</p>
+
+<table border="0" width="470">
+  <tr>
+    <td width="41" valign="top" align="right"><p align="right">f<sub>3</sub> </td>
+    <td width="412">= /a'b <font FACE="Symbol">Å</font> /a'c' <font FACE="Symbol">Å</font>
+    /ab'c'd' <font FACE="Symbol">Å</font> /abc'd' <font FACE="Symbol">Å</font> /ac'd' <font FACE="Symbol">Å</font> /acd' <font FACE="Symbol">Å</font> ad''<font FACE="Symbol"> Å /</font>ab<font FACE="Symbol"> Å </font>b<font FACE="Symbol"> Å /</font>ac'<font FACE="Symbol"> Å /</font>a<font FACE="Symbol"> Å </font>c'</td>
+  </tr>
+  <tr>
+    <td width="41"></td>
+    <td width="412">= b <font FACE="Symbol">Å</font> c' <font FACE="Symbol">Å</font> ad</td>
+  </tr>
+</table>
+
+<p>The added terms were: abc'd', acd', ab, ac</p>
+
+<p>If you would like a bit of practice try to prove the following results using the same
+set of implicants of redundancies:</p>
+
+<table border="0" width="434">
+  <tr>
+    <td width="36"><p align="right">f<sub>4</sub> </td>
+    <td width="165">= a'bc' <font FACE="Symbol">Å</font> ac'd <font FACE="Symbol">Å</font>
+    bc'd</td>
+    <td width="25"><p align="right">f<sub>5</sub> </td>
+    <td width="184">= a'd' <font FACE="Symbol">Å</font> a'bc' <font FACE="Symbol">Å</font>
+    b'c'd</td>
+  </tr>
+  <tr>
+    <td width="36"></td>
+    <td width="165">= ad <font FACE="Symbol">Å</font> bc'd'</td>
+    <td width="25"></td>
+    <td width="184">= c' <font FACE="Symbol">Å</font> a'd' <font FACE="Symbol">Å</font>
+    b'c'd</td>
+  </tr>
+</table>
+
+<p>It is possible to elaborate the subject further with the application to multiple output
+circuits. Without going into full details here, one approach is to use T11 to provide
+opportunities for creating sub-functions that can reduce the total number of product terms
+required to implement multiple output circuits that have common variables.</p>
+<font FACE="Arial"><b><i>
+
+<p></i><a href="#top"><img src="top.gif" alt="Top" align="left" border="0" WIDTH="10" HEIGHT="12"></a><a href="#The treatment"><img src="up.gif" alt="Up 1" align="left" border="0" WIDTH="11" HEIGHT="14"></a><i><a name="Conclusion">Conclusion</a></i></b></font></p>
+
+<p>This concludes the demonstration that exclusive-OR logic is both a complete Boolean
+algebra in its own right and has all the&nbsp; graphical and algebraic simplification
+methods necessary for working with this algebra at least with paper and pencil.
+Exclusive-OR logic together with inclusive-OR logic makes Boolean algebra a more complete
+methodology for working with the logic of digital circuits. The examples given show how to
+manipulate functions in exclusive-OR form. The algebraic simplification method described
+in this paper can readily be used with paper and pencil for up to six variables after a
+bit of practice.</p>
+
+<p>Part 3 considers the question of multiple solutions that one finds with exclusive OR
+logic minimisation. The link to the list of references can also be found in Part 3.</p>
+<font SIZE="2">
+
+<p align="left"><font color="#804040">Return to Part 1<em><strong>OR</strong></em>
+Navigation menu at the top of the page <em><strong>OR</strong></em> continue with Part 3:</font></p>
+
+<p><script language="JavaScript">
+<!-- hide this script from non-javascript-enabled browsers
+
+/* Functions that finds images. */
+function MM_findObj(n, d) { //v3.0
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document); return x;
+}
+/* Functions that swaps images. */
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+// stop hiding -->
+</script> <!--The following section is an image or HTML table which reassembles the sliced image in a browser.--> </p>
+
+<table align="center" border="0" cellpadding="0" cellspacing="0" width="120">
+<!-- fwtable fwsrc="BackFor.png" fwbase="backfor.gif" fwstyle="FrontPage" fwdocid = "742308039" fwnested=""1" -->
+  <script language="JavaScript">
+  <!-- hide 
+  if (document.images) {
+  backfor_r1_c1_f2 = new Image(40 ,40); backfor_r1_c1_f2.src = "menus/backfor_r1_c1_f2.gif";
+  backfor_r1_c1_f1 = new Image(40 ,40); backfor_r1_c1_f1.src = "menus/backfor_r1_c1.gif";
+  backfor_r1_c2_f2 = new Image(40 ,40); backfor_r1_c2_f2.src = "menus/backfor_r1_c2_f2.gif";
+  backfor_r1_c2_f1 = new Image(40 ,40); backfor_r1_c2_f1.src = "menus/backfor_r1_c2.gif";
+  backfor_r1_c3_f2 = new Image(40 ,40); backfor_r1_c3_f2.src = "menus/backfor_r1_c3_f2.gif";
+  backfor_r1_c3_f1 = new Image(40 ,40); backfor_r1_c3_f1.src = "menus/backfor_r1_c3.gif";
+  }
+  // stop hiding -->
+  </script>
+
+  <tr>
+<!-- row 1 -->
+    <td align="center"><a onMouseOut="MM_swapImgRestore();" onMouseOver="MM_swapImage('backfor_r1_c1','','menus/backfor_r1_c1_f2.gif',1);" href="concept1.html"><img name="backfor_r1_c1" src="menus/backfor_r1_c1.gif" border="0" WIDTH="40" HEIGHT="40"></a></td>
+    <td align="center"><a onMouseOut="MM_swapImgRestore();" onMouseOver="MM_swapImage('backfor_r1_c2','','menus/backfor_r1_c2_f2.gif',1);" href="#top"><img name="backfor_r1_c2" src="menus/backfor_r1_c2.gif" border="0" WIDTH="40" HEIGHT="40"></a></td>
+    <td align="center"><a onMouseOut="MM_swapImgRestore();" onMouseOver="MM_swapImage('backfor_r1_c3','','menus/backfor_r1_c3_f2.gif',1);" href="concept3.html"><img name="backfor_r1_c3" src="menus/backfor_r1_c3.gif" border="0" WIDTH="40" HEIGHT="40"></a></td>
+  </tr>
+<!--   This HTML was automatically created with Macromedia Fireworks 4.0   -->
+<!--   http://www.macromedia.com   -->
+</table>
+<font size="3">
+
+<p>(Copyright) David N. Warren-Smith, CPENG</p>
+
+<p>Digital Logic Systems, South Australia</p>
+
+<p>Originally on line: 3 March, 1999</p>
+</font>
+
+<p><font size="3">Edited: 3 October 2000</font></p>
+<div align="left">
+
+<pre><a href="mailto:dwsmith@senet.com.au"><font FACE="Arial">dwsmith@senet.com.au</font></a><font SIZE="1" COLOR="#000000">    </pre>
+</div>
+
+<!--msnavigation--></td></tr><!--msnavigation--></table></body>
+</html>

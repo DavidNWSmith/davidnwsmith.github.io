@@ -1,0 +1,764 @@
+<html>
+
+<head>
+<title>VHDL Source</title>
+
+<script language="JavaScript1.2" src="menus/fw_menu.js"></script>
+
+
+</head>
+
+<body><!--msnavigation--><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+
+<h1 align="center"><font color="#FF0000"><big>Digital Logic Systems</big></font></h1>
+
+<p align="center">David N. Warren-Smith, CPEng. South Australia</p>
+</td></tr><!--msnavigation--></table><!--msnavigation--><table dir="ltr" border="0" cellpadding="0" cellspacing="0" width="100%"><tr><!--msnavigation--><td valign="top">
+
+<p><script language="JavaScript">
+<!-- hide this script from non-javascript-enabled browsers
+
+function fwLoadMenus() {
+    window.fw_menu_0_1 = new Menu("Digital Logic Systems",68,18,"Arial, Helvetica, sans-serif",11,"#990000","#ffffcc","#ffffcc","#990000");
+    fw_menu_0_1.addMenuItem("Home","location='index.html'");
+    fw_menu_0_1.addMenuItem("Articles","location='articles.html'");
+    fw_menu_0_1.addMenuItem("Links","location='links.html'");
+     fw_menu_0_1.fontWeight="bold";
+     fw_menu_0_1.hideOnMouseOut=true;
+    window.fw_menu_0_2 = new Menu("Bystanders &amp; Tutorials pages",189,18,"Arial, Helvetica, sans-serif",11,"#990000","#ffffcc","#ffffcc","#990000");
+    fw_menu_0_2.addMenuItem("Bystanders &amp; Beginners page","location='beginners.html'");
+    fw_menu_0_2.addMenuItem("Boolean Algebra - Page 1","location='boolean.html'");
+    fw_menu_0_2.addMenuItem("Boolean Algebra - Page 2","location='boolean2.html'");
+    fw_menu_0_2.addMenuItem("Intelligent Logic","location='async.html'");
+    fw_menu_0_2.addMenuItem("Relay Puzzle","location='relay.html'");
+    fw_menu_0_2.addMenuItem("Relay Puzzle figures","location='puzzle.html'");
+     fw_menu_0_2.fontWeight="bold";
+     fw_menu_0_2.hideOnMouseOut=true;
+    window.fw_menu_0_3 = new Menu("Practical Projects",244,18,"Arial, Helvetica, sans-serif",11,"#990000","#ffffcc","#ffffcc","#990000");
+    fw_menu_0_3.addMenuItem("Practical Projects - Printed Circuit Board","location='projectpcb.html'");
+    fw_menu_0_3.addMenuItem("Count Down Clock - AHDL code","location='project.html'");
+    fw_menu_0_3.addMenuItem("Count Down Clock - VHDL code","location='vhdl.html'");
+     fw_menu_0_3.fontWeight="bold";
+     fw_menu_0_3.hideOnMouseOut=true;
+    window.fw_menu_0_4 = new Menu("Exclusive-OR articles",195,18,"Arial, Helvetica, sans-serif",11,"#990000","#ffffcc","#ffffcc","#990000");
+    fw_menu_0_4.addMenuItem("Boolean Algebra revisited","location='boolean.html'");
+    fw_menu_0_4.addMenuItem("Part 1 - ExOR Theory","location='concept1.html'");
+    fw_menu_0_4.addMenuItem("Part 2 - Algebraic Simplification","location='concept2.html'");
+    fw_menu_0_4.addMenuItem("Part 3 - Multiple Solutions","location='concept3.html'");
+     fw_menu_0_4.fontWeight="bold";
+     fw_menu_0_4.hideOnMouseOut=true;
+  window.fw_menu_0 = new Menu("root",188,18,"Arial, Helvetica, sans-serif",11,"#990000","#ffffcc","#ffffcc","#990000");
+  fw_menu_0.addMenuItem(fw_menu_0_1);
+  fw_menu_0.addMenuItem(fw_menu_0_2);
+  fw_menu_0.addMenuItem(fw_menu_0_3);
+  fw_menu_0.addMenuItem(fw_menu_0_4);
+   fw_menu_0.fontWeight="bold";
+   fw_menu_0.hideOnMouseOut=true;
+   fw_menu_0.childMenuIcon="menus/arrows.gif";
+
+  fw_menu_0.writeMenus();
+} // fwLoadMenus()
+
+// stop hiding -->
+</script> <!--The following section is an image or HTML table which reassembles the sliced image in a browser.--> <script language="JavaScript1.2">fwLoadMenus();</script> </p>
+
+<table align="center" border="0" cellpadding="0" cellspacing="0" width="362">
+<!-- fwtable fwsrc="Navmenus.png" fwbase="menus/navmenus.gif" fwstyle="FrontPage" fwdocid = "742308039" fwnested=""1" -->
+  <tr>
+<!-- row 2 -->
+    <td><a href="#" onMouseOut="FW_startTimeout();" onMouseOver="window.FW_showMenu(window.fw_menu_0,25,95);"><img name="navmenus_r2_c1" src="menus/navmenus_r2_c1.gif" border="0" WIDTH="362" HEIGHT="30"></a></td>
+  </tr>
+<!--   This HTML was automatically created with Macromedia Fireworks 4.0   -->
+<!--   http://www.macromedia.com   -->
+</table>
+
+<h3 align="center"><big>The VHDL Source Code for the Countdown Clock</big></h3>
+
+<ul type="circle">
+  <li><a href="#Top level">Top level VHDL code for the Countdown Clock</a></li>
+  <li><a href="#Keypad">Keypad encoder circuit</a></li>
+  <li><a href="#Divide">Divide by 60 circuit</a></li>
+  <li><a href="#Key">Key debounce circuit</a></li>
+  <li><a href="#Display">Display multiplexer circuit</a></li>
+  <li><a href="#7-seg">7-segment display driver circuit</a></li>
+  <li><a href="#Package">Countdown_Package - Component declarations</a></li>
+</ul>
+
+<p>You can find the complete VHDL version of the source code for the countdown clock
+project on this page. The code has been tested and is running on my project board. The
+performance of the countdown clock with the VHDL code is of course identical to the AHDL
+version. I have simply replaced the AHDL code with equivalent VHDL code, taking into
+account the style of VHDL code. The block diagram for the VHDL code is the same as the
+hierarchy diagram given for the AHDL code. There are numerous small differences between
+VHDL and AHDL and VHDL has more ways of doing the same thing but after allowing for the
+idiosyncrasies of the two languages they give much the same results.</p>
+
+<p>Since VHDL is an industry standard, it has a high degree of portability between
+different manufacturers. However, it is still necessary to instantiate some of the
+components of a particular manufacturer. In the present project it is necessary to
+instantiate a number of lcell's and the open drain outputs required for the keyboard
+column driver circuits. The lcell's are necessary to minimise the resources required for
+the project and to enable the circuitry to fit into the selected device. Doing this more
+than halves the resources needed to fit the project. In the case of VHDL this requires
+increasing the number of signals that are defined for the project, since an input and an
+output is required for each instantiation. The exercise of inserting lcell's calls for
+some experimentation, although there is a sensible way of doing this, a task that is
+somewhat greater for VHDL than it is for AHDL, since component definitions are directly
+available in the AHDL code but have to be instantiated in the VHDL code. The instantiated
+lcell's have to be added and possibly removed if found not to be effective in reducing
+resource usage, a process that requires some care and can be quite tedious. This has
+increased the amount of code for the VHDL source. I have included the component
+declaration package code at the end of the code listings.</p>
+
+<p><strong>Added note 26 June 2008:</strong> VHDL has a procedure for dealing with open
+drain outputs, which I was not aware of at the time that I posted this code. You should
+look this up and replace it in the code on this page. Also if you are using FPGA,s or more
+recent programmable logic devices you may not need to use the lcells since these devices
+have considerably more resources. I will leave the code as it is.</p>
+
+<h3><a href="#top"><img src="top.gif" alt="Top" border="0" WIDTH="10" HEIGHT="12"></a> <a name="Top level">Top
+level</a> VHDL code for the Countdown Clock</h3>
+
+<pre>LIBRARY ieee;
+USE ieee.STD_LOGIC_1164.all;
+USE ieee.STD_LOGIC_UNSIGNED.all;
+USE work.COUNTDOWN_PACKAGE.all;
+LIBRARY altera;
+USE altera.maxplus2.all;</pre>
+
+<pre>-- Title &quot;Count Down clock exercise&quot;;
+-- Written by: D. N. Warren-Smith
+-- Updated: 14 February 2001
+--
+-- The count down clock will count down minutes and seconds.
+-- When zero is reached the count down clock will beep and count upwards
+-- if dipswitch 1 is not set.
+-- If dipswitch 1 is set the countdown will begin again at the value in
+-- the input shift register.
+-- The input shift register can be reentered whilst a countdown is in
+-- progress.
+--
+-- Key Control Functions
+-- Plus key     = Load and run new Start Value
+-- Minus key    = Start/Stop/Pause
+-- Clear key    = Toggle display
+-- &quot;D&quot; keyboard = Switch to Time display
+-- &quot;E&quot; keyboard = Backspace
+-- &quot;F&quot; keyboard = Clear input display
+-- Restart on zero with Dip switch 1 ON
+-- Buzzer disabled with Dip switch 8 ON</pre>
+
+<pre>ENTITY cdclock IS
+PORT (
+  clock, resetn   : IN STD_LOGIC;                -- clock = 1024 Hz from 4060B
+  plus_keyn       : IN STD_LOGIC;                -- transfer data to counters
+  minus_keyn      : IN STD_LOGIC;                -- run / pause key
+  clear_keyn      : IN STD_LOGIC;                -- toggle display
+  Hz512           : IN STD_LOGIC;                -- display multiplexer clock
+  row             : IN STD_LOGIC_VECTOR (3 downto 0);  -- Sense rows
+  dip             : IN STD_LOGIC_VECTOR (4 downto 1);  -- dip sws 1 to 4
+  dip8            : IN STD_LOGIC;                      -- dip switch 8
+  sparein         : IN STD_LOGIC;                      -- Spare input not used
+  colout          : OUT STD_LOGIC_VECTOR (3 downto 0); -- drive columns low
+  dr              : OUT STD_LOGIC_VECTOR (3 downto 0); -- transistor drivers
+  s               : OUT STD_LOGIC_VECTOR (6 downto 0); -- display 7 segments
+  dp              : OUT STD_LOGIC_VECTOR (4 downto 1); -- decimal point LEDs
+  buz             : OUT STD_LOGIC;                     -- buzzer
+  led             : OUT STD_LOGIC;                     -- LED indicator
+  strobe_test     : OUT STD_LOGIC);                    -- Temp for test
+END cdclock;</pre>
+
+<pre>ARCHITECTURE countdown OF cdclock IS
+  SIGNAL start       : STD_LOGIC;
+  SIGNAL set         : STD_LOGIC;      -- set counters from input register
+  SIGNAL strobe      : STD_LOGIC;      -- clean pulse from keyboard
+  SIGNAL clear       : STD_LOGIC;      -- clear input registers
+  SIGNAL toggle      : STD_LOGIC;      -- toggle display between input and count
+  SIGNAL usec        : STD_LOGIC_VECTOR (3 DOWNTO 0); -- units seconds
+  SIGNAL tsec        : STD_LOGIC_VECTOR (2 DOWNTO 0); -- tens seconds
+  SIGNAL umin        : STD_LOGIC_VECTOR (3 DOWNTO 0); -- units minutes
+  SIGNAL tmin        : STD_LOGIC_VECTOR (2 DOWNTO 0); -- tens minutes
+  SIGNAL carin       : STD_LOGIC;      -- carry in
+  SIGNAL csout       : STD_LOGIC;
+  SIGNAL cout        : STD_LOGIC;
+  SIGNAL restart     : STD_LOGIC;      -- Restart on zero
+  SIGNAL restart_l   : STD_LOGIC;      -- Restart with lcell
+  SIGNAL dir         : STD_LOGIC;      -- count direction, 0 = down, 1 = up
+  SIGNAL zerom1      : STD_LOGIC;      -- zero minus 1
+  SIGNAL zerom1_l    : STD_LOGIC;      -- lcell - zero minus 1
+  SIGNAL zero        : STD_LOGIC;      -- counted down to zero
+  SIGNAL zero_l      : STD_LOGIC;      -- lcell - counted down to zero
+  SIGNAL zerop1      : STD_LOGIC;      -- zero plus 1
+  SIGNAL alarmne0    : STD_LOGIC;      -- alarm not equal to 0
+  SIGNAL alarm       : STD_LOGIC_VECTOR (1 downto 0);  -- indicate zero reached
+  SIGNAL shift       : STD_LOGIC_VECTOR (15 downto 0); -- input shift reg for display
+  SIGNAL time        : STD_LOGIC_VECTOR (15 downto 0); -- count down time display
+  SIGNAL prectr      : STD_LOGIC_VECTOR (9 downto 0);  -- prescaler counter
+  SIGNAL col         : STD_LOGIC_VECTOR (3 downto 0);  -- OPNDRN col. drivers open drain
+  SIGNAL pre         : STD_LOGIC;      -- prescaler counter at zero
+  SIGNAL pre_l       : STD_LOGIC;      -- prescalar lcell
+  SIGNAL dispreg     : STD_LOGIC;      -- determine which display required
+  SIGNAL startreg    : STD_LOGIC;      -- set when counting down started
+  SIGNAL t_min0      : STD_LOGIC;      -- tens minutes at zero
+  SIGNAL u_min0      : STD_LOGIC;      -- units minutes at zero
+  SIGNAL t_sec0      : STD_LOGIC;      -- tens seconds at zero
+  SIGNAL u_sec0      : STD_LOGIC;      -- units seconds at zero
+  SIGNAL u_sec1      : STD_LOGIC;      -- units seconds at 1</pre>
+
+<pre>BEGIN
+  -- Debounce the start/stop, set and toggle keys
+  deb_set     : debounce PORT MAP(clock, plus_keyn, set);     -- set countdown
+  deb_start   : debounce PORT MAP(clock, minus_keyn, start);  -- start/pause
+  deb_toggle  : debounce PORT MAP(clock, clear_keyn, toggle); -- toggle display</pre>
+
+<pre>  -- Prescaler counter
+  PROCESS (clock, resetn)
+  BEGIN
+    IF (resetn = '0') OR ((NOT set AND startreg) = '0')
+      THEN prectr &lt;= &quot;0000000000&quot;;             -- asynchronous clear
+    ELSIF (clock'EVENT AND clock = '1')        -- prescaler counter
+      THEN prectr &lt;= prectr + 1;
+    END IF;
+  END PROCESS;
+  pre     &lt;= '1' WHEN (prectr = &quot;1111111111&quot;) ELSE '0';
+  pr      : lcell PORT MAP(pre, pre_l);        -- buffer pre with an lcell</pre>
+
+<pre>  -- Connect up the hex keypad
+  pad : Hexkbd PORT MAP(clock, resetn, strobe, row, col, shift);
+  strobe_test &lt;= strobe;</pre>
+
+<pre>  co1: FOR i IN 0 TO 3 GENERATE  -- keyboard column drivers are open drain
+       co2  : opndrn PORT MAP(col(i), colout(i));
+       END GENERATE;</pre>
+
+<pre>  -- Start the countdown
+  PROCESS (clock)
+  BEGIN                         -- counting when startreg is high
+  IF     resetn = '0' THEN startreg &lt;= '0'; -- asynchronous reset
+  ELSIF (clock'EVENT AND clock = '1') THEN  -- Toggle start/pause
+    IF start = '1' THEN startreg &lt;= startreg XOR '1'; END IF;
+  END IF;
+  END PROCESS;</pre>
+
+<pre>  -- restart on zero or set option
+  restart   &lt;= set OR (zerop1 AND NOT dip(1));
+  rest    : lcell PORT MAP(restart, restart_l); -- buffer restart with an lcell</pre>
+
+<pre>  -- Count down circuits
+  carin     &lt;= (startreg AND pre_l);</pre>
+
+<pre>  Divider1 : Div60 PORT MAP(clock, resetn, carin, restart_l, dir,
+                            shift(3 DOWNTO 0), shift(6 DOWNTO 4),
+                            csout, usec(3 DOWNTO 0), tsec(2 DOWNTO 0));</pre>
+
+<pre>  Divider2 : Div60 PORT MAP(clock, resetn, csout, restart_l, dir,
+                            shift(11 DOWNTO 8), shift(14 DOWNTO 12), cout,
+                            umin(3 DOWNTO 0), tmin(2 DOWNTO 0));</pre>
+
+<pre>  time      &lt;= ('0' &amp; tmin(2 DOWNTO 0) &amp; umin(3 DOWNTO 0) &amp; '0' &amp;
+                      tsec(2 DOWNTO 0) &amp; usec(3 DOWNTO 0)); -- concatinate time</pre>
+
+<pre>  -- Count down at zero
+  t_min0    &lt;= '1' WHEN (tmin = &quot;000&quot;)  ELSE '0';
+  u_min0    &lt;= '1' WHEN (umin = &quot;0000&quot;) ELSE '0';
+  t_sec0    &lt;= '1' WHEN (tsec = &quot;000&quot;)  ELSE '0';
+  u_sec0    &lt;= '1' WHEN (usec = &quot;0000&quot;) ELSE '0';
+  u_sec1    &lt;= '1' WHEN (usec = &quot;0001&quot;) ELSE '0';</pre>
+
+<pre>  zerom1    &lt;= (t_min0 AND u_min0 AND t_sec0 AND u_sec1 AND dir);    -- zero minus 1
+  ze1 :         lcell PORT MAP(zerom1, zerom1_l);          -- buffered with an lcell
+  zero      &lt;= (t_min0 AND u_min0 AND t_sec0 AND u_sec0);  -- at zero
+  ze2 :         lcell PORT MAP(zero, zero_l);              -- buffered with an lcell</pre>
+
+<pre>  PROCESS (clock, resetn)  -- zerop1 = pulse at zero plus 1
+  BEGIN
+  IF    (resetn = '0') THEN zerop1 &lt;= '0';    -- asynchronous rest
+  ELSIF (clock'EVENT AND clock = '1')         -- zero indicated
+                       THEN zerop1 &lt;= zero_l AND pre_l; -- 1 second delay
+  END IF;
+  END PROCESS;</pre>
+
+<pre>  -- Set the count direction, 0 = count up, 1 = count down
+  PROCESS (clock, resetn)
+  BEGIN
+  IF (clock'EVENT AND clock = '1')  THEN             -- zero indicated
+    IF    (set = '1')               THEN dir &lt;= '1'; -- count down
+    ELSIF (zero_l AND dip(1)) = '1' THEN dir &lt;= '0'; -- count up
+    END IF;
+  END IF;
+  END PROCESS;</pre>
+
+<pre>  -- Determine the display required
+  -- dispreg low = Display Time, dispreg high = Display input register
+  PROCESS (clock)
+  BEGIN
+  IF (clock'EVENT AND clock = '1') THEN  -- 
+    IF     toggle = '1'        THEN dispreg &lt;= dispreg XOR '1';
+    ELSIF (start OR set) = '1' THEN dispreg &lt;= '0';
+    ELSIF  strobe = '1'        THEN dispreg &lt;= '1';
+    END IF;
+  END IF;
+  END PROCESS;</pre>
+
+<pre>  -- Setup the display circuits
+  disp :  display PORT MAP(hz512, dispreg, time, shift, s, dr);</pre>
+
+<pre>  -- Indicate that zero has been reached
+  PROCESS (clock)
+  BEGIN
+  IF       resetn = '0'                     THEN alarm &lt;= &quot;00&quot;;    -- async clear
+  ELSIF   (clock'EVENT AND clock = '1')     THEN
+    IF    (set = '1')                       THEN alarm &lt;= &quot;00&quot;;    -- synch clear
+    ELSIF (zerom1_l AND pre_l) = '1'        THEN alarm &lt;= &quot;01&quot;; -- start alarm
+    ELSIF (alarm /= &quot;00&quot;) AND (pre_l = '1') THEN alarm &lt;= alarm + 1;
+    END IF;                     -- alarm ends when alarm count returns to zero
+  END IF;
+  END PROCESS;</pre>
+
+<pre>  -- Activate buzzer when zero reached. Alarm active when alarm ctr ne to 0
+  alarmne0    &lt;= '1' WHEN (alarm /= &quot;00&quot;) ELSE '0';
+  buz         &lt;= startreg AND alarmne0 AND dip8 AND NOT prectr(6) AND NOT prectr(9);</pre>
+
+<pre>  -- Connect unused inputs and outputs for compatibility
+  led         &lt;= startreg;
+  dp(1)       &lt;= NOT dispreg;
+  dp(2)       &lt;= dispreg;
+  dp(3)       &lt;= NOT (dip(2) AND dip(3) AND dip(4) AND sparein);
+  dp(4)       &lt;= NOT (dip(2) AND dip(3) AND dip(4) AND sparein);</pre>
+
+<pre>END countdown;</pre>
+
+<h3><a href="#top"><img src="top.gif" alt="Top" border="0" WIDTH="10" HEIGHT="12"></a> <a name="Keypad">Keypad</a>
+encoder circuit</h3>
+
+<pre>LIBRARY ieee;
+USE ieee.STD_LOGIC_1164.all;
+USE ieee.STD_LOGIC_UNSIGNED.all;
+USE work.COUNTDOWN_PACKAGE.all;
+LIBRARY altera;
+USE altera.maxplus2.all;</pre>
+
+<pre>-- Title &quot;Keypad encoder circuit&quot;
+-- Prepared by: D.N. Warren-Smith
+-- Updated: 14 February 2001</pre>
+
+<pre>ENTITY hexkbd IS
+PORT (
+  clk          : IN  STD_LOGIC;                       -- Clock source and
+  resetn       : IN  STD_LOGIC;                       -- Reset on global inputs
+  strobe       : BUFFER STD_LOGIC;                    -- key pressed
+  row          : IN  STD_LOGIC_VECTOR (3 DOWNTO 0);   -- Sense keypad rows
+  col          : OUT STD_LOGIC_VECTOR (3 DOWNTO 0);   -- Drive columns
+  shift        : OUT STD_LOGIC_VECTOR (15 DOWNTO 0)); -- Shift reg output
+END hexkbd;</pre>
+
+<pre>ARCHITECTURE keys OF hexkbd IS
+  SIGNAL key_pressed  : STD_LOGIC;          -- High when a key pressed
+  SIGNAL NKP          : STD_LOGIC;
+  SIGNAL sh9          : STD_LOGIC;          -- conditional signal for shift logic
+  SIGNAL sh9_l        : STD_LOGIC;          -- conditional signal for shift logic
+  SIGNAL shF          : STD_LOGIC;          -- conditional signal for shift logic
+  SIGNAL shF_l        : STD_LOGIC;          -- conditional signal for shift logic
+  SIGNAL shE          : STD_LOGIC;          -- conditional signal for shift logic
+  SIGNAL shE_l        : STD_LOGIC;          -- conditional signal for shift logic
+  SIGNAL mat     : STD_LOGIC_VECTOR (3 DOWNTO 0);  -- key conversion matrix
+  SIGNAL d       : STD_LOGIC_VECTOR (3 DOWNTO 0);  -- Control counter
+  SIGNAL inp0    : STD_LOGIC_VECTOR (3 DOWNTO 0);  -- First stage of shift register
+  SIGNAL inp1    : STD_LOGIC_VECTOR (3 DOWNTO 0);  -- Second stage of shift register
+  SIGNAL inp2    : STD_LOGIC_VECTOR (3 DOWNTO 0);  -- Third stage of shift register
+  SIGNAL inp3    : STD_LOGIC_VECTOR (3 DOWNTO 0);  -- Fourth stage of shift register</pre>
+
+<pre>BEGIN
+  -- Scan the keyboard until a key is pressed
+  PROCESS (clk, key_pressed)
+  BEGIN
+  IF (resetn = '0') THEN d &lt;= &quot;0000&quot;;              -- asynchronous reset
+  ELSIF (clk'EVENT AND clk = '1') THEN
+    IF (key_pressed = '0') THEN d &lt;= d + 1; END IF;
+  END IF;                -- Counter stops counting when a key is pressed
+  END PROCESS;</pre>
+
+<pre>  -- Column drivers, active low
+  col(0)  &lt;= '0' WHEN d(3 DOWNTO 2) = &quot;00&quot; ELSE '1';
+  col(1)  &lt;= '0' WHEN d(3 DOWNTO 2) = &quot;01&quot; ELSE '1';
+  col(2)  &lt;= '0' WHEN d(3 DOWNTO 2) = &quot;10&quot; ELSE '1';
+  col(3)  &lt;= '0' WHEN d(3 DOWNTO 2) = &quot;11&quot; ELSE '1';</pre>
+
+<pre>  -- Sense keyboard rows with a multiplexer
+  WITH d(1 DOWNTO 0) SELECT
+    key_pressed &lt;= NOT row(3) WHEN &quot;11&quot;,
+                   NOT row(2) WHEN &quot;10&quot;,
+                   NOT row(1) WHEN &quot;01&quot;,
+                   NOT row(0) WHEN OTHERS;
+    NKP         &lt;= NOT key_pressed;</pre>
+
+<pre>  -- Generate strobe when key press has settled
+  st : debounce PORT MAP(clk, NKP, strobe);</pre>
+
+<pre>  -- The key scan matrix
+  PROCESS (D)
+  BEGIN
+     CASE D IS            --  
+     WHEN &quot;0000&quot;    =&gt;  mat &lt;= &quot;0001&quot;;
+     WHEN &quot;0001&quot;    =&gt;  mat &lt;= &quot;0100&quot;;
+     WHEN &quot;0010&quot;    =&gt;  mat &lt;= &quot;0111&quot;;
+     WHEN &quot;0011&quot;    =&gt;  mat &lt;= &quot;1111&quot;;
+     WHEN &quot;0100&quot;    =&gt;  mat &lt;= &quot;0010&quot;;
+     WHEN &quot;0101&quot;    =&gt;  mat &lt;= &quot;0101&quot;;
+     WHEN &quot;0110&quot;    =&gt;  mat &lt;= &quot;1000&quot;;
+     WHEN &quot;0111&quot;    =&gt;  mat &lt;= &quot;0000&quot;;
+     WHEN &quot;1000&quot;    =&gt;  mat &lt;= &quot;0011&quot;;
+     WHEN &quot;1001&quot;    =&gt;  mat &lt;= &quot;0110&quot;;
+     WHEN &quot;1010&quot;    =&gt;  mat &lt;= &quot;1001&quot;;
+     WHEN &quot;1011&quot;    =&gt;  mat &lt;= &quot;1110&quot;;
+     WHEN &quot;1100&quot;    =&gt;  mat &lt;= &quot;1010&quot;;
+     WHEN &quot;1101&quot;    =&gt;  mat &lt;= &quot;1011&quot;;
+     WHEN &quot;1110&quot;    =&gt;  mat &lt;= &quot;1100&quot;;
+     WHEN &quot;1111&quot;    =&gt;  mat &lt;= &quot;1101&quot;;
+     WHEN OTHERS    =&gt;  mat &lt;= &quot;----&quot;;
+     END CASE;
+  END PROCESS;</pre>
+
+<pre>  -- The data shift register circuit
+  -- F clears input register, E backspaces input register
+  -- any other key A to D not input here
+  -- instantiate conditional signals for shift register with lcell's
+  sh9 &lt;= '1' WHEN (strobe = '1')  AND (mat &lt;= &quot;1001&quot;)  ELSE '0';
+  sh1 : lcell PORT MAP(sh9, sh9_l);
+  shF &lt;= '1' WHEN ((strobe = '1') AND (mat  = &quot;1111&quot;)) ELSE '0';
+  sh2 : lcell PORT MAP(shF, shF_l);
+  shE &lt;= '1' WHEN (strobe = '1')  AND (mat  = &quot;1110&quot;)  ELSE '0';
+  sh3 : lcell PORT MAP(shE, shE_l);</pre>
+
+<pre>  PROCESS (clk)
+  BEGIN
+  IF resetn = '0'                  -- asynchronous clear
+      THEN inp0 &lt;= &quot;0000&quot;; inp1 &lt;= &quot;0000&quot;; inp2 &lt;= &quot;0000&quot;; inp3 &lt;= &quot;0000&quot;;
+  ELSIF (clk'EVENT AND clk = '1') THEN
+    IF    shF_l = '1'              -- clear shift register
+      THEN inp0 &lt;= &quot;0000&quot;; inp1 &lt;= &quot;0000&quot;; inp2 &lt;= &quot;0000&quot;; inp3 &lt;= &quot;0000&quot;;
+    ELSIF shE_l = '1'              -- shift right shift register
+      THEN inp0 &lt;= inp1;   inp1 &lt;= inp2;   inp2 &lt;= inp3;   inp3 &lt;= &quot;0000&quot;;
+    ELSIF sh9_l = '1'              -- left shift mat into shift register
+      THEN inp0 &lt;= mat;    inp1 &lt;= inp0;   inp2 &lt;= inp1;   inp3 &lt;= inp2;
+    END IF;
+  END IF;
+  END PROCESS;</pre>
+
+<pre>  -- Combine shift register into one statement
+  shift      &lt;= (inp3 &amp; inp2 &amp; inp1 &amp; inp0);</pre>
+
+<pre>END;</pre>
+
+<h3><a href="#top"><img src="top.gif" alt="Top" border="0" WIDTH="10" HEIGHT="12"></a> <a name="Divide">Divide</a>
+by 60 circuit</h3>
+
+<pre>LIBRARY ieee;
+USE ieee.STD_LOGIC_1164.all;
+USE ieee.STD_LOGIC_UNSIGNED.all;
+LIBRARY altera;
+USE altera.maxplus2.all;</pre>
+
+<pre>--  TITLE &quot;Divide by 60 counter.&quot;;
+--  File:  div60.vhd
+--  Date:  14 FEB 2001
+--  Prepared by: David Warren-Smith
+--  This version of DIV60 does &quot;Parallel set&quot;</pre>
+
+<pre>ENTITY DIV60 IS
+PORT (
+  clk, resetn,
+  cin            : IN  STD_LOGIC;
+  set            : IN  STD_LOGIC;  -- run = (set = 0), set = (set = 1)
+  dir            : IN  STD_LOGIC;  -- 0 = count up, 1 = count down
+  uin            : IN  STD_LOGIC_VECTOR (3 DOWNTO 0);   -- units to load
+  tin            : IN  STD_LOGIC_VECTOR (2 DOWNTO 0);   -- tens to load
+  cout           : OUT STD_LOGIC;
+  uq             : OUT STD_LOGIC_VECTOR (3 DOWNTO 0);   -- Units output
+  tq             : OUT STD_LOGIC_VECTOR (2 DOWNTO 0));  -- Tens output
+END DIV60;</pre>
+
+<pre>ARCHITECTURE DIVIDER OF DIV60 IS
+  SIGNAL car     : STD_LOGIC;
+  SIGNAL u0      : STD_LOGIC;  -- conditional signals for counters
+  SIGNAL t0      : STD_LOGIC;
+  SIGNAL u9      : STD_LOGIC;
+  SIGNAL t5      : STD_LOGIC;
+  SIGNAL  u      : STD_LOGIC_VECTOR (3 DOWNTO 0); -- units counter
+  SIGNAL  t      : STD_LOGIC_VECTOR (2 DOWNTO 0); -- tens counter</pre>
+
+<pre>BEGIN
+  -- define conditionals for counters
+  car   &lt;= cin AND NOT set;
+  u0    &lt;= '1' WHEN (u = &quot;0000&quot;) AND (car AND dir) = '1'     ELSE '0';
+  u9    &lt;= '1' WHEN (u = &quot;1001&quot;) AND (car AND NOT dir) = '1' ELSE '0';
+  t0    &lt;= '1' WHEN (t = &quot;000&quot;) ELSE '0';
+  t5    &lt;= '1' WHEN (t = &quot;101&quot;) ELSE '0';</pre>
+
+<pre>  PROCESS (clk)
+  BEGIN
+  IF    resetn             = '0'  THEN u &lt;= &quot;0000&quot;;    -- asynch reset
+  ELSIF (clk'EVENT AND clk = '1') THEN                 -- Units counter
+    IF    set                = '1'  THEN u &lt;= uin;     -- set
+    ELSIF u0                 = '1'  THEN u &lt;= &quot;1001&quot;;  -- loadu
+    ELSIF (car AND dir)      = '1'  THEN u &lt;= u - 1;   -- decu
+    ELSIF u9                 = '1'  THEN u &lt;= &quot;0000&quot;;  -- clru
+    ELSIF (car AND NOT dir)  = '1'  THEN u &lt;= u + 1;   -- incu
+    END IF;
+  END IF;</pre>
+
+<pre>  IF     resetn            = '0'  THEN t &lt;= &quot;000&quot;;     -- asynch reset
+  ELSIF (clk'EVENT AND clk = '1') THEN                 -- Tens counter
+    IF     set               = '1'  THEN t &lt;= tin;     -- set
+    ELSIF (t0 AND u0)        = '1'  THEN t &lt;= &quot;101&quot;;   -- loadt
+    ELSIF  u0                = '1'  THEN t &lt;= t - 1;   -- dect
+    ELSIF (t5 AND u9)        = '1'  THEN t &lt;= &quot;000&quot;;   -- clrt
+    ELSIF  u9                = '1'  THEN t &lt;= t + 1;   -- inct
+    END IF;
+  END IF;</pre>
+
+<pre>  cout &lt;= (u0 AND t0 AND cin AND NOT set AND dir) OR   -- Carry out circuit
+          (u9 AND t5 AND cin AND NOT set AND NOT dir);
+  uq   &lt;= u;                                           -- Connect outputs
+  tq   &lt;= t;
+  END PROCESS;
+END DIVIDER;</pre>
+
+<h3><a href="#top"><img src="top.gif" alt="Top" border="0" WIDTH="10" HEIGHT="12"></a> <a name="Key">Key</a>
+debounce circuit</h3>
+
+<pre>LIBRARY ieee;
+USE ieee.STD_LOGIC_1164.all;
+USE ieee.STD_LOGIC_UNSIGNED.all;</pre>
+
+<pre>-- Title &quot;Key debounce circuit&quot;;
+-- Prepared by: D. N. Warren-Smith
+-- Updated: 7 February 2001</pre>
+
+<pre>ENTITY DEBOUNCE IS
+PORT (
+  Clk       : IN STD_LOGIC;
+  Key       : IN STD_LOGIC;  -- active low input
+  pulse     : OUT STD_LOGIC);
+END DEBOUNCE;</pre>
+
+<pre>ARCHITECTURE clean_pulse OF DEBOUNCE IS
+  SIGNAL cnt       : STD_LOGIC_VECTOR (1 DOWNTO 0);
+BEGIN
+  PROCESS (Clk)
+  BEGIN
+    IF Key = '1' THEN
+      cnt &lt;= &quot;00&quot;;
+    ELSIF (clk'EVENT AND Clk = '1') THEN
+      IF (cnt /= &quot;11&quot;) THEN cnt &lt;= cnt + 1; END IF;
+    END IF;
+    IF (cnt = &quot;10&quot;) AND (Key = '0') THEN pulse &lt;= '1'; ELSE pulse &lt;= '0'; END IF;
+  END PROCESS;
+END clean_pulse;</pre>
+
+<h3><a href="#top"><img src="top.gif" alt="Top" border="0" WIDTH="10" HEIGHT="12"></a> <a name="Display">Display</a>
+multiplexer circuits</h3>
+
+<pre>LIBRARY ieee;
+USE ieee.STD_LOGIC_1164.all;
+USE ieee.STD_LOGIC_UNSIGNED.all;
+USE work.COUNTDOWN_PACKAGE.all;
+LIBRARY altera;
+USE altera.maxplus2.all;</pre>
+
+<pre>--  Title &quot; Multiplexer circuits&quot;
+--  Prepared by: D.N. Warren-Smith
+--  File:    DISPLAY.TDF
+--  Updated: 7 February 2001</pre>
+
+<pre>ENTITY DISPLAY IS
+PORT (
+  HZ          : IN  STD_LOGIC;
+  dispreg     : IN  STD_LOGIC;        -- Display register, 0=A, 1=B
+  A           : IN  STD_LOGIC_VECTOR (15 DOWNTO 0);  -- Register A
+  B           : IN  STD_LOGIC_VECTOR (15 DOWNTO 0);  -- Register B
+  seg         : OUT STD_LOGIC_VECTOR (6 DOWNTO 0);   -- 7-segment output
+  driv        : OUT STD_LOGIC_VECTOR (3 DOWNTO 0));  -- drivers for multip/r tr/s
+END DISPLAY;</pre>
+
+<pre>ARCHITECTURE visual OF DISPLAY IS
+  SIGNAL mul  : STD_LOGIC_VECTOR (1  DOWNTO 0);  -- Multiplexer clock source
+  SIGNAL mx   : STD_LOGIC_VECTOR (15 DOWNTO 0);  -- 1st level multiplexer outputs
+  SIGNAL d7   : STD_LOGIC_VECTOR (3  DOWNTO 0);  -- 2nd level multiplexer outputs
+  SIGNAL dl   : STD_LOGIC_VECTOR (3  DOWNTO 0);  -- 2nd level lcell outputs</pre>
+
+<pre>BEGIN
+  PROCESS (HZ)  -- Multiplexer clock source
+  BEGIN
+  IF (HZ'EVENT AND HZ = '1') THEN mul &lt;= mul + 1; END IF;
+  END PROCESS;</pre>
+
+<pre>  -- First level Multiplexer combines A and B register inputs
+  mx       &lt;= A WHEN (dispreg = '0') ELSE B;</pre>
+
+<pre>  -- Second level Multiplexers combine 4 digits for display
+  d7       &lt;= mx(3  DOWNTO  0) WHEN mul = &quot;00&quot; ELSE
+              mx(7  DOWNTO  4) WHEN mul = &quot;01&quot; ELSE
+              mx(11 DOWNTO  8) WHEN mul = &quot;10&quot; ELSE
+              mx(15 DOWNTO 12);</pre>
+
+<pre>  LCL   : FOR i IN 0 TO 3 GENERATE
+  LC    : lcell PORT MAP(d7(i), dl(i));  -- instantiate 4 LCELLs
+  END GENERATE;</pre>
+
+<pre>  SG : SEG7 PORT MAP(dl, seg);  -- convert to 7-segment format</pre>
+
+<pre>  -- Decode multiplexer driver counter for common anode display tr. Drivers
+  driv     &lt;= &quot;1110&quot; WHEN mul = &quot;00&quot; ELSE -- Active low outputs
+              &quot;1101&quot; WHEN mul = &quot;01&quot; ELSE
+              &quot;1011&quot; WHEN mul = &quot;10&quot; ELSE
+              &quot;0111&quot;;
+END visual;</pre>
+
+<h3><a href="#top"><img src="top.gif" alt="Top" border="0" WIDTH="10" HEIGHT="12"></a> <a name="7-seg">7-seg</a>ment
+display driver circuit</h3>
+
+<pre>LIBRARY ieee;
+USE ieee.std_logic_1164.all;</pre>
+
+<pre>-- Title &quot;7 segment display driver circuit&quot;;
+-- File: seg7.vhd</pre>
+
+<pre>ENTITY seg7 IS
+PORT (D       : IN  STD_LOGIC_VECTOR (3 DOWNTO 0);  -- BCD input
+      S       : OUT STD_LOGIC_VECTOR (6 DOWNTO 0)); -- 7 segment outputs
+END seg7;</pre>
+
+<pre>ARCHITECTURE display OF SEG7 IS
+BEGIN
+s &lt;=  &quot;1000000&quot; WHEN d = &quot;0000&quot; ELSE -- H&quot;40&quot;
+      &quot;1111001&quot; WHEN d = &quot;0001&quot; ELSE -- H&quot;79&quot;
+      &quot;0100100&quot; WHEN d = &quot;0010&quot; ELSE -- H&quot;24&quot;
+      &quot;0110000&quot; WHEN d = &quot;0011&quot; ELSE -- H&quot;30&quot;
+      &quot;0011001&quot; WHEN d = &quot;0100&quot; ELSE -- H&quot;19&quot;
+      &quot;0010010&quot; WHEN d = &quot;0101&quot; ELSE -- H&quot;12&quot;
+      &quot;0000010&quot; WHEN d = &quot;0110&quot; ELSE -- H&quot;02&quot;
+      &quot;1111000&quot; WHEN d = &quot;0111&quot; ELSE -- H&quot;78&quot;
+      &quot;0000000&quot; WHEN d = &quot;1000&quot; ELSE -- H&quot;00&quot;
+      &quot;0010000&quot; WHEN d = &quot;1001&quot; ELSE -- H&quot;10&quot;
+      &quot;0001000&quot; WHEN d = &quot;1010&quot; ELSE -- H&quot;08&quot;
+      &quot;0000011&quot; WHEN d = &quot;1011&quot; ELSE -- H&quot;03&quot;
+      &quot;1000110&quot; WHEN d = &quot;1100&quot; ELSE -- H&quot;46&quot;
+      &quot;0100001&quot; WHEN d = &quot;1101&quot; ELSE -- H&quot;21&quot;
+      &quot;0000110&quot; WHEN d = &quot;1110&quot; ELSE -- H&quot;06&quot;
+      &quot;0001110&quot;;                     -- H&quot;0E&quot;
+END display;</pre>
+
+<h3><a href="#top"><img src="top.gif" alt="Top" border="0" WIDTH="10" HEIGHT="12"></a> Countdown_<a name="Package">Package</a> - Component declarations</h3>
+
+<pre>LIBRARY ieee;
+USE ieee.STD_LOGIC_1164.all;</pre>
+
+<pre>-- Subcircuit component declarations
+-- Prepared by: D.N. Warren-Smith
+-- Updated: 7 February 2001</pre>
+
+<pre>PACKAGE COUNTDOWN_PACKAGE IS</pre>
+
+<pre>COMPONENT debounce  -- key debounce circuit
+  PORT ( clk, key    : IN  STD_LOGIC;
+         pulse       : OUT STD_LOGIC);
+END COMPONENT;</pre>
+
+<pre>COMPONENT DIV60  -- divide by 60 with parallel load
+  PORT ( clk, resetn,            -- clock and reset
+         cin,                    -- carry in
+         set,                    -- run = (set = '0'), set = (set = '1')
+         dir   : IN  STD_LOGIC;  -- '0' = count up, '1' = count down
+         uin   : IN STD_LOGIC_VECTOR (3 DOWNTO 0);   -- units to load
+         tin   : IN STD_LOGIC_VECTOR (2 DOWNTO 0);   -- tens to load
+         cout  : OUT STD_LOGIC;
+         uq    : OUT STD_LOGIC_VECTOR (3 DOWNTO 0);  -- units output
+         tq    : OUT STD_LOGIC_VECTOR (2 DOWNTO 0)); -- tens output
+END COMPONENT;</pre>
+
+<pre>COMPONENT HEXKBD  -- Keyboard input circuit with shift input register
+PORT ( clk,                                           -- clock
+  resetn       : IN STD_LOGIC;                        -- reset
+  strobe       : BUFFER STD_LOGIC;                    -- key pressed
+  row          : IN  STD_LOGIC_VECTOR (3 DOWNTO 0);   -- Sense keypad rows
+  col          : OUT STD_LOGIC_VECTOR (3 DOWNTO 0);   -- Drive columns
+  shift        : OUT STD_LOGIC_VECTOR (15 DOWNTO 0)); -- Shift reg output
+END COMPONENT;</pre>
+
+<pre>COMPONENT DISPLAY
+PORT (
+  HZ          : IN  STD_LOGIC;
+  dispreg     : IN  STD_LOGIC;        -- Display register, 0=A, 1=B
+  A           : IN  STD_LOGIC_VECTOR (15 DOWNTO 0);   -- Register A
+  B           : IN  STD_LOGIC_VECTOR (15 DOWNTO 0);   -- Register B
+  seg         : OUT STD_LOGIC_VECTOR (6 DOWNTO 0);    -- 7-segment output
+  driv        : OUT STD_LOGIC_VECTOR (3 DOWNTO 0));   -- drivers for multip/r transistors
+END COMPONENT;</pre>
+
+<pre>COMPONENT seg7  -- 7 segment display conversion matrix
+PORT (D        : IN  STD_LOGIC_VECTOR (3 DOWNTO 0);  -- BCD input
+      S        : OUT STD_LOGIC_VECTOR (6 DOWNTO 0)); -- 7 segment outputs
+END COMPONENT;</pre>
+
+<pre>END COUNTDOWN_PACKAGE;</pre>
+
+<h3><a href="#top"><img src="top.gif" alt="Top" border="0" WIDTH="10" HEIGHT="12"></a> End of VHDL code </h3>
+
+<p align="left"><font color="#804040">Return to AHDL Source code <em><strong>OR</strong></em>
+Navigation menu at the top of the page <em><strong>OR</strong></em> Return to the Project
+Board page:</font></p>
+
+<p><script language="JavaScript">
+<!-- hide this script from non-javascript-enabled browsers
+
+/* Functions that finds images. */
+function MM_findObj(n, d) { //v3.0
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document); return x;
+}
+/* Functions that swaps images. */
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+// stop hiding -->
+</script> <!--The following section is an image or HTML table which reassembles the sliced image in a browser.--> </p>
+
+<table align="center" border="0" cellpadding="0" cellspacing="0" width="120">
+<!-- fwtable fwsrc="BackFor.png" fwbase="backfor.gif" fwstyle="FrontPage" fwdocid = "742308039" fwnested=""1" -->
+  <script language="JavaScript">
+  <!-- hide 
+  if (document.images) {
+  backfor_r1_c1_f2 = new Image(40 ,40); backfor_r1_c1_f2.src = "menus/backfor_r1_c1_f2.gif";
+  backfor_r1_c1_f1 = new Image(40 ,40); backfor_r1_c1_f1.src = "menus/backfor_r1_c1.gif";
+  backfor_r1_c2_f2 = new Image(40 ,40); backfor_r1_c2_f2.src = "menus/backfor_r1_c2_f2.gif";
+  backfor_r1_c2_f1 = new Image(40 ,40); backfor_r1_c2_f1.src = "menus/backfor_r1_c2.gif";
+  backfor_r1_c3_f2 = new Image(40 ,40); backfor_r1_c3_f2.src = "menus/backfor_r1_c3_f2.gif";
+  backfor_r1_c3_f1 = new Image(40 ,40); backfor_r1_c3_f1.src = "menus/backfor_r1_c3.gif";
+  }
+  // stop hiding -->
+  </script>
+
+  <tr>
+<!-- row 1 -->
+    <td align="center"><a onMouseOut="MM_swapImgRestore();" onMouseOver="MM_swapImage('backfor_r1_c1','','menus/backfor_r1_c1_f2.gif',1);" href="project.html"><img name="backfor_r1_c1" src="menus/backfor_r1_c1.gif" border="0" WIDTH="40" HEIGHT="40"></a></td>
+    <td align="center"><a onMouseOut="MM_swapImgRestore();" onMouseOver="MM_swapImage('backfor_r1_c2','','menus/backfor_r1_c2_f2.gif',1);" href="#top"><img name="backfor_r1_c2" src="menus/backfor_r1_c2.gif" border="0" WIDTH="40" HEIGHT="40"></a></td>
+    <td align="center"><a onMouseOut="MM_swapImgRestore();" onMouseOver="MM_swapImage('backfor_r1_c3','','menus/backfor_r1_c3_f2.gif',1);" href="projectpcb.html"><img name="backfor_r1_c3" src="menus/backfor_r1_c3.gif" border="0" WIDTH="40" HEIGHT="40"></a></td>
+  </tr>
+<!--   This HTML was automatically created with Macromedia Fireworks 4.0   -->
+<!--   http://www.macromedia.com   -->
+</table>
+
+<p>Copyright D.N. Warren-Smith, CPEng. Digital Logic Systems</p>
+
+<p> <font color="#FF0000">Last
+edited: <!--webbot bot="Timestamp" S-Type="EDITED" S-Format="%d %B, %Y" startspan -->26 June, 2008<!--webbot bot="Timestamp" endspan i-checksum="19970" --></font> 
+<!--msnavigation--></td></tr><!--msnavigation--></table></body>
+</html>

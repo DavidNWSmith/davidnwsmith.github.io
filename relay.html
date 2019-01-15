@@ -1,0 +1,256 @@
+<html>
+
+<head>
+<title>Relay Puzzle</title>
+<meta NAME="description" VALUE="A tutorial on the analysis of asynchronous sequential circuits">
+
+<script language="JavaScript1.2" src="menus/fw_menu.js"></script>
+
+
+
+
+
+</head>
+
+<body bgcolor="#C0C0C0" background="pccard.jpg"><!--msnavigation--><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+
+<h1 align="center"><font color="#FF0000"><big>Digital Logic Systems</big></font></h1>
+
+<p align="center">David N. Warren-Smith, CPEng. South Australia</p>
+</td></tr><!--msnavigation--></table><!--msnavigation--><table dir="ltr" border="0" cellpadding="0" cellspacing="0" width="100%"><tr><!--msnavigation--><td valign="top">
+
+<p><script language="JavaScript">
+<!-- hide this script from non-javascript-enabled browsers
+
+function fwLoadMenus() {
+    window.fw_menu_0_1 = new Menu("Digital Logic Systems",68,18,"Arial, Helvetica, sans-serif",11,"#990000","#ffffcc","#ffffcc","#990000");
+    fw_menu_0_1.addMenuItem("Home","location='index.html'");
+    fw_menu_0_1.addMenuItem("Articles","location='articles.html'");
+    fw_menu_0_1.addMenuItem("Links","location='links.html'");
+     fw_menu_0_1.fontWeight="bold";
+     fw_menu_0_1.hideOnMouseOut=true;
+    window.fw_menu_0_2 = new Menu("Bystanders &amp; Tutorials pages",189,18,"Arial, Helvetica, sans-serif",11,"#990000","#ffffcc","#ffffcc","#990000");
+    fw_menu_0_2.addMenuItem("Bystanders &amp; Beginners page","location='beginners.html'");
+    fw_menu_0_2.addMenuItem("Boolean Algebra - Page 1","location='boolean.html'");
+    fw_menu_0_2.addMenuItem("Boolean Algebra - Page 2","location='boolean2.html'");
+    fw_menu_0_2.addMenuItem("Intelligent Logic","location='async.html'");
+    fw_menu_0_2.addMenuItem("Relay Puzzle","location='relay.html'");
+    fw_menu_0_2.addMenuItem("Relay Puzzle figures","location='puzzle.html'");
+     fw_menu_0_2.fontWeight="bold";
+     fw_menu_0_2.hideOnMouseOut=true;
+    window.fw_menu_0_3 = new Menu("Practical Projects",244,18,"Arial, Helvetica, sans-serif",11,"#990000","#ffffcc","#ffffcc","#990000");
+    fw_menu_0_3.addMenuItem("Practical Projects - Printed Circuit Board","location='projectpcb.html'");
+    fw_menu_0_3.addMenuItem("Count Down Clock - AHDL code","location='project.html'");
+    fw_menu_0_3.addMenuItem("Count Down Clock - VHDL code","location='vhdl.html'");
+     fw_menu_0_3.fontWeight="bold";
+     fw_menu_0_3.hideOnMouseOut=true;
+    window.fw_menu_0_4 = new Menu("Exclusive-OR articles",195,18,"Arial, Helvetica, sans-serif",11,"#990000","#ffffcc","#ffffcc","#990000");
+    fw_menu_0_4.addMenuItem("Boolean Algebra revisited","location='boolean.html'");
+    fw_menu_0_4.addMenuItem("Part 1 - ExOR Theory","location='concept1.html'");
+    fw_menu_0_4.addMenuItem("Part 2 - Algebraic Simplification","location='concept2.html'");
+    fw_menu_0_4.addMenuItem("Part 3 - Multiple Solutions","location='concept3.html'");
+     fw_menu_0_4.fontWeight="bold";
+     fw_menu_0_4.hideOnMouseOut=true;
+  window.fw_menu_0 = new Menu("root",188,18,"Arial, Helvetica, sans-serif",11,"#990000","#ffffcc","#ffffcc","#990000");
+  fw_menu_0.addMenuItem(fw_menu_0_1);
+  fw_menu_0.addMenuItem(fw_menu_0_2);
+  fw_menu_0.addMenuItem(fw_menu_0_3);
+  fw_menu_0.addMenuItem(fw_menu_0_4);
+   fw_menu_0.fontWeight="bold";
+   fw_menu_0.hideOnMouseOut=true;
+   fw_menu_0.childMenuIcon="menus/arrows.gif";
+
+  fw_menu_0.writeMenus();
+} // fwLoadMenus()
+
+// stop hiding -->
+</script> <!--The following section is an image or HTML table which reassembles the sliced image in a browser.--> <script language="JavaScript1.2">fwLoadMenus();</script> </p>
+
+<table align="center" border="0" cellpadding="0" cellspacing="0" width="362">
+<!-- fwtable fwsrc="Navmenus.png" fwbase="menus/navmenus.gif" fwstyle="FrontPage" fwdocid = "742308039" fwnested=""1" -->
+  <tr>
+<!-- row 2 -->
+    <td><a href="#" onMouseOut="FW_startTimeout();" onMouseOver="window.FW_showMenu(window.fw_menu_0,25,95);"><img name="navmenus_r2_c1" src="menus/navmenus_r2_c1.gif" border="0" WIDTH="362" HEIGHT="30"></a></td>
+  </tr>
+<!--   This HTML was automatically created with Macromedia Fireworks 4.0   -->
+<!--   http://www.macromedia.com   -->
+</table>
+
+<h3><em>The five relay problem</em><font FACE="Arial"></h3>
+
+<p><img src="5relay/5rf1.gif" alt="Figure 1" align="right" border="2" WIDTH="262" HEIGHT="234"></font>Some time ago
+I came across this puzzle in the December 1992 issue of Electronics Australia magazine, in
+Peter Philips' 'Information Centre' column. The problem was to determine the behaviour of
+the five relays shown in Figure 1 after power is applied. You can see that as soon as the
+power is applied the relays will energise but the contacts will immediately all open and
+the relays will then all drop out. The process will then repeat itself. The result will be
+some sort of oscillatory action. This looked like an interesting problem to illustrate the
+application of logical design techniques so I thought I would put my solution on my web
+site.</p>
+
+<p>The first step in the solution is to draw up a table showing all possible states of the
+five relays as shown in Figure 2. Since there are 5 relays there are 2<sup>5 </sup>or 32
+possible states. The usual notation of representing an on state by a '1' and an off state
+by a '0' is used and the entries are arranged according to a Gray code. The relays are
+represented by letters of the alphabet and these are the state variables for this circuit.
+The second column of the table is actually a separate column for each relay. The entries
+for the second column are constructed from the logic equations for each relay. The
+convention is that the relay contacts are shown in their normally unenergised condition so
+that a logic true contact is shown with an open circuit and visa versa for a logic false
+contact (the logic true contact is closed when the variable is energised). For example,
+the equation for the 'A' relay is: A = E', (the prime after the letter for the variable (
+' ) represents the inverse of the variable or normally closed contact).</p>
+
+<p><big><img src="5relay/5rf2.gif" alt="Figure 2" border="2" align="left" WIDTH="177" HEIGHT="482"></big>This
+equation states that A is energised when E is unenergised. The equations for all the other
+relays are similar (ie. B = A', C = B', D = C', E = D'). Consider the right hand column
+for the A relay. A '0' is placed in this column wherever there is a '1' in the 'E' relay's
+column on the left side of the table and '1's are placed where there are '0's in the 'E'
+relay's column on the left side of the table. All the columns on the right hand side are
+filled in, in the same way using their respective logic equations. Notice that the right
+hand side of the table is labelled at the bottom and not at the top. The top of this
+column is unlabelled since in this example there are no input variables other than the
+relays themselves and the top of this column is reserved for external input variable names
+when these appear in the problem.</p>
+
+<p>If you now consider what this table represents you will see that each entry on the
+right represents the excitation conditions for each of the relays given the instantaneous
+condition of the relays on the left hand side of the table. In other words the entries on
+the right are the next states of the relays from the states given by the entries on the
+left. Hence the table is called a State Table for the relay circuit since it shows all the
+states and next states for the circuit.</p>
+
+<p>This problem is an example of an unstable asynchronous sequential system or state
+machine. Starting with any entry in the table, the next state of the relays can be written
+down by simply reading off the entry in the right hand column adjacent to it. By going to
+that entry in the left hand column, one can then read off the next state after that and so
+on. On doing this one finds that there are sequences of states that form loops. The relays
+will execute the successive states in one or other of the loops. The more general
+situation is that a state table will have a number of stable states and some unstable
+states. A flip flop would have two stable states but circuits can be devised that have
+numerous stable states.</p>
+
+<p><big><img src="5relay/5rf3.gif" alt="Figure 3" align="right" border="2" WIDTH="221" HEIGHT="134"></big>The
+procedure of finding all the loops has been carried out in Figures 3 to 6. By following up
+all possible cases it is seen that there are four sequences of states through which the 5
+relay system can oscillate. Consider the first sequence shown as loop 'A' in Figure 3.
+Initially all the relays will attempt to turn on, at which time all the relays will become
+deenergised and will then all turn off. If all the relays were perfectly identical and all
+had identical energisation and deenergisation times this condition would repeat
+indefinitely. However, in practice a race condition exists between the five relays and if
+one or two relays get left behind, the system will jump into one of the loops B, C or D.<font FACE="Arial"></p>
+
+<p><img src="5relay/5rf4.gif" alt="Figure 4" align="left" border="2" WIDTH="212" HEIGHT="240"><img src="5relay/5rf5.gif" alt="Figure 5" align="right" border="2" WIDTH="211" HEIGHT="215"></font>Considering loops B
+and C in Figures 4 and 5, it is seen that there are still race conditions between three
+relays so there is an opportunity for the system to spontaneously hop into one of the
+other loops. In loop D, however, there is always only one relay changing state at any
+time. Hence, there is no race condition in this loop and this loop will be stable. The
+relays will quickly settle down in loop D and will continue to oscillate in the successive
+states of this loop indefinitely. Comparing this state by state with the waveforms given
+in Peter's solution in the January 1993 edition of EA shows that this is the solution
+reached by Peter.<font FACE="Arial"></p>
+
+<h3></font><em>Summary</em></h3>
+
+<p><big><img src="5relay/5rf6.gif" alt="Figure 6" align="right" border="2" WIDTH="228" HEIGHT="200"></big>To
+summarise<font size="2">,&nbsp; </font>the logical design procedure for analysis is that
+you first identify all the variables, including the input, output and state variables,
+then all the logical relationships between the variables which you write in the form of
+logic equations and then you draw up a state table by mapping the circuit equations onto
+the state table. The resulting state table shows all possible states of these variables
+and their next states for all input conditions. Analysis, or tracing through, the state
+table then gives you all the possible ways the system can function. The logical analysis
+procedure is reversible and can be used for synthesis. Hence, given a desired result one
+can derive a circuit that will produce that result. However, of course there are
+additional considerations, beyond what has been described here, that have to be taken into
+account to achieve a problem free result when synthesising sequential circuits.</p>
+
+<h3><em>Simulation of the 5 relay puzzle</em></h3>
+
+<p>If you have access to a PLD design system such as the Altera MaxPlus II system you can
+demonstrate the behaviour of the relays with the simulator that is part of the system. I
+will show you the results (click on the underlined text for Figures 8 to 11 to see the
+results). <a href="5relay/5rf7.gif">Figure 7</a> is the circuit that has been used for the
+simulation. The multiplexer circuits are used to switch in the initial conditions for each
+loop. The simulator will of course allocate fixed delay values from its timing model so
+that the simulator will show continuous oscillations in each loop. Compare the successive
+values of the relays in <a href="puzzle.html">Figures 8 to 11</a> with the values derived
+in Figures 3 to 6.<font FACE="Arial"></p>
+</font>
+
+<p>A circuit constructed with real electromechanical relays will behave as described but I
+was interested to see how a circuit constructed with gate circuits would behave. So I
+programmed <a href="5relay/5rf7.gif">Figure 7</a> into my printed circuit board. I made
+provision for repetitive initialisation and followed the action on an oscilloscope. I had
+to provide additional buffering on output signals to prevent the oscilloscope leads from
+interfering with the experiment. I found that if the circuit was initialised in loops B or
+C the circuit quickly reverted to loop D. What I could see was that the asymmetry in the
+mark to space ratio in the waveforms produced in loops B or C resulted in a progressive
+shift in the phase of the waveforms until the circuit jumped into loop D. The waveforms in
+loop D are square waves. When I started the circuit in loop A, the circuit continued to
+run in this loop, without any sign of changing to another loop, throughout the time that I
+allowed before re-initialisation. The waveforms in this loop are also square waves but at
+a much higher frequency. This suggests to me that the delays in the interconnections in
+the EPM7128SLC device used in the printed circuit board have been very carefully equalised
+in the manufacturing process. The experiment made quite an impressive demonstration of
+this fact.</p>
+
+<p><font color="#804040">Return to Intelligent logic <em><strong>OR</strong></em>
+Navigation menu at the top of the page <em><strong>OR</strong></em> continue with
+Exclusive-OR Logic:<script language="JavaScript">
+<!-- hide this script from non-javascript-enabled browsers
+
+/* Functions that finds images. */
+function MM_findObj(n, d) { //v3.0
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document); return x;
+}
+/* Functions that swaps images. */
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+// stop hiding -->
+</script></font> <!--The following section is an image or HTML table which reassembles the sliced image in a browser.--> </p>
+
+<table align="center" border="0" cellpadding="0" cellspacing="0" width="120">
+<!-- fwtable fwsrc="BackFor.png" fwbase="backfor.gif" fwstyle="FrontPage" fwdocid = "742308039" fwnested=""1" -->
+  <script language="JavaScript">
+  <!-- hide 
+  if (document.images) {
+  backfor_r1_c1_f2 = new Image(40 ,40); backfor_r1_c1_f2.src = "menus/backfor_r1_c1_f2.gif";
+  backfor_r1_c1_f1 = new Image(40 ,40); backfor_r1_c1_f1.src = "menus/backfor_r1_c1.gif";
+  backfor_r1_c2_f2 = new Image(40 ,40); backfor_r1_c2_f2.src = "menus/backfor_r1_c2_f2.gif";
+  backfor_r1_c2_f1 = new Image(40 ,40); backfor_r1_c2_f1.src = "menus/backfor_r1_c2.gif";
+  backfor_r1_c3_f2 = new Image(40 ,40); backfor_r1_c3_f2.src = "menus/backfor_r1_c3_f2.gif";
+  backfor_r1_c3_f1 = new Image(40 ,40); backfor_r1_c3_f1.src = "menus/backfor_r1_c3.gif";
+  }
+  // stop hiding -->
+  </script>
+
+  <tr>
+<!-- row 1 -->
+    <td align="center"><a onMouseOut="MM_swapImgRestore();" onMouseOver="MM_swapImage('backfor_r1_c1','','menus/backfor_r1_c1_f2.gif',1);" href="async.html"><img name="backfor_r1_c1" src="menus/backfor_r1_c1.gif" border="0" WIDTH="40" HEIGHT="40"></a></td>
+    <td align="center"><a onMouseOut="MM_swapImgRestore();" onMouseOver="MM_swapImage('backfor_r1_c2','','menus/backfor_r1_c2_f2.gif',1);" href="#top"><img name="backfor_r1_c2" src="menus/backfor_r1_c2.gif" border="0" WIDTH="40" HEIGHT="40"></a></td>
+    <td align="center"><a onMouseOut="MM_swapImgRestore();" onMouseOver="MM_swapImage('backfor_r1_c3','','menus/backfor_r1_c3_f2.gif',1);" href="concept1.html"><img name="backfor_r1_c3" src="menus/backfor_r1_c3.gif" border="0" WIDTH="40" HEIGHT="40"></a></td>
+  </tr>
+<!--   This HTML was automatically created with Macromedia Fireworks 4.0   -->
+<!--   http://www.macromedia.com   -->
+</table>
+<font size="2">
+
+<p>(Copyright) David N. Warren-Smith, CPENG</p>
+
+<p>Digital Logic Systems, South Australia</p>
+
+<p>21 September, 1998</p>
+</font>
+
+&nbsp;<!--msnavigation--></td></tr><!--msnavigation--></table></body>
+</html>

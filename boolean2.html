@@ -1,0 +1,1109 @@
+<html>
+
+<head>
+
+<script language="JavaScript1.2" src="menus/fw_menu.js"></script>
+
+<title>Boolean Algebra Revisited - Page 2</title>
+
+
+
+
+</head>
+
+<body topmargin="0" leftmargin="12" marginheight="0" marginwidth="0" bgcolor="#e6e6e6"><!--msnavigation--><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+
+<h1 align="center"><font color="#FF0000"><big>Digital Logic Systems</big></font></h1>
+
+<p align="center">David N. Warren-Smith, CPEng. South Australia</p>
+</td></tr><!--msnavigation--></table><!--msnavigation--><table dir="ltr" border="0" cellpadding="0" cellspacing="0" width="100%"><tr><!--msnavigation--><td valign="top">
+
+<p><script language="JavaScript">
+<!-- hide this script from non-javascript-enabled browsers
+
+function fwLoadMenus() {
+    window.fw_menu_0_1 = new Menu("Digital Logic Systems",68,18,"Arial, Helvetica, sans-serif",11,"#990000","#ffffcc","#ffffcc","#990000");
+    fw_menu_0_1.addMenuItem("Home","location='index.html'");
+    fw_menu_0_1.addMenuItem("Articles","location='articles.html'");
+    fw_menu_0_1.addMenuItem("Links","location='links.html'");
+     fw_menu_0_1.fontWeight="bold";
+     fw_menu_0_1.hideOnMouseOut=true;
+    window.fw_menu_0_2 = new Menu("Bystanders &amp; Tutorials pages",189,18,"Arial, Helvetica, sans-serif",11,"#990000","#ffffcc","#ffffcc","#990000");
+    fw_menu_0_2.addMenuItem("Bystanders &amp; Beginners page","location='beginners.html'");
+    fw_menu_0_2.addMenuItem("Boolean Algebra - Page 1","location='boolean.html'");
+    fw_menu_0_2.addMenuItem("Boolean Algebra - Page 2","location='boolean2.html'");
+    fw_menu_0_2.addMenuItem("Intelligent Logic","location='async.html'");
+    fw_menu_0_2.addMenuItem("Relay Puzzle","location='relay.html'");
+    fw_menu_0_2.addMenuItem("Relay Puzzle figures","location='puzzle.html'");
+     fw_menu_0_2.fontWeight="bold";
+     fw_menu_0_2.hideOnMouseOut=true;
+    window.fw_menu_0_3 = new Menu("Practical Projects",244,18,"Arial, Helvetica, sans-serif",11,"#990000","#ffffcc","#ffffcc","#990000");
+    fw_menu_0_3.addMenuItem("Practical Projects - Printed Circuit Board","location='projectpcb.html'");
+    fw_menu_0_3.addMenuItem("Count Down Clock - AHDL code","location='project.html'");
+    fw_menu_0_3.addMenuItem("Count Down Clock - VHDL code","location='vhdl.html'");
+     fw_menu_0_3.fontWeight="bold";
+     fw_menu_0_3.hideOnMouseOut=true;
+    window.fw_menu_0_4 = new Menu("Exclusive-OR articles",195,18,"Arial, Helvetica, sans-serif",11,"#990000","#ffffcc","#ffffcc","#990000");
+    fw_menu_0_4.addMenuItem("Boolean Algebra revisited","location='boolean.html'");
+    fw_menu_0_4.addMenuItem("Part 1 - ExOR Theory","location='concept1.html'");
+    fw_menu_0_4.addMenuItem("Part 2 - Algebraic Simplification","location='concept2.html'");
+    fw_menu_0_4.addMenuItem("Part 3 - Multiple Solutions","location='concept3.html'");
+     fw_menu_0_4.fontWeight="bold";
+     fw_menu_0_4.hideOnMouseOut=true;
+  window.fw_menu_0 = new Menu("root",188,18,"Arial, Helvetica, sans-serif",11,"#990000","#ffffcc","#ffffcc","#990000");
+  fw_menu_0.addMenuItem(fw_menu_0_1);
+  fw_menu_0.addMenuItem(fw_menu_0_2);
+  fw_menu_0.addMenuItem(fw_menu_0_3);
+  fw_menu_0.addMenuItem(fw_menu_0_4);
+   fw_menu_0.fontWeight="bold";
+   fw_menu_0.hideOnMouseOut=true;
+   fw_menu_0.childMenuIcon="menus/arrows.gif";
+
+  fw_menu_0.writeMenus();
+} // fwLoadMenus()
+
+// stop hiding -->
+</script> <!--The following section is an image or HTML table which reassembles the sliced image in a browser.--> <script language="JavaScript1.2">fwLoadMenus();</script> </p>
+
+<table align="center" border="0" cellpadding="0" cellspacing="0" width="362">
+<!-- fwtable fwsrc="Navmenus.png" fwbase="menus/navmenus.gif" fwstyle="FrontPage" fwdocid = "742308039" fwnested=""1" -->
+  <tr>
+<!-- row 2 -->
+    <td><a href="#" onMouseOut="FW_startTimeout();" onMouseOver="window.FW_showMenu(window.fw_menu_0,25,95);"><img name="navmenus_r2_c1" src="menus/navmenus_r2_c1.gif" border="0" WIDTH="362" HEIGHT="30"></a></td>
+  </tr>
+<!--   This HTML was automatically created with Macromedia Fireworks 4.0   -->
+<!--   http://www.macromedia.com   -->
+</table>
+<font color="#804040" size="5"><b>
+
+<p align="center">Boolean Algebra revisited - Page 2</b></font></p>
+
+<p align="center"><font color="#804040"><b>An Introductory but fresh look at Boolean
+Algebra</b></font> </p>
+
+<ul type="circle">
+  <b>
+  <li><a href="boolean.html">Continuation from Page 1</a></li>
+  <li><a href="#Simplification">Simplification of inclusive OR functions</a></li>
+  <li><a href="#Examples">Examples of simplification of Boolean functions</a></li>
+  <li><a href="#NAND">NAND and NOR logic circuits</a></li>
+  <li><a href="#additional">Two additional theorems for the ExOR algebra</a></li>
+  <li><a href="#Duality">Duality in Boolean algebra</a></li>
+  </b>
+  <li><b><a href="#Minterms">Minterms, maxterms and canonical forms</a></b></li>
+  <li><a href="#canonical"><b>The canonical forms of the ExOR algebra</b></a></li>
+  <li><a href="#Karnaugh"><b>Karnaugh maps</b></a></li>
+  <li><a href="#Don&#146;t care"><b>Don&#146;t care terms</b></a></li>
+  <li><a href="#Summary"><b>Summary of the theorems of Boolean algebra</b></a></li>
+  <li><a href="#Added"><b>Added note</b></a></li>
+  <li><a href="#Conclusion"><b>Conclusion</b></a></li>
+  <li><a href="#BuyBA2"><b>Buy a Book</b></a></li>
+</ul>
+<div align="center"><center>
+
+<table border="2" width="65%" bgcolor="#FFFFFF" bordercolor="#800000">
+  <tr>
+    <td width="100%"><p align="center">Consider purchasing a copy of my book. Details at the
+    end of the page.<a href="#BuyBA2"><img src="images/down.gif" alt="Buy a book" border="0" WIDTH="11" HEIGHT="14"></a></td>
+  </tr>
+</table>
+</center></div>
+
+<p><b><a href="#top"><img src="top.gif" alt="Top" align="left" border="0" WIDTH="10" HEIGHT="12"></a><a name="Simplification">Simplification</a> of inclusive OR functions</b></p>
+
+<p>One of the uses of Boolean algebra is to simplify Boolean functions. In the case of the
+ExOR algebra, simplification is dealt with in separate parts of this series of papers. For
+the inclusive OR algebra there are a few cases that occur often enough to justify calling
+them simplification relations.</p>
+
+<table border="0" width="630">
+  <tr>
+    <td width="75"><strong>1.</strong></td>
+    <td width="144"><font face="Courier">y = a + ab</font></td>
+    <td width="397"></td>
+  </tr>
+  <tr>
+    <td width="75"></td>
+    <td width="144"><font face="Courier">&nbsp; = a(1 + b)</font></td>
+    <td width="397"><i>distributive theorem used to take out a common factor</i></td>
+  </tr>
+  <tr>
+    <td width="75"></td>
+    <td width="144"><font face="Courier">&nbsp; = a</font></td>
+    <td width="397"><i>1 + anything = 1, a1 = a</i></td>
+  </tr>
+</table>
+
+<table border="0" width="630">
+  <tr>
+    <td width="75"><strong>2.</strong></td>
+    <td width="260"><font face="Courier">y = a + a'b</font></td>
+    <td width="281"></td>
+  </tr>
+  <tr>
+    <td width="75"></td>
+    <td width="260"><font face="Courier">&nbsp; = a(b+b') + a'b</font></td>
+    <td width="281"><em>a= a1 = a(b+b')</em></td>
+  </tr>
+  <tr>
+    <td width="75"></td>
+    <td width="260"><font face="Courier">&nbsp; = ab + ab' + ab + a'b</font></td>
+    <td width="281"><em>ab = ab + ab, term duplicated</em></td>
+  </tr>
+  <tr>
+    <td width="75"></td>
+    <td width="260"><font face="Courier">&nbsp; = a(b+b') + b(a+a')</font></td>
+    <td width="281"><em>take out the common factors</em></td>
+  </tr>
+  <tr>
+    <td width="75"></td>
+    <td width="260"><font face="Courier">&nbsp; = a + b</font></td>
+    <td width="281"><em>b+b'=1, etc.</em></td>
+  </tr>
+</table>
+
+<table border="0" width="629">
+  <tr>
+    <td width="75"><strong>3.</strong></td>
+    <td width="260"><font face="Courier">(a+b)(a+b') = aa+ab+ba+bb'</font></td>
+    <td width="281"><em>expanding by the distributive law</em></td>
+  </tr>
+  <tr>
+    <td width="75"></td>
+    <td width="260"><font face="Courier">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    = a(1+b)</font></td>
+    <td width="281"><em>since bb'=0, duplicate term ba removed</em></td>
+  </tr>
+  <tr>
+    <td width="75"></td>
+    <td width="260"><font face="Courier">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    = a</font></td>
+    <td width="281"><em>1+anything=1, a1=a</em></td>
+  </tr>
+</table>
+
+<p>Simplification relations for inclusive OR algebra are therefore:</p>
+
+<table border="0" width="571">
+  <tr>
+    <td width="60"></td>
+    <td width="103"><font face="Courier">a+ab = a</font></td>
+    <td width="113"><font face="Courier">a+a'b = a+b</font></td>
+    <td width="154"><font face="Courier">(a+b)(a+b') = a</font></td>
+  </tr>
+</table>
+
+<p><b><a href="#top"><img src="top.gif" alt="Top" align="left" border="0" WIDTH="10" HEIGHT="12"></a><a name="Examples">Examples</a> of simplification of Boolean functions</b></p>
+
+<p>The following two examples will give you some idea of how to use the theorems for
+simplification of Boolean inclusive OR functions. Examples of simplification of ExOR
+functions are covered in other papers in this series and will be left to those papers.</p>
+
+<table border="0" width="665">
+  <tr>
+    <td width="65"><strong>1.</strong></td>
+    <td width="328"><font face="Courier">y = p'r' + pq' + q'r'</font></td>
+    <td width="254"></td>
+  </tr>
+  <tr>
+    <td width="65"></td>
+    <td width="328"><font face="Courier">&nbsp; = p'r' + pq' + q'r'(p + p')</font></td>
+    <td width="254"><em>q'r' = q'r'1 = q'r'(p+p')</em></td>
+  </tr>
+  <tr>
+    <td width="65"></td>
+    <td width="328"><font face="Courier">&nbsp; = p'r' + pq' + pq'r' + p'q'r'</font></td>
+    <td width="254"><em>distributive theorem</em></td>
+  </tr>
+  <tr>
+    <td width="65"></td>
+    <td width="328"><font face="Courier">&nbsp; = p'r'(1 + q') + pq'(1 + r')</font></td>
+    <td width="254"><em>taking out common factors</em></td>
+  </tr>
+  <tr>
+    <td width="65"></td>
+    <td width="328"><font face="Courier">&nbsp; = p'r' + pq'</font></td>
+    <td width="254"><em>1+q' = 1, etc.</em></td>
+  </tr>
+</table>
+
+<p>Note that we have used the distributive and commutative laws in two of the steps. The
+term <font face="Courier">q'r'</font> is said to be redundant. This becomes clear when we
+look at Karnaugh maps.</p>
+
+<table border="0" width="665">
+  <tr>
+    <td width="75"><strong>2.</strong></td>
+    <td width="318"><font face="Courier">y = r's + p'q's + p'qrs + pqr'</font></td>
+    <td width="254"></td>
+  </tr>
+  <tr>
+    <td width="75"></td>
+    <td width="318"><font face="Courier">&nbsp; = s(r' + p'q' + p'qr) + pqr'</font></td>
+    <td width="254"><em>distributive theorem</em></td>
+  </tr>
+</table>
+
+<p>Note that the <font face="Courier">r</font> in the term <font face="Courier">p'qr</font>
+is redundant according to the second simplification theorem.</p>
+
+<table border="0" width="665">
+  <tr>
+    <td width="75">Therefore:</td>
+    <td width="318"><font face="Courier">y = s(r' + p'q' + p'q) + pqr'</font></td>
+    <td width="254"></td>
+  </tr>
+  <tr>
+    <td width="75"></td>
+    <td width="318"><font face="Courier">&nbsp; = s(r' + p'(q' + q)) + pqr'</font></td>
+    <td width="254"><em>distributive theorem</em></td>
+  </tr>
+  <tr>
+    <td width="75"></td>
+    <td width="318"><font face="Courier">&nbsp; = s(r' + p') + pqr'</font></td>
+    <td width="254"><em>(q'+q)=1, p'1 = p'</em></td>
+  </tr>
+  <tr>
+    <td width="75"></td>
+    <td width="318"><font face="Courier">&nbsp; = sr' + sp' + pqr'</font></td>
+    <td width="254"></td>
+  </tr>
+</table>
+<b>
+
+<p><a href="#top"><font FACE="Arial"><img src="top.gif" alt="Top" align="left" border="0" WIDTH="10" HEIGHT="12"></font></a><a name="NAND">NAND</a> and NOR logic circuits</b></p>
+
+<p>The first integrated circuits to appear on the market were Fairchild RTL logic
+circuits. A basic RTL gate circuit is shown in Figure 8. A high signal on either or both
+inputs will drive the output low, whilst a low input on both inputs allows the output to
+be taken high by the resistor in the collector circuit. From the truth table in the figure
+you can see that the circuit functions like an OR gate with an inverter on its output.
+Hence this circuit is called a NOR gate.</p>
+<div align="center"><center>
+
+<table border="2" width="60%" bgcolor="#FFFFFF" bordercolor="#800000">
+  <tr>
+    <td width="100%">Ask your school or Uni library to purchase a copy of my book
+    &quot;Introduction to Digital Circuit Theory&quot;. <strong><font color="#008000">ISBN:
+    978-0-9581894-1-5</font></strong>.<a href="#BuyBA2"><img src="images/down.gif" alt="Buy a book" border="0" WIDTH="11" HEIGHT="14"></a></td>
+  </tr>
+</table>
+</center></div>
+
+<p><img src="_borders/NORgate.gif" alt="Early RTL NOR logic circuit" align="right" hspace="5" vspace="5" WIDTH="242" HEIGHT="254">This type of circuit was quickly superseded by more efficient
+circuit types. You can see that the collector resistor will form a voltage divider with
+circuits that it is connected to. This imposes severe limits on the voltage levels of
+logic signals and on the fan-in and fan-out that can be achieved with the circuit. Since
+the output of the circuit is not driven high it will also be slower, due to stray
+capacitance in the circuitry that follows it, when the output rises compared with when the
+output falls. This circuit is far from ideal but made a simple transistor circuit that
+found plenty of use when it first appeared.</p>
+
+<p>The NAND gate became a more popular circuit type to work with. A NAND gate is
+equivalent to an AND gate followed by an inverter. A NAND gate has the form <font face="Courier">y=(ab)'</font>. A NOR gate has the form <font face="Courier">y=(a+b)'</font>.</p>
+
+<p>To implement a NAND or a NOR circuit the function to be implemented is manipulated into
+the required one of these forms. Both forms have a parenthesis and final inversion.
+Consequently the function needs to be inverted twice. The first inversion will produce the
+parenthesis and final inversion. The second inversion needs to be done in such a way that
+additional NAND or NOR forms are produced. The steps are carried out as in the following
+example:</p>
+
+<table border="0" width="512">
+  <tr>
+    <td width="63"></td>
+    <td width="192"><font face="Courier">y = a + bc</font></td>
+    <td width="239"></td>
+  </tr>
+  <tr>
+    <td width="63"></td>
+    <td width="192"><font face="Courier">&nbsp; = (a'(bc)')'</font></td>
+    <td width="239"><i>This is the NAND form</i></td>
+  </tr>
+</table>
+
+<p>In applying DeMorgan's theorem to the function, the term<i> <font face="Courier">bc</font></i>
+was not expanded when an inversion for it was called for. Otherwise it would have been
+necessary to invert it back again.</p>
+
+<p>Note that the complete circuit consists of two NAND gates. One of the gates has the
+variables <font face="Courier"><i>b</i></font> and <font face="Courier"><i>c</i></font> as
+inputs. The other has the output of the first NAND gate and the variable <font face="Courier"><i>a</i></font> inverted as inputs. The inversion on <font face="Courier"><i>a</i></font>
+can be achieved with an additional NAND gate if necessary.</p>
+
+<p>To get the NOR form, the term <font face="Courier"><i>bc</i></font> is expanded out and
+the process continued as follows:</p>
+
+<table border="0" width="509">
+  <tr>
+    <td width="61"></td>
+    <td width="251"><font face="Courier">y = (a'(b' + c'))'</font></td>
+    <td width="179"></td>
+  </tr>
+  <tr>
+    <td width="61"></td>
+    <td width="251"><font face="Courier">&nbsp; = (a'b' + a'c')'</font></td>
+    <td width="179"></td>
+  </tr>
+  <tr>
+    <td width="61"></td>
+    <td width="251"><font face="Courier">&nbsp; = ((a + b)' + (a + c)')'</font></td>
+    <td width="179"><i>NOR circuit form</i></td>
+  </tr>
+</table>
+
+<p><img src="_borders/NANDequiv.gif" alt="NAND Equivalent" align="right" hspace="5" vspace="5" WIDTH="220" HEIGHT="361">In this procedure the second inversion is expanded to produce separate product
+terms and the product terms are inverted once again by DeMorgan's theorem to give the
+final NOR form for the function. Finding the NOR form is facilitated by first plotting the
+zeros on a K-map of the function to get the inverse of the function. Inverting this
+function again with DeMorgan's theorem gives the NOR form directly. This will reduce the
+number of steps to get the NOR form. The use of K-maps is described later in this paper
+where you will find out how to use them. In both cases the result is a two level circuit
+consisting of either NAND gates or NOR gates. In this particular case the NOR circuit
+requires three NOR gates but if you count the extra inversion on the variable <font face="Courier">a</font> in the NAND gate circuit the circuit complexity is about the same
+for each circuit.</p>
+
+<p>Note that a two level NAND circuit is equivalent to an SOP circuit. This is illustrated
+in Figure 9. The output NAND gate is replaced by its DeMorgan's equivalent, which is an OR
+gate with inversions on each input. You can then see that the inversions between the two
+levels of gates cancel out leaving the AND OR form. NAND gates are convenient to work
+with. With the original RTL circuit the NOR circuit approach was mandatory to work with.</p>
+
+<p>Figure 9 represents a graphical method of working. A characteristic of the design of
+digital circuits with Boolean algebra is that there are nearly always both an algebraic
+method and a graphical method of working for a particular design solution. A similar
+procedure to that of Figure 9 exists for NOR circuits which develops into a Product of
+Sums form. This result follows the dictates of duality covered later on this page.</p>
+<b>
+
+<p><a href="#top"><font FACE="Arial"><img src="top.gif" alt="Top" align="left" border="0" WIDTH="10" HEIGHT="12"></font></a>Two
+<a name="additional">additional</a> theorems for the ExOR algebra</p>
+
+<p></b><strong>1. Disjunction theorem.</strong>&nbsp; This theorem will be used to convert
+between AND, OR Invert logic and ExOR logic.</p>
+
+<p>This theorem states that if <font face="Courier"><i>g</i></font>, <font face="Courier"><i>h</i></font>
+are functions of the same switching circuit variables, then:</p>
+
+<table border="0" width="595">
+  <tr>
+    <td width="24"></td>
+    <td width="198">If: <font face="Courier">f = g<font FACE="Symbol">Å</font>h</font> and <font face="Courier">gh = 0</font></td>
+    <td width="152">then <font face="Courier">f = g+h</font></td>
+    <td width="203"><em>Disjunction theorem</em></td>
+  </tr>
+</table>
+
+<p>This theorem can be proved as follows:</p>
+
+<table border="0" width="597">
+  <tr>
+    <td width="77"></td>
+    <td width="274"><font face="Courier">f = g <font FACE="Symbol">Å</font> h&nbsp; = gh' +
+    g'h</font></td>
+    <td width="228"><em>From ExOR operator definition</em></td>
+  </tr>
+  <tr>
+    <td width="77"></td>
+    <td width="274"><font face="Courier">&nbsp; = gh' + g'h + gh</font></td>
+    <td width="228"><em>since gh = 0</em></td>
+  </tr>
+  <tr>
+    <td width="77"></td>
+    <td width="274"><font face="Courier">&nbsp; = g(h + h') + h(g' + g)</font></td>
+    <td width="228"><em>collecting terms</em></td>
+  </tr>
+  <tr>
+    <td width="77"></td>
+    <td width="274"><font face="Courier">&nbsp; = g + h</font></td>
+    <td width="228"><em>which is the required result</em></td>
+  </tr>
+</table>
+<b>
+
+<p></b><strong>2. Transposition theorem.</strong> This next theorem gives ExOR algebra an
+unusual degree of freedom.</p>
+
+<p>If: <font face="Courier">f</font>, <font face="Courier">g</font>, <font face="Courier">h</font>
+are functions of the same switching circuit variables and <font face="Courier">f</font> <font face="Courier">=</font> <font face="Courier">g<font FACE="Symbol">Å</font>h</font>, then <font face="Courier">g</font> <font face="Courier">=</font> <font face="Courier">f<font FACE="Symbol">Å</font>h</font> and <font face="Courier">h</font> <font face="Courier">=</font>
+<font face="Courier">g<font FACE="Symbol">Å</font>f</font></p>
+<font face="Courier">
+
+<p></font>This theorem is derived as follows:<font face="Courier"></p>
+
+<p></font>Given that:<font face="Courier"> f</font> <font face="Courier">=</font> <font face="Courier">g<font FACE="Symbol">Å</font>h</font>, then adding <font face="Courier">h</font>
+(mod-2) to both sides of the equation gives:</p>
+
+<p><font face="Courier">f<font FACE="Symbol">Å</font>h</font> <font face="Courier">=</font>
+<font face="Courier">g<font FACE="Symbol">Å</font>h<font FACE="Symbol">Å</font>h</font> <font face="Courier">=</font> <font face="Courier">g </font>Since <font face="Courier">h<font FACE="Symbol">Å</font>h</font> cancels out.</p>
+
+<p>Therefore <font face="Courier">g</font> <font face="Courier">=</font> <font face="Courier">f<font FACE="Symbol">Å</font>h</p>
+
+<p></font>Similarly <font face="Courier">h</font> <font face="Courier">=</font> <font face="Courier">g<font FACE="Symbol">Å</font>f </font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<em>Transposition theorem</em></p>
+
+<p>Some of the applications of this theorem are given in the following paper in this
+series devoted to ExOR algebra. You will find these applications when you reach that part
+of the ExOR paper. An application that will be described here is to derive a Gray code to
+binary code converter circuit. The Gray code is described in more detail later in this
+paper.</p>
+
+<p><img src="_borders/Graycode.gif" alt="Graycode Binary code converters" align="right" hspace="5" vspace="5" WIDTH="476" HEIGHT="259">The Gray code is derived from the binary code bit by bit from the
+relation: <font face="Courier"><i>g</i></font><sub>n</sub> = <font face="Courier"><i>b</i></font><sub>n</sub><font FACE="Symbol">Å</font><sub> </sub><font face="Courier"><i>b</i></font><sub>n+1</sub>
+where <font face="Courier"><i>b</i></font><sub>n</sub> and <font face="Courier"><i>g</i></font><sub>n</sub>
+are the n<sup>th</sup> most significant bits of the binary and Gray codes respectively,
+except for the most significant bits that are the same for both codes.</p>
+
+<p>We require the inverse code conversion or Gray code to binary code converter circuit.
+Applying the transposition theorem to the above expression gives a relation from which the
+inverse code conversion is found: <font face="Courier"><i>b</i></font><sub>n</sub> = <font face="Courier"><i>g</i></font><sub>n</sub><font FACE="Symbol">Å</font><sub> </sub><font face="Courier"><i>b</i></font><sub>n+1</sub>.</p>
+
+<p>For example consider a four input circuit with most significant bits: <font face="Courier"><i>b</i></font><sub>3</sub> = <font face="Courier"><i>g</i></font><sub>3</sub>.
+Substituting into the formula gives: <font face="Courier"><i>b</i></font><sub>2</sub> = <font face="Courier"><i>g</i></font><sub>2</sub><font FACE="Symbol">Å</font><sub> </sub><font face="Courier"><i>g</i></font><sub>3</sub>. Continuing to substitute into progressively
+less significant bits gives the complete Gray code to binary code converter circuit:</p>
+
+<table border="0" width="299">
+  <tr>
+    <td width="72"></td>
+    <td width="215"><font face="Courier">b</font><sub>0</sub><font face="Courier"> = g</font><sub>0</sub><font FACE="Symbol">Å</font><font face="Courier">g</font><sub>1</sub><font FACE="Symbol">Å</font><sub>
+    </sub><font face="Courier">g</font><sub>2</sub><font FACE="Symbol">Å</font><sub> </sub><font face="Courier">g</font><sub>3</sub></td>
+  </tr>
+  <tr>
+    <td width="72"></td>
+    <td width="215"><font face="Courier">b</font><sub>1</sub><font face="Courier"> = g</font><sub>1</sub><font FACE="Symbol">Å</font><sub> </sub><font face="Courier">g</font><sub>2</sub><font FACE="Symbol">Å</font><sub> </sub><font face="Courier">g</font><sub>3</sub></td>
+  </tr>
+  <tr>
+    <td width="72"></td>
+    <td width="215"><font face="Courier">b</font><sub>2</sub><font face="Courier"> = g</font><sub>2</sub><font FACE="Symbol">Å</font><sub> </sub><font face="Courier">g</font><sub>3</sub></td>
+  </tr>
+  <tr>
+    <td width="72"></td>
+    <td width="215"><font face="Courier">b</font><sub>3</sub><font face="Courier"> = g</font><sub>3</sub>.</td>
+  </tr>
+</table>
+
+<p>This circuit can be constructed with a cascade of three XOR gates as seen in Figure 10.</p>
+<b>
+
+<p><a href="#top"><font FACE="Arial"><img src="top.gif" alt="Top" align="left" border="0" WIDTH="10" HEIGHT="12"></font></a><a name="Duality">Duality</a> in Boolean algebra</b></p>
+
+<p>The properties inherent in Boolean algebra result in the phenomenon of duality in this
+algebra. The inclusive and exclusive OR algebras each have their own duality
+characteristics.</p>
+
+<p>For the inclusive OR algebra, duality can be expressed by the statement: Replacing all
+AND operators with OR operators, replacing all OR operators with AND operators, replacing
+all 0s with 1s and replacing all 1s with 0s on both sides of any of the basic theorems of
+the inclusive OR algebra produces another of the basic theorems.</p>
+
+<p>Consider Figure 4 and apply this to each of the basic theorems of the AND and OR
+operators to see that this result is applicable.</p>
+
+<p>For the ExOR algebra, consider the basic theorems for this operator given in Figure 4.
+Apply the ExOR inversion theorems to both sides of any of the basic theorems of the ExOR
+operator and you get another of the basic theorems. Next apply the transposition theorem
+given in the previous section to any of the basic theorems of the ExOR operator and you
+can see that another of the basic theorems results. </p>
+
+<p>The ExOR operator has a double duality property that gives this operator a great deal
+of flexibility. Any of the basic theorems of the ExOR operator can be transformed into any
+of the other basic theorems through applications of the duality properties.</p>
+
+<p>Note that duality in the AND OR theorems involves both these operators, whilst duality
+in the ExOR operator involves only the ExOR operator. See how this works in Figure 7 as
+well as in Figure 4.</p>
+<div align="center"><center>
+
+<table border="2" width="60%" bgcolor="#FFFFFF" bordercolor="#800000">
+  <tr>
+    <td width="100%"><p align="center">Enquire in bookshops and libraries if they have a copy
+    of my book. <strong><font color="#008000">ISBN: 978-0-9581894-1-5</font></strong>.<a href="#BuyBA2"><img src="images/down.gif" alt="Buy a book" border="0" WIDTH="11" HEIGHT="14"></a></td>
+  </tr>
+</table>
+</center></div><b>
+
+<p><a href="#top"><img src="top.gif" alt="Top" align="left" border="0" WIDTH="10" HEIGHT="12"></a><a name="Minterms">Minterms</a>, maxterms and canonical forms</b></p>
+
+<p>A concept that we need is the idea of a canonical form for Boolean algebra. A Boolean
+expression can be expanded by ANDing any term with a missing variable by the sum of that
+variable with its inverse. Let <font face="Courier">p</font> be a term in a Boolean
+expression, then <font face="Courier">p=p1=p(q+q')</font>. As already shown, this does not
+alter the value of the expression. If this is carried out for all missing variables and
+for all terms, the result is the canonical expansion for the expression. This form of the
+expansion is called the minterm canonical form.</p>
+
+<p>For example:</p>
+
+<table border="0" width="594">
+  <tr>
+    <td width="64"></td>
+    <td width="518"><font face="Courier">A+B = A(B+B') + B(A+A') = AB + AB' + A'B</font></td>
+  </tr>
+</table>
+
+<p>A dual form of the expansion is also possible, by expanding the expression into a
+product of sums. This is known as the maxterm canonical form. This will be demonstrated in
+an example of these forms shortly.</p>
+
+<p>There are 2<sup>n</sup> possible entries for a truth table of <font face="Courier">n</font>
+variables. The minterms of an expression correspond with the entries in the truth table
+for the expression that have the value 1. Since the inverse of a function is found by
+replacing all 1s with 0s and all 0s with 1s in a truth table for the function, the inverse
+of a function with <font face="Courier"><i>m</i></font> minterms is the remaining <font face="Courier">(2</font><sup>n</sup><font face="Courier">-m)</font>minterms.</p>
+
+<p>In the following example a shorthand way of writing the minterms has been used. The
+sigma notation replaces each minterm with a decimal number corresponding to the binary
+number obtained by replacing each variable with a 0 or 1 depending on whether the variable
+is primed or not. Since the order of the variables is important for this notation this is
+shown in parenthesis. Each minterm must of course show the variables in the same order.</p>
+
+<p>The following example shows the expansion of a function into minterms and the
+subsequent derivation of the inverse of the function.</p>
+
+<table border="0" width="621">
+  <tr>
+    <td width="90"><p align="right"><font face="Courier">B + A'C</font></td>
+    <td width="519"><font face="Courier">= B(A+A')(C+C') + A'(B+B')C</font></td>
+  </tr>
+  <tr>
+    <td width="90"></td>
+    <td width="519"><font face="Courier">= ABC + ABC' + A'BC + A'BC' + A'BC + A'B'C</font></td>
+  </tr>
+  <tr>
+    <td width="90"></td>
+    <td width="519"><font face="Courier">= ABC + ABC' + A'BC + A'BC' + A'B'C</font></td>
+  </tr>
+  <tr>
+    <td width="90"></td>
+    <td width="519"><font face="Courier">= </font><font FACE="Symbol">S</font><font face="Courier">(ABC)1,2,3,6,7</font></td>
+  </tr>
+</table>
+
+<p>The inverse of the function is the remaining minterms. ie. <font FACE="Symbol">S</font><font face="Courier">(ABC)0,4,5</font></p>
+
+<table border="0" width="617">
+  <tr>
+    <td width="90"><p align="right"><font face="Courier">(B+A'C)'</font></td>
+    <td width="516"><font face="Courier">= AB'C + AB'C' + A'B'C'</font></td>
+  </tr>
+  <tr>
+    <td width="90"></td>
+    <td width="516"><font face="Courier">= AB'(C + C') + (A + A')B'C'</font></td>
+  </tr>
+  <tr>
+    <td width="90"></td>
+    <td width="516"><font face="Courier">= AB' + B'C'</font></td>
+  </tr>
+</table>
+
+<p>Taking the inverse of both sides and using DeMorgan's theorem with the first and third
+lines of the right hand side:</p>
+
+<table border="0" width="615">
+  <tr>
+    <td width="90"><p align="right"><font face="Courier">B + A'C</font></td>
+    <td width="516"><font face="Courier">= (A'+B+C')(A'+B+C)(A+B+C)</font></td>
+  </tr>
+  <tr>
+    <td width="90"></td>
+    <td width="516"><font face="Courier">= (A'+B)(B+C)</font></td>
+  </tr>
+</table>
+
+<p>The right hand side of the first line above is the maxterm canonical form of the
+expression and the second line is the distributive or Product of Sums form of the
+expression.</p>
+
+<p>The fact that an arbitrary Boolean expression can be expanded into canonical form
+implies that the algebra derived is complete in the sense that any desired function of the
+given variables can be represented by it. Hence the AND, OR and Invert operators are
+sufficient to form a <i>complete Boolean algebra</i>.</p>
+<b>
+
+<p><a href="#top"><img src="top.gif" alt="Top" align="left" border="0" WIDTH="10" HEIGHT="12"></a>The <a name="canonical">canonical</a> forms of the ExOR algebra</b></p>
+
+<p>The disjunction theorem can be used for expressing a function given in terms of the +
+operator in terms of the <font FACE="Symbol">Å</font> operator. The function in terms of
+the + operator is expanded to minterm form, so that all terms are disjoint (i.e. the
+product of any two terms is 0). The + operators can then be replaced with <font FACE="Symbol">Å</font> operators. </p>
+
+<p>This means that any function can be expressed in ExOR form directly from its truth
+table. A canonical form for the ExOR form is therefore, with three variables:</p>
+
+<p>C1. f(abc) = <font FACE="Symbol">a</font><sub>0</sub>a'b'c' <font FACE="Symbol">Å</font>
+<font FACE="Symbol">a</font><sub>1</sub>a'b'c <font FACE="Symbol">Å</font> <font FACE="Symbol">a</font><sub>2</sub>a'bc' <font FACE="Symbol">Å</font> <font FACE="Symbol">a</font><sub>3</sub>a'bc
+<font FACE="Symbol">Å</font> <font FACE="Symbol">a</font><sub>4</sub>ab'c' <font FACE="Symbol">Å</font> <font FACE="Symbol">a</font><sub>5</sub>ab'c <font FACE="Symbol">Å</font>
+<font FACE="Symbol">a</font><sub>6</sub>abc' <font FACE="Symbol">Å</font> <font FACE="Symbol">a</font><sub>7</sub>abc<i></p>
+
+<p></i>where: <font FACE="Symbol">a</font><sub>i</sub> = 1,0 depending on whether the i<sup>th</sup>
+term is present or not. </p>
+
+<p>An alternative canonical form found by expanding primed variables with <font face="Courier">x'=x<font FACE="Symbol">Å</font>1</font> and cancelling duplicate terms
+is, with three variables:</p>
+
+<p>C2. f(abc) = <font FACE="Symbol">b</font><sub>0</sub> <font FACE="Symbol">Å</font> <font FACE="Symbol">b</font><sub>1</sub>a <font FACE="Symbol">Å</font> <font FACE="Symbol">b</font><sub>2</sub>b
+<font FACE="Symbol">Å</font> <font FACE="Symbol">b</font><sub>3</sub>c <font FACE="Symbol">Å</font> <font FACE="Symbol">b</font><sub>4</sub>ab <font FACE="Symbol">Å</font>
+<font FACE="Symbol">b</font><sub>5</sub>ac <font FACE="Symbol">Å</font> <font FACE="Symbol">b</font><sub>6</sub>bc <font FACE="Symbol">Å</font> <font FACE="Symbol">b</font><sub>7</sub>abc<i></p>
+
+<p></i>where: <font FACE="Symbol">b</font><sub>i</sub> = 1,0 depending on whether the i<sup>th</sup>
+term is present or not.</p>
+
+<p>Other canonical forms are possible besides the two shown here. For example you could
+replace all unprimed variables with primed variables. We will just consider the two forms
+shown here. A generalised mathematical relationship can be developed between the <font FACE="Symbol">a</font><sub>i</sub> and the <font FACE="Symbol">b</font><sub>i</sub> in
+these canonical forms but you can probably get the idea from the above three variable
+forms.</p>
+
+<p>The canonical expansions imply that any Boolean function can be expressed in terms of
+the AND and ExOR operators. ExOR algebra is therefore also a <i>complete Boolean algebra</i>.</p>
+<div align="center"><center>
+
+<table border="2" width="55%" bgcolor="#FFFFFF" bordercolor="#800000">
+  <tr>
+    <td width="100%"><p align="center">Just a reminder that you can purchase a copy of my
+    book.<a href="#BuyBA2"><img src="images/down.gif" alt="Buy a book" border="0" WIDTH="11" HEIGHT="14"></a></td>
+  </tr>
+</table>
+</center></div><b>
+
+<p><a href="#top"><img src="top.gif" alt="Top" align="left" border="0" WIDTH="10" HEIGHT="12"></a><a name="Karnaugh">Karnaugh</a> maps</b></p>
+
+<p>As seen in a previous section, any given Boolean function can be expanded into a sum of
+minterms. This result is made use of in a graphical method of treating Boolean functions.
+The method is basically the same thing as a truth table, except that the list of
+variations of the variables in the function are ordered according to a special code called
+the Gray code.</p>
+
+<p>The Gray code has useful symmetries that simplify the use of the method. The graphical
+construction using the Gray code is called a Karnaugh map or K-map.</p>
+
+<p><img src="_borders/Grycode2.gif" alt="Gray Binary codes" align="right" hspace="5" vspace="5" WIDTH="173" HEIGHT="395">Figure 11 has been drawn to illustrate the features of the Gray code. Four bits
+of the Gray code labelled <i>g</i><sub>3</sub> down to <i>g</i><sub>0</sub> are shown on
+the left together with the corresponding bits of the binary code on the right. The least
+significant bit of the Gray code <i>g</i><sub>0</sub> counts up 0, 1 in the first two
+counts and then does the reverse in the next two counts. This pattern repeats every
+successive four counts. In the next more significant bit <i>g</i><sub>1</sub> the pattern
+starts with two 0s and two 1s and this pattern is reversed for the next four counts. The
+pattern then repeats every eight counts. In each more significant bit the pattern doubles
+again, except that there is no reversal in the most significant bit of the Gray code.</p>
+
+<p>In Figure 11 you can see that the relationship between the Gray code and binary code
+bits given earlier: <font face="Courier"><i>g</i></font><sub>n</sub> = <font face="Courier"><i>b</i></font><sub>n</sub><font FACE="Symbol">Å</font><sub> </sub><font face="Courier"><i>b</i></font><sub>n+1</sub> holds.</p>
+
+<p>The main feature of the Gray code is that only one bit in any count changes value in an
+adjacent count. This results in symmetries that facilitate the simplification of functions
+plotted on a K-map. The symmetries are indicated in Figure 11 with horizontal lines of
+different thickness. The thickest line divides the count sequence exactly half way through
+the count. The next thickest lines are half way between the top and bottom of the count
+and the thick line half way through the count. The thinnest lines are half way between
+these lines.</p>
+
+<p>If you take two rows of the count equidistant from any symmetry line but no further
+than the next thicker line you will see that the counts there differ by one bit. The
+symmetry lines have been shown with different thicknesses for demonstration only. Normally
+these lines will be shown all the same thickness or may be omitted if there is no
+ambiguity.</p>
+
+<p>Simplification in the inclusive OR algebra is based on the theorem <font face="Courier">x+x'=1</font>.
+Every time we can find common factors that allow this relationship to appear means that we
+can combine two terms and eliminate the appearance of a variable from the function that we
+are simplifying. We will label the columns of the Gray code with variable names. A 0 in
+the column for a variable will represent the inverse of the variable whilst a 1 will
+represent a logic true variable.</p>
+
+<p><img src="Boolean/K_map2.gif" alt="Example K-maps" align="right" hspace="5" vspace="5" WIDTH="380" HEIGHT="288">Examples
+of K-maps are shown in Figure 12 which show how the Gray code is used. The K-map provides
+one square for each minterm in a given function. The Gray codes label the squares. A K-map
+can be one or two dimensional. A two dimensional K-map requires less writing to label all
+the squares. The complete label is made up of the Gray codes on the side and top of the
+K-map which identifies one of the minterms. For example, the top left hand square in (b)
+is labelled and identifies the term as <font face="Courier">p'q'r's'</font>.</p>
+
+<p>The function to be plotted is effectively expanded into canonical form and 1s placed in
+the K-map corresponding to the positions for each minterm. Individual terms are easily
+expanded as they are plotted on the K-map by recognising the pattern produced by adjacent
+0s and 1s in the Gray code. The Gray code symmetries position minterms that can be
+combined to be either adjacent to or to be equidistant from symmetry lines as described
+for Figure 11. A rectangle is drawn around groups of 1s that can be combined, a process
+called mapping. All terms in a function are mapped in this way to find a simplified form
+for the complete function, using the largest possible mappings. The 1s are combined in
+groups of powers of 2. In Figure 12 groups of two or four terms are combined. If a term
+cannot be combined, it is plotted on its own.</p>
+
+<p><img src="Boolean/K_map3.gif" alt="Prime implicants" align="right" hspace="5" vspace="5" WIDTH="294" HEIGHT="281">Figure 12a shows one of the simplification example functions. Look at the
+mapped rounded rectangle labelled <font face="Courier">pq'</font>. If you follow the edges
+of this rectangle up to the Gray code labels you will see that it covers a 0 and a 1 for
+variable <font face="Courier">r</font>, whilst <font face="Courier">q</font> is <font face="Courier">0</font>. The 0 and 1 for variable <font face="Courier">r</font>
+corresponds with the theorem <font face="Courier">r+r'=1</font> as required for
+simplification. Similarly if you follow the edges of the rectangle to the Gray code label
+on the left you can see that variable <font face="Courier">p</font> has the value 1.
+Therefore the rounded rectangle maps the term <font face="Courier">pq'</font>. The term <font face="Courier">p'r'</font> is mapped with the two minterms <font face="Courier">p'q'r'+p'qr';</font>
+that are equidistant from the symmetry about the vertical line in the middle of the map.
+Taking out the common factor <font face="Courier">p'r'</font> eliminates <font face="Courier">(q'+q)</font> and leaves the original term <font face="Courier">p'r'</font>.
+The mapping for the redundant term <font face="Courier">q'r'</font> can be seen to be
+already mapped by the other two terms and need not be mapped again.</p>
+
+<p>Figure 12b shows the other example used to demonstrate simplification. After mapping
+the individual terms on the map as 1s it is easy to see how the function can be simplified
+by mapping the 1s according to the rules described. When determining the mappings to use,
+you should look for minterms that can only be combined with other minterms in one group of
+terms. These groups of terms are called prime implicants. For example consider the minterm
+<font face="Courier">p'qr'</font> in figure 12a. This minterm can be combined with the
+minterm <font face="Courier">p'q'r'</font> to produce the simplified term <font face="Courier">p'r'</font> but cannot be combined with any of the other minterms. Hence <font face="Courier">p'r'</font> is a prime implicant.</p>
+
+<p><img src="Boolean/NORsimp.gif" alt="NOR circuit conversion" align="right" hspace="5" vspace="5" WIDTH="226" HEIGHT="206">After mapping all prime implicants, if there are any remaining minterms there
+will be a choice of ways to map these minterms. This will lead to more than one solution
+for the simplified form of the function. An example is shown in Figure 13 where a lighter
+colour has been used to plot the term that is not a prime implicant. The choice of which
+form to take for the final solution may be arbitrary or there may be some other
+consideration that will help the choice such as convenience in the physical
+implementation. Both choices are equally valid.</p>
+
+<p>Figure 14 shows how a K-map can simplify conversion of a function to NOR circuit form
+by plotting the 0s on the K-map. The NOR form appears from this with just one inversion
+with DeMorgan's theorem.</p>
+
+<p>K-maps are used for paper and pencil design purposes. Improved methods of
+simplification for use with computer programs have been invented but these are not
+discussed in this paper. K-maps are very useful for working with functions with small
+numbers of variables and for studying digital design techniques. They will find
+significant use in the <em>Intelligent Logic</em> page that follows.</p>
+<b>
+
+<p><a href="#top"><img src="top.gif" alt="Top" align="left" border="0" WIDTH="10" HEIGHT="12"></a><a name="Don&#146;t care">Don&#146;t care</a> terms</b></p>
+
+<p><img src="Boolean/Dontcare.gif" alt="Dontcare example" align="right" border="0" hspace="5" vspace="5" WIDTH="147" HEIGHT="196">In some examples, there are terms that either cannot physically
+occur due to the nature of the problem or for some other reason it makes no difference to
+the performance of the resulting circuit what values these terms have. These terms are
+called Don&#146;t Care terms and are represented on K-maps with the letter X. Don&#146;t
+care terms may be used to simplify the logic expressions for the example if the
+opportunity arises.</p>
+
+<p>For example, if the example in Figure 12a had the don&#146;t care term <font face="Courier">pqr'</font> as represented in Figure 15 with the X, then the expression
+could be simplified as shown with the saving of one occurrence of the variable <font face="Courier">p</font>. The mapping for the term <font face="Courier">p'r'</font> has
+been extended to cover four minterms.</p>
+<b>
+
+<p><a href="#top"><img src="top.gif" alt="Top" align="left" border="0" WIDTH="10" HEIGHT="12"></a><a name="Summary">Summary</a> of the theorems of Boolean algebra</b></p>
+
+<p>The relation between the inclusive OR and the ExOR operators is:<font face="Courier"> a<font FACE="Symbol">Å</font>b = ab'+a'b</p>
+</font>
+
+<blockquote>
+  <table border="0" width="508">
+    <tr>
+      <td width="150"><b>AND</b></td>
+      <td width="150"><b>OR</b></td>
+      <td width="100"><b>ExOR</b></td>
+    </tr>
+  </table>
+</blockquote>
+
+<p>Basic theorems</p>
+
+<blockquote>
+  <table border="0" width="506">
+    <tr>
+      <td width="150"><font face="Courier">aa = a</font></td>
+      <td width="150"><font face="Courier">a+a = a</font></td>
+      <td width="96"><font face="Courier">a</font><font FACE="Symbol">Å</font><font face="Courier">a = 0</font></td>
+    </tr>
+    <tr>
+      <td width="150"><font face="Courier">aa' = 0</font></td>
+      <td width="150"><font face="Courier">a+a' = 1</font></td>
+      <td width="96"><font face="Courier">a</font><font FACE="Symbol">Å</font><font face="Courier">a' = 1</font></td>
+    </tr>
+    <tr>
+      <td width="150"><font face="Courier">a0 = 0</font></td>
+      <td width="150"><font face="Courier">a+0 = a</font></td>
+      <td width="96"><font face="Courier">a</font><font FACE="Symbol">Å</font><font face="Courier">0 = a</font></td>
+    </tr>
+    <tr>
+      <td width="150"><font face="Courier">a1 = a</font></td>
+      <td width="150"><font face="Courier">a+1 = 1</font></td>
+      <td width="96"><font face="Courier">a</font><font FACE="Symbol">Å</font><font face="Courier">1 = a'</font></td>
+    </tr>
+  </table>
+</blockquote>
+
+<p>Commutative law:</p>
+
+<blockquote>
+  <table border="0" width="583">
+    <tr>
+      <td width="150"><font face="Courier">ab = ba</font></td>
+      <td width="150"><font face="Courier">a+b = b+a</font></td>
+      <td width="171"><font face="Courier">a<font FACE="Symbol">Å</font>b = b<font FACE="Symbol">Å</font>a</font></td>
+    </tr>
+  </table>
+</blockquote>
+
+<p>Associative law:</p>
+
+<blockquote>
+  <table border="0" width="584">
+    <tr>
+      <td width="150"><font face="Courier">(ab)c = a(bc)</font></td>
+      <td width="150"><font face="Courier">(a+b)+c = a+(b+c)</font></td>
+      <td width="170"><font face="Courier">(a</font><font FACE="Symbol">Å</font><font face="Courier">b)</font><font FACE="Symbol">Å</font><font face="Courier">c = a</font><font FACE="Symbol">Å</font><font face="Courier">(b</font><font FACE="Symbol">Å</font><font face="Courier">c)</font></td>
+    </tr>
+  </table>
+</blockquote>
+
+<p>Distributive law:</p>
+
+<blockquote>
+  <table border="0" width="585">
+    <tr>
+      <td width="300"><font face="Courier">a(b+c) = ab + ac</font></td>
+      <td width="168"><font face="Courier">a(b<font FACE="Symbol">Å</font>c) = ab<font FACE="Symbol">Å</font>ac</font></td>
+    </tr>
+    <tr>
+      <td width="300"><font face="Courier">(a+b)(a+c) = a+bc</font></td>
+      <td width="168"></td>
+    </tr>
+  </table>
+</blockquote>
+
+<p>Inversion theorems</p>
+
+<blockquote>
+  <p><em>DeMorgan's theorem for the inclusive-OR algebra:</em> The inverse of any Boolean
+  function of the inclusive-OR algebra can be found by replacing all occurrences of AND
+  operators with OR operators, replacing all OR operators with AND operators, priming all
+  unprimed variables and unpriming all primed variables.</p>
+  <table border="0" width="563">
+    <tr>
+      <td width="195"><em>ExOR inversion theorems:</em></td>
+      <td width="201"><font face="Courier">(a</font><font FACE="Symbol">Å</font><font face="Courier">b</font>)<font face="Courier">'= a'</font><font FACE="Symbol">Å</font><font face="Courier">b = a</font><font FACE="Symbol">Å</font><font face="Courier">b'</font></td>
+      <td width="149"><font face="Courier">a</font><font FACE="Symbol">Å</font><font face="Courier">b = a'</font><font FACE="Symbol">Å</font><font face="Courier">b'</font></td>
+    </tr>
+  </table>
+</blockquote>
+
+<p>Simplification relations for the inclusive OR algebra</p>
+
+<blockquote>
+  <table border="0" width="578">
+    <tr>
+      <td width="153"><font face="Courier">a+ab = a</font></td>
+      <td width="198"><font face="Courier">a+a'b = a+b</font></td>
+      <td width="216"><font face="Courier">(a+b)(a+b') = a</font></td>
+    </tr>
+  </table>
+</blockquote>
+
+<p>Additional theorems for the ExOR algebra</p>
+
+<blockquote>
+  <table border="0" width="546">
+    <tr>
+      <td width="158">If: <font face="Courier">f=g</font><font FACE="Symbol">Å</font><font face="Courier">h</font> and <font face="Courier">gh=0</font>,</td>
+      <td width="162">then <font face="Courier">f=g+h</font></td>
+      <td width="171"><em>Disjunction theorem</em></td>
+    </tr>
+  </table>
+</blockquote>
+
+<blockquote>
+  <table border="0" width="548">
+    <tr>
+      <td width="530" colspan="3">If: <font face="Courier">f, g, h</font> are functions of the
+      same switching circuit variables and <font face="Courier">f=g</font><font FACE="Symbol">Å</font><font face="Courier">h</font>,</td>
+    </tr>
+    <tr>
+      <td width="240">then <font face="Courier">g=f</font><font FACE="Symbol">Å</font><font face="Courier">h</font> and <font face="Courier">h=g</font><font FACE="Symbol">Å</font><font face="Courier">f</font></td>
+      <td width="105"></td>
+      <td width="185"><em>Transposition theorem</em></td>
+    </tr>
+  </table>
+</blockquote>
+<b><font SIZE="3">
+
+<p></font><a href="#top"><img src="top.gif" alt="Top" align="left" border="0" WIDTH="10" HEIGHT="12"></a></b><strong><font SIZE="3"><a name="Added">Added</a> Note - January 2003</font></strong><font FACE="Courier" SIZE="3"></p>
+
+<p></font><font SIZE="3">There are actually at least three complete Boolean algebras. The
+inverse of the ExOR operator can be paired with the inclusive-OR operator to form a third
+complete Boolean Algebra. The inverse ExOR operator described as the equivalence operator,
+is defined as:</font><font FACE="Courier" SIZE="3"></p>
+
+<p></font>&nbsp;&nbsp;&nbsp; <img src="images/equiv1.gif" WIDTH="382" HEIGHT="19"><font SIZE="3"></p>
+
+<p>The equivalence algebra is similar to the ExOR algebra but has its own basic and some
+other theorems and has strong duality with ExOR algebra. For example the 0s and 1s
+behaviour in the even and odd characteristics are reversed. The disjunction theorem
+becomes a conjunction theorem. Given Boolean variables </font><font FACE="Courier" SIZE="3">x</font><font SIZE="3"> and </font><font FACE="Courier" SIZE="3">y</font><font SIZE="3">:</p>
+
+<p></font>&nbsp;&nbsp;&nbsp; <img src="images/equiv2.gif" WIDTH="313" HEIGHT="21"><font SIZE="3"></p>
+
+<p>This means that if an arbitrary function of Boolean variables is expanded to maxterm
+form, the product operators can be replaced by equivalence operators since the maxterms
+are conjoint, which establishes the equivalence algebra as a third complete Boolean
+algebra. The theorems and characteristics of this algebra can be readily derived by the
+procedures described in these pages. For example:</p>
+
+<p>&nbsp;&nbsp;&nbsp; <img src="images/equiv3.gif" WIDTH="357" HEIGHT="39"></p>
+
+<p>Compare these with the corresponding basic ExOR theorems. The transposition theorem and
+the inversion theorems given in the third set of truth tables in figure 6 have the same
+form in both the ExOR and equivalence algebras.</p>
+
+<p>The distributive law for this algebra has the same form as the POS distributive law of
+AND, OR invert algebra:</font><font FACE="Courier" SIZE="3"></p>
+
+<p></font>&nbsp;&nbsp;&nbsp; <img src="images/equiv4.gif" WIDTH="457" HEIGHT="21"><font FACE="Courier" SIZE="3"></p>
+
+<p></font><font SIZE="3">The equivalence algebra has a relationship to the ExOR algebra
+that is similar to the relationship between the maxterms and minterms in AND, OR, invert
+algebra. The addition of this third Boolean algebra provides a strong symmetry amongst the
+Boolean algebras.</p>
+
+<p>The inverse of an SOP expression sometimes has fewer product terms than the original
+expression and in this case is a useful way of reducing the number of product terms
+required to represent a logic function. However, the inverse of an ESOP expression only
+affects one product term or the addition of the constant 1. The equivalence operator is
+simply the inverse of the ExOR operator. Consequently no significant reduction in logic
+terms would be expected from the use of the equivalence operator in place of the ExOR
+operator. However, this operator might make a useful alternative way of expressing a
+Boolean function. Some form of mixed logic might be useful if you have the capability of
+creating it.</p>
+
+<p>The reference for this note is: R. F. Tinder &quot;Engineering Digital Design&quot;
+Second edition, Academic press, 2000. Useful duality relationships between the ExOR
+algebra and the equivalence algebra can be found in that reference.</font></p>
+
+<p><b><a href="#top"><img src="top.gif" alt="Top" align="left" border="0" WIDTH="10" HEIGHT="12"></a><a name="Conclusion">Conclusion</a></b></p>
+
+<p>This paper has presented an introductory review of Boolean algebra taking into account
+all three of the binary operators of this algebra. The development is appropriate for use
+in the design of digital circuits but is no less applicable to other uses of Boolean
+algebra. This paper has shown that Boolean algebra consists of at least three complete
+algebras that are interlinked. Each of these algebras has its own theorems and
+characteristics. The basic theorems for two of these algebras have been derived side by
+side and their characteristics developed and described.</p>
+<div align="center"><center>
+
+<table border="2" width="55%" bgcolor="#FFFFFF" bordercolor="#800000">
+  <tr>
+    <td width="100%"><p align="center">Just a reminder that you can purchase a copy of my
+    book.<a href="#BuyBA2"><img src="images/down.gif" alt="Buy a book" border="0" WIDTH="11" HEIGHT="14"></a></td>
+  </tr>
+</table>
+</center></div>
+
+<p>The interested reader who is learning to use Boolean algebra for the design of digital
+circuits should get some practise by working through a few examples. You can make up
+examples yourself or find exercises in a suitable digital design textbook. To make up
+examples yourself, simply draw a K-map and place a few 1s on it. Then, see how you can
+write the expression for it in a simplified form. Check your results by working backwards
+or plug the problem into one of the educational synthesis or simulation programs. You
+should be conversant with the material presented here in order to follow the other papers
+available in this series.</p>
+
+<p>The circuits in this paper are described as combinatorial circuits. Following this
+paper you will be able to read a paper on asynchronous digital circuits, where it will be
+shown that applying feedback in a combinatorial circuit results in memory appearing in
+these circuits. The memory in these circuits provide the circuits with the ability to make
+decisions based on the order in which the inputs to the circuits are applied and perform a
+choice of actions based on this input history. The resulting circuits are described as
+asynchronous sequential circuits. The sequential behaviour of these circuits develops a
+whole new interest for digital circuits, namely control and automation.</p>
+
+<p>This paper has derived the basic results for the ExOR algebra. Following this you can
+read further articles on ExOR algebra that develop and describe methods of simplifying and
+working with these circuits. Simplification methods for ExOR operators include a
+systematic method of using a conventional K-map with these circuits. The technique allows
+both inclusive OR and ExOR functions to be treated on the same K-map. An algebraic method
+of simplification that can be used with paper and pencil for up to six variable functions
+is also presented.</p>
+
+<p>Boolean expressions can often be simplified in more than one way. This is true for both
+inclusive OR and ExOR functions. A final paper on ExOR algebra presents some multiple
+solution results and describes how these can be found. Boolean algebra provides plenty of
+scope for experimentation and discovery.</p>
+<div align="center"><center>
+
+<table border="0" width="80%">
+  <tr>
+    <b><td width="100%"></b><p align="center"><a href="#top"><font face="Arial"><b><img src="top.gif" alt="Top" border="0" WIDTH="10" HEIGHT="12"></b></font></a><font size="4" face="Arial" color="#008000"><strong><a name="BuyBA2">Buy</a> the new edition of the Book (Nov 2006)</strong></font></p>
+    <p align="left"><strong><font color="#008000">Buy the second edition of the book entitled:
+    &quot;Introduction to Digital Circuit Theory&quot; (ISBN: 978-0-9581894-1-5). The book is
+    in the form of a monograph with comb binding, card back and clear cover in A4 format. The
+    current revision includes a number of inadvertent error corrections. The single copy price
+    is $39.95 (Australian dollars), which includes all currency fees and airmail charges if
+    purchased with the <em>Buy Now</em> link. PayPal will carry out the conversion of your
+    currency to Australian currency in a secure transaction and email me your order. Please
+    follow this link</font></strong> <a href="purchase.html"><img src="images/rtarrow.gif" alt="Purchasing information" border="0" WIDTH="11" HEIGHT="14"></a><strong><font color="#008000"> if you would
+    prefer alternative arrangements to purchasing the book: </font></strong></p>
+    <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+      <input type="hidden" name="cmd" value="_s-xclick"><input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----MIIHVwYJKoZIhvcNAQcEoIIHSDCCB0QCAQExggEwMIIBLAIBADCBlDCBjjELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAkNBMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYDVQQKEwtQYXlQYWwgSW5jLjETMBEGA1UECxQKbGl2ZV9jZXJ0czERMA8GA1UEAxQIbGl2ZV9hcGkxHDAaBgkqhkiG9w0BCQEWDXJlQHBheXBhbC5jb20CAQAwDQYJKoZIhvcNAQEBBQAEgYC3DFhgfhwxE7YlhAOOukrtVtLL7VUN/a75ojEreMHPNK0KZx12tG7WpgzwFgs+xPP904BybOOJhmMOOB1N0+O1XOQ+0ADUAPU/XOANYo7gEosD6+g/rtlxPKZf6v6niB0MX0AfYQyGFnpgyQVAYoNg8zFRXQAx0sfv7LD/UuUrXjELMAkGBSsOAwIaBQAwgdQGCSqGSIb3DQEHATAUBggqhkiG9w0DBwQIfhIvo/6Dp9KAgbA8+KZ/NbbO8t4pgLgiD3AnFp5afsuUlZBHkPI1IKIywg8xMdbEqRsfQHnNLXkT7tm/vyP98eBowLyoLsAwDOtEO6tykCEAOcy4V5pIgirt4okChkEi6tmS7hyNj95DufqUZNNVgUC2XYNfg5NuN4iXxrwtV5Ep9KOVl7mpXoJR0bAUShiANU3admdPHU4dO/fgvjl1W9qITIoghLXGl7TYSWBfmkQJZqIEj+E8+FdpP6CCA4cwggODMIIC7KADAgECAgEAMA0GCSqGSIb3DQEBBQUAMIGOMQswCQYDVQQGEwJVUzELMAkGA1UECBMCQ0ExFjAUBgNVBAcTDU1vdW50YWluIFZpZXcxFDASBgNVBAoTC1BheVBhbCBJbmMuMRMwEQYDVQQLFApsaXZlX2NlcnRzMREwDwYDVQQDFAhsaXZlX2FwaTEcMBoGCSqGSIb3DQEJARYNcmVAcGF5cGFsLmNvbTAeFw0wNDAyMTMxMDEzMTVaFw0zNTAyMTMxMDEzMTVaMIGOMQswCQYDVQQGEwJVUzELMAkGA1UECBMCQ0ExFjAUBgNVBAcTDU1vdW50YWluIFZpZXcxFDASBgNVBAoTC1BheVBhbCBJbmMuMRMwEQYDVQQLFApsaXZlX2NlcnRzMREwDwYDVQQDFAhsaXZlX2FwaTEcMBoGCSqGSIb3DQEJARYNcmVAcGF5cGFsLmNvbTCBnzANBgkqhkiG9w0BAQEFAAOBjQAwgYkCgYEAwUdO3fxEzEtcnI7ZKZL412XvZPugoni7i7D7prCe0AtaHTc97CYgm7NsAtJyxNLixmhLV8pyIEaiHXWAh8fPKW+R017+EmXrr9EaquPmsVvTywAAE1PMNOKqo2kl4Gxiz9zZqIajOm1fZGWcGS0f5JQ2kBqNbvbg2/Za+GJ/qwUCAwEAAaOB7jCB6zAdBgNVHQ4EFgQUlp98u8ZvF71ZP1LXChvsENZklGswgbsGA1UdIwSBszCBsIAUlp98u8ZvF71ZP1LXChvsENZklGuhgZSkgZEwgY4xCzAJBgNVBAYTAlVTMQswCQYDVQQIEwJDQTEWMBQGA1UEBxMNTW91bnRhaW4gVmlldzEUMBIGA1UEChMLUGF5UGFsIEluYy4xEzARBgNVBAsUCmxpdmVfY2VydHMxETAPBgNVBAMUCGxpdmVfYXBpMRwwGgYJKoZIhvcNAQkBFg1yZUBwYXlwYWwuY29tggEAMAwGA1UdEwQFMAMBAf8wDQYJKoZIhvcNAQEFBQADgYEAgV86VpqAWuXvX6Oro4qJ1tYVIT5DgWpE692Ag422H7yRIr/9j/iKG4Thia/Oflx4TdL+IFJBAyPK9v6zZNZtBgPBynXb048hsP16l2vi0k5Q2JKiPDsEfBhGI+HnxLXEaUWAcVfCsQFvd2A1sxRr67ip5y2wwBelUecP3AjJ+YcxggGaMIIBlgIBATCBlDCBjjELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAkNBMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYDVQQKEwtQYXlQYWwgSW5jLjETMBEGA1UECxQKbGl2ZV9jZXJ0czERMA8GA1UEAxQIbGl2ZV9hcGkxHDAaBgkqhkiG9w0BCQEWDXJlQHBheXBhbC5jb20CAQAwCQYFKw4DAhoFAKBdMBgGCSqGSIb3DQEJAzELBgkqhkiG9w0BBwEwHAYJKoZIhvcNAQkFMQ8XDTA4MDYyNTA1MDg0MFowIwYJKoZIhvcNAQkEMRYEFPYVh++uw4W3Ut9cqRmsV9hnhc1iMA0GCSqGSIb3DQEBAQUABIGAg1PRJWm4k2mATQcnQiB9w6BGZwGrN1Z0kIez1evGo5pmDVb4FuP6qex3b+6qzgBBAfxqaAVQpUXzjVOoAjKMaasTVJ4JZkKJNzeRgF8R8oj4HUAx/G2aVNBg3KGLSBF2CG5gOA5r8jLOaPWznOOd9xQB9XlofOmAD0nxIRgW43A=-----END PKCS7-----
+"><p><strong><font color="#008000">Purchase the book securely through PayPal: </font></strong><input type="image" src="https://www.paypal.com/en_AU/i/btn/btn_buynow_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online."> <img alt border="0" src="https://www.paypal.com/en_AU/i/scr/pixel.gif" width="1" height="1"> </p>
+    </form>
+    </td>
+  </tr>
+</table>
+</center></div>
+
+<p align="center"><font color="#804040">Boolean Algebra - Page 1 <em><strong>OR</strong></em>
+Top for navigation menu <em><strong>OR</strong></em> Intelligent Logic:</font></p>
+
+<p><script language="JavaScript">
+<!-- hide this script from non-javascript-enabled browsers
+
+/* Functions that finds images. */
+function MM_findObj(n, d) { //v3.0
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document); return x;
+}
+/* Functions that swaps images. */
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+// stop hiding -->
+</script> <!--The following section is an image or HTML table which reassembles the sliced image in a browser.--> </p>
+
+<table align="center" border="0" cellpadding="0" cellspacing="0" width="120">
+<!-- fwtable fwsrc="BackFor.png" fwbase="backfor.gif" fwstyle="FrontPage" fwdocid = "742308039" fwnested=""1" -->
+  <script language="JavaScript">
+  <!-- hide 
+  if (document.images) {
+  backfor_r1_c1_f2 = new Image(40 ,40); backfor_r1_c1_f2.src = "menus/backfor_r1_c1_f2.gif";
+  backfor_r1_c1_f1 = new Image(40 ,40); backfor_r1_c1_f1.src = "menus/backfor_r1_c1.gif";
+  backfor_r1_c2_f2 = new Image(40 ,40); backfor_r1_c2_f2.src = "menus/backfor_r1_c2_f2.gif";
+  backfor_r1_c2_f1 = new Image(40 ,40); backfor_r1_c2_f1.src = "menus/backfor_r1_c2.gif";
+  backfor_r1_c3_f2 = new Image(40 ,40); backfor_r1_c3_f2.src = "menus/backfor_r1_c3_f2.gif";
+  backfor_r1_c3_f1 = new Image(40 ,40); backfor_r1_c3_f1.src = "menus/backfor_r1_c3.gif";
+  }
+  // stop hiding -->
+  </script>
+
+  <tr>
+<!-- row 1 -->
+    <td><a onMouseOut="MM_swapImgRestore();" onMouseOver="MM_swapImage('backfor_r1_c1','','menus/backfor_r1_c1_f2.gif',1);" href="boolean.html"><img name="backfor_r1_c1" src="menus/backfor_r1_c1.gif" border="0" WIDTH="40" HEIGHT="40"></a></td>
+    <td><a onMouseOut="MM_swapImgRestore();" onMouseOver="MM_swapImage('backfor_r1_c2','','menus/backfor_r1_c2_f2.gif',1);" href="#top"><img name="backfor_r1_c2" src="menus/backfor_r1_c2.gif" border="0" WIDTH="40" HEIGHT="40"></a></td>
+    <td><a onMouseOut="MM_swapImgRestore();" onMouseOver="MM_swapImage('backfor_r1_c3','','menus/backfor_r1_c3_f2.gif',1);" href="async.html"><img name="backfor_r1_c3" src="menus/backfor_r1_c3.gif" border="0" WIDTH="40" HEIGHT="40"></a></td>
+  </tr>
+<!--   This HTML was automatically created with Macromedia Fireworks 4.0   -->
+<!--   http://www.macromedia.com   -->
+</table>
+
+<p>(Copyright) David N. Warren-Smith, CPENG</p>
+
+<p>Digital Logic Systems, South Australia</p>
+
+<p><a href="mailto:dwsmith@senet.com.au">dwsmith@senet.com.au</a></p>
+
+<p>Modifications: 22 January 2002, 24 February 2002, Figure 13 corrected: 6 April 2002,
+Added note: 16 January 2003.</p>
+
+<p>Please notify me if you find any errors or omissions.</p>
+
+<!--msnavigation--></td></tr><!--msnavigation--></table></body>
+</html>
