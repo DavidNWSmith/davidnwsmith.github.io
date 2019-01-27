@@ -1,17 +1,11 @@
 <html>
+  <head>
+    <title>Boolean Algebra in terms of the exclusive-OR operator - 2</title>
+    <script language="JavaScript1.2" src="menus/fw_menu.js"></script>
+    <link rel="stylesheet" href="/css/site.css">
+  </head>
 
-<head>
-
-<title>Boolean Algebra in terms of the exclusive-OR operator - 2</title>
-<script language="JavaScript1.2" src="menus/fw_menu.js"></script>
-
-
-
-
-
-</head>
-
-<body topmargin="0" leftmargin="12" marginheight="0" marginwidth="0" bgcolor="#e6e6e6" text="#000000"><!--msnavigation--><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+  <body bgcolor="#e6e6e6" text="#000000"><!--msnavigation--><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
 
 <h1 align="center"><font color="#FF0000"><big>Digital Logic Systems</big></font></h1>
 
@@ -45,7 +39,7 @@ function fwLoadMenus() {
      fw_menu_0_3.hideOnMouseOut=true;
     window.fw_menu_0_4 = new Menu("Exclusive-OR articles",195,18,"Arial, Helvetica, sans-serif",11,"#990000","#ffffcc","#ffffcc","#990000");
     fw_menu_0_4.addMenuItem("Boolean Algebra revisited","location='boolean.html'");
-    fw_menu_0_4.addMenuItem("Part 1 - ExOR Theory","location='concept1.html'");
+    fw_menu_0_4.addMenuItem("Part 1 - XOR Theory","location='concept1.html'");
     fw_menu_0_4.addMenuItem("Part 2 - Algebraic Simplification","location='concept2.html'");
     fw_menu_0_4.addMenuItem("Part 3 - Multiple Solutions","location='concept3.html'");
      fw_menu_0_4.fontWeight="bold";
@@ -100,7 +94,7 @@ symbols </small><img src="top.gif" alt="Return to top" WIDTH="10" HEIGHT="12"><s
 <p><font FACE="Arial"><b><a href="#top"><img src="top.gif" alt="Top" align="left" border="0" WIDTH="10" HEIGHT="12"></a><a name="Introduction">Introduction</a></b></font></p>
 
 <p>In part 1 of this paper I presented the theorems of the exclusive-OR algebra, that is
-Boolean algebra based on the exclusive-OR (ExOR) and AND operators, and demonstrated that
+Boolean algebra based on the exclusive-OR (XOR) and AND operators, and demonstrated that
 this algebra is a complete Boolean algebra in its own right and has useful applications
 for the design of digital circuits and CPLDs. I also showed how to use a conventional
 Karnaugh map, or K-map, to deal with this algebra. In this article I will continue my
@@ -109,12 +103,12 @@ necessary to make this algebra convenient and useful for the design of digital c
 
 <p>Part 1 of this paper describes all the preliminary requirements for understanding the
 content of this paper. You should refer back to that if you are unsure of these details. I
-have reproduced the list of theorems of ExOR algebra and the canonical forms here for
+have reproduced the list of theorems of XOR algebra and the canonical forms here for
 reference. The figure numbers in this paper continue on from the figure numbers in Part 1
 as posted in these pages. The figure numbers are not continuous with the &quot;New
 Logic&quot; article figure numbers.</p>
 
-<p>In this article I describe my approach to the simplification of ExOR functions. Over
+<p>In this article I describe my approach to the simplification of XOR functions. Over
 recent years a number of alternative approaches have been described in the literature. To
 a large extent my approach has been independent of this literature. Consequently my
 terminology may differ slightly from current practise. Most of this literature is intended
@@ -131,47 +125,47 @@ specialists and I have endeavoured to make them readable rather than concise.</p
 
 <table border="1" width="82%">
   <tr>
-    <td width="36%">T1. x <font FACE="Symbol">Å</font> x = 0</td>
-    <td width="23%">T2. x <font FACE="Symbol">Å</font> x' = 1</td>
+    <td width="36%">T1. x <span class="xor">&nbsp;</span> x = 0</td>
+    <td width="23%">T2. x <span class="xor">&nbsp;</span> x' = 1</td>
     <td width="41%">Basic theorems</td>
   </tr>
   <tr>
-    <td width="36%">T3. x <font FACE="Symbol">Å</font> 0 = x</td>
-    <td width="23%">T4. x <font FACE="Symbol">Å</font> 1 = x'</td>
+    <td width="36%">T3. x <span class="xor">&nbsp;</span> 0 = x</td>
+    <td width="23%">T4. x <span class="xor">&nbsp;</span> 1 = x'</td>
     <td width="41%">&nbsp;</td>
   </tr>
   <tr>
-    <td width="36%">T5. (x <font FACE="Symbol">Å</font> y)' = x' <font FACE="Symbol">Å</font>
-    y = x <font FACE="Symbol">Å</font> y' </td>
-    <td width="23%">T6. x' <font FACE="Symbol">Å</font> y' = x <font FACE="Symbol">Å</font>
+    <td width="36%">T5. (x <span class="xor">&nbsp;</span> y)' = x' <span class="xor">&nbsp;</span>
+    y = x <span class="xor">&nbsp;</span> y' </td>
+    <td width="23%">T6. x' <span class="xor">&nbsp;</span> y' = x <span class="xor">&nbsp;</span>
     y</td>
     <td width="41%">Inversion theorems</td>
   </tr>
   <tr>
-    <td width="59%" colspan="2">T7. x <font FACE="Symbol">Å</font> y = y <font FACE="Symbol">Å</font>
+    <td width="59%" colspan="2">T7. x <span class="xor">&nbsp;</span> y = y <span class="xor">&nbsp;</span>
     x</td>
     <td width="41%">Commutative law</td>
   </tr>
   <tr>
-    <td width="59%" colspan="2">T8. (x <font FACE="Symbol">Å</font> y) <font FACE="Symbol">Å</font>
-    z = x <font FACE="Symbol">Å</font> (y <font FACE="Symbol">Å</font> z)</td>
+    <td width="59%" colspan="2">T8. (x <span class="xor">&nbsp;</span> y) <span class="xor">&nbsp;</span>
+    z = x <span class="xor">&nbsp;</span> (y <span class="xor">&nbsp;</span> z)</td>
     <td width="41%">Associative law</td>
   </tr>
   <tr>
-    <td width="59%" colspan="2">T9. x(y <font FACE="Symbol">Å</font> z) = xy <font FACE="Symbol">Å</font> xz</td>
+    <td width="59%" colspan="2">T9. x(y <span class="xor">&nbsp;</span> z) = xy <span class="xor">&nbsp;</span> xz</td>
     <td width="41%">Distributive law</td>
   </tr>
   <tr>
-    <td width="59%" colspan="2">T9' x(y <font FACE="Symbol">Å</font> z) = (x'+y) <font FACE="Symbol">Å</font> (x'+z)</td>
+    <td width="59%" colspan="2">T9' x(y <span class="xor">&nbsp;</span> z) = (x'+y) <span class="xor">&nbsp;</span> (x'+z)</td>
     <td width="41%">Distributive law with OR function</td>
   </tr>
   <tr>
-    <td width="59%" colspan="2">T10. If: f = g <font FACE="Symbol">Å</font> h and gh = 0,
+    <td width="59%" colspan="2">T10. If: f = g <span class="xor">&nbsp;</span> h and gh = 0,
     then f = g + h</td>
     <td width="41%">Disjunction</td>
   </tr>
   <tr>
-    <td width="59%" colspan="2">T11. If: f = g <font FACE="Symbol">Å</font> h, then g = f <font FACE="Symbol">Å</font> h and h = g <font FACE="Symbol">Å</font> f</td>
+    <td width="59%" colspan="2">T11. If: f = g <span class="xor">&nbsp;</span> h, then g = f <span class="xor">&nbsp;</span> h and h = g <span class="xor">&nbsp;</span> f</td>
     <td width="41%">Transposition</td>
   </tr>
 </table>
@@ -179,18 +173,18 @@ specialists and I have endeavoured to make them readable rather than concise.</p
 
 <p></i><a href="#top"><img src="top.gif" alt="Top" align="left" border="0" WIDTH="10" HEIGHT="12"></a><a href="#Summary"><img src="up.gif" alt="Up 1" align="left" border="0" WIDTH="11" HEIGHT="14"></a><i><a name="Canonical">Canonical</a> forms</i></font><font SIZE="2"></p>
 
-<p></font><font size="3">C1. f(abc) = <font FACE="Symbol">a</font><sub>0</sub>a'b'c' <font FACE="Symbol">Å</font> <font FACE="Symbol">a</font><sub>1</sub>a'b'c <font FACE="Symbol">Å</font>
-<font FACE="Symbol">a</font><sub>2</sub>a'bc' <font FACE="Symbol">Å</font> <font FACE="Symbol">a</font><sub>3</sub>a'bc <font FACE="Symbol">Å</font> <font FACE="Symbol">a</font><sub>4</sub>ab'c'
-<font FACE="Symbol">Å</font> <font FACE="Symbol">a</font><sub>5</sub>ab'c <font FACE="Symbol">Å</font> <font FACE="Symbol">a</font><sub>6</sub>abc' <font FACE="Symbol">Å</font>
+<p></font><font size="3">C1. f(abc) = <font FACE="Symbol">a</font><sub>0</sub>a'b'c' <span class="xor">&nbsp;</span> <font FACE="Symbol">a</font><sub>1</sub>a'b'c <span class="xor">&nbsp;</span>
+<font FACE="Symbol">a</font><sub>2</sub>a'bc' <span class="xor">&nbsp;</span> <font FACE="Symbol">a</font><sub>3</sub>a'bc <span class="xor">&nbsp;</span> <font FACE="Symbol">a</font><sub>4</sub>ab'c'
+<span class="xor">&nbsp;</span> <font FACE="Symbol">a</font><sub>5</sub>ab'c <span class="xor">&nbsp;</span> <font FACE="Symbol">a</font><sub>6</sub>abc' <span class="xor">&nbsp;</span>
 <font FACE="Symbol">a</font><sub>7</sub>abc</font></b></p>
 
 <p>where: <font FACE="Symbol" size="3">a </font><font size="3"><sub>i</sub> = 1,0</font>
 depending on whether the i<sup>th</sup> term is present or not.</p>
 <b><font SIZE="2">
 
-<p></font><font size="3">C2. f(abc) = <font FACE="Symbol">b</font><sub>0</sub> <font FACE="Symbol">Å</font> <font FACE="Symbol">b</font><sub>1</sub>a <font FACE="Symbol">Å</font>
-<font FACE="Symbol">b</font><sub>2</sub>b <font FACE="Symbol">Å</font> <font FACE="Symbol">b</font><sub>3</sub>c <font FACE="Symbol">Å</font> <font FACE="Symbol">b</font><sub>4</sub>ab
-<font FACE="Symbol">Å</font> <font FACE="Symbol">b</font><sub>5</sub>ac <font FACE="Symbol">Å</font> <font FACE="Symbol">b</font><sub>6</sub>bc <font FACE="Symbol">Å</font>
+<p></font><font size="3">C2. f(abc) = <font FACE="Symbol">b</font><sub>0</sub> <span class="xor">&nbsp;</span> <font FACE="Symbol">b</font><sub>1</sub>a <span class="xor">&nbsp;</span>
+<font FACE="Symbol">b</font><sub>2</sub>b <span class="xor">&nbsp;</span> <font FACE="Symbol">b</font><sub>3</sub>c <span class="xor">&nbsp;</span> <font FACE="Symbol">b</font><sub>4</sub>ab
+<span class="xor">&nbsp;</span> <font FACE="Symbol">b</font><sub>5</sub>ac <span class="xor">&nbsp;</span> <font FACE="Symbol">b</font><sub>6</sub>bc <span class="xor">&nbsp;</span>
 <font FACE="Symbol">b</font><sub>7</sub>abc</font></b></p>
 
 <p>where: <font FACE="Symbol" size="3">b</font><font size="3"><sub>i</sub> = 1,0</font>
@@ -207,13 +201,13 @@ in the &quot;New Logic&quot; article), simplification by inspection of a K-map o
 functions of more than three variables may not be immediately obvious. Consequently we
 would like to have a systematic procedure for finding such simplifications. I will
 describe my approach, including my method of dealing with redundancies, which gives an
-easily useable and systematic algebraic procedure for the simplification of ExOR forms of
+easily useable and systematic algebraic procedure for the simplification of XOR forms of
 Boolean functions. The method will be described with examples.</p>
 
 <p>Assuming that the function is given in inclusive-OR form, the first step I take is to
 expand the function into canonical form, as it is for the Quine-McCluskey method for
 simplifying AND, OR invert functions. This is so that we can use theorem T10 to get the
-function into ExOR form in the C1 canonical form. Next we expand with T4, x' = x <font FACE="Symbol">Å</font> 1, to eliminate all primed variables, to convert the expression to
+function into XOR form in the C1 canonical form. Next we expand with T4, x' = x <span class="xor">&nbsp;</span> 1, to eliminate all primed variables, to convert the expression to
 the C2 canonical form. A good many terms cancel out using T1 and T3. We can use a tabular
 or chart arrangement to reduce the work of producing this form. This is described in the
 next section.</p>
@@ -222,8 +216,8 @@ next section.</p>
 making systematic use of the relation: x + x' = 1 and the distributive theorem. You then
 look for prime implicants.</p>
 
-<p>For the ExOR algebra we will make systematic use of the relation: x <font FACE="Symbol">Å</font>
-x' = 1, mainly in the form 1 <font FACE="Symbol">Å</font> x = x' and the distributive
+<p>For the XOR algebra we will make systematic use of the relation: x <span class="xor">&nbsp;</span>
+x' = 1, mainly in the form 1 <span class="xor">&nbsp;</span> x = x' and the distributive
 theorem T9 using the C2 form of the function as a starting point. The idea of looking for
 prime implicants is not appropriate here. You can of course apply the simplification
 procedures to be described with the function not strictly in C2 form but this may not save
@@ -248,7 +242,7 @@ refresh your memory once again this function was:</p>
   </tr>
   <tr>
     <td width="4%"></td>
-    <td width="73%">= a <font FACE="Symbol">Å</font> b'c <font FACE="Symbol">Å</font> bd <font FACE="Symbol">Å</font> ac'd.</td>
+    <td width="73%">= a <span class="xor">&nbsp;</span> b'c <span class="xor">&nbsp;</span> bd <span class="xor">&nbsp;</span> ac'd.</td>
     <td width="23%">,Result given</td>
   </tr>
 </table>
@@ -265,17 +259,17 @@ we will expand one of the C1 terms. For example;</p>
 <table border="0" width="63%">
   <tr>
     <td width="21%"><p align="right">a'b'cd' </td>
-    <td width="79%">= (1 <font FACE="Symbol">Å</font> a)(1 <font FACE="Symbol">Å</font>
-    b)c(1 <font FACE="Symbol">Å</font> d)</td>
+    <td width="79%">= (1 <span class="xor">&nbsp;</span> a)(1 <span class="xor">&nbsp;</span>
+    b)c(1 <span class="xor">&nbsp;</span> d)</td>
   </tr>
   <tr>
     <td width="21%"></td>
-    <td width="79%">= (1 <font FACE="Symbol">Å</font> a <font FACE="Symbol">Å</font> b <font FACE="Symbol">Å</font> ab)c(1 <font FACE="Symbol">Å</font> d)</td>
+    <td width="79%">= (1 <span class="xor">&nbsp;</span> a <span class="xor">&nbsp;</span> b <span class="xor">&nbsp;</span> ab)c(1 <span class="xor">&nbsp;</span> d)</td>
   </tr>
   <tr>
     <td width="21%"></td>
-    <td width="79%">= c(1 <font FACE="Symbol">Å</font> a <font FACE="Symbol">Å</font> b <font FACE="Symbol">Å</font> d <font FACE="Symbol">Å</font> ab <font FACE="Symbol">Å</font>
-    ad <font FACE="Symbol">Å</font> bd <font FACE="Symbol">Å</font> abd)</td>
+    <td width="79%">= c(1 <span class="xor">&nbsp;</span> a <span class="xor">&nbsp;</span> b <span class="xor">&nbsp;</span> d <span class="xor">&nbsp;</span> ab <span class="xor">&nbsp;</span>
+    ad <span class="xor">&nbsp;</span> bd <span class="xor">&nbsp;</span> abd)</td>
   </tr>
 </table>
 
@@ -305,7 +299,7 @@ up the table.</p>
 systematic application of a small number of reduction or simplification rules. The
 function will be defined as minimal when further opportunities for applying the rules are
 exhausted. ie. No further reductions are possible. There are often alternative ways of
-expressing a function in terms of the ExOR operator. The function minimised on the basis
+expressing a function in terms of the XOR operator. The function minimised on the basis
 of the above definition is a good starting point for arranging the final expression the
 way you want it. I might add that the procedure is easier to do than the explanation would
 suggest.</p>
@@ -318,7 +312,7 @@ exponents, i.e. truth values. We will call this term <font FACE="Symbol">b. </fo
 taking out the common factor you eliminate the <font FACE="Symbol">b</font> term when you
 complement the extra variable in the <font FACE="Symbol">a</font> term. Simplification
 rule 1 says that you should do this, starting with the terms with the most variables. This
-rule follows from T9, the distributive theorem and T4, 1 <font FACE="Symbol">Å</font> x =
+rule follows from T9, the distributive theorem and T4, 1 <span class="xor">&nbsp;</span> x =
 x'. You can see that we are starting to go back the other way and reintroduce primed
 variables but now with many duplicate terms eliminated.</p>
 <b>
@@ -336,21 +330,21 @@ expressions 'g' represents the remaining variables:</p>
 
 <table border="0" width="49%">
   <tr>
-    <td width="49%"><p align="right">abg <font FACE="Symbol">Å</font> a'g </td>
-    <td width="122%">= abg <font FACE="Symbol">Å</font> a'g <font FACE="Symbol">Å</font> g <font FACE="Symbol">Å</font> g</td>
+    <td width="49%"><p align="right">abg <span class="xor">&nbsp;</span> a'g </td>
+    <td width="122%">= abg <span class="xor">&nbsp;</span> a'g <span class="xor">&nbsp;</span> g <span class="xor">&nbsp;</span> g</td>
   </tr>
   <tr>
     <td width="49%"></td>
-    <td width="122%">= abg <font FACE="Symbol">Å</font> g(1 <font FACE="Symbol">Å</font> a')
-    <font FACE="Symbol">Å</font> g</td>
+    <td width="122%">= abg <span class="xor">&nbsp;</span> g(1 <span class="xor">&nbsp;</span> a')
+    <span class="xor">&nbsp;</span> g</td>
   </tr>
   <tr>
     <td width="49%"></td>
-    <td width="122%">= abg <font FACE="Symbol">Å</font> ag <font FACE="Symbol">Å</font> g</td>
+    <td width="122%">= abg <span class="xor">&nbsp;</span> ag <span class="xor">&nbsp;</span> g</td>
   </tr>
   <tr>
     <td width="49%"></td>
-    <td width="122%">= ab'g <font FACE="Symbol">Å</font> g</td>
+    <td width="122%">= ab'g <span class="xor">&nbsp;</span> g</td>
   </tr>
 </table>
 
@@ -424,26 +418,26 @@ to check the result if you are working with paper and pencil.</b></i></p>
 
 <p><b><font FACE="Arial"><a href="#top"><img src="top.gif" alt="Top" align="left" border="0" WIDTH="10" HEIGHT="12"></a><a href="#The simplification"><img src="up.gif" alt="Up 1" align="left" border="0" WIDTH="11" HEIGHT="14"></a><i><a name="Recomb">Recomb</a>ination identities</i></font></b></p>
 
-<p>Application of these 3 rules will very often be sufficient to minimise the ExOR
+<p>Application of these 3 rules will very often be sufficient to minimise the XOR
 function. However, recombinations can sometimes be made to reduce the total number of
 product terms.</p>
 
 <p>The function may contain the constant 1 and terms containing two variables each. If
 there are two such terms one of which contains a variable p say and the other the
 complement of this variable p', then the constant 1 can be eliminated by the substitution
-p <font FACE="Symbol">Å</font> p' = 1 and application of rule 1. (If the function
+p <span class="xor">&nbsp;</span> p' = 1 and application of rule 1. (If the function
 contained the constant 1 and a term with one variable, you could get rid of the 1 by
 simply inverting the single variable).</p>
 
 <table border="0" width="419">
   <tr>
-    <td width="157">e.g.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; 1 <font FACE="Symbol">Å</font>
-    pq <font FACE="Symbol">Å</font> p'r</td>
-    <td width="170">= p <font FACE="Symbol">Å</font> p' <font FACE="Symbol">Å</font> pq <font FACE="Symbol">Å</font> p'r</td>
+    <td width="157">e.g.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; 1 <span class="xor">&nbsp;</span>
+    pq <span class="xor">&nbsp;</span> p'r</td>
+    <td width="170">= p <span class="xor">&nbsp;</span> p' <span class="xor">&nbsp;</span> pq <span class="xor">&nbsp;</span> p'r</td>
   </tr>
   <tr>
     <td width="157"></td>
-    <td width="170">= pq' <font FACE="Symbol">Å</font> p'r'</td>
+    <td width="170">= pq' <span class="xor">&nbsp;</span> p'r'</td>
     <td width="80">...(R1)</td>
   </tr>
 </table>
@@ -454,12 +448,12 @@ terms with 3 variables each. The diagram opposite illustrates how this works.</p
 
 <table border="0" width="421">
   <tr>
-    <td width="157">e.g.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; g <font FACE="Symbol">Å</font> gpq <font FACE="Symbol">Å</font> gp'r</td>
-    <td width="170">= gp <font FACE="Symbol">Å</font> gp' <font FACE="Symbol">Å</font> gpq <font FACE="Symbol">Å</font> gp'r</td>
+    <td width="157">e.g.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; g <span class="xor">&nbsp;</span> gpq <span class="xor">&nbsp;</span> gp'r</td>
+    <td width="170">= gp <span class="xor">&nbsp;</span> gp' <span class="xor">&nbsp;</span> gpq <span class="xor">&nbsp;</span> gp'r</td>
   </tr>
   <tr>
     <td width="157"></td>
-    <td width="170">= gpq' <font FACE="Symbol">Å</font> gp'r'</td>
+    <td width="170">= gpq' <span class="xor">&nbsp;</span> gp'r'</td>
     <td width="82">...(R1a)</td>
   </tr>
 </table>
@@ -469,16 +463,16 @@ two variable term as in the following example:</p>
 
 <table border="0" width="422">
   <tr>
-    <td width="155"><p align="left">e.g. &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; a <font FACE="Symbol">Å</font> b <font FACE="Symbol">Å</font> ab'c </td>
-    <td width="173">= ab <font FACE="Symbol">Å</font> ab <font FACE="Symbol">Å</font> a <font FACE="Symbol">Å</font> b <font FACE="Symbol">Å</font> ab'c</td>
+    <td width="155"><p align="left">e.g. &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; a <span class="xor">&nbsp;</span> b <span class="xor">&nbsp;</span> ab'c </td>
+    <td width="173">= ab <span class="xor">&nbsp;</span> ab <span class="xor">&nbsp;</span> a <span class="xor">&nbsp;</span> b <span class="xor">&nbsp;</span> ab'c</td>
   </tr>
   <tr>
     <td width="155"></td>
-    <td width="173">= ab' <font FACE="Symbol">Å</font> a'b <font FACE="Symbol">Å</font> ab'c</td>
+    <td width="173">= ab' <span class="xor">&nbsp;</span> a'b <span class="xor">&nbsp;</span> ab'c</td>
   </tr>
   <tr>
     <td width="155"></td>
-    <td width="173">= a'b <font FACE="Symbol">Å</font> ab'c'</td>
+    <td width="173">= a'b <span class="xor">&nbsp;</span> ab'c'</td>
     <td width="82">...(R2)</td>
   </tr>
 </table>
@@ -488,9 +482,9 @@ following identity:</p>
 
 <table border="0" width="425">
   <tr>
-    <td width="155"><p align="left">e.g.&nbsp;&nbsp;&nbsp;&nbsp; ga <font FACE="Symbol">Å</font>
-    gb <font FACE="Symbol">Å</font> gab'c </td>
-    <td width="173">= ga'b <font FACE="Symbol">Å</font> gab'c'</td>
+    <td width="155"><p align="left">e.g.&nbsp;&nbsp;&nbsp;&nbsp; ga <span class="xor">&nbsp;</span>
+    gb <span class="xor">&nbsp;</span> gab'c </td>
+    <td width="173">= ga'b <span class="xor">&nbsp;</span> gab'c'</td>
     <td width="85">...(R2a)</td>
   </tr>
 </table>
@@ -507,30 +501,30 @@ primes. Two cases are:</p>
 <table border="0" width="433">
   <tr>
     <td width="45">T12a.</td>
-    <td width="131"><p align="right">ga <font FACE="Symbol">Å</font> gbc <font FACE="Symbol">Å</font>
+    <td width="131"><p align="right">ga <span class="xor">&nbsp;</span> gbc <span class="xor">&nbsp;</span>
     gb'd </td>
-    <td width="239">= g(a <font FACE="Symbol">Å</font> bc <font FACE="Symbol">Å</font> b'd)</td>
+    <td width="239">= g(a <span class="xor">&nbsp;</span> bc <span class="xor">&nbsp;</span> b'd)</td>
   </tr>
   <tr>
     <td width="45"></td>
     <td width="131"></td>
-    <td width="239">= g(1 <font FACE="Symbol">Å</font> a' <font FACE="Symbol">Å</font> bc <font FACE="Symbol">Å</font> b'd)</td>
+    <td width="239">= g(1 <span class="xor">&nbsp;</span> a' <span class="xor">&nbsp;</span> bc <span class="xor">&nbsp;</span> b'd)</td>
   </tr>
   <tr>
     <td width="45"></td>
     <td width="131"></td>
-    <td width="239">= g(b <font FACE="Symbol">Å</font> b' <font FACE="Symbol">Å</font> a' <font FACE="Symbol">Å</font> bc <font FACE="Symbol">Å</font> b'd)</td>
+    <td width="239">= g(b <span class="xor">&nbsp;</span> b' <span class="xor">&nbsp;</span> a' <span class="xor">&nbsp;</span> bc <span class="xor">&nbsp;</span> b'd)</td>
   </tr>
   <tr>
     <td width="45"></td>
     <td width="131"></td>
-    <td width="239">= g(a' <font FACE="Symbol">Å</font> bc' <font FACE="Symbol">Å</font>
+    <td width="239">= g(a' <span class="xor">&nbsp;</span> bc' <span class="xor">&nbsp;</span>
     b'd')</td>
   </tr>
   <tr>
     <td width="45"></td>
     <td width="131"></td>
-    <td width="239">= ga' <font FACE="Symbol">Å</font> gbc' <font FACE="Symbol">Å</font>
+    <td width="239">= ga' <span class="xor">&nbsp;</span> gbc' <span class="xor">&nbsp;</span>
     gb'd'</td>
   </tr>
 </table>
@@ -538,18 +532,18 @@ primes. Two cases are:</p>
 <table border="0" width="431">
   <tr>
     <td width="46">T12b.</td>
-    <td width="129"><p align="right">gc <font FACE="Symbol">Å</font> gd </td>
-    <td width="238">= g(c <font FACE="Symbol">Å</font> d)</td>
+    <td width="129"><p align="right">gc <span class="xor">&nbsp;</span> gd </td>
+    <td width="238">= g(c <span class="xor">&nbsp;</span> d)</td>
   </tr>
   <tr>
     <td width="46"></td>
     <td width="129"></td>
-    <td width="238">= gc' <font FACE="Symbol">Å</font> gd'</td>
+    <td width="238">= gc' <span class="xor">&nbsp;</span> gd'</td>
   </tr>
 </table>
 
-<p>As an example f<sub>1</sub> can be written as: f<sub>1</sub> = a' <font FACE="Symbol">Å</font>
-b'c' <font FACE="Symbol">Å</font> bd' <font FACE="Symbol">Å</font> ac'd ,by T12a</p>
+<p>As an example f<sub>1</sub> can be written as: f<sub>1</sub> = a' <span class="xor">&nbsp;</span>
+b'c' <span class="xor">&nbsp;</span> bd' <span class="xor">&nbsp;</span> ac'd ,by T12a</p>
 
 <p>T12a and b can often be used to make it possible to use R1 or R2 when these are not
 initially in the right form.</p>
@@ -566,13 +560,13 @@ solution.</p>
   <tr>
     <td width="40"></td>
     <td width="49"></td>
-    <td width="231">= bc <font FACE="Symbol">Å</font>&nbsp; abc <font FACE="Symbol">Å</font>
-    acd <font FACE="Symbol">Å</font>&nbsp; bcd</td>
+    <td width="231">= bc <span class="xor">&nbsp;</span>&nbsp; abc <span class="xor">&nbsp;</span>
+    acd <span class="xor">&nbsp;</span>&nbsp; bcd</td>
   </tr>
   <tr>
     <td width="40"></td>
     <td width="49"></td>
-    <td width="231">= a'bc <font FACE="Symbol">Å</font> acd <font FACE="Symbol">Å</font>
+    <td width="231">= a'bc <span class="xor">&nbsp;</span> acd <span class="xor">&nbsp;</span>
     &nbsp; bcd</td>
   </tr>
 </table>
@@ -584,7 +578,7 @@ You would simply reject the solution in this case. The + in the first line can b
 the inclusive or the exclusive OR, since the two terms are disjoint.</p>
 
 <p>After the minimal form has been found it is sometimes possible to take advantage of
-common factors to reduce the number of ExOR operators in the representation of the
+common factors to reduce the number of XOR operators in the representation of the
 function.</p>
 
 <p>Note: Adjust the width of the browser screen if Figure 10 overlaps the following
@@ -600,49 +594,49 @@ equations.</p>
   </tr>
   <tr>
     <td width="93"></td>
-    <td width="297">= b' <font FACE="Symbol">Å</font> e <font FACE="Symbol">Å</font> a'de' <font FACE="Symbol">Å</font> bc'e <font FACE="Symbol">Å</font> a'bc'de'</td>
+    <td width="297">= b' <span class="xor">&nbsp;</span> e <span class="xor">&nbsp;</span> a'de' <span class="xor">&nbsp;</span> bc'e <span class="xor">&nbsp;</span> a'bc'de'</td>
     <td width="140">,from Figure 10</td>
   </tr>
   <tr>
     <td width="93"></td>
-    <td width="297">= b' <font FACE="Symbol">Å</font> e(1 <font FACE="Symbol">Å</font> bc') <font FACE="Symbol">Å</font> a'de'(1 <font FACE="Symbol">Å</font> bc')</td>
+    <td width="297">= b' <span class="xor">&nbsp;</span> e(1 <span class="xor">&nbsp;</span> bc') <span class="xor">&nbsp;</span> a'de'(1 <span class="xor">&nbsp;</span> bc')</td>
     <td width="140"></td>
   </tr>
   <tr>
     <td width="93"></td>
-    <td width="297">= b' <font FACE="Symbol">Å</font> (e <font FACE="Symbol">Å</font>
-    a'de')(1 <font FACE="Symbol">Å</font> bc')</td>
+    <td width="297">= b' <span class="xor">&nbsp;</span> (e <span class="xor">&nbsp;</span>
+    a'de')(1 <span class="xor">&nbsp;</span> bc')</td>
     <td width="140"></td>
   </tr>
   <tr>
     <td width="93"></td>
-    <td width="297">= b' <font FACE="Symbol">Å</font> (1 <font FACE="Symbol">Å</font> e' <font FACE="Symbol">Å</font> a'de')(1 <font FACE="Symbol">Å</font> bc')</td>
+    <td width="297">= b' <span class="xor">&nbsp;</span> (1 <span class="xor">&nbsp;</span> e' <span class="xor">&nbsp;</span> a'de')(1 <span class="xor">&nbsp;</span> bc')</td>
     <td width="140"></td>
   </tr>
   <tr>
     <td width="93"></td>
-    <td width="297">= b' <font FACE="Symbol">Å</font> (1 <font FACE="Symbol">Å</font> e'(1 <font FACE="Symbol">Å</font> a'd))(1 <font FACE="Symbol">Å</font> bc')</td>
+    <td width="297">= b' <span class="xor">&nbsp;</span> (1 <span class="xor">&nbsp;</span> e'(1 <span class="xor">&nbsp;</span> a'd))(1 <span class="xor">&nbsp;</span> bc')</td>
     <td width="140"></td>
   </tr>
   <tr>
     <td width="93"></td>
-    <td width="297">= b' <font FACE="Symbol">Å</font> (e'(1 <font FACE="Symbol">Å</font>
-    a'd))'(1 <font FACE="Symbol">Å</font> bc')</td>
+    <td width="297">= b' <span class="xor">&nbsp;</span> (e'(1 <span class="xor">&nbsp;</span>
+    a'd))'(1 <span class="xor">&nbsp;</span> bc')</td>
     <td width="140"></td>
   </tr>
   <tr>
     <td width="93"></td>
-    <td width="297">= b' <font FACE="Symbol">Å</font> (e'(a'd)')'(bc')'</td>
+    <td width="297">= b' <span class="xor">&nbsp;</span> (e'(a'd)')'(bc')'</td>
     <td width="140"></td>
   </tr>
   <tr>
     <td width="93"></td>
-    <td width="297">= b <font FACE="Symbol">Å</font> ((e'(a'd)')'(bc')')'</td>
+    <td width="297">= b <span class="xor">&nbsp;</span> ((e'(a'd)')'(bc')')'</td>
     <td width="140">NAND form</td>
   </tr>
   <tr>
     <td width="93"></td>
-    <td width="297">= b <font FACE="Symbol">Å</font> (ae' + bc' + d'e')</td>
+    <td width="297">= b <span class="xor">&nbsp;</span> (ae' + bc' + d'e')</td>
     <td width="140">SOP form</td>
   </tr>
 </table>
@@ -669,13 +663,13 @@ minimising the function.</p>
 
 <p>Consider the function:</p>
 
-<p>f(a,b,c) = <font FACE="Symbol">S</font>(1,2,4) = a <font FACE="Symbol">Å</font> b <font FACE="Symbol">Å</font> c <font FACE="Symbol">Å</font> abc, with the redundant term abc.</p>
+<p>f(a,b,c) = <font FACE="Symbol">S</font>(1,2,4) = a <span class="xor">&nbsp;</span> b <span class="xor">&nbsp;</span> c <span class="xor">&nbsp;</span> abc, with the redundant term abc.</p>
 
 <p>The term abc (7) is not included in the original function. It can simply be cancelled
 out. Next consider the function:</p>
 
-<p>f(a,b,c,d) = <font FACE="Symbol">S</font>(2,3,4,5,7,8,9,14) = a <font FACE="Symbol">Å</font>
-b <font FACE="Symbol">Å</font> c <font FACE="Symbol">Å</font> bcd, &nbsp;&nbsp;&nbsp;
+<p>f(a,b,c,d) = <font FACE="Symbol">S</font>(2,3,4,5,7,8,9,14) = a <span class="xor">&nbsp;</span>
+b <span class="xor">&nbsp;</span> c <span class="xor">&nbsp;</span> bcd, &nbsp;&nbsp;&nbsp;
 with the redundant term bcd'.</p>
 
 <p>Here the redundant term can be applied to reinitiate the simplification process as
@@ -683,29 +677,29 @@ follows (step by step):</p>
 
 <table border="0" width="622">
   <tr>
-    <td width="140"><p align="right">a <font FACE="Symbol">Å</font> b <font FACE="Symbol">Å</font>
-    c <font FACE="Symbol">Å</font> bcd </td>
-    <td width="191">= a <font FACE="Symbol">Å</font> b <font FACE="Symbol">Å</font> c <font FACE="Symbol">Å</font> bcd <font FACE="Symbol">Å</font> bcd'</td>
+    <td width="140"><p align="right">a <span class="xor">&nbsp;</span> b <span class="xor">&nbsp;</span>
+    c <span class="xor">&nbsp;</span> bcd </td>
+    <td width="191">= a <span class="xor">&nbsp;</span> b <span class="xor">&nbsp;</span> c <span class="xor">&nbsp;</span> bcd <span class="xor">&nbsp;</span> bcd'</td>
     <td width="272"></td>
   </tr>
   <tr>
     <td width="140"></td>
-    <td width="191">= a <font FACE="Symbol">Å</font> b <font FACE="Symbol">Å</font> c <font FACE="Symbol">Å</font> bc(d <font FACE="Symbol">Å</font> d')</td>
+    <td width="191">= a <span class="xor">&nbsp;</span> b <span class="xor">&nbsp;</span> c <span class="xor">&nbsp;</span> bc(d <span class="xor">&nbsp;</span> d')</td>
     <td width="272"></td>
   </tr>
   <tr>
     <td width="140"></td>
-    <td width="191">= a <font FACE="Symbol">Å</font> b <font FACE="Symbol">Å</font> b'c</td>
+    <td width="191">= a <span class="xor">&nbsp;</span> b <span class="xor">&nbsp;</span> b'c</td>
     <td width="272">,after taking out the common factor c</td>
   </tr>
   <tr>
     <td width="140"></td>
-    <td width="191">= a' <font FACE="Symbol">Å</font> b' <font FACE="Symbol">Å</font> b'c</td>
-    <td width="272">,applying T6 to a <font FACE="Symbol">Å</font> b</td>
+    <td width="191">= a' <span class="xor">&nbsp;</span> b' <span class="xor">&nbsp;</span> b'c</td>
+    <td width="272">,applying T6 to a <span class="xor">&nbsp;</span> b</td>
   </tr>
   <tr>
     <td width="140"></td>
-    <td width="191">= a' <font FACE="Symbol">Å</font> b'c'</td>
+    <td width="191">= a' <span class="xor">&nbsp;</span> b'c'</td>
     <td width="272"></td>
   </tr>
 </table>
@@ -717,7 +711,7 @@ with terms in the minimal function with as few differences in exponents as possi
 then added to the minimal function and the simplification process continued as each
 redundant term is added. An example will show some of the possibilities:</p>
 
-<p>f<sub>3</sub> = a'b <font FACE="Symbol">Å</font> a'c' <font FACE="Symbol">Å</font>
+<p>f<sub>3</sub> = a'b <span class="xor">&nbsp;</span> a'c' <span class="xor">&nbsp;</span>
 ab'c'd', will be simplified using the list of implicants shown in Figure 11. You can
 recognise these as the redundancies in a BCD number. F<sub>3</sub> is part of a code
 converter. An oblique stroke / in front of a term indicates that the term has been
@@ -726,12 +720,12 @@ deleted.</p>
 <table border="0" width="470">
   <tr>
     <td width="41" valign="top" align="right"><p align="right">f<sub>3</sub> </td>
-    <td width="412">= /a'b <font FACE="Symbol">Å</font> /a'c' <font FACE="Symbol">Å</font>
-    /ab'c'd' <font FACE="Symbol">Å</font> /abc'd' <font FACE="Symbol">Å</font> /ac'd' <font FACE="Symbol">Å</font> /acd' <font FACE="Symbol">Å</font> ad''<font FACE="Symbol"> Å /</font>ab<font FACE="Symbol"> Å </font>b<font FACE="Symbol"> Å /</font>ac'<font FACE="Symbol"> Å /</font>a<font FACE="Symbol"> Å </font>c'</td>
+    <td width="412">= /a'b <span class="xor">&nbsp;</span> /a'c' <span class="xor">&nbsp;</span>
+    /ab'c'd' <span class="xor">&nbsp;</span> /abc'd' <span class="xor">&nbsp;</span> /ac'd' <span class="xor">&nbsp;</span> /acd' <span class="xor">&nbsp;</span> ad''<font FACE="Symbol"> Å /</font>ab<font FACE="Symbol"> Å </font>b<font FACE="Symbol"> Å /</font>ac'<font FACE="Symbol"> Å /</font>a<font FACE="Symbol"> Å </font>c'</td>
   </tr>
   <tr>
     <td width="41"></td>
-    <td width="412">= b <font FACE="Symbol">Å</font> c' <font FACE="Symbol">Å</font> ad</td>
+    <td width="412">= b <span class="xor">&nbsp;</span> c' <span class="xor">&nbsp;</span> ad</td>
   </tr>
 </table>
 
@@ -743,17 +737,17 @@ set of implicants of redundancies:</p>
 <table border="0" width="434">
   <tr>
     <td width="36"><p align="right">f<sub>4</sub> </td>
-    <td width="165">= a'bc' <font FACE="Symbol">Å</font> ac'd <font FACE="Symbol">Å</font>
+    <td width="165">= a'bc' <span class="xor">&nbsp;</span> ac'd <span class="xor">&nbsp;</span>
     bc'd</td>
     <td width="25"><p align="right">f<sub>5</sub> </td>
-    <td width="184">= a'd' <font FACE="Symbol">Å</font> a'bc' <font FACE="Symbol">Å</font>
+    <td width="184">= a'd' <span class="xor">&nbsp;</span> a'bc' <span class="xor">&nbsp;</span>
     b'c'd</td>
   </tr>
   <tr>
     <td width="36"></td>
-    <td width="165">= ad <font FACE="Symbol">Å</font> bc'd'</td>
+    <td width="165">= ad <span class="xor">&nbsp;</span> bc'd'</td>
     <td width="25"></td>
-    <td width="184">= c' <font FACE="Symbol">Å</font> a'd' <font FACE="Symbol">Å</font>
+    <td width="184">= c' <span class="xor">&nbsp;</span> a'd' <span class="xor">&nbsp;</span>
     b'c'd</td>
   </tr>
 </table>

@@ -1,17 +1,10 @@
 <html>
-
-<head>
-<title>Boolean algebra in terms of the exclusive-OR operator</title>
-
-<script language="JavaScript1.2" src="menus/fw_menu.js"></script>
-
-
-
-
-
-</head>
-
-<body bgcolor="#E6E6E6"><!--msnavigation--><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+  <head>
+    <title>Boolean algebra in terms of the exclusive-OR operator</title>
+    <script language="JavaScript1.2" src="menus/fw_menu.js"></script>
+    <link rel="stylesheet" href="/css/site.css">
+  </head>
+  <body bgcolor="#E6E6E6"><!--msnavigation--><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
 
 <h1 align="center"><font color="#FF0000"><big>Digital Logic Systems</big></font></h1>
 
@@ -45,7 +38,7 @@ function fwLoadMenus() {
      fw_menu_0_3.hideOnMouseOut=true;
     window.fw_menu_0_4 = new Menu("Exclusive-OR articles",195,18,"Arial, Helvetica, sans-serif",11,"#990000","#ffffcc","#ffffcc","#990000");
     fw_menu_0_4.addMenuItem("Boolean Algebra revisited","location='boolean.html'");
-    fw_menu_0_4.addMenuItem("Part 1 - ExOR Theory","location='concept1.html'");
+    fw_menu_0_4.addMenuItem("Part 1 - XOR Theory","location='concept1.html'");
     fw_menu_0_4.addMenuItem("Part 2 - Algebraic Simplification","location='concept2.html'");
     fw_menu_0_4.addMenuItem("Part 3 - Multiple Solutions","location='concept3.html'");
      fw_menu_0_4.fontWeight="bold";
@@ -92,15 +85,15 @@ function fwLoadMenus() {
 
 <ul type="circle">
   <li><a href="#Introduction">Introduction</a></li>
-  <li><a href="#Why EXOR">Why ExOR algebra should be an integral part of Boolean algebra</a></li>
-  <li><a href="#The EXOR algebra">The ExOR algebra theorems</a></li>
-  <li><a href="#Duality">Duality in the ExOR theorems</a></li>
+  <li><a href="#Why XOR">Why XOR algebra should be an integral part of Boolean algebra</a></li>
+  <li><a href="#The XOR algebra">The XOR algebra theorems</a></li>
+  <li><a href="#Duality">Duality in the XOR theorems</a></li>
   <li><a href="#Alternative">Alternative representation of the basic theorems</a></li>
-  <li><a href="#Canonical">Canonical forms for the ExOR logic</a></li>
-  <li><a href="#An EXOR function">An ExOR function that is the same as the AND, OR, form</a></li>
+  <li><a href="#Canonical">Canonical forms for the XOR logic</a></li>
+  <li><a href="#An XOR function">An XOR function that is the same as the AND, OR, form</a></li>
   <li><a href="#The transposition">The transposition theorem</a></li>
   <li><a href="#Plotting">Plotting the exclusive OR operator on a K-map</a></li>
-  <li><a href="#Examples">Examples of using a K-map to find ExOR representations of logic
+  <li><a href="#Examples">Examples of using a K-map to find XOR representations of logic
     equations</a></li>
   <li><a href="#Conclusion">Conclusion</a></li>
   <li><a href="#BuyC1">Buy a Book</a></b></li>
@@ -115,16 +108,16 @@ the 4 possible unary operators.&quot;&nbsp; replaced on 4 December 2001.</em></f
 <h4><a href="#top"><img src="top.gif" alt="Top" align="left" border="0" WIDTH="10" HEIGHT="12"></a><a name="Introduction">Introduction</a></h4>
 
 <p>I remember once having a book on switching circuit theory that developed its subject in
-terms of the exclusive-OR (ExOR) operator rather than the more usual inclusive-OR (InOR or
-just OR) operator. (You may recall that the ExOR operator includes one or the other of two
+terms of the exclusive-OR (XOR) operator rather than the more usual inclusive-OR (InOR or
+just OR) operator. (You may recall that the XOR operator includes one or the other of two
 inputs but not both, whereas the InOR includes both inputs as well). Over time the book
-has become lost. However, since that time Boolean algebra based on the ExOR operator
+has become lost. However, since that time Boolean algebra based on the XOR operator
 appears to have been completely ignored in popular books on digital design theory.</p>
 
 <p>This paper will demonstrate the following points: 
 
 <ol>
-  <li>That a complete Boolean algebra can be developed in terms of the ExOR and AND operators.</li>
+  <li>That a complete Boolean algebra can be developed in terms of the XOR and AND operators.</li>
   <li>That this algebra is a necessary part of Boolean algebra and augments rather than
     replaces the more familiar algebra based on the OR operator.</li>
   <li>That this algebra has both map methods and algebraic simplification methods for Boolean
@@ -139,13 +132,13 @@ read the Boolean Algebra pages then you will find some additional material in th
 relevant to the material presented here. In particular I derive all the preliminary theory
 needed for this subject without undue formality.</p>
 
-<p>A motivation for studying ExOR algebra is that in general a significant proportion of
-logic functions can be represented with fewer terms if ExOR gates are used in the
-representation of the functions. Many CPLDs contain an ExOR gate in their macrocells,
-therefore a systematic way of making the best use of these ExOR gates should be part of
+<p>A motivation for studying XOR algebra is that in general a significant proportion of
+logic functions can be represented with fewer terms if XOR gates are used in the
+representation of the functions. Many CPLDs contain an XOR gate in their macrocells,
+therefore a systematic way of making the best use of these XOR gates should be part of
 every digital designers stock in trade.</p>
 
-<p>In this paper I will go as far as describing how ExOR and OR operators can both be
+<p>In this paper I will go as far as describing how XOR and OR operators can both be
 dealt with on the same conventional Karnaugh map (K-map). My approach does not depend on
 or make use of methods described in the literature as Reed-Muller algebra or the pattern
 recognition method sometimes seen. This paper is a condensed version of a more complete
@@ -154,11 +147,11 @@ edition, pages 113 - 118&quot;. The proofs of the basic theorems can be found in
 Boolean Algebra pages or you can find them in the Electronics World article. Algebraic
 simplification is covered in Part 2 of this article.</p>
 
-<p>The ExOR operator conforms to the mathematical requirements of linearity. The
+<p>The XOR operator conforms to the mathematical requirements of linearity. The
 properties of this result leads to a whole branch of applications particularly in
 communications systems. However, the emphasis in this paper is on the development and
-application of ExOR algebra for the design of digital circuitry. Consequently this paper
-will concentrate on the development of ExOR algebra as an essential part of Boolean
+application of XOR algebra for the design of digital circuitry. Consequently this paper
+will concentrate on the development of XOR algebra as an essential part of Boolean
 algebra for the design of digital circuits and will not go into the communications
 applications of this operator.</p>
 <div align="center"><center>
@@ -174,7 +167,7 @@ applications of this operator.</p>
 of Part 3. You can also find a short list of the articles there that I had available to me
 in 1966 when I first became interested in this subject.</p>
 
-<h4><a href="#top"><img src="top.gif" alt="Top" align="left" border="0" WIDTH="10" HEIGHT="12"></a><a href="#Introduction"><img src="up.gif" alt="Up 1" align="left" border="0" WIDTH="11" HEIGHT="14"></a><a name="Why EXOR">Why </a>ExOR algebra should be an integral part of Boolean algebra</h4>
+<h4><a href="#top"><img src="top.gif" alt="Top" align="left" border="0" WIDTH="10" HEIGHT="12"></a><a href="#Introduction"><img src="up.gif" alt="Up 1" align="left" border="0" WIDTH="11" HEIGHT="14"></a><a name="Why XOR">Why </a>XOR algebra should be an integral part of Boolean algebra</h4>
 
 <p>Boolean algebra has variables and constants. We can think of these variables and
 constants as having only two values, which we will take as 0 and 1. In this paper the
@@ -196,19 +189,19 @@ Figure 1 shown opposite. This has been drawn up to more clearly identify the dis
 different binary operators of Boolean algebra. This has been done by showing the equations
 for each of the sixteen possible cases of binary operators. Figure 1 shows that after
 removing the two constants and the single variable cases there are four variations of AND
-functions, four variations of OR functions and two variations of ExOR functions. The
+functions, four variations of OR functions and two variations of XOR functions. The
 number of variations of the AND OR functions are due to the number of variations of the
 exponents of the variables. There are four variations of the exponents of two variables.
 The NAND (1110) and NOR (1000) operators are seen to be included in the variations of the
-OR and the AND operators respectively. There are only two variations of the ExOR functions
+OR and the AND operators respectively. There are only two variations of the XOR functions
 due to the even/odd characteristics of these functions. There are therefore three
-distinctly different binary operators of Boolean algebra, the AND, OR and ExOR operators.
+distinctly different binary operators of Boolean algebra, the AND, OR and XOR operators.
 Greater details of these considerations are given in the paper on Boolean Algebra - Page 1
 found on this site.</p>
 
 <p>Boolean algebra as commonly presented is constructed from only two of these three
-operators. To be more logical we should include the ExOR algebra to make Boolean algebra
-more complete. The ExOR algebra becomes a second complete Boolean algebra which can be
+operators. To be more logical we should include the XOR algebra to make Boolean algebra
+more complete. The XOR algebra becomes a second complete Boolean algebra which can be
 used in conjunction with InOR algebra. By a complete Boolean algebra is meant that any
 arbitrary function of Boolean variables can be constructed from it. The way that this will
 be established is through the canonical expansions for the algebra. You can also see from
@@ -216,18 +209,18 @@ Figure 1 that there is only one unary or inversion operator for this algebra.</p
 
 <p>All Boolean functions have an inverse function. For example if <em>f</em> is a Boolean
 function, then 1<font size="3" FACE="Symbol">Å</font><em> f</em> is its inverse. The two
-ExOR functions are inverses of each other and the AND and OR functions in Figure 1 are
+XOR functions are inverses of each other and the AND and OR functions in Figure 1 are
 inverses of each other in pairs, a circumstance that leads to the duality in InOR algebra.</p>
 
 <p>We could conceivably make other algebras from the available operators but that is
 something you can try out yourself if you wish. This paper will mainly concentrate on the
-ExOR algebra constructed together with the AND operator. A third algebra can be
-constructed with the inclusive-OR operator together with the inverse of the ExOR operator.
+XOR algebra constructed together with the AND operator. A third algebra can be
+constructed with the inclusive-OR operator together with the inverse of the XOR operator.
 See the added note at the end of part 2 of the Boolean Algebra Revisited pages for
 details.</p>
 <b>
 
-<h4><a href="#top"><img src="top.gif" alt="Top" align="left" border="0" WIDTH="10" HEIGHT="12"></a><a href="#Why EXOR"><img src="up.gif" alt="Up 1" align="left" border="0" WIDTH="11" HEIGHT="14"></a></b><a name="The EXOR algebra">The ExOR algebra</a> theorems</h4>
+<h4><a href="#top"><img src="top.gif" alt="Top" align="left" border="0" WIDTH="10" HEIGHT="12"></a><a href="#Why XOR"><img src="up.gif" alt="Up 1" align="left" border="0" WIDTH="11" HEIGHT="14"></a></b><a name="The XOR algebra">The XOR algebra</a> theorems</h4>
 
 <p>First we will look at the InOR theorems listed below. There is a group of four theorems
 for each binary operator made up by applying a variable to one input and 0, 1, the
@@ -287,66 +280,66 @@ relationships.</p>
   </tr>
 </table>
 
-<p>When we look at the ExOR theorems we would expect to find some characteristic
-differences. The corresponding theorems for the ExOR operator are listed below. </p>
+<p>When we look at the XOR theorems we would expect to find some characteristic
+differences. The corresponding theorems for the XOR operator are listed below. </p>
 
-<p><u>Summary of the theorems for the ExOR operator</u></p>
+<p><u>Summary of the theorems for the XOR operator</u></p>
 
-<p>The ExOR operator is related to the InOR operator by: x <font FACE="Symbol">Å</font> y
-= xy' + x'y. ( <font FACE="Symbol">Å</font> is the symbol for the ExOR operator).</p>
+<p>The XOR operator is related to the InOR operator by: x <span class="xor">&nbsp;</span> y
+= xy' + x'y. ( <span class="xor">&nbsp;</span> is the symbol for the XOR operator).</p>
 
 <table CELLSPACING="0" BORDER="0" CELLPADDING="7" WIDTH="624">
   <tr>
-    <td WIDTH="194" VALIGN="TOP" HEIGHT="26"><font size="3">T1. x <font FACE="Symbol">Å</font>
+    <td WIDTH="194" VALIGN="TOP" HEIGHT="26"><font size="3">T1. x <span class="xor">&nbsp;</span>
     x = 0</font></td>
-    <td WIDTH="178" VALIGN="TOP" HEIGHT="26"><font size="3">T2. x <font FACE="Symbol">Å</font>
+    <td WIDTH="178" VALIGN="TOP" HEIGHT="26"><font size="3">T2. x <span class="xor">&nbsp;</span>
     x' = 1</font></td>
     <td WIDTH="210" VALIGN="TOP" HEIGHT="26"><font size="3">Basic theorems</font></td>
   </tr>
   <tr>
-    <td WIDTH="194" VALIGN="TOP" HEIGHT="24"><font size="3">T3. x <font FACE="Symbol">Å</font>
+    <td WIDTH="194" VALIGN="TOP" HEIGHT="24"><font size="3">T3. x <span class="xor">&nbsp;</span>
     0 = x </font></td>
-    <td WIDTH="178" VALIGN="TOP" HEIGHT="24"><font size="3">T4. x <font FACE="Symbol">Å</font>
+    <td WIDTH="178" VALIGN="TOP" HEIGHT="24"><font size="3">T4. x <span class="xor">&nbsp;</span>
     1 = x'</font></td>
     <td WIDTH="210" VALIGN="TOP" HEIGHT="24"></td>
   </tr>
   <tr>
-    <td WIDTH="194" VALIGN="TOP" HEIGHT="24"><font size="3">T5. (x <font FACE="Symbol">Å</font>
-    y)' = x' <font FACE="Symbol">Å</font> y = x <font FACE="Symbol">Å</font> y'</font></td>
-    <td WIDTH="178" VALIGN="TOP" HEIGHT="24"><font size="3">T6. x' <font FACE="Symbol">Å</font>
-    y' = x <font FACE="Symbol">Å</font> y</font></td>
+    <td WIDTH="194" VALIGN="TOP" HEIGHT="24"><font size="3">T5. (x <span class="xor">&nbsp;</span>
+    y)' = x' <span class="xor">&nbsp;</span> y = x <span class="xor">&nbsp;</span> y'</font></td>
+    <td WIDTH="178" VALIGN="TOP" HEIGHT="24"><font size="3">T6. x' <span class="xor">&nbsp;</span>
+    y' = x <span class="xor">&nbsp;</span> y</font></td>
     <td WIDTH="210" VALIGN="TOP" HEIGHT="24"><font size="3">Inversion theorems</font></td>
   </tr>
   <tr>
-    <td WIDTH="194" VALIGN="TOP" HEIGHT="20"><font size="3">T7. x <font FACE="Symbol">Å</font>
-    y = y <font FACE="Symbol">Å</font> x</font></td>
+    <td WIDTH="194" VALIGN="TOP" HEIGHT="20"><font size="3">T7. x <span class="xor">&nbsp;</span>
+    y = y <span class="xor">&nbsp;</span> x</font></td>
     <td WIDTH="178" VALIGN="TOP" HEIGHT="20"></td>
     <td WIDTH="210" VALIGN="TOP" HEIGHT="20"><font size="3">Commutative law</font></td>
   </tr>
   <tr>
-    <td WIDTH="194" VALIGN="TOP" HEIGHT="17"><font size="3">T8. (x <font FACE="Symbol">Å</font>
-    y) <font FACE="Symbol">Å</font> z = x <font FACE="Symbol">Å</font> (y <font FACE="Symbol">Å</font> z)</font></td>
+    <td WIDTH="194" VALIGN="TOP" HEIGHT="17"><font size="3">T8. (x <span class="xor">&nbsp;</span>
+    y) <span class="xor">&nbsp;</span> z = x <span class="xor">&nbsp;</span> (y <span class="xor">&nbsp;</span> z)</font></td>
     <td WIDTH="178" VALIGN="TOP" HEIGHT="17"></td>
     <td WIDTH="210" VALIGN="TOP" HEIGHT="17"><font size="3">Associative law</font></td>
   </tr>
   <tr>
-    <td WIDTH="194" VALIGN="TOP" HEIGHT="23"><font size="3">T9. x(y <font FACE="Symbol">Å</font>
-    z) = xy <font FACE="Symbol">Å</font> xz</font></td>
+    <td WIDTH="194" VALIGN="TOP" HEIGHT="23"><font size="3">T9. x(y <span class="xor">&nbsp;</span>
+    z) = xy <span class="xor">&nbsp;</span> xz</font></td>
     <td WIDTH="178" VALIGN="TOP" HEIGHT="23"></td>
     <td WIDTH="210" VALIGN="TOP" HEIGHT="23"><font size="3">Distributive law</font></td>
   </tr>
   <tr>
-    <td WIDTH="194" VALIGN="TOP" HEIGHT="25"><font size="3">T9'. x(y <font FACE="Symbol">Å</font>
-    z) = (x'+y) <font FACE="Symbol">Å</font> (x'+z)</font></td>
+    <td WIDTH="194" VALIGN="TOP" HEIGHT="25"><font size="3">T9'. x(y <span class="xor">&nbsp;</span>
+    z) = (x'+y) <span class="xor">&nbsp;</span> (x'+z)</font></td>
     <td WIDTH="178" VALIGN="TOP" HEIGHT="25"></td>
     <td WIDTH="210" VALIGN="TOP" HEIGHT="25"><font size="3">Distributive law with OR function</font></td>
   </tr>
   <tr>
-    <td WIDTH="386" VALIGN="TOP" COLSPAN="2" HEIGHT="27"><font size="3">T10. If: f = g <font FACE="Symbol">Å</font> h and gh = 0, then f = g + h</font></td>
+    <td WIDTH="386" VALIGN="TOP" COLSPAN="2" HEIGHT="27"><font size="3">T10. If: f = g <span class="xor">&nbsp;</span> h and gh = 0, then f = g + h</font></td>
     <td WIDTH="210" VALIGN="TOP" HEIGHT="27"><font size="3">Disjunction theorem</font></td>
   </tr>
   <tr>
-    <td WIDTH="386" VALIGN="TOP" COLSPAN="2" HEIGHT="25"><font size="3">T11. If: f = g <font FACE="Symbol">Å</font> h, then g = f <font FACE="Symbol">Å</font> h and h = g <font FACE="Symbol">Å</font> f</font></td>
+    <td WIDTH="386" VALIGN="TOP" COLSPAN="2" HEIGHT="25"><font size="3">T11. If: f = g <span class="xor">&nbsp;</span> h, then g = f <span class="xor">&nbsp;</span> h and h = g <span class="xor">&nbsp;</span> f</font></td>
     <td WIDTH="210" VALIGN="TOP" HEIGHT="25"><font size="3">Transposition theorem</font></td>
   </tr>
 </table>
@@ -357,10 +350,10 @@ the labels and order of the theorems are completely arbitrary. You can see that 
 the three basic operators has its own set of the first four theorems listed. A difference
 to the InOR theorems to notice is the inversion theorems given by T4, T5 and T6.
 DeMorgan's theorem is not applicable here. This results in a different interpretation for
-duality as applicable to ExOR algebra. </font><font SIZE="2"></p>
+duality as applicable to XOR algebra. </font><font SIZE="2"></p>
 </font><font FACE="Arial"><b>
 
-<h4></b></font><a href="#top"><img src="top.gif" alt="Top" align="left" border="0" WIDTH="10" HEIGHT="12"></a><b><font FACE="Arial"><a href="#The EXOR algebra"><img src="up.gif" alt="Up 1" align="left" border="0" WIDTH="11" HEIGHT="14"></a></font></b><a name="Duality">Duality</a> in the ExOR theorems<b></h4>
+<h4></b></font><a href="#top"><img src="top.gif" alt="Top" align="left" border="0" WIDTH="10" HEIGHT="12"></a><b><font FACE="Arial"><a href="#The XOR algebra"><img src="up.gif" alt="Up 1" align="left" border="0" WIDTH="11" HEIGHT="14"></a></font></b><a name="Duality">Duality</a> in the XOR theorems<b></h4>
 </b>
 
 <p>The duality principle which states that &quot;Given any of the basic theorems of
@@ -368,15 +361,15 @@ Boolean algebra, changing OR operators to AND operators, AND operators to OR ope
 changing 0s to 1s and 1s to 0s where these occur leads to another of the basic
 theorems&quot; applies specifically to the AND and OR operators.</p>
 
-<p>Take a look at the summary of the theorems for the ExOR logic. Apply the inversion
+<p>Take a look at the summary of the theorems for the XOR logic. Apply the inversion
 theorem T5 to theorem T1 and you get theorem T2. Do the same with T3 and you get T4. And
 the same applies when you go the other way round. This makes T1, T2 and T3, T4 dual pairs.</p>
 <font size="3">
 
 <p>Now apply the transposition theorem T11 to T1 and you get T3. Apply theorem T11 to T2
 and you get T4. Once again the same applies when you go the other way round. This makes
-T1, T3 and T2, T4 dual pairs. ExOR logic has a double duality property which makes the
-ExOR a very flexible system of logic. Any of the basic theorems can be transformed into
+T1, T3 and T2, T4 dual pairs. XOR logic has a double duality property which makes the
+XOR a very flexible system of logic. Any of the basic theorems can be transformed into
 any of the others by either inversion and/or transposition.</font></p>
 <div align="center"><center>
 
@@ -400,42 +393,42 @@ properties.</p>
 <table CELLSPACING="0" BORDER="0" CELLPADDING="7" WIDTH="571">
   <tr>
     <td WIDTH="42" VALIGN="TOP"><font size="3">T1a.</font></td>
-    <td WIDTH="501" VALIGN="TOP"><font size="3">x <font FACE="Symbol">Å</font> x ... <font FACE="Symbol">Å</font> x = 0, for an even number of x</font></td>
+    <td WIDTH="501" VALIGN="TOP"><font size="3">x <span class="xor">&nbsp;</span> x ... <span class="xor">&nbsp;</span> x = 0, for an even number of x</font></td>
   </tr>
   <tr>
     <td WIDTH="42" VALIGN="TOP"><font size="3">T3a.</font></td>
-    <td WIDTH="501" VALIGN="TOP"><font size="3">x <font FACE="Symbol">Å</font> x ... <font FACE="Symbol">Å</font> x = x, for an odd number of x, or</font></td>
+    <td WIDTH="501" VALIGN="TOP"><font size="3">x <span class="xor">&nbsp;</span> x ... <span class="xor">&nbsp;</span> x = x, for an odd number of x, or</font></td>
   </tr>
   <tr>
     <td WIDTH="42" VALIGN="TOP"><font size="3">T1b.</font></td>
-    <td WIDTH="501" VALIGN="TOP"><font size="3">x <font FACE="Symbol">Å</font> y <font FACE="Symbol">Å</font> z ... = 0, if an even number of variables x, y, z ... have the
+    <td WIDTH="501" VALIGN="TOP"><font size="3">x <span class="xor">&nbsp;</span> y <span class="xor">&nbsp;</span> z ... = 0, if an even number of variables x, y, z ... have the
     value 1</font></td>
   </tr>
   <tr>
     <td WIDTH="42" VALIGN="TOP"></td>
-    <td WIDTH="501" VALIGN="TOP"><font size="3">x <font FACE="Symbol">Å</font> y <font FACE="Symbol">Å</font> z ... = 1, if an odd number of variables x, y, z ... have the
+    <td WIDTH="501" VALIGN="TOP"><font size="3">x <span class="xor">&nbsp;</span> y <span class="xor">&nbsp;</span> z ... = 1, if an odd number of variables x, y, z ... have the
     value 1</font></td>
   </tr>
 </table>
 <b>
 
-<h4></b><a href="#top"><img src="top.gif" alt="Top" align="left" border="0" WIDTH="10" HEIGHT="12"></a><b><a href="#Alternative"><img src="up.gif" alt="Up 1" align="left" border="0" WIDTH="11" HEIGHT="14"></a></b><a name="Canonical">Canonical</a> forms for the ExOR logic<b></h4>
+<h4></b><a href="#top"><img src="top.gif" alt="Top" align="left" border="0" WIDTH="10" HEIGHT="12"></a><b><a href="#Alternative"><img src="up.gif" alt="Up 1" align="left" border="0" WIDTH="11" HEIGHT="14"></a></b><a name="Canonical">Canonical</a> forms for the XOR logic<b></h4>
 </b>
 
 <p>T10 can be used for expressing a function, given in terms of the OR operator, in terms
-of the ExOR operator. The function in terms of the OR operator is expanded to minterm
+of the XOR operator. The function in terms of the OR operator is expanded to minterm
 form, so that all terms are disjoint (ie the product of any two terms is 0). The +
 operators can then be replaced with <font FACE="Symbol"><b>Å</b></font> operators. </p>
 
-<p>This means that any function can be expressed in ExOR form directly from its truth
+<p>This means that any function can be expressed in XOR form directly from its truth
 table or K-map. A canonical form for the exclusive OR operator is therefore with three
 variables:</p>
 <b>
 
-<p></b>C1. f(abc) = <font FACE="Symbol">a</font><sub>0</sub>a'b'c' <font FACE="Symbol">Å</font>
-<font FACE="Symbol">a</font><sub>1</sub>a'b'c <font FACE="Symbol">Å</font> <font FACE="Symbol">a</font><sub>2</sub>a'bc' <font FACE="Symbol">Å</font> <font FACE="Symbol">a</font><sub>3</sub>a'bc
-<font FACE="Symbol">Å</font> <font FACE="Symbol">a</font><sub>4</sub>ab'c' <font FACE="Symbol">Å</font> <font FACE="Symbol">a</font><sub>5</sub>ab'c <font FACE="Symbol">Å</font>
-<font FACE="Symbol">a</font><sub>6</sub>abc' <font FACE="Symbol">Å</font> <font FACE="Symbol">a</font><sub>7</sub>abc<font SIZE="2"><b></p>
+<p></b>C1. f(abc) = <font FACE="Symbol">a</font><sub>0</sub>a'b'c' <span class="xor">&nbsp;</span>
+<font FACE="Symbol">a</font><sub>1</sub>a'b'c <span class="xor">&nbsp;</span> <font FACE="Symbol">a</font><sub>2</sub>a'bc' <span class="xor">&nbsp;</span> <font FACE="Symbol">a</font><sub>3</sub>a'bc
+<span class="xor">&nbsp;</span> <font FACE="Symbol">a</font><sub>4</sub>ab'c' <span class="xor">&nbsp;</span> <font FACE="Symbol">a</font><sub>5</sub>ab'c <span class="xor">&nbsp;</span>
+<font FACE="Symbol">a</font><sub>6</sub>abc' <span class="xor">&nbsp;</span> <font FACE="Symbol">a</font><sub>7</sub>abc<font SIZE="2"><b></p>
 </b>
 
 <p></font><font size="3">where: <font FACE="Symbol">a </font><sub>i</sub> = 1,0 depending
@@ -443,13 +436,13 @@ on whether the</font> i<sup>th</sup><font size="3"> term is present or not. Expr
 like this are sometimes referred to as Exclusive-OR Sum-Of-Products or ESOPs in the
 literature.</p>
 
-<p>An alternative canonical form (found by expanding all primed variables with T4 (x' = x <font FACE="Symbol">Å</font> 1) multiplying out and cancelling duplicate terms with T3 and T1)
+<p>An alternative canonical form (found by expanding all primed variables with T4 (x' = x <span class="xor">&nbsp;</span> 1) multiplying out and cancelling duplicate terms with T3 and T1)
 is:</p>
 <b>
 
-<p></b><font size="3">C2. f(abc) = <font FACE="Symbol">b</font><sub>0</sub> <font FACE="Symbol">Å</font> <font FACE="Symbol">b</font><sub>1</sub>a <font FACE="Symbol">Å</font>
-<font FACE="Symbol">b</font><sub>2</sub>b <font FACE="Symbol">Å</font> <font FACE="Symbol">b</font><sub>3</sub>c <font FACE="Symbol">Å</font> <font FACE="Symbol">b</font><sub>4</sub>ab
-<font FACE="Symbol">Å</font> <font FACE="Symbol">b</font><sub>5</sub>ac <font FACE="Symbol">Å</font> <font FACE="Symbol">b</font><sub>6</sub>bc <font FACE="Symbol">Å</font>
+<p></b><font size="3">C2. f(abc) = <font FACE="Symbol">b</font><sub>0</sub> <span class="xor">&nbsp;</span> <font FACE="Symbol">b</font><sub>1</sub>a <span class="xor">&nbsp;</span>
+<font FACE="Symbol">b</font><sub>2</sub>b <span class="xor">&nbsp;</span> <font FACE="Symbol">b</font><sub>3</sub>c <span class="xor">&nbsp;</span> <font FACE="Symbol">b</font><sub>4</sub>ab
+<span class="xor">&nbsp;</span> <font FACE="Symbol">b</font><sub>5</sub>ac <span class="xor">&nbsp;</span> <font FACE="Symbol">b</font><sub>6</sub>bc <span class="xor">&nbsp;</span>
 <font FACE="Symbol">b</font><sub>7</sub>abc</font><b></p>
 </b>
 
@@ -464,18 +457,18 @@ unprimed variables. However, the two canonical forms shown are sufficient for th
 of this paper.</p>
 
 <p>The canonical expansions imply that any Boolean function can be expressed in terms of
-the AND and ExOR operators. ExOR algebra is therefore a <i>complete Boolean algebra</i>.</font><font SIZE="2"></p>
+the AND and XOR operators. XOR algebra is therefore a <i>complete Boolean algebra</i>.</font><font SIZE="2"></p>
 </font><font FACE="Arial"><b>
 
-<h4></b></font><a href="#top"><img src="top.gif" alt="Top" align="left" border="0" WIDTH="10" HEIGHT="12"></a><b><font FACE="Arial"><a href="#Canonical"><img src="up.gif" alt="Up 1" align="left" border="0" WIDTH="11" HEIGHT="14"></a></font></b><a name="An EXOR function">An ExOR function</a> that is the same as the AND, OR, form<b></h4>
+<h4></b></font><a href="#top"><img src="top.gif" alt="Top" align="left" border="0" WIDTH="10" HEIGHT="12"></a><b><font FACE="Arial"><a href="#Canonical"><img src="up.gif" alt="Up 1" align="left" border="0" WIDTH="11" HEIGHT="14"></a></font></b><a name="An XOR function">An XOR function</a> that is the same as the AND, OR, form<b></h4>
 </b>
 
-<p>The majority function is true in both InOR and ExOR form.</p>
+<p>The majority function is true in both InOR and XOR form.</p>
 
 <table CELLSPACING="0" BORDER="0" CELLPADDING="7" WIDTH="620">
   <tr>
     <td WIDTH="37" VALIGN="TOP"></td>
-    <td WIDTH="187" VALIGN="TOP"><font size="3">ab <font FACE="Symbol">Å</font> ac <font FACE="Symbol">Å</font> bc = ab + ac + bc</font></td>
+    <td WIDTH="187" VALIGN="TOP"><font size="3">ab <span class="xor">&nbsp;</span> ac <span class="xor">&nbsp;</span> bc = ab + ac + bc</font></td>
     <td WIDTH="354" VALIGN="TOP"><font size="3">Prove it for yourself by expanding out the
     left hand side.</font></td>
   </tr>
@@ -485,38 +478,38 @@ the AND and ExOR operators. ExOR algebra is therefore a <i>complete Boolean alge
 <p></b>Hint: Use the disjunction theorem.<b></p>
 </b>
 
-<h4><a href="#top"><img src="top.gif" alt="Top" align="left" border="0" WIDTH="10" HEIGHT="12"></a><b><a href="#An EXOR function"><img src="up.gif" alt="Up 1" align="left" border="0" WIDTH="11" HEIGHT="14"></a></b><a name="The transposition">The transposition</a> theorem</h4>
+<h4><a href="#top"><img src="top.gif" alt="Top" align="left" border="0" WIDTH="10" HEIGHT="12"></a><b><a href="#An XOR function"><img src="up.gif" alt="Up 1" align="left" border="0" WIDTH="11" HEIGHT="14"></a></b><a name="The transposition">The transposition</a> theorem</h4>
 
 <p>A theorem that gives exclusive OR logic an unusual degree of freedom is T11.</p>
 
 <p>By means of this theorem any given term or expression can be made to be a part of any
 other expression of the same variables.</p>
 
-<p>For example, let <b>x = ac' <font FACE="Symbol">Å</font> a'bc</b> and suppose that the
+<p>For example, let <b>x = ac' <span class="xor">&nbsp;</span> a'bc</b> and suppose that the
 term <b>h = ac</b> is to be made a part of this expression.</p>
 
 <table CELLSPACING="0" BORDER="0" CELLPADDING="7" WIDTH="560">
   <tr>
     <td WIDTH="69" VALIGN="TOP"><font size="3">Then,</font></td>
-    <td WIDTH="463" VALIGN="TOP"><font size="3"><b>g = x <font FACE="Symbol">Å</font> h = ac'
-    <font FACE="Symbol">Å</font> a'bc <font FACE="Symbol">Å</font> ac = a(c' <font FACE="Symbol">Å</font> c) <font FACE="Symbol">Å</font> a'bc = a <font FACE="Symbol">Å</font>
+    <td WIDTH="463" VALIGN="TOP"><font size="3"><b>g = x <span class="xor">&nbsp;</span> h = ac'
+    <span class="xor">&nbsp;</span> a'bc <span class="xor">&nbsp;</span> ac = a(c' <span class="xor">&nbsp;</span> c) <span class="xor">&nbsp;</span> a'bc = a <span class="xor">&nbsp;</span>
     a'bc.</b></font></td>
   </tr>
   <tr>
     <td WIDTH="69" VALIGN="TOP"><font size="3">Therefore,</font></td>
-    <td WIDTH="463" VALIGN="TOP"><font size="3"><b>x = g <font FACE="Symbol">Å</font> h = a <font FACE="Symbol">Å</font> a'bc <font FACE="Symbol">Å</font> ac</b>.</font></td>
+    <td WIDTH="463" VALIGN="TOP"><font size="3"><b>x = g <span class="xor">&nbsp;</span> h = a <span class="xor">&nbsp;</span> a'bc <span class="xor">&nbsp;</span> ac</b>.</font></td>
   </tr>
 </table>
 
 <p>As a check, this could have been obtained in this simple case directly from the given
-expression for x by replacing <b>c'</b> with <b>(1 <font FACE="Symbol">Å</font> c)</b>
+expression for x by replacing <b>c'</b> with <b>(1 <span class="xor">&nbsp;</span> c)</b>
 and expanding by T9 the distributive property.</p>
 
 <p>You might want to use this idea if you want to find out if a single variable, with a
-single ExOR operator will give an expression with fewer product terms than the original
+single XOR operator will give an expression with fewer product terms than the original
 expression. Let <b>p</b> be the single variable in function <b>f</b>, then evaluate <b>g =
-f <font FACE="Symbol">Å</font> p</b>. If this expression or its inverse has fewer product
-terms as required then <b>g</b> is the required result. ie. <b>f&nbsp;=&nbsp;g&nbsp;<font FACE="Symbol">Å</font>&nbsp;p</b> or<b> f = g' <font FACE="Symbol">Å</font> p'</b>. You
+f <span class="xor">&nbsp;</span> p</b>. If this expression or its inverse has fewer product
+terms as required then <b>g</b> is the required result. ie. <b>f&nbsp;=&nbsp;g&nbsp;<span class="xor">&nbsp;</span>&nbsp;p</b> or<b> f = g' <span class="xor">&nbsp;</span> p'</b>. You
 would need to evaluate <b>g</b> for each variable in turn and take the best result, or you
 might stop with the first good result if any. The Altera MaxPlus II system makes use of
 this result.</p>
@@ -532,7 +525,7 @@ this result.</p>
 
 <p>The idea described in the previous paragraph is not limited to single variables, you
 can apply the idea to any desired function of the same variables. This theorem makes a
-good starting point for multi output circuit design with ExOR functions. Another example
+good starting point for multi output circuit design with XOR functions. Another example
 of the use of this theorem is to construct a Gray code to binary code converter circuit.
 Refer to the &quot;Electronics World&quot; article for the details of this example. I also
 mention it briefly in the Boolean Algebra pages.</p>
@@ -542,7 +535,7 @@ mention it briefly in the Boolean Algebra pages.</p>
 </b>
 
 <p>Problem: Express the function: <font FACE="Courier New">f = ac + b'c + a'bc' </font>in
-ExOR form.</p>
+XOR form.</p>
 
 <p>If you are observant you could solve this problem as follows:</p>
 
@@ -561,7 +554,7 @@ ExOR form.</p>
   </tr>
   <tr>
     <td width="109"></td>
-    <td width="244">= c <font FACE="Symbol">Å</font> a'b</td>
+    <td width="244">= c <span class="xor">&nbsp;</span> a'b</td>
   </tr>
 </table>
 
@@ -569,17 +562,17 @@ ExOR form.</p>
 often this approach may not be so easy to carry out. Fortunately the K-map technique can
 be readily adapted for the purpose.</p>
 
-<p>First consider the ExOR function plotted on a K-map as shown in Figure 2. The K-map
-technique for the ExOR function depends on T10 and the extended forms of T1 and T3.</p>
+<p>First consider the XOR function plotted on a K-map as shown in Figure 2. The K-map
+technique for the XOR function depends on T10 and the extended forms of T1 and T3.</p>
 
 <p>Plotting the variables x and y individually on the map results in minterm xy being
 plotted twice, consequently by the extended form of T1, this term will disappear from the
-ExOR form.</p>
+XOR form.</p>
 
 <p>Similarly by the extended form of T3, where the minterm is plotted once or an odd
 number of times it will be retained.</p>
 
-<p>Generalising this observation for the ExOR form gives the rules: 
+<p>Generalising this observation for the XOR form gives the rules: 
 
 <dir>
   <dir>
@@ -596,17 +589,17 @@ number of times it will be retained.</p>
 one minterm <b>a'bc</b> has been plotted twice and is therefore excluded from the
 equation.</p>
 
-<p><img SRC="Concepts/fig3.gif" ALIGN="RIGHT" HSPACE="12" WIDTH="496" HEIGHT="196" alt="Figure 3"> The second example is the function that had the same form for the ExOR
+<p><img SRC="Concepts/fig3.gif" ALIGN="RIGHT" HSPACE="12" WIDTH="496" HEIGHT="196" alt="Figure 3"> The second example is the function that had the same form for the XOR
 operators as it had for the AND, OR, Invert operators. Here one term has been plotted
-three times and is therefore included in the function. With a little practice the ExOR
+three times and is therefore included in the function. With a little practice the XOR
 forms can be readily found for three variable functions and sometimes for four variable
-functions. Figure 4 shows two examples of four variable ExOR functions.</p>
+functions. Figure 4 shows two examples of four variable XOR functions.</p>
 
 <p>A procedure for using the K-map to find opportunities for simplification of a logic
-expression by using an ExOR gate (by inspection) is to look for a grouping of 1s that
+expression by using an XOR gate (by inspection) is to look for a grouping of 1s that
 could be simplified if an extra square or squares between them are filled in with 1s to
-combine the terms. This is applicable if only one ExOR is needed to represent the
-function. The following examples show a more general approach where more than one ExOR is
+combine the terms. This is applicable if only one XOR is needed to represent the
+function. The following examples show a more general approach where more than one XOR is
 needed.</p>
 
 <p><img SRC="Concepts/fig4.gif" ALIGN="RIGHT" HSPACE="12" WIDTH="460" HEIGHT="224" alt="Figure 4"> To plot a function given in exclusive OR form, simply plot individual
@@ -614,18 +607,18 @@ terms by placing 1s in all squares for the term and cancel all squares that have
 number of 1s.</p>
 
 <p>Don't care conditions are treated in the K-map approach the same way as for the
-inclusive OR case, the don't care term is either used or not as required. For the ExOR
+inclusive OR case, the don't care term is either used or not as required. For the XOR
 function don't care terms can be plotted an even or odd number of times.</p>
 
-<p>In the case of f<sub>1</sub> in Figure 4 the minimal ExOR form of the equation may not
+<p>In the case of f<sub>1</sub> in Figure 4 the minimal XOR form of the equation may not
 be so easily found by inspection. Here we would like to have an algebraic simplification
 procedure. An easy to use and systematic procedure is described in part 2 of this paper.</p>
 
-<h4><a href="#top"><img src="top.gif" alt="Top" align="left" border="0" WIDTH="10" HEIGHT="12"></a><b><a href="#Plotting"><img src="up.gif" alt="Up 1" align="left" border="0" WIDTH="11" HEIGHT="14"></a></b><a name="Examples">Examples</a> of using a K-map to find ExOR representations of logic
+<h4><a href="#top"><img src="top.gif" alt="Top" align="left" border="0" WIDTH="10" HEIGHT="12"></a><b><a href="#Plotting"><img src="up.gif" alt="Up 1" align="left" border="0" WIDTH="11" HEIGHT="14"></a></b><a name="Examples">Examples</a> of using a K-map to find XOR representations of logic
 equations</h4>
 
 <p><img SRC="Concepts/fig5.gif" ALIGN="RIGHT" HSPACE="12" alt="Figure 5" WIDTH="379" HEIGHT="351">Two more examples
-are shown in Figures 5 and 6 where more than one ExOR is required to represent the
+are shown in Figures 5 and 6 where more than one XOR is required to represent the
 function. These Figures shows the step by step procedure to be followed.</p>
 
 <p>Consider the function plotted on the K-map shown in Figure 5a. We might start by
@@ -638,16 +631,16 @@ map that position as shown at 5d. This gives the final result as shown below the
 5d.</p>
 
 <p>From a practical point of view we might implement the resulting expression as follows
-(since there is generally only one ExOR function available in a CPLD macrocell): </p>
+(since there is generally only one XOR function available in a CPLD macrocell): </p>
 
 <table border="0" width="66%">
   <tr>
     <td width="38%"><p align="right">y </td>
-    <td width="62%">= a <font FACE="Symbol">Å</font> c <font FACE="Symbol">Å</font> ab'c</td>
+    <td width="62%">= a <span class="xor">&nbsp;</span> c <span class="xor">&nbsp;</span> ab'c</td>
   </tr>
   <tr>
     <td width="38%"></td>
-    <td width="62%"><big>= </big>a<big> </big><font FACE="Symbol" size="3">Å</font><font size="3"> c(1 <font FACE="Symbol">Å</font> ab')</font></td>
+    <td width="62%"><big>= </big>a<big> </big><font FACE="Symbol" size="3">Å</font><font size="3"> c(1 <span class="xor">&nbsp;</span> ab')</font></td>
   </tr>
   <tr>
     <td width="38%"></td>
@@ -680,7 +673,7 @@ this restores the 1 at <b>abc</b> covers the 1 at <b>a'b'c</b> and cancels the u
 at <b>a'bc</b> and <b>ab'c</b>. The final (well known) result is shown under the K-map at
 6d as it was in Figure 5.</p>
 
-<p>To summarise what we have done to find ExOR forms of functions using the K-map: We
+<p>To summarise what we have done to find XOR forms of functions using the K-map: We
 started by making an arbitrary choice of first plot, which covered some of the minterms
 but possibly introduced unwanted minterms, we then made another choice of mapping which
 covered more of the required minterms and possibly eliminated some of the unwanted
@@ -700,23 +693,23 @@ logic function and you would like to confirm that it is the same function:</p>
 <p><font FACE="Courier New" size="2">y = a </font><font FACE="Symbol" size="2">Å</font><font FACE="Courier New" size="2"> (b'cd' + abc'd + a'b'c'd)</font></p>
 
 <p>The K-map shown in Figure 7 confirms the identity. Note that we can plot all the terms
-in parenthesis as a function and use this as a whole with the ExOR approach with the term <b>a</b>.
+in parenthesis as a function and use this as a whole with the XOR approach with the term <b>a</b>.
 A reduction of five product terms to three is achieved with this function. The use of the
-K-map is obviously a lot less work than expanding out the ExOR function.</p>
+K-map is obviously a lot less work than expanding out the XOR function.</p>
 <b>
 
 <h4></b><a href="#top"><img src="top.gif" alt="Top" align="left" border="0" WIDTH="10" HEIGHT="12"></a><b><font FACE="Arial"><a href="#Examples"><img src="up.gif" alt="Up 1" align="left" border="0" WIDTH="11" HEIGHT="14"></a></font></b><a name="Conclusion">Conclusion</a><b></h4>
 </b>
 
 <p>This is as far as we will go in this paper. However, it is possible to treat the
-simplification of ExOR forms of equations by a systematic algebraic procedure. This
+simplification of XOR forms of equations by a systematic algebraic procedure. This
 procedure should be used for functions with four or more variables if the minimal form of
 the function is to be guaranteed. The algebraic simplification procedure is described in
 part 2. This paper has presented all of the preliminary requirements for the algebraic
-method of simplification of ExOR functions. As a clue, you may recall that simplification
+method of simplification of XOR functions. As a clue, you may recall that simplification
 methods for the AND, OR invert algebra depended on making systematic use of the relation:
-x + x' = 1 and the distributive theorem. For the ExOR algebra we will make systematic use
-of the relation: x <font FACE="Symbol">Å</font> x' = 1 and a few rules.</p>
+x + x' = 1 and the distributive theorem. For the XOR algebra we will make systematic use
+of the relation: x <span class="xor">&nbsp;</span> x' = 1 and a few rules.</p>
 
 <p>This paper has demonstrated that a complete Boolean algebra can be developed in terms
 of the exclusive-OR operator in place of the inclusive-OR operator. Examples have been

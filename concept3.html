@@ -1,16 +1,10 @@
 <html>
-
-<head>
-<title>ExOR 3 - Multiple Solutions of ExOR functions</title>
-
-
-
-<script language="JavaScript1.2" src="menus/fw_menu.js"></script>
-
-
-</head>
-
-<body><!--msnavigation--><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+  <head>
+    <title>XOR 3 - Multiple Solutions of XOR functions</title>
+    <script language="JavaScript1.2" src="menus/fw_menu.js"></script>
+    <link rel="stylesheet" href="/css/site.css">    
+  </head>
+  <body><!--msnavigation--><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
 
 <h1 align="center"><font color="#FF0000"><big>Digital Logic Systems</big></font></h1>
 
@@ -44,7 +38,7 @@ function fwLoadMenus() {
      fw_menu_0_3.hideOnMouseOut=true;
     window.fw_menu_0_4 = new Menu("Exclusive-OR articles",195,18,"Arial, Helvetica, sans-serif",11,"#990000","#ffffcc","#ffffcc","#990000");
     fw_menu_0_4.addMenuItem("Boolean Algebra revisited","location='boolean.html'");
-    fw_menu_0_4.addMenuItem("Part 1 - ExOR Theory","location='concept1.html'");
+    fw_menu_0_4.addMenuItem("Part 1 - XOR Theory","location='concept1.html'");
     fw_menu_0_4.addMenuItem("Part 2 - Algebraic Simplification","location='concept2.html'");
     fw_menu_0_4.addMenuItem("Part 3 - Multiple Solutions","location='concept3.html'");
      fw_menu_0_4.fontWeight="bold";
@@ -82,13 +76,13 @@ function fwLoadMenus() {
   <p>You can find a link to a comprehensive source of exclusive-OR papers at the end of this
   page. Please follow this link to find the latest work by other authors on this subject. I
   have appended my original list of references at the end of this page.</p>
-  <p><a name="999332"></a>In this addendum I will refer to my method of simplifying ExOR
+  <p><a name="999332"></a>In this addendum I will refer to my method of simplifying XOR
   expressions as Warren-Smith's Simplification Method (WSSM). The terminology that I use is
   explained in Parts 1 and 2.</p>
-  <h3><a name="999290"></a><small><font color="#003366" face="Verdana, Arial, Helvetica, sans-serif">Multiple solutions for minimised ExOR
+  <h3><a name="999290"></a><small><font color="#003366" face="Verdana, Arial, Helvetica, sans-serif">Multiple solutions for minimised XOR
   functions</font></small> </h3>
-  <p>Boolean functions expressed with ExOR operators frequently have multiple solutions.
-  This part of the article on ExOR logic will show how multiple solutions can be found and
+  <p>Boolean functions expressed with XOR operators frequently have multiple solutions.
+  This part of the article on XOR logic will show how multiple solutions can be found and
   will give a few examples.</p>
   <p>Figure 1 shows a function with two solutions. The two solutions each have the same
   number of terms and the same number of letters. The two solutions are found by starting
@@ -112,7 +106,7 @@ function fwLoadMenus() {
   functions of three or less variables, so the degenerate functions are an insignificant
   proportion of the total. If you wanted to list all the five variable functions you would
   get some 4.3 billion functions!</p>
-  <p><font face="Verdana, Arial, Helvetica, sans-serif"><img src="images/XOR3a.gif" height="474" width="593" border="0" hspace="5" vspace="5" alt="Figure 1. An ExOR function with two solutions."></font></p>
+  <p><font face="Verdana, Arial, Helvetica, sans-serif"><img src="images/XOR3a.gif" height="474" width="593" border="0" hspace="5" vspace="5" alt="Figure 1. An XOR function with two solutions."></font></p>
   <p><a name="999381"></a>The following are a few examples of functions in both minterm and
   C2 form. <ul>
     <li><a name="999389"></a><font face="Courier"> 0010010111001101 XOR: 1 a ab c ac bc abc abd
@@ -166,22 +160,22 @@ function fwLoadMenus() {
     <tr>
       <td width="24">1...</td>
       <td width="25"></td>
-      <td width="172">= ab <font FACE="Symbol">Å</font> ac <font FACE="Symbol">Å</font> bc</td>
+      <td width="172">= ab <span class="xor">&nbsp;</span> ac <span class="xor">&nbsp;</span> bc</td>
     </tr>
     <tr>
       <td width="24">2...</td>
       <td width="25"></td>
-      <td width="172">= ab' <font FACE="Symbol">Å</font> ac' <font FACE="Symbol">Å</font> bc</td>
+      <td width="172">= ab' <span class="xor">&nbsp;</span> ac' <span class="xor">&nbsp;</span> bc</td>
     </tr>
     <tr>
       <td width="24">3...</td>
       <td width="25"></td>
-      <td width="172">= a'b <font FACE="Symbol">Å</font> ac <font FACE="Symbol">Å</font> bc'</td>
+      <td width="172">= a'b <span class="xor">&nbsp;</span> ac <span class="xor">&nbsp;</span> bc'</td>
     </tr>
     <tr>
       <td width="24">4...</td>
       <td width="25"></td>
-      <td width="172">= ab <font FACE="Symbol">Å</font> a'c <font FACE="Symbol">Å</font> b'c</td>
+      <td width="172">= ab <span class="xor">&nbsp;</span> a'c <span class="xor">&nbsp;</span> b'c</td>
     </tr>
   </table>
   <p><img src="images/multiexor10.gif" alt="The 4 solutions for the majority function" align="right" hspace="12" WIDTH="339" HEIGHT="271">These solutions are most easily found by applying T12b in each
@@ -191,13 +185,13 @@ function fwLoadMenus() {
   there is scope for T12b to create multiple solutions.</p>
   <h3><small><a href="#top"><em><font FACE="Arial"><b><img src="top.gif" alt="Return to top" align="left" border="0" WIDTH="10" HEIGHT="12"></b></font></em></a><font color="#003366" face="Verdana, Arial, Helvetica, sans-serif">Conclusion</font></small> </h3>
   <p><a name="999675"></a>This addendum has considered the question of multiple minimisation
-  solutions of ExOR functions and has shown how to recognise and find them.</p>
-  <p align="center"><a href="concept2.html"><img src="images/navprev.gif" alt="Go to ExOR 2" border="0" WIDTH="81" HEIGHT="23"></a></p>
+  solutions of XOR functions and has shown how to recognise and find them.</p>
+  <p align="center"><a href="concept2.html"><img src="images/navprev.gif" alt="Go to XOR 2" border="0" WIDTH="81" HEIGHT="23"></a></p>
 </blockquote>
 
 <hr>
 
-<p align="left">Link to a major source of references on ExOR logic. This should be your
+<p align="left">Link to a major source of references on XOR logic. This should be your
 starting point if you wish to follow up the latest developments in this subject:</p>
 
 <p align="left"><a href="http://www.ee.pdx.edu/~mperkows/=REED-MULLER/bibliography.html">http://www.ee.pdx.edu/~mperkows/=REED-MULLER/bibliography.html</a></p>
@@ -206,7 +200,7 @@ starting point if you wish to follow up the latest developments in this subject:
 <hr align="left">
 
 <blockquote>
-  <h3><a name="999208"></a><font color="#003366" face="Verdana, Arial, Helvetica, sans-serif">My original list of references on ExOR logic</font></h3>
+  <h3><a name="999208"></a><font color="#003366" face="Verdana, Arial, Helvetica, sans-serif">My original list of references on XOR logic</font></h3>
   <font size="3"><p></font>The references that first got me interested in this subject are
   all from the 1950s and early 1960s. I did my initial investigation of this subject in mid
   1960s. There may have been other papers but I no longer have the details.</p>

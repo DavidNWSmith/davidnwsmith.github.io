@@ -1,0 +1,9 @@
+span.xor {
+    background-image: url("../images/xor.png");
+    background-repeat: no-repeat;
+    background-size: 1em, 1em;
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    margin: 0px 2px 0px 2px;
+}

@@ -1,17 +1,11 @@
 <html>
-
 <head>
-
-<script language="JavaScript1.2" src="menus/fw_menu.js"></script>
-
-<title>Boolean Algebra Revisited - Page 2</title>
-
-
-
-
+  <script language="JavaScript1.2" src="menus/fw_menu.js"></script>
+  <link rel="stylesheet" href="/css/site.css">
+  <title>Boolean Algebra Revisited - Page 2</title>
 </head>
 
-<body topmargin="0" leftmargin="12" marginheight="0" marginwidth="0" bgcolor="#e6e6e6"><!--msnavigation--><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<body bgcolor="#e6e6e6"><!--msnavigation--><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
 
 <h1 align="center"><font color="#FF0000"><big>Digital Logic Systems</big></font></h1>
 
@@ -45,7 +39,7 @@ function fwLoadMenus() {
      fw_menu_0_3.hideOnMouseOut=true;
     window.fw_menu_0_4 = new Menu("Exclusive-OR articles",195,18,"Arial, Helvetica, sans-serif",11,"#990000","#ffffcc","#ffffcc","#990000");
     fw_menu_0_4.addMenuItem("Boolean Algebra revisited","location='boolean.html'");
-    fw_menu_0_4.addMenuItem("Part 1 - ExOR Theory","location='concept1.html'");
+    fw_menu_0_4.addMenuItem("Part 1 - XOR Theory","location='concept1.html'");
     fw_menu_0_4.addMenuItem("Part 2 - Algebraic Simplification","location='concept2.html'");
     fw_menu_0_4.addMenuItem("Part 3 - Multiple Solutions","location='concept3.html'");
      fw_menu_0_4.fontWeight="bold";
@@ -87,11 +81,11 @@ Algebra</b></font> </p>
   <li><a href="#Simplification">Simplification of inclusive OR functions</a></li>
   <li><a href="#Examples">Examples of simplification of Boolean functions</a></li>
   <li><a href="#NAND">NAND and NOR logic circuits</a></li>
-  <li><a href="#additional">Two additional theorems for the ExOR algebra</a></li>
+  <li><a href="#additional">Two additional theorems for the XOR algebra</a></li>
   <li><a href="#Duality">Duality in Boolean algebra</a></li>
   </b>
   <li><b><a href="#Minterms">Minterms, maxterms and canonical forms</a></b></li>
-  <li><a href="#canonical"><b>The canonical forms of the ExOR algebra</b></a></li>
+  <li><a href="#canonical"><b>The canonical forms of the XOR algebra</b></a></li>
   <li><a href="#Karnaugh"><b>Karnaugh maps</b></a></li>
   <li><a href="#Don&#146;t care"><b>Don&#146;t care terms</b></a></li>
   <li><a href="#Summary"><b>Summary of the theorems of Boolean algebra</b></a></li>
@@ -112,7 +106,7 @@ Algebra</b></font> </p>
 <p><b><a href="#top"><img src="top.gif" alt="Top" align="left" border="0" WIDTH="10" HEIGHT="12"></a><a name="Simplification">Simplification</a> of inclusive OR functions</b></p>
 
 <p>One of the uses of Boolean algebra is to simplify Boolean functions. In the case of the
-ExOR algebra, simplification is dealt with in separate parts of this series of papers. For
+XOR algebra, simplification is dealt with in separate parts of this series of papers. For
 the inclusive OR algebra there are a few cases that occur often enough to justify calling
 them simplification relations.</p>
 
@@ -196,7 +190,7 @@ them simplification relations.</p>
 <p><b><a href="#top"><img src="top.gif" alt="Top" align="left" border="0" WIDTH="10" HEIGHT="12"></a><a name="Examples">Examples</a> of simplification of Boolean functions</b></p>
 
 <p>The following two examples will give you some idea of how to use the theorems for
-simplification of Boolean inclusive OR functions. Examples of simplification of ExOR
+simplification of Boolean inclusive OR functions. Examples of simplification of XOR
 functions are covered in other papers in this series and will be left to those papers.</p>
 
 <table border="0" width="665">
@@ -377,10 +371,10 @@ Sums form. This result follows the dictates of duality covered later on this pag
 <b>
 
 <p><a href="#top"><font FACE="Arial"><img src="top.gif" alt="Top" align="left" border="0" WIDTH="10" HEIGHT="12"></font></a>Two
-<a name="additional">additional</a> theorems for the ExOR algebra</p>
+<a name="additional">additional</a> theorems for the XOR algebra</p>
 
 <p></b><strong>1. Disjunction theorem.</strong>&nbsp; This theorem will be used to convert
-between AND, OR Invert logic and ExOR logic.</p>
+between AND, OR Invert logic and XOR logic.</p>
 
 <p>This theorem states that if <font face="Courier"><i>g</i></font>, <font face="Courier"><i>h</i></font>
 are functions of the same switching circuit variables, then:</p>
@@ -388,7 +382,7 @@ are functions of the same switching circuit variables, then:</p>
 <table border="0" width="595">
   <tr>
     <td width="24"></td>
-    <td width="198">If: <font face="Courier">f = g<font FACE="Symbol">Å</font>h</font> and <font face="Courier">gh = 0</font></td>
+    <td width="198">If: <font face="Courier">f = g<span class="xor">&nbsp;</span>h</font> and <font face="Courier">gh = 0</font></td>
     <td width="152">then <font face="Courier">f = g+h</font></td>
     <td width="203"><em>Disjunction theorem</em></td>
   </tr>
@@ -399,9 +393,9 @@ are functions of the same switching circuit variables, then:</p>
 <table border="0" width="597">
   <tr>
     <td width="77"></td>
-    <td width="274"><font face="Courier">f = g <font FACE="Symbol">Å</font> h&nbsp; = gh' +
+    <td width="274"><font face="Courier">f = g <span class="xor">&nbsp;</span> h&nbsp; = gh' +
     g'h</font></td>
-    <td width="228"><em>From ExOR operator definition</em></td>
+    <td width="228"><em>From XOR operator definition</em></td>
   </tr>
   <tr>
     <td width="77"></td>
@@ -421,60 +415,60 @@ are functions of the same switching circuit variables, then:</p>
 </table>
 <b>
 
-<p></b><strong>2. Transposition theorem.</strong> This next theorem gives ExOR algebra an
+<p></b><strong>2. Transposition theorem.</strong> This next theorem gives XOR algebra an
 unusual degree of freedom.</p>
 
 <p>If: <font face="Courier">f</font>, <font face="Courier">g</font>, <font face="Courier">h</font>
-are functions of the same switching circuit variables and <font face="Courier">f</font> <font face="Courier">=</font> <font face="Courier">g<font FACE="Symbol">Å</font>h</font>, then <font face="Courier">g</font> <font face="Courier">=</font> <font face="Courier">f<font FACE="Symbol">Å</font>h</font> and <font face="Courier">h</font> <font face="Courier">=</font>
-<font face="Courier">g<font FACE="Symbol">Å</font>f</font></p>
+are functions of the same switching circuit variables and <font face="Courier">f</font> <font face="Courier">=</font> <font face="Courier">g<span class="xor">&nbsp;</span>h</font>, then <font face="Courier">g</font> <font face="Courier">=</font> <font face="Courier">f<span class="xor">&nbsp;</span>h</font> and <font face="Courier">h</font> <font face="Courier">=</font>
+<font face="Courier">g<span class="xor">&nbsp;</span>f</font></p>
 <font face="Courier">
 
 <p></font>This theorem is derived as follows:<font face="Courier"></p>
 
-<p></font>Given that:<font face="Courier"> f</font> <font face="Courier">=</font> <font face="Courier">g<font FACE="Symbol">Å</font>h</font>, then adding <font face="Courier">h</font>
+<p></font>Given that:<font face="Courier"> f</font> <font face="Courier">=</font> <font face="Courier">g<span class="xor">&nbsp;</span>h</font>, then adding <font face="Courier">h</font>
 (mod-2) to both sides of the equation gives:</p>
 
-<p><font face="Courier">f<font FACE="Symbol">Å</font>h</font> <font face="Courier">=</font>
-<font face="Courier">g<font FACE="Symbol">Å</font>h<font FACE="Symbol">Å</font>h</font> <font face="Courier">=</font> <font face="Courier">g </font>Since <font face="Courier">h<font FACE="Symbol">Å</font>h</font> cancels out.</p>
+<p><font face="Courier">f<span class="xor">&nbsp;</span>h</font> <font face="Courier">=</font>
+<font face="Courier">g<span class="xor">&nbsp;</span>h<span class="xor">&nbsp;</span>h</font> <font face="Courier">=</font> <font face="Courier">g </font>Since <font face="Courier">h<span class="xor">&nbsp;</span>h</font> cancels out.</p>
 
-<p>Therefore <font face="Courier">g</font> <font face="Courier">=</font> <font face="Courier">f<font FACE="Symbol">Å</font>h</p>
+<p>Therefore <font face="Courier">g</font> <font face="Courier">=</font> <font face="Courier">f<span class="xor">&nbsp;</span>h</p>
 
-<p></font>Similarly <font face="Courier">h</font> <font face="Courier">=</font> <font face="Courier">g<font FACE="Symbol">Å</font>f </font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<p></font>Similarly <font face="Courier">h</font> <font face="Courier">=</font> <font face="Courier">g<span class="xor">&nbsp;</span>f </font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <em>Transposition theorem</em></p>
 
 <p>Some of the applications of this theorem are given in the following paper in this
-series devoted to ExOR algebra. You will find these applications when you reach that part
-of the ExOR paper. An application that will be described here is to derive a Gray code to
+series devoted to XOR algebra. You will find these applications when you reach that part
+of the XOR paper. An application that will be described here is to derive a Gray code to
 binary code converter circuit. The Gray code is described in more detail later in this
 paper.</p>
 
 <p><img src="_borders/Graycode.gif" alt="Graycode Binary code converters" align="right" hspace="5" vspace="5" WIDTH="476" HEIGHT="259">The Gray code is derived from the binary code bit by bit from the
-relation: <font face="Courier"><i>g</i></font><sub>n</sub> = <font face="Courier"><i>b</i></font><sub>n</sub><font FACE="Symbol">Å</font><sub> </sub><font face="Courier"><i>b</i></font><sub>n+1</sub>
+relation: <font face="Courier"><i>g</i></font><sub>n</sub> = <font face="Courier"><i>b</i></font><sub>n</sub><span class="xor">&nbsp;</span><sub> </sub><font face="Courier"><i>b</i></font><sub>n+1</sub>
 where <font face="Courier"><i>b</i></font><sub>n</sub> and <font face="Courier"><i>g</i></font><sub>n</sub>
 are the n<sup>th</sup> most significant bits of the binary and Gray codes respectively,
 except for the most significant bits that are the same for both codes.</p>
 
 <p>We require the inverse code conversion or Gray code to binary code converter circuit.
 Applying the transposition theorem to the above expression gives a relation from which the
-inverse code conversion is found: <font face="Courier"><i>b</i></font><sub>n</sub> = <font face="Courier"><i>g</i></font><sub>n</sub><font FACE="Symbol">Å</font><sub> </sub><font face="Courier"><i>b</i></font><sub>n+1</sub>.</p>
+inverse code conversion is found: <font face="Courier"><i>b</i></font><sub>n</sub> = <font face="Courier"><i>g</i></font><sub>n</sub><span class="xor">&nbsp;</span><sub> </sub><font face="Courier"><i>b</i></font><sub>n+1</sub>.</p>
 
 <p>For example consider a four input circuit with most significant bits: <font face="Courier"><i>b</i></font><sub>3</sub> = <font face="Courier"><i>g</i></font><sub>3</sub>.
-Substituting into the formula gives: <font face="Courier"><i>b</i></font><sub>2</sub> = <font face="Courier"><i>g</i></font><sub>2</sub><font FACE="Symbol">Å</font><sub> </sub><font face="Courier"><i>g</i></font><sub>3</sub>. Continuing to substitute into progressively
+Substituting into the formula gives: <font face="Courier"><i>b</i></font><sub>2</sub> = <font face="Courier"><i>g</i></font><sub>2</sub><span class="xor">&nbsp;</span><sub> </sub><font face="Courier"><i>g</i></font><sub>3</sub>. Continuing to substitute into progressively
 less significant bits gives the complete Gray code to binary code converter circuit:</p>
 
 <table border="0" width="299">
   <tr>
     <td width="72"></td>
-    <td width="215"><font face="Courier">b</font><sub>0</sub><font face="Courier"> = g</font><sub>0</sub><font FACE="Symbol">Å</font><font face="Courier">g</font><sub>1</sub><font FACE="Symbol">Å</font><sub>
-    </sub><font face="Courier">g</font><sub>2</sub><font FACE="Symbol">Å</font><sub> </sub><font face="Courier">g</font><sub>3</sub></td>
+    <td width="215"><font face="Courier">b</font><sub>0</sub><font face="Courier"> = g</font><sub>0</sub><span class="xor">&nbsp;</span><font face="Courier">g</font><sub>1</sub><span class="xor">&nbsp;</span><sub>
+    </sub><font face="Courier">g</font><sub>2</sub><span class="xor">&nbsp;</span><sub> </sub><font face="Courier">g</font><sub>3</sub></td>
   </tr>
   <tr>
     <td width="72"></td>
-    <td width="215"><font face="Courier">b</font><sub>1</sub><font face="Courier"> = g</font><sub>1</sub><font FACE="Symbol">Å</font><sub> </sub><font face="Courier">g</font><sub>2</sub><font FACE="Symbol">Å</font><sub> </sub><font face="Courier">g</font><sub>3</sub></td>
+    <td width="215"><font face="Courier">b</font><sub>1</sub><font face="Courier"> = g</font><sub>1</sub><span class="xor">&nbsp;</span><sub> </sub><font face="Courier">g</font><sub>2</sub><span class="xor">&nbsp;</span><sub> </sub><font face="Courier">g</font><sub>3</sub></td>
   </tr>
   <tr>
     <td width="72"></td>
-    <td width="215"><font face="Courier">b</font><sub>2</sub><font face="Courier"> = g</font><sub>2</sub><font FACE="Symbol">Å</font><sub> </sub><font face="Courier">g</font><sub>3</sub></td>
+    <td width="215"><font face="Courier">b</font><sub>2</sub><font face="Courier"> = g</font><sub>2</sub><span class="xor">&nbsp;</span><sub> </sub><font face="Courier">g</font><sub>3</sub></td>
   </tr>
   <tr>
     <td width="72"></td>
@@ -499,18 +493,18 @@ the inclusive OR algebra produces another of the basic theorems.</p>
 <p>Consider Figure 4 and apply this to each of the basic theorems of the AND and OR
 operators to see that this result is applicable.</p>
 
-<p>For the ExOR algebra, consider the basic theorems for this operator given in Figure 4.
-Apply the ExOR inversion theorems to both sides of any of the basic theorems of the ExOR
+<p>For the XOR algebra, consider the basic theorems for this operator given in Figure 4.
+Apply the XOR inversion theorems to both sides of any of the basic theorems of the XOR
 operator and you get another of the basic theorems. Next apply the transposition theorem
-given in the previous section to any of the basic theorems of the ExOR operator and you
+given in the previous section to any of the basic theorems of the XOR operator and you
 can see that another of the basic theorems results. </p>
 
-<p>The ExOR operator has a double duality property that gives this operator a great deal
-of flexibility. Any of the basic theorems of the ExOR operator can be transformed into any
+<p>The XOR operator has a double duality property that gives this operator a great deal
+of flexibility. Any of the basic theorems of the XOR operator can be transformed into any
 of the other basic theorems through applications of the duality properties.</p>
 
 <p>Note that duality in the AND OR theorems involves both these operators, whilst duality
-in the ExOR operator involves only the ExOR operator. See how this works in Figure 7 as
+in the XOR operator involves only the XOR operator. See how this works in Figure 7 as
 well as in Figure 4.</p>
 <div align="center"><center>
 
@@ -620,30 +614,30 @@ given variables can be represented by it. Hence the AND, OR and Invert operators
 sufficient to form a <i>complete Boolean algebra</i>.</p>
 <b>
 
-<p><a href="#top"><img src="top.gif" alt="Top" align="left" border="0" WIDTH="10" HEIGHT="12"></a>The <a name="canonical">canonical</a> forms of the ExOR algebra</b></p>
+<p><a href="#top"><img src="top.gif" alt="Top" align="left" border="0" WIDTH="10" HEIGHT="12"></a>The <a name="canonical">canonical</a> forms of the XOR algebra</b></p>
 
 <p>The disjunction theorem can be used for expressing a function given in terms of the +
-operator in terms of the <font FACE="Symbol">Å</font> operator. The function in terms of
+operator in terms of the <span class="xor">&nbsp;</span> operator. The function in terms of
 the + operator is expanded to minterm form, so that all terms are disjoint (i.e. the
-product of any two terms is 0). The + operators can then be replaced with <font FACE="Symbol">Å</font> operators. </p>
+product of any two terms is 0). The + operators can then be replaced with <span class="xor">&nbsp;</span> operators. </p>
 
-<p>This means that any function can be expressed in ExOR form directly from its truth
-table. A canonical form for the ExOR form is therefore, with three variables:</p>
+<p>This means that any function can be expressed in XOR form directly from its truth
+table. A canonical form for the XOR form is therefore, with three variables:</p>
 
-<p>C1. f(abc) = <font FACE="Symbol">a</font><sub>0</sub>a'b'c' <font FACE="Symbol">Å</font>
-<font FACE="Symbol">a</font><sub>1</sub>a'b'c <font FACE="Symbol">Å</font> <font FACE="Symbol">a</font><sub>2</sub>a'bc' <font FACE="Symbol">Å</font> <font FACE="Symbol">a</font><sub>3</sub>a'bc
-<font FACE="Symbol">Å</font> <font FACE="Symbol">a</font><sub>4</sub>ab'c' <font FACE="Symbol">Å</font> <font FACE="Symbol">a</font><sub>5</sub>ab'c <font FACE="Symbol">Å</font>
-<font FACE="Symbol">a</font><sub>6</sub>abc' <font FACE="Symbol">Å</font> <font FACE="Symbol">a</font><sub>7</sub>abc<i></p>
+<p>C1. f(abc) = <font FACE="Symbol">a</font><sub>0</sub>a'b'c' <span class="xor">&nbsp;</span>
+<font FACE="Symbol">a</font><sub>1</sub>a'b'c <span class="xor">&nbsp;</span> <font FACE="Symbol">a</font><sub>2</sub>a'bc' <span class="xor">&nbsp;</span> <font FACE="Symbol">a</font><sub>3</sub>a'bc
+<span class="xor">&nbsp;</span> <font FACE="Symbol">a</font><sub>4</sub>ab'c' <span class="xor">&nbsp;</span> <font FACE="Symbol">a</font><sub>5</sub>ab'c <span class="xor">&nbsp;</span>
+<font FACE="Symbol">a</font><sub>6</sub>abc' <span class="xor">&nbsp;</span> <font FACE="Symbol">a</font><sub>7</sub>abc<i></p>
 
 <p></i>where: <font FACE="Symbol">a</font><sub>i</sub> = 1,0 depending on whether the i<sup>th</sup>
 term is present or not. </p>
 
-<p>An alternative canonical form found by expanding primed variables with <font face="Courier">x'=x<font FACE="Symbol">Å</font>1</font> and cancelling duplicate terms
+<p>An alternative canonical form found by expanding primed variables with <font face="Courier">x'=x<span class="xor">&nbsp;</span>1</font> and cancelling duplicate terms
 is, with three variables:</p>
 
-<p>C2. f(abc) = <font FACE="Symbol">b</font><sub>0</sub> <font FACE="Symbol">Å</font> <font FACE="Symbol">b</font><sub>1</sub>a <font FACE="Symbol">Å</font> <font FACE="Symbol">b</font><sub>2</sub>b
-<font FACE="Symbol">Å</font> <font FACE="Symbol">b</font><sub>3</sub>c <font FACE="Symbol">Å</font> <font FACE="Symbol">b</font><sub>4</sub>ab <font FACE="Symbol">Å</font>
-<font FACE="Symbol">b</font><sub>5</sub>ac <font FACE="Symbol">Å</font> <font FACE="Symbol">b</font><sub>6</sub>bc <font FACE="Symbol">Å</font> <font FACE="Symbol">b</font><sub>7</sub>abc<i></p>
+<p>C2. f(abc) = <font FACE="Symbol">b</font><sub>0</sub> <span class="xor">&nbsp;</span> <font FACE="Symbol">b</font><sub>1</sub>a <span class="xor">&nbsp;</span> <font FACE="Symbol">b</font><sub>2</sub>b
+<span class="xor">&nbsp;</span> <font FACE="Symbol">b</font><sub>3</sub>c <span class="xor">&nbsp;</span> <font FACE="Symbol">b</font><sub>4</sub>ab <span class="xor">&nbsp;</span>
+<font FACE="Symbol">b</font><sub>5</sub>ac <span class="xor">&nbsp;</span> <font FACE="Symbol">b</font><sub>6</sub>bc <span class="xor">&nbsp;</span> <font FACE="Symbol">b</font><sub>7</sub>abc<i></p>
 
 <p></i>where: <font FACE="Symbol">b</font><sub>i</sub> = 1,0 depending on whether the i<sup>th</sup>
 term is present or not.</p>
@@ -655,7 +649,7 @@ these canonical forms but you can probably get the idea from the above three var
 forms.</p>
 
 <p>The canonical expansions imply that any Boolean function can be expressed in terms of
-the AND and ExOR operators. ExOR algebra is therefore also a <i>complete Boolean algebra</i>.</p>
+the AND and XOR operators. XOR algebra is therefore also a <i>complete Boolean algebra</i>.</p>
 <div align="center"><center>
 
 <table border="2" width="55%" bgcolor="#FFFFFF" bordercolor="#800000">
@@ -688,7 +682,7 @@ pattern then repeats every eight counts. In each more significant bit the patter
 again, except that there is no reversal in the most significant bit of the Gray code.</p>
 
 <p>In Figure 11 you can see that the relationship between the Gray code and binary code
-bits given earlier: <font face="Courier"><i>g</i></font><sub>n</sub> = <font face="Courier"><i>b</i></font><sub>n</sub><font FACE="Symbol">Å</font><sub> </sub><font face="Courier"><i>b</i></font><sub>n+1</sub> holds.</p>
+bits given earlier: <font face="Courier"><i>g</i></font><sub>n</sub> = <font face="Courier"><i>b</i></font><sub>n</sub><span class="xor">&nbsp;</span><sub> </sub><font face="Courier"><i>b</i></font><sub>n+1</sub> holds.</p>
 
 <p>The main feature of the Gray code is that only one bit in any count changes value in an
 adjacent count. This results in symmetries that facilitate the simplification of functions
@@ -786,7 +780,7 @@ been extended to cover four minterms.</p>
 
 <p><a href="#top"><img src="top.gif" alt="Top" align="left" border="0" WIDTH="10" HEIGHT="12"></a><a name="Summary">Summary</a> of the theorems of Boolean algebra</b></p>
 
-<p>The relation between the inclusive OR and the ExOR operators is:<font face="Courier"> a<font FACE="Symbol">Å</font>b = ab'+a'b</p>
+<p>The relation between the inclusive OR and the EOR operators is:<font face="Courier"> a<span class="xor">&nbsp;</span>b = ab'+a'b</p>
 </font>
 
 <blockquote>
@@ -794,7 +788,7 @@ been extended to cover four minterms.</p>
     <tr>
       <td width="150"><b>AND</b></td>
       <td width="150"><b>OR</b></td>
-      <td width="100"><b>ExOR</b></td>
+      <td width="100"><b>XOR</b></td>
     </tr>
   </table>
 </blockquote>
@@ -806,22 +800,22 @@ been extended to cover four minterms.</p>
     <tr>
       <td width="150"><font face="Courier">aa = a</font></td>
       <td width="150"><font face="Courier">a+a = a</font></td>
-      <td width="96"><font face="Courier">a</font><font FACE="Symbol">Å</font><font face="Courier">a = 0</font></td>
+      <td width="96"><font face="Courier">a</font><span class="xor">&nbsp;</span><font face="Courier">a = 0</font></td>
     </tr>
     <tr>
       <td width="150"><font face="Courier">aa' = 0</font></td>
       <td width="150"><font face="Courier">a+a' = 1</font></td>
-      <td width="96"><font face="Courier">a</font><font FACE="Symbol">Å</font><font face="Courier">a' = 1</font></td>
+      <td width="96"><font face="Courier">a</font><span class="xor">&nbsp;</span><font face="Courier">a' = 1</font></td>
     </tr>
     <tr>
       <td width="150"><font face="Courier">a0 = 0</font></td>
       <td width="150"><font face="Courier">a+0 = a</font></td>
-      <td width="96"><font face="Courier">a</font><font FACE="Symbol">Å</font><font face="Courier">0 = a</font></td>
+      <td width="96"><font face="Courier">a</font><span class="xor">&nbsp;</span><font face="Courier">0 = a</font></td>
     </tr>
     <tr>
       <td width="150"><font face="Courier">a1 = a</font></td>
       <td width="150"><font face="Courier">a+1 = 1</font></td>
-      <td width="96"><font face="Courier">a</font><font FACE="Symbol">Å</font><font face="Courier">1 = a'</font></td>
+      <td width="96"><font face="Courier">a</font><span class="xor">&nbsp;</span><font face="Courier">1 = a'</font></td>
     </tr>
   </table>
 </blockquote>
@@ -833,7 +827,7 @@ been extended to cover four minterms.</p>
     <tr>
       <td width="150"><font face="Courier">ab = ba</font></td>
       <td width="150"><font face="Courier">a+b = b+a</font></td>
-      <td width="171"><font face="Courier">a<font FACE="Symbol">Å</font>b = b<font FACE="Symbol">Å</font>a</font></td>
+      <td width="171"><font face="Courier">a<span class="xor">&nbsp;</span>b = b<span class="xor">&nbsp;</span>a</font></td>
     </tr>
   </table>
 </blockquote>
@@ -845,7 +839,7 @@ been extended to cover four minterms.</p>
     <tr>
       <td width="150"><font face="Courier">(ab)c = a(bc)</font></td>
       <td width="150"><font face="Courier">(a+b)+c = a+(b+c)</font></td>
-      <td width="170"><font face="Courier">(a</font><font FACE="Symbol">Å</font><font face="Courier">b)</font><font FACE="Symbol">Å</font><font face="Courier">c = a</font><font FACE="Symbol">Å</font><font face="Courier">(b</font><font FACE="Symbol">Å</font><font face="Courier">c)</font></td>
+      <td width="170"><font face="Courier">(a</font><span class="xor">&nbsp;</span><font face="Courier">b)</font><span class="xor">&nbsp;</span><font face="Courier">c = a</font><span class="xor">&nbsp;</span><font face="Courier">(b</font><span class="xor">&nbsp;</span><font face="Courier">c)</font></td>
     </tr>
   </table>
 </blockquote>
@@ -856,7 +850,7 @@ been extended to cover four minterms.</p>
   <table border="0" width="585">
     <tr>
       <td width="300"><font face="Courier">a(b+c) = ab + ac</font></td>
-      <td width="168"><font face="Courier">a(b<font FACE="Symbol">Å</font>c) = ab<font FACE="Symbol">Å</font>ac</font></td>
+      <td width="168"><font face="Courier">a(b<span class="xor">&nbsp;</span>c) = ab<span class="xor">&nbsp;</span>ac</font></td>
     </tr>
     <tr>
       <td width="300"><font face="Courier">(a+b)(a+c) = a+bc</font></td>
@@ -874,9 +868,9 @@ been extended to cover four minterms.</p>
   unprimed variables and unpriming all primed variables.</p>
   <table border="0" width="563">
     <tr>
-      <td width="195"><em>ExOR inversion theorems:</em></td>
-      <td width="201"><font face="Courier">(a</font><font FACE="Symbol">Å</font><font face="Courier">b</font>)<font face="Courier">'= a'</font><font FACE="Symbol">Å</font><font face="Courier">b = a</font><font FACE="Symbol">Å</font><font face="Courier">b'</font></td>
-      <td width="149"><font face="Courier">a</font><font FACE="Symbol">Å</font><font face="Courier">b = a'</font><font FACE="Symbol">Å</font><font face="Courier">b'</font></td>
+      <td width="195"><em>XOR inversion theorems:</em></td>
+      <td width="201"><font face="Courier">(a</font><span class="xor">&nbsp;</span><font face="Courier">b</font>)<font face="Courier">'= a'</font><span class="xor">&nbsp;</span><font face="Courier">b = a</font><span class="xor">&nbsp;</span><font face="Courier">b'</font></td>
+      <td width="149"><font face="Courier">a</font><span class="xor">&nbsp;</span><font face="Courier">b = a'</font><span class="xor">&nbsp;</span><font face="Courier">b'</font></td>
     </tr>
   </table>
 </blockquote>
@@ -893,12 +887,12 @@ been extended to cover four minterms.</p>
   </table>
 </blockquote>
 
-<p>Additional theorems for the ExOR algebra</p>
+<p>Additional theorems for the XOR algebra</p>
 
 <blockquote>
   <table border="0" width="546">
     <tr>
-      <td width="158">If: <font face="Courier">f=g</font><font FACE="Symbol">Å</font><font face="Courier">h</font> and <font face="Courier">gh=0</font>,</td>
+      <td width="158">If: <font face="Courier">f=g</font><span class="xor">&nbsp;</span><font face="Courier">h</font> and <font face="Courier">gh=0</font>,</td>
       <td width="162">then <font face="Courier">f=g+h</font></td>
       <td width="171"><em>Disjunction theorem</em></td>
     </tr>
@@ -909,10 +903,10 @@ been extended to cover four minterms.</p>
   <table border="0" width="548">
     <tr>
       <td width="530" colspan="3">If: <font face="Courier">f, g, h</font> are functions of the
-      same switching circuit variables and <font face="Courier">f=g</font><font FACE="Symbol">Å</font><font face="Courier">h</font>,</td>
+      same switching circuit variables and <font face="Courier">f=g</font><span class="xor">&nbsp;</span><font face="Courier">h</font>,</td>
     </tr>
     <tr>
-      <td width="240">then <font face="Courier">g=f</font><font FACE="Symbol">Å</font><font face="Courier">h</font> and <font face="Courier">h=g</font><font FACE="Symbol">Å</font><font face="Courier">f</font></td>
+      <td width="240">then <font face="Courier">g=f</font><span class="xor">&nbsp;</span><font face="Courier">h</font> and <font face="Courier">h=g</font><span class="xor">&nbsp;</span><font face="Courier">f</font></td>
       <td width="105"></td>
       <td width="185"><em>Transposition theorem</em></td>
     </tr>
@@ -923,14 +917,14 @@ been extended to cover four minterms.</p>
 <p></font><a href="#top"><img src="top.gif" alt="Top" align="left" border="0" WIDTH="10" HEIGHT="12"></a></b><strong><font SIZE="3"><a name="Added">Added</a> Note - January 2003</font></strong><font FACE="Courier" SIZE="3"></p>
 
 <p></font><font SIZE="3">There are actually at least three complete Boolean algebras. The
-inverse of the ExOR operator can be paired with the inclusive-OR operator to form a third
-complete Boolean Algebra. The inverse ExOR operator described as the equivalence operator,
+inverse of the XOR operator can be paired with the inclusive-OR operator to form a third
+complete Boolean Algebra. The inverse XOR operator described as the equivalence operator,
 is defined as:</font><font FACE="Courier" SIZE="3"></p>
 
 <p></font>&nbsp;&nbsp;&nbsp; <img src="images/equiv1.gif" WIDTH="382" HEIGHT="19"><font SIZE="3"></p>
 
-<p>The equivalence algebra is similar to the ExOR algebra but has its own basic and some
-other theorems and has strong duality with ExOR algebra. For example the 0s and 1s
+<p>The equivalence algebra is similar to the XOR algebra but has its own basic and some
+other theorems and has strong duality with XOR algebra. For example the 0s and 1s
 behaviour in the even and odd characteristics are reversed. The disjunction theorem
 becomes a conjunction theorem. Given Boolean variables </font><font FACE="Courier" SIZE="3">x</font><font SIZE="3"> and </font><font FACE="Courier" SIZE="3">y</font><font SIZE="3">:</p>
 
@@ -944,16 +938,16 @@ procedures described in these pages. For example:</p>
 
 <p>&nbsp;&nbsp;&nbsp; <img src="images/equiv3.gif" WIDTH="357" HEIGHT="39"></p>
 
-<p>Compare these with the corresponding basic ExOR theorems. The transposition theorem and
+<p>Compare these with the corresponding basic XOR theorems. The transposition theorem and
 the inversion theorems given in the third set of truth tables in figure 6 have the same
-form in both the ExOR and equivalence algebras.</p>
+form in both the XOR and equivalence algebras.</p>
 
 <p>The distributive law for this algebra has the same form as the POS distributive law of
 AND, OR invert algebra:</font><font FACE="Courier" SIZE="3"></p>
 
 <p></font>&nbsp;&nbsp;&nbsp; <img src="images/equiv4.gif" WIDTH="457" HEIGHT="21"><font FACE="Courier" SIZE="3"></p>
 
-<p></font><font SIZE="3">The equivalence algebra has a relationship to the ExOR algebra
+<p></font><font SIZE="3">The equivalence algebra has a relationship to the XOR algebra
 that is similar to the relationship between the maxterms and minterms in AND, OR, invert
 algebra. The addition of this third Boolean algebra provides a strong symmetry amongst the
 Boolean algebras.</p>
@@ -962,14 +956,14 @@ Boolean algebras.</p>
 expression and in this case is a useful way of reducing the number of product terms
 required to represent a logic function. However, the inverse of an ESOP expression only
 affects one product term or the addition of the constant 1. The equivalence operator is
-simply the inverse of the ExOR operator. Consequently no significant reduction in logic
-terms would be expected from the use of the equivalence operator in place of the ExOR
+simply the inverse of the XOR operator. Consequently no significant reduction in logic
+terms would be expected from the use of the equivalence operator in place of the XOR
 operator. However, this operator might make a useful alternative way of expressing a
 Boolean function. Some form of mixed logic might be useful if you have the capability of
 creating it.</p>
 
 <p>The reference for this note is: R. F. Tinder &quot;Engineering Digital Design&quot;
-Second edition, Academic press, 2000. Useful duality relationships between the ExOR
+Second edition, Academic press, 2000. Useful duality relationships between the XOR
 algebra and the equivalence algebra can be found in that reference.</font></p>
 
 <p><b><a href="#top"><img src="top.gif" alt="Top" align="left" border="0" WIDTH="10" HEIGHT="12"></a><a name="Conclusion">Conclusion</a></b></p>
@@ -1009,16 +1003,16 @@ choice of actions based on this input history. The resulting circuits are descri
 asynchronous sequential circuits. The sequential behaviour of these circuits develops a
 whole new interest for digital circuits, namely control and automation.</p>
 
-<p>This paper has derived the basic results for the ExOR algebra. Following this you can
-read further articles on ExOR algebra that develop and describe methods of simplifying and
-working with these circuits. Simplification methods for ExOR operators include a
+<p>This paper has derived the basic results for the XOR algebra. Following this you can
+read further articles on XOR algebra that develop and describe methods of simplifying and
+working with these circuits. Simplification methods for XOR operators include a
 systematic method of using a conventional K-map with these circuits. The technique allows
-both inclusive OR and ExOR functions to be treated on the same K-map. An algebraic method
+both inclusive OR and XOR functions to be treated on the same K-map. An algebraic method
 of simplification that can be used with paper and pencil for up to six variable functions
 is also presented.</p>
 
 <p>Boolean expressions can often be simplified in more than one way. This is true for both
-inclusive OR and ExOR functions. A final paper on ExOR algebra presents some multiple
+inclusive OR and XOR functions. A final paper on XOR algebra presents some multiple
 solution results and describes how these can be found. Boolean algebra provides plenty of
 scope for experimentation and discovery.</p>
 <div align="center"><center>
