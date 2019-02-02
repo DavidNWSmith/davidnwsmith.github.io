@@ -123,52 +123,53 @@ specialists and I have endeavoured to make them readable rather than concise.</p
 
 <p></i><a href="#top"><img src="top.gif" alt="Top" align="left" border="0" WIDTH="10" HEIGHT="12"></a><a href="#Introduction"><img src="up.gif" alt="Up 1" align="left" border="0" WIDTH="11" HEIGHT="14"></a><i><a name="Summary">Summary</a> of the theorems for the exclusive-OR operator</i></b></font></p>
 
-<table border="1" width="82%">
+<table border="1" class="forumula">
   <tr>
-    <td width="36%">T1. x <span class="xor">&nbsp;</span> x = 0</td>
-    <td width="23%">T2. x <span class="xor">&nbsp;</span> x' = 1</td>
-    <td width="41%">Basic theorems</td>
+    <td>T1. x <span class="xor">&nbsp;</span> x = 0</td>
+    <td>T2. x <span class="xor">&nbsp;</span> x' = 1</td>
+    <td>Basic theorems</td>
   </tr>
   <tr>
-    <td width="36%">T3. x <span class="xor">&nbsp;</span> 0 = x</td>
-    <td width="23%">T4. x <span class="xor">&nbsp;</span> 1 = x'</td>
-    <td width="41%">&nbsp;</td>
+    <td>T3. x <span class="xor">&nbsp;</span> 0 = x</td>
+    <td>T4. x <span class="xor">&nbsp;</span> 1 = x'</td>
+    <td>&nbsp;</td>
   </tr>
   <tr>
-    <td width="36%">T5. (x <span class="xor">&nbsp;</span> y)' = x' <span class="xor">&nbsp;</span>
+    <td>T5. (x <span class="xor">&nbsp;</span> y)' = x' <span class="xor">&nbsp;</span>
     y = x <span class="xor">&nbsp;</span> y' </td>
-    <td width="23%">T6. x' <span class="xor">&nbsp;</span> y' = x <span class="xor">&nbsp;</span>
+    <td>T6. x' <span class="xor">&nbsp;</span> y' = x <span class="xor">&nbsp;</span>
     y</td>
-    <td width="41%">Inversion theorems</td>
+    <td>Inversion theorems</td>
   </tr>
   <tr>
-    <td width="59%" colspan="2">T7. x <span class="xor">&nbsp;</span> y = y <span class="xor">&nbsp;</span>
+    <td colspan="2">T7. x <span class="xor">&nbsp;</span> y = y <span class="xor">&nbsp;</span>
     x</td>
-    <td width="41%">Commutative law</td>
+    <td>Commutative law</td>
   </tr>
   <tr>
-    <td width="59%" colspan="2">T8. (x <span class="xor">&nbsp;</span> y) <span class="xor">&nbsp;</span>
+    <td colspan="2">T8. (x <span class="xor">&nbsp;</span> y) <span class="xor">&nbsp;</span>
     z = x <span class="xor">&nbsp;</span> (y <span class="xor">&nbsp;</span> z)</td>
-    <td width="41%">Associative law</td>
+    <td>Associative law</td>
   </tr>
   <tr>
-    <td width="59%" colspan="2">T9. x(y <span class="xor">&nbsp;</span> z) = xy <span class="xor">&nbsp;</span> xz</td>
-    <td width="41%">Distributive law</td>
+    <td colspan="2">T9. x(y <span class="xor">&nbsp;</span> z) = xy <span class="xor">&nbsp;</span> xz</td>
+    <td>Distributive law</td>
   </tr>
   <tr>
-    <td width="59%" colspan="2">T9' x(y <span class="xor">&nbsp;</span> z) = (x'+y) <span class="xor">&nbsp;</span> (x'+z)</td>
-    <td width="41%">Distributive law with OR function</td>
+    <td colspan="2">T9' x(y <span class="xor">&nbsp;</span> z) = (x'+y) <span class="xor">&nbsp;</span> (x'+z)</td>
+    <td>Distributive law with OR function</td>
   </tr>
   <tr>
-    <td width="59%" colspan="2">T10. If: f = g <span class="xor">&nbsp;</span> h and gh = 0,
+    <td colspan="2">T10. If: f = g <span class="xor">&nbsp;</span> h and gh = 0,
     then f = g + h</td>
-    <td width="41%">Disjunction</td>
+    <td>Disjunction</td>
   </tr>
   <tr>
-    <td width="59%" colspan="2">T11. If: f = g <span class="xor">&nbsp;</span> h, then g = f <span class="xor">&nbsp;</span> h and h = g <span class="xor">&nbsp;</span> f</td>
-    <td width="41%">Transposition</td>
+    <td colspan="2">T11. If: f = g <span class="xor">&nbsp;</span> h, then g = f <span class="xor">&nbsp;</span> h and h = g <span class="xor">&nbsp;</span> f</td>
+    <td>Transposition</td>
   </tr>
 </table>
+
 <b><font FACE="Arial"><i>
 
 <p></i><a href="#top"><img src="top.gif" alt="Top" align="left" border="0" WIDTH="10" HEIGHT="12"></a><a href="#Summary"><img src="up.gif" alt="Up 1" align="left" border="0" WIDTH="11" HEIGHT="14"></a><i><a name="Canonical">Canonical</a> forms</i></font><font SIZE="2"></p>
@@ -229,21 +230,21 @@ any effort particularly if there are many variables in the function.</p>
 <p>Function f<sub>1</sub> from Figure 4 will be used for illustrating the procedure. To
 refresh your memory once again this function was:</p>
 
-<table border="0" width="86%">
+<table class="forumula">
   <tr>
-    <td width="4%"><p align="right">f<sub>1 </sub></td>
-    <td width="73%">= a'b'c + a'cd + bc'd + ac'd' + abd'</td>
-    <td width="23%"></td>
+    <td><p align="right">f<sub>1 </sub></td>
+    <td>= a'b'c + a'cd + bc'd + ac'd' + abd'</td>
+    <td></td>
   </tr>
   <tr>
-    <td width="4%"></td>
-    <td width="73%">= a'b'cd' + a'b'cd + a'bc'd + a'bcd + ab'c'd' + abc'd' + abc'd + abcd'</td>
-    <td width="23%">,Expanded to C1</td>
+    <td></td>
+    <td>= a'b'cd' + a'b'cd + a'bc'd + a'bcd + ab'c'd' + abc'd' + abc'd + abcd'</td>
+    <td>,Expanded to C1</td>
   </tr>
   <tr>
-    <td width="4%"></td>
-    <td width="73%">= a <span class="xor">&nbsp;</span> b'c <span class="xor">&nbsp;</span> bd <span class="xor">&nbsp;</span> ac'd.</td>
-    <td width="23%">,Result given</td>
+    <td></td>
+    <td>= a <span class="xor">&nbsp;</span> b'c <span class="xor">&nbsp;</span> bd <span class="xor">&nbsp;</span> ac'd.</td>
+    <td>,Result given</td>
   </tr>
 </table>
 
@@ -256,19 +257,19 @@ to Figure 8 for details of the construction. A '1' is placed in the columns for 
 terms derived from each C1 term in the row for the C1 term. To see the rule for doing this
 we will expand one of the C1 terms. For example;</p>
 
-<table border="0" width="63%">
+<table class="forumula">
   <tr>
-    <td width="21%"><p align="right">a'b'cd' </td>
-    <td width="79%">= (1 <span class="xor">&nbsp;</span> a)(1 <span class="xor">&nbsp;</span>
+    <td><p align="right">a'b'cd' </td>
+    <td>= (1 <span class="xor">&nbsp;</span> a)(1 <span class="xor">&nbsp;</span>
     b)c(1 <span class="xor">&nbsp;</span> d)</td>
   </tr>
   <tr>
-    <td width="21%"></td>
-    <td width="79%">= (1 <span class="xor">&nbsp;</span> a <span class="xor">&nbsp;</span> b <span class="xor">&nbsp;</span> ab)c(1 <span class="xor">&nbsp;</span> d)</td>
+    <td></td>
+    <td>= (1 <span class="xor">&nbsp;</span> a <span class="xor">&nbsp;</span> b <span class="xor">&nbsp;</span> ab)c(1 <span class="xor">&nbsp;</span> d)</td>
   </tr>
   <tr>
-    <td width="21%"></td>
-    <td width="79%">= c(1 <span class="xor">&nbsp;</span> a <span class="xor">&nbsp;</span> b <span class="xor">&nbsp;</span> d <span class="xor">&nbsp;</span> ab <span class="xor">&nbsp;</span>
+    <td></td>
+    <td>= c(1 <span class="xor">&nbsp;</span> a <span class="xor">&nbsp;</span> b <span class="xor">&nbsp;</span> d <span class="xor">&nbsp;</span> ab <span class="xor">&nbsp;</span>
     ad <span class="xor">&nbsp;</span> bd <span class="xor">&nbsp;</span> abd)</td>
   </tr>
 </table>
@@ -328,23 +329,23 @@ variable in the <font FACE="Symbol">a</font> term that had a different exponent.
 rule 2 is to do this. The following example should make this clear. In the following
 expressions 'g' represents the remaining variables:</p>
 
-<table border="0" width="49%">
+<table class="forumula">
   <tr>
-    <td width="49%"><p align="right">abg <span class="xor">&nbsp;</span> a'g </td>
-    <td width="122%">= abg <span class="xor">&nbsp;</span> a'g <span class="xor">&nbsp;</span> g <span class="xor">&nbsp;</span> g</td>
+    <td><p align="right">abg <span class="xor">&nbsp;</span> a'g </td>
+    <td>= abg <span class="xor">&nbsp;</span> a'g <span class="xor">&nbsp;</span> g <span class="xor">&nbsp;</span> g</td>
   </tr>
   <tr>
-    <td width="49%"></td>
-    <td width="122%">= abg <span class="xor">&nbsp;</span> g(1 <span class="xor">&nbsp;</span> a')
+    <td></td>
+    <td>= abg <span class="xor">&nbsp;</span> g(1 <span class="xor">&nbsp;</span> a')
     <span class="xor">&nbsp;</span> g</td>
   </tr>
   <tr>
-    <td width="49%"></td>
-    <td width="122%">= abg <span class="xor">&nbsp;</span> ag <span class="xor">&nbsp;</span> g</td>
+    <td></td>
+    <td>= abg <span class="xor">&nbsp;</span> ag <span class="xor">&nbsp;</span> g</td>
   </tr>
   <tr>
-    <td width="49%"></td>
-    <td width="122%">= ab'g <span class="xor">&nbsp;</span> g</td>
+    <td></td>
+    <td>= ab'g <span class="xor">&nbsp;</span> g</td>
   </tr>
 </table>
 
@@ -429,16 +430,16 @@ p <span class="xor">&nbsp;</span> p' = 1 and application of rule 1. (If the func
 contained the constant 1 and a term with one variable, you could get rid of the 1 by
 simply inverting the single variable).</p>
 
-<table border="0" width="419">
+<table class="formula">
   <tr>
-    <td width="157">e.g.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; 1 <span class="xor">&nbsp;</span>
+    <td>e.g.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; 1 <span class="xor">&nbsp;</span>
     pq <span class="xor">&nbsp;</span> p'r</td>
-    <td width="170">= p <span class="xor">&nbsp;</span> p' <span class="xor">&nbsp;</span> pq <span class="xor">&nbsp;</span> p'r</td>
+    <td>= p <span class="xor">&nbsp;</span> p' <span class="xor">&nbsp;</span> pq <span class="xor">&nbsp;</span> p'r</td>
   </tr>
   <tr>
-    <td width="157"></td>
-    <td width="170">= pq' <span class="xor">&nbsp;</span> p'r'</td>
-    <td width="80">...(R1)</td>
+    <td></td>
+    <td>= pq' <span class="xor">&nbsp;</span> p'r'</td>
+    <td>...(R1)</td>
   </tr>
 </table>
 
@@ -446,46 +447,46 @@ simply inverting the single variable).</p>
 result can be generalised to enable a term with a single variable to be combined with two
 terms with 3 variables each. The diagram opposite illustrates how this works.</p>
 
-<table border="0" width="421">
+<table class="forumula">
   <tr>
-    <td width="157">e.g.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; g <span class="xor">&nbsp;</span> gpq <span class="xor">&nbsp;</span> gp'r</td>
-    <td width="170">= gp <span class="xor">&nbsp;</span> gp' <span class="xor">&nbsp;</span> gpq <span class="xor">&nbsp;</span> gp'r</td>
+    <td>e.g.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; g <span class="xor">&nbsp;</span> gpq <span class="xor">&nbsp;</span> gp'r</td>
+    <td>= gp <span class="xor">&nbsp;</span> gp' <span class="xor">&nbsp;</span> gpq <span class="xor">&nbsp;</span> gp'r</td>
   </tr>
   <tr>
-    <td width="157"></td>
-    <td width="170">= gpq' <span class="xor">&nbsp;</span> gp'r'</td>
-    <td width="82">...(R1a)</td>
+    <td></td>
+    <td>= gpq' <span class="xor">&nbsp;</span> gp'r'</td>
+    <td>...(R1a)</td>
   </tr>
 </table>
 
 <p>In some cases it may be possible to recombine two single variable terms into a single
 two variable term as in the following example:</p>
 
-<table border="0" width="422">
+<table class="forumula">
   <tr>
-    <td width="155"><p align="left">e.g. &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; a <span class="xor">&nbsp;</span> b <span class="xor">&nbsp;</span> ab'c </td>
-    <td width="173">= ab <span class="xor">&nbsp;</span> ab <span class="xor">&nbsp;</span> a <span class="xor">&nbsp;</span> b <span class="xor">&nbsp;</span> ab'c</td>
+    <td><p align="left">e.g. &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; a <span class="xor">&nbsp;</span> b <span class="xor">&nbsp;</span> ab'c </td>
+    <td>= ab <span class="xor">&nbsp;</span> ab <span class="xor">&nbsp;</span> a <span class="xor">&nbsp;</span> b <span class="xor">&nbsp;</span> ab'c</td>
   </tr>
   <tr>
-    <td width="155"></td>
-    <td width="173">= ab' <span class="xor">&nbsp;</span> a'b <span class="xor">&nbsp;</span> ab'c</td>
+    <td></td>
+    <td>= ab' <span class="xor">&nbsp;</span> a'b <span class="xor">&nbsp;</span> ab'c</td>
   </tr>
   <tr>
-    <td width="155"></td>
-    <td width="173">= a'b <span class="xor">&nbsp;</span> ab'c'</td>
-    <td width="82">...(R2)</td>
+    <td></td>
+    <td>= a'b <span class="xor">&nbsp;</span> ab'c'</td>
+    <td>...(R2)</td>
   </tr>
 </table>
 
 <p>This principle can be generalised to terms with larger numbers of variables as in the
 following identity:</p>
 
-<table border="0" width="425">
+<table class="forumula">
   <tr>
-    <td width="155"><p align="left">e.g.&nbsp;&nbsp;&nbsp;&nbsp; ga <span class="xor">&nbsp;</span>
+    <td><p align="left">e.g.&nbsp;&nbsp;&nbsp;&nbsp; ga <span class="xor">&nbsp;</span>
     gb <span class="xor">&nbsp;</span> gab'c </td>
-    <td width="173">= ga'b <span class="xor">&nbsp;</span> gab'c'</td>
-    <td width="85">...(R2a)</td>
+    <td>= ga'b <span class="xor">&nbsp;</span> gab'c'</td>
+    <td>...(R2a)</td>
   </tr>
 </table>
 
@@ -498,47 +499,44 @@ chosen to represent as many features as possible.</p>
 <p>The minimal expression obtained may often be written with different permutations of the
 primes. Two cases are:</p>
 
-<table border="0" width="433">
+<table class="forumula">
   <tr>
-    <td width="45">T12a.</td>
-    <td width="131"><p align="right">ga <span class="xor">&nbsp;</span> gbc <span class="xor">&nbsp;</span>
+    <td>T12a.</td>
+    <td><p align="right">ga <span class="xor">&nbsp;</span> gbc <span class="xor">&nbsp;</span>
     gb'd </td>
-    <td width="239">= g(a <span class="xor">&nbsp;</span> bc <span class="xor">&nbsp;</span> b'd)</td>
+    <td>= g(a <span class="xor">&nbsp;</span> bc <span class="xor">&nbsp;</span> b'd)</td>
   </tr>
   <tr>
-    <td width="45"></td>
-    <td width="131"></td>
-    <td width="239">= g(1 <span class="xor">&nbsp;</span> a' <span class="xor">&nbsp;</span> bc <span class="xor">&nbsp;</span> b'd)</td>
+    <td></td>
+    <td></td>
+    <td>= g(1 <span class="xor">&nbsp;</span> a' <span class="xor">&nbsp;</span> bc <span class="xor">&nbsp;</span> b'd)</td>
   </tr>
   <tr>
-    <td width="45"></td>
-    <td width="131"></td>
-    <td width="239">= g(b <span class="xor">&nbsp;</span> b' <span class="xor">&nbsp;</span> a' <span class="xor">&nbsp;</span> bc <span class="xor">&nbsp;</span> b'd)</td>
+    <td></td>
+    <td></td>
+    <td>= g(b <span class="xor">&nbsp;</span> b' <span class="xor">&nbsp;</span> a' <span class="xor">&nbsp;</span> bc <span class="xor">&nbsp;</span> b'd)</td>
   </tr>
   <tr>
-    <td width="45"></td>
-    <td width="131"></td>
-    <td width="239">= g(a' <span class="xor">&nbsp;</span> bc' <span class="xor">&nbsp;</span>
+    <td></td>
+    <td></td>
+    <td>= g(a' <span class="xor">&nbsp;</span> bc' <span class="xor">&nbsp;</span>
     b'd')</td>
   </tr>
   <tr>
-    <td width="45"></td>
-    <td width="131"></td>
-    <td width="239">= ga' <span class="xor">&nbsp;</span> gbc' <span class="xor">&nbsp;</span>
+    <td></td>
+    <td></td>
+    <td>= ga' <span class="xor">&nbsp;</span> gbc' <span class="xor">&nbsp;</span>
     gb'd'</td>
   </tr>
-</table>
-
-<table border="0" width="431">
   <tr>
-    <td width="46">T12b.</td>
-    <td width="129"><p align="right">gc <span class="xor">&nbsp;</span> gd </td>
-    <td width="238">= g(c <span class="xor">&nbsp;</span> d)</td>
+    <td>T12b.</td>
+    <td><p align="right">gc <span class="xor">&nbsp;</span> gd </td>
+    <td>= g(c <span class="xor">&nbsp;</span> d)</td>
   </tr>
   <tr>
-    <td width="46"></td>
-    <td width="129"></td>
-    <td width="238">= gc' <span class="xor">&nbsp;</span> gd'</td>
+    <td></td>
+    <td></td>
+    <td>= gc' <span class="xor">&nbsp;</span> gd'</td>
   </tr>
 </table>
 
@@ -551,22 +549,22 @@ initially in the right form.</p>
 <p>There are special cases where this simplification method does not lead to the minimum
 solution.</p>
 
-<table border="0" width="320">
+<table class="forumula">
   <tr>
-    <td width="40">e.g.</td>
-    <td width="49"><p align="right">f </td>
-    <td width="231">= a'bcd' + ab'cd</td>
+    <td>e.g.</td>
+    <td><p align="right">f </td>
+    <td>= a'bcd' + ab'cd</td>
   </tr>
   <tr>
-    <td width="40"></td>
-    <td width="49"></td>
-    <td width="231">= bc <span class="xor">&nbsp;</span>&nbsp; abc <span class="xor">&nbsp;</span>
+    <td></td>
+    <td></td>
+    <td>= bc <span class="xor">&nbsp;</span>&nbsp; abc <span class="xor">&nbsp;</span>
     acd <span class="xor">&nbsp;</span>&nbsp; bcd</td>
   </tr>
   <tr>
-    <td width="40"></td>
-    <td width="49"></td>
-    <td width="231">= a'bc <span class="xor">&nbsp;</span> acd <span class="xor">&nbsp;</span>
+    <td></td>
+    <td></td>
+    <td>= a'bc <span class="xor">&nbsp;</span> acd <span class="xor">&nbsp;</span>
     &nbsp; bcd</td>
   </tr>
 </table>
@@ -586,58 +584,58 @@ equations.</p>
 
 <p>For the example shown in Figure 10:</p>
 
-<table border="0" width="542">
+<table class="forumula">
   <tr>
-    <td width="93"><p align="right">f(a,b,c,d,e) </td>
-    <td width="297">= <font FACE="Symbol">S</font>(0,4,13,14,15,16,18,20,22,29,31)</td>
-    <td width="140"></td>
+    <td><p align="right">f(a,b,c,d,e) </td>
+    <td>= <font FACE="Symbol">S</font>(0,4,13,14,15,16,18,20,22,29,31)</td>
+    <td></td>
   </tr>
   <tr>
-    <td width="93"></td>
-    <td width="297">= b' <span class="xor">&nbsp;</span> e <span class="xor">&nbsp;</span> a'de' <span class="xor">&nbsp;</span> bc'e <span class="xor">&nbsp;</span> a'bc'de'</td>
-    <td width="140">,from Figure 10</td>
+    <td></td>
+    <td>= b' <span class="xor">&nbsp;</span> e <span class="xor">&nbsp;</span> a'de' <span class="xor">&nbsp;</span> bc'e <span class="xor">&nbsp;</span> a'bc'de'</td>
+    <td>,from Figure 10</td>
   </tr>
   <tr>
-    <td width="93"></td>
-    <td width="297">= b' <span class="xor">&nbsp;</span> e(1 <span class="xor">&nbsp;</span> bc') <span class="xor">&nbsp;</span> a'de'(1 <span class="xor">&nbsp;</span> bc')</td>
-    <td width="140"></td>
+    <td></td>
+    <td>= b' <span class="xor">&nbsp;</span> e(1 <span class="xor">&nbsp;</span> bc') <span class="xor">&nbsp;</span> a'de'(1 <span class="xor">&nbsp;</span> bc')</td>
+    <td></td>
   </tr>
   <tr>
-    <td width="93"></td>
-    <td width="297">= b' <span class="xor">&nbsp;</span> (e <span class="xor">&nbsp;</span>
+    <td></td>
+    <td>= b' <span class="xor">&nbsp;</span> (e <span class="xor">&nbsp;</span>
     a'de')(1 <span class="xor">&nbsp;</span> bc')</td>
-    <td width="140"></td>
+    <td></td>
   </tr>
   <tr>
-    <td width="93"></td>
-    <td width="297">= b' <span class="xor">&nbsp;</span> (1 <span class="xor">&nbsp;</span> e' <span class="xor">&nbsp;</span> a'de')(1 <span class="xor">&nbsp;</span> bc')</td>
-    <td width="140"></td>
+    <td></td>
+    <td>= b' <span class="xor">&nbsp;</span> (1 <span class="xor">&nbsp;</span> e' <span class="xor">&nbsp;</span> a'de')(1 <span class="xor">&nbsp;</span> bc')</td>
+    <td></td>
   </tr>
   <tr>
-    <td width="93"></td>
-    <td width="297">= b' <span class="xor">&nbsp;</span> (1 <span class="xor">&nbsp;</span> e'(1 <span class="xor">&nbsp;</span> a'd))(1 <span class="xor">&nbsp;</span> bc')</td>
-    <td width="140"></td>
+    <td></td>
+    <td>= b' <span class="xor">&nbsp;</span> (1 <span class="xor">&nbsp;</span> e'(1 <span class="xor">&nbsp;</span> a'd))(1 <span class="xor">&nbsp;</span> bc')</td>
+    <td></td>
   </tr>
   <tr>
-    <td width="93"></td>
-    <td width="297">= b' <span class="xor">&nbsp;</span> (e'(1 <span class="xor">&nbsp;</span>
+    <td></td>
+    <td>= b' <span class="xor">&nbsp;</span> (e'(1 <span class="xor">&nbsp;</span>
     a'd))'(1 <span class="xor">&nbsp;</span> bc')</td>
-    <td width="140"></td>
+    <td></td>
   </tr>
   <tr>
-    <td width="93"></td>
-    <td width="297">= b' <span class="xor">&nbsp;</span> (e'(a'd)')'(bc')'</td>
-    <td width="140"></td>
+    <td></td>
+    <td>= b' <span class="xor">&nbsp;</span> (e'(a'd)')'(bc')'</td>
+    <td></td>
   </tr>
   <tr>
-    <td width="93"></td>
-    <td width="297">= b <span class="xor">&nbsp;</span> ((e'(a'd)')'(bc')')'</td>
-    <td width="140">NAND form</td>
+    <td></td>
+    <td>= b <span class="xor">&nbsp;</span> ((e'(a'd)')'(bc')')'</td>
+    <td>NAND form</td>
   </tr>
   <tr>
-    <td width="93"></td>
-    <td width="297">= b <span class="xor">&nbsp;</span> (ae' + bc' + d'e')</td>
-    <td width="140">SOP form</td>
+    <td></td>
+    <td>= b <span class="xor">&nbsp;</span> (ae' + bc' + d'e')</td>
+    <td>SOP form</td>
   </tr>
 </table>
 
@@ -675,32 +673,32 @@ with the redundant term bcd'.</p>
 <p>Here the redundant term can be applied to reinitiate the simplification process as
 follows (step by step):</p>
 
-<table border="0" width="622">
+<table class="forumula">
   <tr>
-    <td width="140"><p align="right">a <span class="xor">&nbsp;</span> b <span class="xor">&nbsp;</span>
+    <td><p align="right">a <span class="xor">&nbsp;</span> b <span class="xor">&nbsp;</span>
     c <span class="xor">&nbsp;</span> bcd </td>
-    <td width="191">= a <span class="xor">&nbsp;</span> b <span class="xor">&nbsp;</span> c <span class="xor">&nbsp;</span> bcd <span class="xor">&nbsp;</span> bcd'</td>
-    <td width="272"></td>
+    <td>= a <span class="xor">&nbsp;</span> b <span class="xor">&nbsp;</span> c <span class="xor">&nbsp;</span> bcd <span class="xor">&nbsp;</span> bcd'</td>
+    <td></td>
   </tr>
   <tr>
-    <td width="140"></td>
-    <td width="191">= a <span class="xor">&nbsp;</span> b <span class="xor">&nbsp;</span> c <span class="xor">&nbsp;</span> bc(d <span class="xor">&nbsp;</span> d')</td>
-    <td width="272"></td>
+    <td></td>
+    <td>= a <span class="xor">&nbsp;</span> b <span class="xor">&nbsp;</span> c <span class="xor">&nbsp;</span> bc(d <span class="xor">&nbsp;</span> d')</td>
+    <td></td>
   </tr>
   <tr>
-    <td width="140"></td>
-    <td width="191">= a <span class="xor">&nbsp;</span> b <span class="xor">&nbsp;</span> b'c</td>
-    <td width="272">,after taking out the common factor c</td>
+    <td></td>
+    <td>= a <span class="xor">&nbsp;</span> b <span class="xor">&nbsp;</span> b'c</td>
+    <td>,after taking out the common factor c</td>
   </tr>
   <tr>
-    <td width="140"></td>
-    <td width="191">= a' <span class="xor">&nbsp;</span> b' <span class="xor">&nbsp;</span> b'c</td>
-    <td width="272">,applying T6 to a <span class="xor">&nbsp;</span> b</td>
+    <td></td>
+    <td>= a' <span class="xor">&nbsp;</span> b' <span class="xor">&nbsp;</span> b'c</td>
+    <td>,applying T6 to a <span class="xor">&nbsp;</span> b</td>
   </tr>
   <tr>
-    <td width="140"></td>
-    <td width="191">= a' <span class="xor">&nbsp;</span> b'c'</td>
-    <td width="272"></td>
+    <td></td>
+    <td>= a' <span class="xor">&nbsp;</span> b'c'</td>
+    <td></td>
   </tr>
 </table>
 
@@ -717,15 +715,21 @@ recognise these as the redundancies in a BCD number. F<sub>3</sub> is part of a 
 converter. An oblique stroke / in front of a term indicates that the term has been
 deleted.</p>
 
-<table border="0" width="470">
+<table class="forumula">
   <tr>
-    <td width="41" valign="top" align="right"><p align="right">f<sub>3</sub> </td>
-    <td width="412">= /a'b <span class="xor">&nbsp;</span> /a'c' <span class="xor">&nbsp;</span>
-    /ab'c'd' <span class="xor">&nbsp;</span> /abc'd' <span class="xor">&nbsp;</span> /ac'd' <span class="xor">&nbsp;</span> /acd' <span class="xor">&nbsp;</span> ad''<font FACE="Symbol"> Å /</font>ab<font FACE="Symbol"> Å </font>b<font FACE="Symbol"> Å /</font>ac'<font FACE="Symbol"> Å /</font>a<font FACE="Symbol"> Å </font>c'</td>
+    <td valign="top" align="right"><p align="right">f<sub>3</sub> </td>
+    <td>
+      = /a'b <span class="xor">&nbsp;</span> /a'c' <span class="xor">&nbsp;</span> /ab'c'd'
+      <span class="xor">&nbsp;</span> /abc'd' <span class="xor">&nbsp;</span> /ac'd'
+      <span class="xor">&nbsp;</span> /acd' <span class="xor">&nbsp;</span> ad'
+      <span class="xor">&nbsp;</span> /ab <span class="xor">&nbsp;</span> b
+      <span class="xor">&nbsp;</span> /ac' <span class="xor">&nbsp;</span>/a
+      <span class="xor">&nbsp;</span> c'
+    </td>
   </tr>
   <tr>
-    <td width="41"></td>
-    <td width="412">= b <span class="xor">&nbsp;</span> c' <span class="xor">&nbsp;</span> ad</td>
+    <td></td>
+    <td>= b <span class="xor">&nbsp;</span> c' <span class="xor">&nbsp;</span> ad</td>
   </tr>
 </table>
 
@@ -734,21 +738,18 @@ deleted.</p>
 <p>If you would like a bit of practice try to prove the following results using the same
 set of implicants of redundancies:</p>
 
-<table border="0" width="434">
+<table class="forumula">
   <tr>
-    <td width="36"><p align="right">f<sub>4</sub> </td>
-    <td width="165">= a'bc' <span class="xor">&nbsp;</span> ac'd <span class="xor">&nbsp;</span>
-    bc'd</td>
-    <td width="25"><p align="right">f<sub>5</sub> </td>
-    <td width="184">= a'd' <span class="xor">&nbsp;</span> a'bc' <span class="xor">&nbsp;</span>
-    b'c'd</td>
+    <td><p align="right">f<sub>4</sub> </td>
+    <td>= a'bc' <span class="xor">&nbsp;</span> ac'd <span class="xor">&nbsp;</span> bc'd</td>
+    <td><p align="right">f<sub>5</sub> </td>
+    <td>= a'd' <span class="xor">&nbsp;</span> a'bc' <span class="xor">&nbsp;</span> b'c'd</td>
   </tr>
   <tr>
-    <td width="36"></td>
-    <td width="165">= ad <span class="xor">&nbsp;</span> bc'd'</td>
-    <td width="25"></td>
-    <td width="184">= c' <span class="xor">&nbsp;</span> a'd' <span class="xor">&nbsp;</span>
-    b'c'd</td>
+    <td></td>
+    <td>= ad <span class="xor">&nbsp;</span> bc'd'</td>
+    <td></td>
+    <td>= c' <span class="xor">&nbsp;</span> a'd' <span class="xor">&nbsp;</span> b'c'd</td>
   </tr>
 </table>
 
