@@ -123,7 +123,7 @@ specialists and I have endeavoured to make them readable rather than concise.</p
 
 <p></i><a href="#top"><img src="top.gif" alt="Top" align="left" border="0" WIDTH="10" HEIGHT="12"></a><a href="#Introduction"><img src="up.gif" alt="Up 1" align="left" border="0" WIDTH="11" HEIGHT="14"></a><i><a name="Summary">Summary</a> of the theorems for the exclusive-OR operator</i></b></font></p>
 
-<table border="1" class="forumula">
+<table class="formula">
   <tr>
     <td>T1. x <span class="xor">&nbsp;</span> x = 0</td>
     <td>T2. x <span class="xor">&nbsp;</span> x' = 1</td>
@@ -230,7 +230,7 @@ any effort particularly if there are many variables in the function.</p>
 <p>Function f<sub>1</sub> from Figure 4 will be used for illustrating the procedure. To
 refresh your memory once again this function was:</p>
 
-<table class="forumula">
+<table class="formula">
   <tr>
     <td><p align="right">f<sub>1 </sub></td>
     <td>= a'b'c + a'cd + bc'd + ac'd' + abd'</td>
@@ -257,7 +257,7 @@ to Figure 8 for details of the construction. A '1' is placed in the columns for 
 terms derived from each C1 term in the row for the C1 term. To see the rule for doing this
 we will expand one of the C1 terms. For example;</p>
 
-<table class="forumula">
+<table class="formula">
   <tr>
     <td><p align="right">a'b'cd' </td>
     <td>= (1 <span class="xor">&nbsp;</span> a)(1 <span class="xor">&nbsp;</span>
@@ -329,7 +329,7 @@ variable in the <font FACE="Symbol">a</font> term that had a different exponent.
 rule 2 is to do this. The following example should make this clear. In the following
 expressions 'g' represents the remaining variables:</p>
 
-<table class="forumula">
+<table class="formula">
   <tr>
     <td><p align="right">abg <span class="xor">&nbsp;</span> a'g </td>
     <td>= abg <span class="xor">&nbsp;</span> a'g <span class="xor">&nbsp;</span> g <span class="xor">&nbsp;</span> g</td>
@@ -447,7 +447,7 @@ simply inverting the single variable).</p>
 result can be generalised to enable a term with a single variable to be combined with two
 terms with 3 variables each. The diagram opposite illustrates how this works.</p>
 
-<table class="forumula">
+<table class="formula">
   <tr>
     <td>e.g.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; g <span class="xor">&nbsp;</span> gpq <span class="xor">&nbsp;</span> gp'r</td>
     <td>= gp <span class="xor">&nbsp;</span> gp' <span class="xor">&nbsp;</span> gpq <span class="xor">&nbsp;</span> gp'r</td>
@@ -462,7 +462,7 @@ terms with 3 variables each. The diagram opposite illustrates how this works.</p
 <p>In some cases it may be possible to recombine two single variable terms into a single
 two variable term as in the following example:</p>
 
-<table class="forumula">
+<table class="formula">
   <tr>
     <td><p align="left">e.g. &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; a <span class="xor">&nbsp;</span> b <span class="xor">&nbsp;</span> ab'c </td>
     <td>= ab <span class="xor">&nbsp;</span> ab <span class="xor">&nbsp;</span> a <span class="xor">&nbsp;</span> b <span class="xor">&nbsp;</span> ab'c</td>
@@ -481,7 +481,7 @@ two variable term as in the following example:</p>
 <p>This principle can be generalised to terms with larger numbers of variables as in the
 following identity:</p>
 
-<table class="forumula">
+<table class="formula">
   <tr>
     <td><p align="left">e.g.&nbsp;&nbsp;&nbsp;&nbsp; ga <span class="xor">&nbsp;</span>
     gb <span class="xor">&nbsp;</span> gab'c </td>
@@ -499,7 +499,7 @@ chosen to represent as many features as possible.</p>
 <p>The minimal expression obtained may often be written with different permutations of the
 primes. Two cases are:</p>
 
-<table class="forumula">
+<table class="formula">
   <tr>
     <td>T12a.</td>
     <td><p align="right">ga <span class="xor">&nbsp;</span> gbc <span class="xor">&nbsp;</span>
@@ -549,7 +549,7 @@ initially in the right form.</p>
 <p>There are special cases where this simplification method does not lead to the minimum
 solution.</p>
 
-<table class="forumula">
+<table class="formula">
   <tr>
     <td>e.g.</td>
     <td><p align="right">f </td>
@@ -584,7 +584,7 @@ equations.</p>
 
 <p>For the example shown in Figure 10:</p>
 
-<table class="forumula">
+<table class="formula">
   <tr>
     <td><p align="right">f(a,b,c,d,e) </td>
     <td>= <font FACE="Symbol">S</font>(0,4,13,14,15,16,18,20,22,29,31)</td>
@@ -673,7 +673,7 @@ with the redundant term bcd'.</p>
 <p>Here the redundant term can be applied to reinitiate the simplification process as
 follows (step by step):</p>
 
-<table class="forumula">
+<table class="formula">
   <tr>
     <td><p align="right">a <span class="xor">&nbsp;</span> b <span class="xor">&nbsp;</span>
     c <span class="xor">&nbsp;</span> bcd </td>
@@ -715,13 +715,13 @@ recognise these as the redundancies in a BCD number. F<sub>3</sub> is part of a 
 converter. An oblique stroke / in front of a term indicates that the term has been
 deleted.</p>
 
-<table class="forumula">
+<table class="formula">
   <tr>
     <td valign="top" align="right"><p align="right">f<sub>3</sub> </td>
     <td>
       = /a'b <span class="xor">&nbsp;</span> /a'c' <span class="xor">&nbsp;</span> /ab'c'd'
       <span class="xor">&nbsp;</span> /abc'd' <span class="xor">&nbsp;</span> /ac'd'
-      <span class="xor">&nbsp;</span> /acd' <span class="xor">&nbsp;</span> ad'
+      <span class="xor">&nbsp;</span> /acd' <span class="xor">&nbsp;</span> ad''
       <span class="xor">&nbsp;</span> /ab <span class="xor">&nbsp;</span> b
       <span class="xor">&nbsp;</span> /ac' <span class="xor">&nbsp;</span>/a
       <span class="xor">&nbsp;</span> c'
@@ -738,7 +738,7 @@ deleted.</p>
 <p>If you would like a bit of practice try to prove the following results using the same
 set of implicants of redundancies:</p>
 
-<table class="forumula">
+<table class="formula">
   <tr>
     <td><p align="right">f<sub>4</sub> </td>
     <td>= a'bc' <span class="xor">&nbsp;</span> ac'd <span class="xor">&nbsp;</span> bc'd</td>
@@ -749,7 +749,7 @@ set of implicants of redundancies:</p>
     <td></td>
     <td>= ad <span class="xor">&nbsp;</span> bc'd'</td>
     <td></td>
-    <td>= c' <span class="xor">&nbsp;</span> a'd' <span class="xor">&nbsp;</span> b'c'd</td>
+    <td>= c' <span class="xor">&nbsp;</span> a'd' <span class="xor">&nbsp;</span> b'c'd'</td>
   </tr>
 </table>
 
